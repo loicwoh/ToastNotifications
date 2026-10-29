@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <OutputType>Library</OutputType>
+    <AssemblyName>MonProjet</AssemblyName>
+    <Platforms>x86</Platforms>
+  </PropertyGroup>
+  <ItemGroup>
+  <Reference Include="Windows">
+    <HintPath>C:\Windows\System32\WinMetadata\Windows.winmd</HintPath>
+  </Reference>
+</ItemGroup>
+</Project>

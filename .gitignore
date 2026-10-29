@@ -1,0 +1,21 @@
+# Generated application builds
+/Build/
+/Builds/
+
+# Unused third-party packages and binaries
+/Ressources/
+
+# Generated inspection exports and screenshots
+/_review/
+
+# LabVIEW local workspace state
+*.aliases
+*.lvlps
+*.UserState/
+
+# Visual Studio local state and C# build outputs
+.vs/
+**/bin/
+**/obj/
+*.user
+*.suo
