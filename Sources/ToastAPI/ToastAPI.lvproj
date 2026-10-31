@@ -7,18 +7,21 @@
 		<Property Name="server.tcp.enabled" Type="Bool">false</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="Examples" Type="Folder">
+			<Item Name="Support Example" Type="Folder">
+				<Item Name="Native Add Argument String.vi" Type="VI" URL="../Classes/ToastBuilder/Private/Native Add Argument String.vi"/>
+				<Item Name="Native Add Button.vi" Type="VI" URL="../Classes/ToastBuilder/Private/Native Add Button.vi"/>
+				<Item Name="Native Add Text Input.vi" Type="VI" URL="../Classes/ToastBuilder/Private/Native Add Text Input.vi"/>
+				<Item Name="Native Add Text.vi" Type="VI" URL="../Classes/ToastBuilder/Private/Native Add Text.vi"/>
+				<Item Name="Native Get Content.vi" Type="VI" URL="../Classes/ToastBuilder/Private/Native Get Content.vi"/>
+				<Item Name="Native Get XML.vi" Type="VI" URL="../Classes/ToastBuilder/Private/Native Get XML.vi"/>
+				<Item Name="Native New Builder.vi" Type="VI" URL="../Classes/ToastBuilder/Private/Native New Builder.vi"/>
+				<Item Name="Native New Button.vi" Type="VI" URL="../Classes/ToastBuilder/Private/Native New Button.vi"/>
+				<Item Name="Native Show.vi" Type="VI" URL="../Classes/ToastBuilder/Private/Native Show.vi"/>
+			</Item>
 			<Item Name="Build Reply Content.vi" Type="VI" URL="../Examples/Build Reply Content.vi"/>
+			<Item Name="Native Toast Example.vi" Type="VI" URL="../Examples/Native Toast Example.vi"/>
 		</Item>
-		<Item Name="Typedefs" Type="Folder">
-			<Item Name="Activation.ctl" Type="VI" URL="../Types/Activation.ctl"/>
-			<Item Name="Argument.ctl" Type="VI" URL="../Types/Argument.ctl"/>
-			<Item Name="Button.ctl" Type="VI" URL="../Types/Button.ctl"/>
-			<Item Name="Content Data.ctl" Type="VI" URL="../Types/Content Data.ctl"/>
-			<Item Name="Text Input.ctl" Type="VI" URL="../Types/Text Input.ctl"/>
-		</Item>
-		<Item Name="ActivationHandler.lvclass" Type="LVClass" URL="../Classes/ActivationHandler/ActivationHandler.lvclass"/>
-		<Item Name="ToastContent.lvclass" Type="LVClass" URL="../Classes/ToastContent/ToastContent.lvclass"/>
-		<Item Name="ToastService.lvclass" Type="LVClass" URL="../Classes/ToastService/ToastService.lvclass"/>
+		<Item Name="ToastNotification.lvlib" Type="Library" URL="../ToastNotification.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies"/>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
