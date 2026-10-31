@@ -10,10 +10,12 @@
 
 </Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
+	<Item Name="Add Argument Integer.vi" Type="VI" URL="../Add Argument Integer.vi"/>
 	<Item Name="Add Argument String.vi" Type="VI" URL="../Add Argument String.vi"/>
 	<Item Name="Add Button.vi" Type="VI" URL="../Add Button.vi"/>
 	<Item Name="Add Text Input.vi" Type="VI" URL="../Add Text Input.vi"/>
 	<Item Name="Add Text.vi" Type="VI" URL="../Add Text.vi"/>
+	<Item Name="Button Add Argument.vi" Type="VI" URL="../Button Add Argument.vi"/>
 	<Item Name="Get Content.vi" Type="VI" URL="../Get Content.vi"/>
 	<Item Name="Get XML.vi" Type="VI" URL="../Get XML.vi"/>
 	<Item Name="New Builder.vi" Type="VI" URL="../New Builder.vi"/>

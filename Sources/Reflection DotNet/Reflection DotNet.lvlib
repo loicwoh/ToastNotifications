@@ -10,6 +10,7 @@
 
 </Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
+	<Item Name="Callback Object Reference.ctl" Type="VI" URL="../Callback Object Reference.ctl"/>
 	<Item Name="Dispose Enumerator.vi" Type="VI" URL="../Dispose Enumerator.vi"/>
 	<Item Name="Invoke Interface Method.vi" Type="VI" URL="../Invoke Interface Method.vi"/>
 	<Item Name="Read Object Property.vi" Type="VI" URL="../Read Object Property.vi"/>

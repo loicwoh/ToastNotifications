@@ -28,7 +28,6 @@ Pour changer la réaction, créer une classe enfant d'`ActivationHandler`, surch
 | Toast Native | Bibliothèque des appels natifs du toolkit et ses membres |
 | Reflection DotNet | Bibliothèque des helpers génériques de réflexion et de nettoyage |
 | Examples | Exemples avec classes et appels natifs directs |
-| Support | Quelques helpers indépendants conservés |
 
 Chaque classe ou bibliothèque et ses membres occupent un dossier plat. Les dossiers virtuels de scope restent indépendants de cette organisation physique.
 La DLL du toolkit reste sous `bins`. Une copie identique dans `Archive/bins` conserve les chemins relatifs du prototype historique. Les exports, sondes et captures de travail restent dans `_review` à la racine du dépôt, hors versionnement.
@@ -44,7 +43,7 @@ L'exemple appelle `System.GC.Collect()` après les fermetures : une collecte pon
 ## Validation et limites de la première phase
 
 - Construction, affichage, activation du bouton et capture de saisie validés manuellement pendant le développement.
-- 50 VIs vérifiés exécutables après la réorganisation, sans réémettre automatiquement de notification.
+- 49 VIs vérifiés exécutables après la réorganisation, sans réémettre automatiquement de notification.
 - Aides contextuelles des VIs, contrôles, classes, bibliothèques et projet renseignées.
 - Aucun framework de tests unitaires ni dépendance Caraya ajouté.
 
