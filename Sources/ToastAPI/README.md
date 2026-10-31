@@ -1,63 +1,54 @@
 # ToastAPI
 
-Bibliothèque LabVIEW 2026 en cours de construction. Ouvrir `ToastAPI.lvproj`.
-Le projet historique `../ToastNotifications.lvproj` et son dossier `SandBox` sont conservés.
+Bibliothèque LabVIEW 2026 pour construire et afficher des notifications Windows en encapsulant les appels .NET du toolkit Microsoft.
+Ouvrir `ToastAPI.lvproj`. Le projet historique `../ToastNotifications.lvproj` et son dossier `SandBox` sont conservés.
 
-## État livré
+## API actuelle
 
-- `ToastContent` : description par valeur, ajout de texte, arguments, champs texte et boutons, validation.
-- `ActivationHandler` : contrat à dispatch dynamique pour injecter le traitement des activations.
-- `ToastService` : connecteurs du futur service et contrat de fermeture. **Aucun backend Windows n'est implémenté ici.**
-- `Initialize` et `Show` retournent explicitement l'erreur 7620. Ils n'affichent pas de toast et n'enregistrent aucun callback.
-- La méthode de base `Handle Activation` retourne l'erreur 7621. Créer un descendant et la surcharger.
+- `ToastBuilder` possède la référence native `ToastContentBuilder`. Ses méthodes appellent directement le toolkit ; aucune description intermédiaire LabVIEW n'est stockée.
+- `ToastService.Show` reçoit un builder et délègue l'affichage à `ToastBuilder.Show`.
+- `ActivationHandler.Handle Activation` définit le point d'extension pour les futures activations. La méthode de base renvoie l'erreur 7621.
+- `ToastService.Initialize` crée actuellement un service par défaut : le paramètre `Handler` n'est pas encore conservé et aucun callback n'est enregistré.
+- `ToastService.Close` est actuellement une opération sans effet qui conserve l'erreur entrante.
 
-## Construire un contenu
+## Exemple avec les classes
 
-Un objet `ToastContent` par défaut est vide. `Create.vi` peut aussi réinitialiser un objet existant.
-Chaîner le fil de classe et le fil d'erreur dans cet ordre, par exemple :
+Ouvrir `Examples/Build Toast With Classes.vi`. Le diagramme enchaîne :
 
-1. `Add Text` : texte de la notification.
-2. `Add Argument` : cluster `{Key, Value}` pour les arguments associés au corps du toast.
-3. `Add Text Input` : `{ID, Placeholder, Default Text}` ; par exemple `tbReply`.
-4. `Add Button` : `{Label, Arguments, Text Input ID}` ; par exemple `{Reply, action=reply, tbReply}`.
-5. `Validate` : contrôler le résultat avant son utilisation.
-6. `Read Data` : obtenir une copie typée de la description, sans référence .NET.
+1. `ToastBuilder.Create`.
+2. Deux appels à `ToastBuilder.Add Text`.
+3. `ToastBuilder.Get XML`.
+4. `ToastService.Initialize`, puis `ToastService.Show`.
+5. `ToastService.Close`, puis `ToastBuilder.Close`.
 
-Les opérations `Add` autorisent un état intermédiaire incomplet : un bouton peut être ajouté avant le champ qu'il référence.
-Elles conservent l'ordre d'ajout et, en cas d'erreur entrante, rendent le contenu inchangé.
-Les arguments du corps sont conservés comme paires de chaînes ; aucune sérialisation ni échappement XML n'est effectué à cette étape.
-Les arguments d'un bouton sont une chaîne opaque appartenant à l'application, indépendante des arguments du corps.
-Une association `Text Input ID` vide représente un bouton ordinaire.
+Exécuter cet exemple peut afficher une notification Windows. Il ne reçoit pas encore les réponses de l'utilisateur.
+Le fil d'erreur ordonne les appels et les fermetures. `Toast XML` expose le contenu sérialisé.
+`Examples/Native Toast Example.vi` illustre les appels natifs avec arguments, champ texte et bouton, sans callback.
 
-`ToastContent` ne nécessite pas de `Close`. Une branche du fil donne une description indépendante par valeur.
-Ne pas confondre ce comportement avec celui du futur service qui possédera des références partagées.
+## Références et fermeture
 
-## Validation
+`Create` libère un ancien handle avant réinitialisation. `Add Text` modifie immédiatement le builder natif.
+`Get XML` libère sa référence temporaire vers le contenu. `Show` emprunte le builder sans le fermer.
+Ces opérations sont ignorées en présence d'une erreur entrante.
+`Close` travaille aussi avec une erreur entrante, qu'il conserve, et accepte un objet vide ou déjà fermé.
+Les erreurs de nettoyage sont fusionnées avec l'erreur entrante ; aucun code n'est masqué.
 
-La validation est déterministe et retourne la première erreur dans l'ordre suivant.
-Une erreur entrante (`status = true`) est toujours conservée. Sans violation, un avertissement entrant est conservé aussi.
+Les accesseurs du handle sont privés et utilisés via des nœuds de propriétés de classe.
+Une copie de la classe partage le même handle .NET : elle ne crée pas un builder indépendant.
+Un seul propriétaire doit gérer sa durée de vie. Fermer un alias invalide les autres alias.
+Pour obtenir un builder indépendant, appeler `Create` sur un nouvel objet.
+Aucun appel concurrent avec `Close` n'est autorisé par le contrat actuel.
 
-| Code | Règle |
-| --- | --- |
-| 7601 | Au moins un élément texte |
-| 7602 | Aucun élément texte vide |
-| 7603 | Aucune clé d'argument vide |
-| 7604 | Pas de clé d'argument dupliquée |
-| 7605 | Aucun identifiant de champ texte vide |
-| 7606 | Pas d'identifiant de champ texte dupliqué |
-| 7607 | Au plus cinq champs texte |
-| 7608 | Au plus cinq boutons |
-| 7609 | Aucun libellé de bouton vide |
-| 7610 | Toute association non vide d'un bouton désigne un champ texte existant |
+Le dossier virtuel `Native VIs` de la bibliothèque contient les appels techniques du toolkit.
+`Activation.ctl` et `Argument.ctl` restent disponibles pour le contrat de callback.
+L'ancienne classe LabVIEW `ToastContent`, son exemple et ses typedefs de construction ont été retirés.
+Le type .NET `ToastContent` utilisé en interne par le toolkit est distinct et reste nécessaire à `Get XML`.
 
-Les comparaisons d'identifiants et de clés respectent la casse. Une chaîne d'espaces n'est pas considérée vide.
-Les règles de texte non vide et d'unicité des arguments sont des choix de cette API.
-Les limites de cinq inputs et de cinq boutons proviennent du [schéma Microsoft](https://learn.microsoft.com/windows/apps/design/shell/tiles-and-notifications/toast-schema).
-La validation ne garantit ni le rendu Windows, ni la validité de futurs attributs XML, ni la taille finale du payload, ni le déploiement.
-Images, audio, sélection, activation par protocole et mise à jour de toast sont hors de cette version.
+## État et vérification
 
-## Extension et ressources
+Le parcours construction/XML a été exécuté sans erreur, y compris avec fermeture répétée et conservation d'une erreur entrante.
+Les VIs d'affichage et l'exemple complet ont été vérifiés comme exécutables sans déclencher de notification pendant la revue.
+Les descriptions précisent l'état actuel des callbacks et la propriété des références.
+Aucun test unitaire ni dépendance Caraya n'est livré. Ces contrôles ne constituent pas une mesure des fuites mémoire ou de concurrence.
 
-Voir [ARCHITECTURE.md](ARCHITECTURE.md) pour les connecteurs, les responsabilités, les règles de propriété et le protocole de fermeture prévu.
-L'exemple `Examples/Build Reply Content.vi` construit la description sans afficher de toast. Examiner `Content Data` et `error out`, modifier les entrées puis le relancer manuellement.
-Aucun test unitaire ni dépendance Caraya n'est livré, conformément au choix du projet. La vérification automatique se limite au chargement des VIs et à leurs connecteurs.
+Voir [ARCHITECTURE.md](ARCHITECTURE.md) pour les responsabilités et le futur cycle des callbacks.

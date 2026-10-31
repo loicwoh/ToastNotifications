@@ -1,83 +1,72 @@
 # Architecture et contrats
 
-Décisions des issues [#1](https://github.com/loicwoh/ToastNotifications/issues/1) et [#2](https://github.com/loicwoh/ToastNotifications/issues/2).
+## Construction directe
 
-## Frontières
+`ToastBuilder` possède une référence privée `Microsoft.Toolkit.Uwp.Notifications.ToastContentBuilder`.
+Les opérations modifient immédiatement cet objet .NET, sans moteur de conversion d'une description LabVIEW.
+L'ancienne classe LabVIEW `ToastContent` a été retirée. Le type .NET homonyme du toolkit reste un détail interne.
 
-`ToastContent.lvclass` est une description LabVIEW par valeur. Son champ privé `Data` est lié à `Content Data.ctl`.
-Les méthodes de construction et de validation sont statiques ; aucun héritage n'est requis pour composer un toast.
-`Read Data` expose uniquement une copie de la description. Aucun accesseur d'écriture globale n'est exposé.
-Les typedefs de paramètres `Argument`, `Text Input` et `Button` sont liés aux connecteurs des méthodes correspondantes.
-Les éléments des tableaux de `Content Data` sont également liés à ces typedefs ; les entrées utilisateur d'`Activation` réutilisent la paire `Argument`.
+Les accesseurs natifs de la référence sont privés. Les méthodes métier les utilisent via des nœuds de propriétés.
+Les classes sont rangées dans les dossiers virtuels Public, Community, Protected et Private ; les propriétés restent regroupées.
 
-`ToastService.lvclass` possède la future intégration Windows. Cette livraison ne lui attribue volontairement aucune fausse ressource ni indicateur d'initialisation.
-La réflexion .NET, les métadonnées WinRT et la gestion des abonnements seront privées. Aucune référence .NET ne sera un terminal public.
+## Méthodes actuelles
 
-`ActivationHandler.lvclass` définit le point d'extension `Handle Activation`, à dispatch dynamique.
-Le service recevra un gestionnaire concret par injection dans `Initialize`.
-La conversion du callback en `Activation.ctl` sera achevée avant d'appeler le gestionnaire.
-Le gestionnaire ne devra ni rappeler `Close` dans le callback, ni bloquer en attendant le thread qui ferme le service.
-Il devra déléguer un travail long à une boucle appelante.
+| Classe | Méthode | Comportement |
+| --- | --- | --- |
+| ToastBuilder | Create | Libère l'ancien handle puis crée un builder ; ignore l'opération sur erreur entrante |
+| ToastBuilder | Add Text | Appelle immédiatement AddText ; conserve l'objet sur erreur entrante |
+| ToastBuilder | Get XML | Lit le XML et ferme la référence temporaire de contenu |
+| ToastBuilder | Show | Déclenche l'appel natif Show sans fermer le builder |
+| ToastBuilder | Close | Ferme un handle valide même sur erreur entrante ; fermetures répétées acceptées |
+| ToastService | Initialize | Retourne un service par défaut ; Handler accepté mais non conservé, aucun abonnement |
+| ToastService | Show | Emprunte un ToastBuilder et délègue à son Show ; service et erreur transmis |
+| ToastService | Close | Actuellement aucune ressource détenue : service et erreur transmis |
+| ActivationHandler | Handle Activation | Surcharge dynamique ; méthode de base : erreur 7621 |
 
-## Connecteurs
+Les opérations de construction et d'affichage sont statiques. Seul le traitement du gestionnaire utilise le dispatch dynamique.
+Pattern de connecteur 4815 : classe entrée 11, classe sortie 3, erreur entrée 8, erreur sortie 0.
+Les paramètres additionnels et sorties, tels que le builder emprunté par le service et le XML, occupent les autres connecteurs.
+Le service ne retourne pas actuellement le builder ; le fil d'erreur ordonne sa fermeture après Show.
 
-Pattern 4815 : classe en haut à gauche (11), classe sortie en haut à droite (3), erreur entrée en bas à gauche (8), erreur sortie en bas à droite (0).
-Paramètre principal additionnel à gauche (10). Snapshot de données à droite (2).
-
-| Propriétaire | Méthode | Entrées supplémentaires | Sorties supplémentaires | Contrat |
-| --- | --- | --- | --- | --- |
-| ToastContent | Create | — | — | Réinitialise le contenu si aucune erreur entrante |
-| ToastContent | Add Text | Text : chaîne | — | Ajoute un élément texte |
-| ToastContent | Add Argument | Argument.ctl | — | Ajoute une paire clé/valeur |
-| ToastContent | Add Text Input | Text Input.ctl | — | Ajoute un champ texte |
-| ToastContent | Add Button | Button.ctl | — | Ajoute un bouton |
-| ToastContent | Validate | — | — | Lecture seule ; première erreur structurelle |
-| ToastContent | Read Data | — | Content Data.ctl | Copie de la description ; valeur par défaut si erreur entrante |
-| ToastService | Initialize | Handler : ActivationHandler | — | Futur : acquérir les ressources et conserver le gestionnaire ; actuellement erreur 7620 |
-| ToastService | Show | Content : ToastContent | — | Futur : valider puis afficher ; actuellement erreur 7620 |
-| ToastService | Close | — | — | Actuellement aucune ressource : opération sans effet, erreur entrante conservée |
-| ActivationHandler | Handle Activation | Activation.ctl | — | Surcharge dynamique ; méthode de base : erreur 7621 |
-
-Les terminaux de classe du gestionnaire sont dynamiques, ceux du service sont statiques.
-Les états intermédiaires du builder sont autorisés ; `Show` devra appeler `Validate` même si l'appelant l'a déjà fait.
-Les arguments d'activation restent une chaîne brute : ne pas imposer un format de parsing à tous les gestionnaires.
-
-## Propriété des ressources — contrat du futur backend
+## Propriété des ressources
 
 | Ressource | Propriétaire | Fin de vie |
 | --- | --- | --- |
-| Description du contenu, arguments et activation convertie | Valeurs LabVIEW | Automatique ; aucun Close |
-| Abonnement .NET au callback et contexte du callback | ToastService | Désabonnement, puis attente des callbacks engagés, puis fermeture des références |
-| Références persistantes de l'intégration Windows | ToastService | Close, ou rollback d'Initialize |
-| Références Type / PropertyInfo / MethodInfo / objets temporaires | Méthode qui les acquiert | Nettoyage en sortie normale et en sortie sur erreur |
-| Énumérateur et éléments de UserInput acquis par le wrapper | Conversion du callback | Après copie des données ; Dispose si requis, puis fermeture des références acquises |
-| sender et arguments fournis au callback | Empruntés à l'infrastructure | Ne pas Dispose arbitrairement ; documenter séparément les handles acquis et leur fermeture |
-| Objet ActivationHandler conservé | Valeur privée du service | Relâché après la fin des callbacks ; aucun transfert implicite des ressources qu'il référence |
-| Événement utilisateur / queue de l'appelant | Appelant | Après fermeture du service et arrêt des utilisateurs ; le service ne les détruit jamais |
+| Handle natif du builder | Appelant qui possède ToastBuilder | Close, ou réinitialisation par Create |
+| Handle temporaire de contenu lu par Get XML | Get XML | Après lecture, sur le chemin de nettoyage |
+| Références créées par les VIs natifs utilisés directement | Appelant de ces VIs | Fermeture explicite après leur dernière utilisation |
+| Payload Activation et paires Argument | Valeurs LabVIEW | Durée de vie automatique |
+| Futur abonnement et contexte de callback | ToastService | Désabonnement, attente des callbacks engagés, puis libération |
+| Futures références de réflexion Type/PropertyInfo/MethodInfo | Méthode qui les acquiert | Après utilisation, y compris sur erreur |
+| Futurs énumérateurs et éléments UserInput | Conversion du callback | Après copie des données ; Dispose si requis, puis fermeture des handles |
+| Événement utilisateur ou queue de l'appelant | Appelant | Après fermeture du service et arrêt de ses utilisateurs |
 
-Une copie du service ne deviendra pas un propriétaire indépendant des mêmes handles. Le programme conservera un unique fil propriétaire pour Initialize/Show/Close.
-La synchronisation interne du contexte de callback sera définie lors de l'implémentation : une simple copie de booléen dans une classe par valeur ne suffit pas à partager l'état de fermeture.
-Les modifications du gestionnaire faites dans une copie du callback ne seront pas considérées comme un état automatiquement partagé avec l'appelant.
-Les adaptateurs fournis ultérieurement utiliseront des mécanismes de communication explicites.
+Une copie du builder partage son handle ; elle n'en devient pas propriétaire indépendamment.
+Fermer un alias invalide les autres. Un propriétaire unique organise la fermeture et évite les appels concurrents avec Close.
+Fermer un handle LabVIEW .NET, appeler Dispose et désabonner un événement sont des opérations distinctes.
+Les garanties actuelles de fermeture ne constituent pas une preuve d'absence de fuite mémoire.
 
-## Fermeture prévue
+## Callbacks : conception restante
 
-1. Passer l'état partagé en `Closing` pour refuser les nouveaux envois.
-2. Désabonner l'événement .NET sans détruire prématurément le contexte du callback.
-3. Attendre de façon bornée les callbacks déjà engagés. Ne pas attendre sous un verrou nécessaire à ces callbacks.
-4. En cas de timeout, conserver les ressources encore utilisées et permettre une nouvelle tentative de Close : ne pas libérer des objets encore en service.
-5. Libérer les ressources persistantes et effacer leurs handles ; passer en `Closed`.
+Le service devra conserver un gestionnaire concret injecté dans Initialize, enregistrer les abonnements et convertir les arguments natifs en `Activation.ctl` avant d'appeler Handle Activation.
+Les arguments d'activation restent une chaîne brute : aucun format de parsing n'est imposé à tous les gestionnaires.
+Le gestionnaire doit retourner rapidement et déléguer le travail long à une boucle de l'appelant.
+Il ne doit pas attendre le thread qui ferme le service ni appeler sa fermeture depuis le callback.
+Les modifications d'une copie du gestionnaire ne constituent pas un état partagé ; les adaptateurs utiliseront des mécanismes de communication explicites.
+Le service ne détruit jamais implicitement les queues ou événements de l'appelant.
 
-Close devra rester idempotent et effectuer le nettoyage malgré une erreur entrante.
-L'erreur primaire sera préservée ; les erreurs de nettoyage devront rester consultables dans un diagnostic de fermeture à définir avec le backend.
-Initialize devra appliquer le même nettoyage en cas d'acquisition partielle. Un échec ne devra pas être masqué par une seconde erreur de nettoyage.
-Fermer un handle LabVIEW .NET, appeler Dispose et désabonner un événement sont des actions distinctes : la liste exacte sera vérifiée objet par objet.
+Le futur protocole de fermeture devra :
 
-**Ce protocole est un contrat de conception, pas une garantie déjà testée sur WinRT.**
-La présente version pure LabVIEW n'alloue aucune référence .NET ; elle ne permet donc pas encore de démontrer l'absence de fuite du futur backend.
+1. Passer le contexte partagé en Closing pour refuser de nouveaux envois.
+2. Désabonner les événements sans détruire le contexte des callbacks engagés.
+3. Attendre leur fin de façon bornée, sans conserver un verrou nécessaire à ces callbacks.
+4. En cas de timeout, conserver les ressources encore utilisées et permettre une nouvelle tentative.
+5. Libérer les références persistantes puis passer en Closed.
+
+Initialize devra appliquer un rollback similaire en cas d'acquisition partielle.
+Cette synchronisation n'est pas encore implémentée. L'exemple ferme actuellement le service immédiatement après Show : il devra attendre la fin de l'interaction lorsque les callbacks seront raccordés.
 
 ## Passages de relais
 
 Enregistrer les VIs avant de changer de main. Ne pas modifier le même VI simultanément dans l'IDE et par les outils.
-Les `.vi` enregistrés sont les fichiers de travail et font foi. Les intermédiaires de génération restent dans `_review/authoring`, hors versionnement.
-Ne pas régénérer des VIs modifiés à la main à partir de ces intermédiaires devenus obsolètes.
+Les fichiers enregistrés font foi. Les intermédiaires de génération restent dans `_review`, hors versionnement ; ils ne doivent pas servir à régénérer les VIs modifiés à la main.

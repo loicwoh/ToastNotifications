@@ -2,31 +2,19 @@
 
 Branche : `feature/toastapi-contracts-content`.
 
-## Point d'entrée
+Ouvrir `ToastAPI.lvproj`, puis `Examples/Build Toast With Classes.vi`.
+Le diagramme construit un ToastBuilder, ajoute deux textes, lit le XML, initialise le service, affiche, ferme le service et ferme le builder.
+L'exécution peut afficher une notification Windows. Aucune activation utilisateur n'est encore reçue.
+L'ancien ToastContent LabVIEW et son exemple ont été retirés.
 
-Ouvrir `ToastAPI.lvproj`, puis `Examples/Build Reply Content.vi`.
-Le diagramme enchaîne les méthodes publiques d'ajout, `Validate`, puis `Read Data`.
-Les entrées préremplies décrivent un toast Reply. L'exemple construit uniquement les données : aucune notification Windows n'est affichée.
+`Examples/Native Toast Example.vi` conserve un exemple de composition avec arguments, saisie et bouton via les VIs natifs.
+La bibliothèque `ToastNotification.lvlib` regroupe les classes, les appels natifs, la DLL et les types de callback Activation/Argument.
+Les accesseurs de la référence du builder sont privés. Les descriptions des VIs indiquent les responsabilités de fermeture et les limites actuelles.
 
-Pour la revue manuelle, examiner les valeurs des entrées, le snapshot `Content Data` et `error out`.
-On peut par exemple modifier l'identifiant du champ sans modifier celui du bouton pour observer l'erreur d'association, ou vider le texte.
+La construction et la lecture du XML ont été vérifiées par exécution avant l'ajout de Show au parcours ; la fermeture répétée et l'erreur entrante ont été contrôlées.
+Le parcours d'affichage est vérifié par compilation ; aucune notification n'est exécutée automatiquement lors de la revue.
+Aucun test unitaire ni dépendance Caraya n'est livré. Il reste à vérifier les fuites mémoire et la concurrence.
 
-## Vérification effectuée
-
-Les onze méthodes de classe et le VI d'exemple ont été contrôlés avec `Execution:State = eIdle` : ils sont chargeables et exécutables dans LabVIEW 2026.
-Les diagrammes de l'exemple et de la validation ont été rendus et examinés.
-Les connecteurs des méthodes créées utilisent le pattern 4815 et les paramètres de classe ont été vérifiés dans les fichiers enregistrés.
-Les liens de typedef des paramètres et des éléments des tableaux ont été contrôlés.
-Le projet historique et ses fichiers versionnés n'ont pas été modifiés.
-
-Aucun test unitaire n'est livré. Ces vérifications ne constituent pas une validation du comportement par exécution, ni une mesure de fuite mémoire.
-Le backend .NET/WinRT, les notifications et les callbacks ne sont pas implémentés dans cette tranche.
-
-## Points à relire ensemble
-
-- Noms et connecteurs de l'API ; granularité des méthodes `Add`.
-- Chaîne d'arguments opaque du bouton et tableau clé/valeur pour le corps.
-- Règles de validation et messages d'erreur.
-- Contrat de `Handle Activation`, propriété des références et fermeture décrits dans `ARCHITECTURE.md`.
-
-Enregistrer les VIs avant de rendre la main. Les modifications se poursuivent sur cette branche jusqu'à la revue et la fusion.
+Prochaine étape : conserver le handler dans Initialize, enregistrer et convertir le callback, puis définir l'attente et la fermeture du service.
+Voir ARCHITECTURE.md pour la propriété des ressources et le protocole envisagé.
+Enregistrer les VIs avant de rendre la main. Continuer sur la même branche jusqu'à la revue et la fusion.
