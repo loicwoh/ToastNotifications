@@ -18,16 +18,9 @@
 </Property>
 	<Property Name="NI.LVClass.IsTransferClass" Type="Bool">false</Property>
 	<Property Name="NI.LVClass.LowestCompatibleVersion" Type="Str">1.0.0.0</Property>
+	<Property Name="NI.SortType" Type="Int">3</Property>
 	<Item Name="ToastService.ctl" Type="Class Private Data" URL="ToastService.ctl">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
-	<Item Name="Close.vi" Type="VI" URL="../Close.vi">
-		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-		<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
-		<Property Name="NI.ClassItem.InvokeUsage" Type="UInt">0</Property>
-		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
-		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-		<Property Name="NI.ClassItem.State" Type="Int">1082143232</Property>
 	</Item>
 	<Item Name="Initialize.vi" Type="VI" URL="../Initialize.vi">
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
@@ -40,6 +33,14 @@
 	<Item Name="Show.vi" Type="VI" URL="../Show.vi">
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
 		<Property Name="NI.ClassItem.Flags" Type="Int">1073741824</Property>
+		<Property Name="NI.ClassItem.InvokeUsage" Type="UInt">0</Property>
+		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
+		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
+		<Property Name="NI.ClassItem.State" Type="Int">1082143232</Property>
+	</Item>
+	<Item Name="Close.vi" Type="VI" URL="../Close.vi">
+		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
+		<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
 		<Property Name="NI.ClassItem.InvokeUsage" Type="UInt">0</Property>
 		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
