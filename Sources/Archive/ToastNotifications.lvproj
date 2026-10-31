@@ -1,9 +1,9 @@
-﻿<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <Project Type="Project" LVVersion="26008000">
-	<Property Name="CCSymbols" Type="Str"></Property>
+	<Property Name="CCSymbols" Type="Str" />
 	<Property Name="NI.LV.All.SaveVersion" Type="Str">26.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
-	<Property Name="NI.Project.Description" Type="Str"></Property>
+	<Property Name="NI.Project.Description" Type="Str">Archived historical toast-notification prototype and sandbox. Kept for comparison and reference. The maintained class-based project is ../ToastAPI.lvproj.</Property>
 	<Property Name="utf.calculate.project.code.coverage" Type="Bool">true</Property>
 	<Property Name="utf.create.arraybrackets" Type="Str">[]</Property>
 	<Property Name="utf.create.arraythreshold" Type="UInt">100</Property>
@@ -12,12 +12,12 @@
 	<Property Name="utf.create.codecoverage.flag" Type="Bool">false</Property>
 	<Property Name="utf.create.codecoverage.value" Type="UInt">100</Property>
 	<Property Name="utf.create.editor.flag" Type="Bool">false</Property>
-	<Property Name="utf.create.editor.path" Type="Path"></Property>
+	<Property Name="utf.create.editor.path" Type="Path" />
 	<Property Name="utf.create.nameseparator" Type="Str">/</Property>
 	<Property Name="utf.create.precision" Type="UInt">6</Property>
 	<Property Name="utf.create.repetitions" Type="UInt">1</Property>
 	<Property Name="utf.create.testpath.flag" Type="Bool">false</Property>
-	<Property Name="utf.create.testpath.path" Type="Path"></Property>
+	<Property Name="utf.create.testpath.path" Type="Path" />
 	<Property Name="utf.create.timeout.flag" Type="Bool">false</Property>
 	<Property Name="utf.create.timeout.value" Type="UInt">0</Property>
 	<Property Name="utf.create.type" Type="UInt">0</Property>
@@ -38,7 +38,7 @@
 	<Property Name="utf.report.skipped" Type="Bool">true</Property>
 	<Property Name="utf.report.sortby" Type="UInt">1</Property>
 	<Property Name="utf.report.stylesheet.flag" Type="Bool">false</Property>
-	<Property Name="utf.report.stylesheet.path" Type="Path"></Property>
+	<Property Name="utf.report.stylesheet.path" Type="Path" />
 	<Property Name="utf.report.summary" Type="Bool">true</Property>
 	<Property Name="utf.report.txt.create" Type="Bool">false</Property>
 	<Property Name="utf.report.txt.path" Type="Path">ASCII report.txt</Property>
@@ -73,7 +73,7 @@
 		<Item Name="SandBox" Type="Folder" URL="../SandBox">
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
-		<Item Name="Dependencies" Type="Dependencies"/>
+		<Item Name="Dependencies" Type="Dependencies" />
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="EXE" Type="EXE">
 				<Property Name="App_copyErrors" Type="Bool">true</Property>
