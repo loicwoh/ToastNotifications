@@ -6,6 +6,7 @@ Open `../ToastAPI.lvproj` before opening the examples.
 |---|---|---|
 | `Build Toast With Classes.vi` | Public class workflow with text input and an application-action button | Run, enter a reply, click the button, then press Stop. The current base handler does nothing; inject a derived handler to consume the activation data. |
 | `Toast With Link Button.vi` | Public class workflow with a protocol-activation button | Run, click Open project on GitHub, then press stop in LabVIEW. See [the guide](Protocol%20Activation.md). |
+| `Toast With Multiple Actions.vi` | Accept/Reject buttons and body arguments relayed through UserEventActivationHandler | Run, click a button or the body, inspect Activation.Arguments, then press stop. User Inputs is empty because there are no input controls. See [the guide](Multiple%20Actions.md). |
 | `Native Toast Example.vi` | Lower-level toolkit calls | Inspect the diagram before running. Prefer the class examples for application code. |
 
 Running an example can display a Windows notification. The class examples remain

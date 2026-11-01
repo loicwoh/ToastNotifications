@@ -10,6 +10,7 @@
 			<Item Name="Build Toast With Classes.vi" Type="VI" URL="../Examples/Build Toast With Classes.vi"/>
 			<Item Name="Native Toast Example.vi" Type="VI" URL="../Examples/Native Toast Example.vi"/>
 			<Item Name="Toast With Link Button.vi" Type="VI" URL="../Examples/Toast With Link Button.vi"/>
+			<Item Name="Toast With Multiple Actions.vi" Type="VI" URL="../Examples/Toast With Multiple Actions.vi"/>
 		</Item>
 		<Item Name="ToastNotification.lvlib" Type="Library" URL="../ToastNotification/ToastNotification.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies"/>

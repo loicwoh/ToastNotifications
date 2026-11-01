@@ -16,6 +16,7 @@
 	<Item Name="Add Link Button.vi" Type="VI" URL="../Add Link Button.vi"/>
 	<Item Name="Add Text Input.vi" Type="VI" URL="../Add Text Input.vi"/>
 	<Item Name="Add Text.vi" Type="VI" URL="../Add Text.vi"/>
+	<Item Name="Add ToastActivation Info.vi" Type="VI" URL="../Add ToastActivation Info.vi"/>
 	<Item Name="Button Add Argument.vi" Type="VI" URL="../Button Add Argument.vi"/>
 	<Item Name="Get Content.vi" Type="VI" URL="../Get Content.vi"/>
 	<Item Name="Get XML.vi" Type="VI" URL="../Get XML.vi"/>
