@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Build interactive Windows notifications from LabVIEW. Guides, examples and lifecycle contracts for ToastAPI.">
+  <meta name="theme-color" content="#132c41">
+  <title>ToastAPI · LabVIEW notifications</title>
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="vendor/docsify-4.13.1/vue.css">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div id="app">Loading ToastAPI documentation…</div>
+  <script src="reference-routes.js"></script>
+  <script>
+    window.$docsify = {
+      name: 'ToastAPI<span class="brand-subtitle">WINDOWS NOTIFICATIONS FOR LABVIEW</span>',
+      nameLink: '#/',
+      loadSidebar: true,
+      subMaxLevel: 2,
+      auto2top: true,
+      alias: { '/.*/_sidebar.md': '/_sidebar.md' },
+      notFoundPage: true,
+      search: {
+        paths: ['/', '/getting-started', '/api', '/callbacks', '/examples', '/coverage', '/microsoft', '/guides/reply', '/guides/multiple-actions', '/guides/protocol'].concat(window.toastApiReferenceRoutes || []),
+        placeholder: 'Search the documentation',
+        noData: 'No matching pages.',
+        depth: 3,
+        namespace: 'toastapi-docs-' + window.location.pathname,
+        maxAge: 60000
+      },
+      plugins: [function (hook) {
+        hook.afterEach(function (html) {
+          return html + '<footer class="doc-footer">ToastAPI · <a href="#/coverage">Compatibility &amp; known limits</a></footer>';
+        });
+        hook.doneEach(function () { document.documentElement.lang = 'en'; });
+      }]
+    };
+  </script>
+  <script src="vendor/docsify-4.13.1/docsify.min.js"></script>
+  <script src="vendor/docsify-4.13.1/search.min.js"></script>
+  <script src="assets/versions.js"></script>
+</body>
+</html>
