@@ -1,5 +1,7 @@
 # ToastAPI
 
+[Documentation en ligne](https://loicwoh.github.io/ToastNotifications/) · [Maintenance de la documentation](docs/README.md)
+
 Bibliothèque LabVIEW 2026 pour construire, afficher et recevoir les réponses des notifications Windows via Microsoft.Toolkit.Uwp.Notifications.
 Ouvrir `ToastAPI.lvproj`, puis `Examples/Build Toast With Classes.vi`. Le projet historique et son PoC sont conservés dans `Archive/ToastNotifications.lvproj` et `Archive/SandBox`.
 

@@ -13,11 +13,12 @@ import xml.etree.ElementTree as ET
 import sys
 from urllib.parse import unquote, urlsplit
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from vi_descriptions import description
+from vi_descriptions import description, resource
 
 ROOT = Path(__file__).resolve().parents[3]
 STAGE = ROOT / '_review' / 'docsify-preview'
 SITE = STAGE / 'ToastNotifications'
+REQUIRE_HELP_LINKS = False
 GUIDES = {
     'reply': ROOT / 'Sources/Examples/Reply Input.md',
     'multiple-actions': ROOT / 'Sources/Examples/Multiple Actions.md',
@@ -31,6 +32,7 @@ def slug(value: str) -> str:
 
 def reference() -> list[str]:
     routes = []
+    links = []
     index = ['# VI reference', '', 'Generated from saved VI descriptions and class membership at build time.',
              'Edit context help in LabVIEW and save the VI to update these pages.', '',
              'Connector terminal details remain available in LabVIEW Context Help.', '']
@@ -56,15 +58,24 @@ def reference() -> list[str]:
             source = path.relative_to(ROOT).as_posix()
             body = description(path)
             if not body.strip():
+                if REQUIRE_HELP_LINKS:
+                    raise ValueError(f'Missing public VI description: {source}')
                 print(f'Warning: missing public VI description: {source}')
                 body = 'Context help has not been documented for this VI yet.'
+            if REQUIRE_HELP_LINKS:
+                expected = ('https://loicwoh.github.io/ToastNotifications/#/' + route).encode('ascii')
+                raw = resource(path, b'HLPW')
+                if raw != len(expected).to_bytes(4, 'big') + expected or resource(path, b'HLPU') != b'\x01\x00\x00\x00':
+                    raise ValueError(f'Missing or outdated detailed help URL: {source}. Run Sync-DetailedHelp.ps1 after a normal build.')
             destination.write_text(f'# {owner.stem}: {name}\n\n{body}\n\n'
                                    f'**Source:** `{source}`\n\n'
-                                   f'**VI SHA-256:** `{hashlib.sha256(path.read_bytes()).hexdigest()}`\n', encoding='utf-8')
+                                   f'<!-- VI SHA-256: {hashlib.sha256(path.read_bytes()).hexdigest()} -->\n', encoding='utf-8')
             index.append(f'- [{name}](/{route}.md)')
             routes.append('/' + route)
+            links.append(dict(source=source, route='#/' + route))
         index.append('')
     (SITE / 'reference.md').write_text('\n'.join(index), encoding='utf-8')
+    (SITE / 'api-links.json').write_text(json.dumps(links, indent=2), encoding='utf-8')
     return ['/reference', *routes]
 
 
@@ -121,14 +132,16 @@ def check() -> None:
 
 
 def main() -> None:
-    global ROOT, STAGE, SITE, GUIDES
+    global ROOT, STAGE, SITE, GUIDES, REQUIRE_HELP_LINKS
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('command', choices=['build', 'check', 'serve'])
     parser.add_argument('--port', type=int, default=8765)
     parser.add_argument('--source-root', type=Path, default=ROOT)
     parser.add_argument('--output', type=Path, default=SITE)
+    parser.add_argument('--require-help-links', action='store_true')
     args = parser.parse_args()
     ROOT = args.source_root.resolve()
+    REQUIRE_HELP_LINKS = args.require_help_links
     SITE = args.output.resolve()
     STAGE = SITE.parent
     GUIDES = {name: ROOT / 'Sources/Examples' / path.name for name, path in GUIDES.items()}

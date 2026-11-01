@@ -60,6 +60,8 @@ def main() -> None:
     # The stable root keeps VI detailed-help links independent of branch slugs.
     # Before main contains docs, show an explicit version landing page.
     stable = next((v for v in versions if v['label'] == 'main'), None)
+    if stable is None:
+        stable = next((v for v in versions if v['label'] == 'develop'), versions[0])
     if stable:
         target = 'versions/' + stable['id'] + '/'
         page = '<!doctype html><title>ToastAPI documentation</title><script>location.replace(' + json.dumps(target) + '+location.hash)</script>'

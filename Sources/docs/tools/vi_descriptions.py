@@ -8,7 +8,7 @@ from pathlib import Path
 import struct
 
 
-def description(path: Path) -> str:
+def resource(path: Path, identifier: bytes) -> bytes:
     data = path.read_bytes()
 
     def u32(offset: int) -> int:
@@ -25,18 +25,27 @@ def description(path: Path) -> str:
         raise ValueError(f'{path}: unsupported resource count')
     for index in range(count):
         header = table + 4 + index * 12
-        if data[header:header + 4] != b'STRG':
+        if data[header:header + 4] != identifier:
             continue
         if u32(header + 4) != 0:
-            raise ValueError(f'{path}: multiple STRG sections unsupported')
+            raise ValueError(f'{path}: multiple {identifier!r} sections unsupported')
         section = table + u32(header + 8)
         start = payload + u32(section + 12)
         size = u32(start)
-        length = u32(start + 4)
-        if size != length + 4 or start + 4 + size > len(data):
-            raise ValueError(f'{path}: compressed or unsupported STRG')
-        text = data[start + 8:start + 8 + length]
-        if b'\x00' in text:
-            raise ValueError(f'{path}: Unicode STRG requires an explicit decoder')
-        return text.decode('cp1252').replace('\r\n', '\n').replace('\r', '\n')
-    return ''
+        if start + 4 + size > len(data):
+            raise ValueError(f'{path}: truncated resource payload')
+        return data[start + 4:start + 4 + size]
+    return b''
+
+
+def description(path: Path) -> str:
+    data = resource(path, b'STRG')
+    if not data:
+        return ''
+    length = int.from_bytes(data[:4], 'big')
+    if len(data) != length + 4:
+        raise ValueError(f'{path}: compressed or unsupported STRG')
+    text = data[4:]
+    if b'\x00' in text:
+        raise ValueError(f'{path}: Unicode STRG requires an explicit decoder')
+    return text.decode('cp1252').replace('\r\n', '\n').replace('\r', '\n')

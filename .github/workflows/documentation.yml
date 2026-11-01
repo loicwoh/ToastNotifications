@@ -23,7 +23,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Generate VI reference and check local documentation links
-        run: python Sources/docs/tools/docs_preview.py build
+        run: python Sources/docs/tools/docs_preview.py build --require-help-links
 
   build:
     if: github.event_name != 'pull_request'

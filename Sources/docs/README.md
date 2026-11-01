@@ -56,7 +56,8 @@ an absent page shows that version's 404 rather than silently switching content.
 Deleted branches disappear at the next publication; release tags remain selectable.
 
 The root URL redirects to `main` once main contains documentation. Until then it
-lists development versions explicitly. Public VI detailed-help links should use:
+opens `develop`, or the first available work branch. The version selector always
+identifies the actual branch; this fallback is not a released version. Public VI detailed-help links use:
 
 ```text
 https://loicwoh.github.io/ToastNotifications/#/reference/<class-slug>/<vi-slug>
@@ -64,16 +65,33 @@ https://loicwoh.github.io/ToastNotifications/#/reference/<class-slug>/<vi-slug>
 
 For example: `#/reference/toastbuilder/add-text`. These stable URLs resolve to the
 released documentation. During development, open the work branch using the selector.
-Setting these URLs in saved VI metadata is a separate integration step; it is not
-performed by the build and cannot happen on a Linux GitHub runner.
+The 23 current public VIs have their online detailed-help URL saved. After adding
+or renaming a public method, close the LabVIEW project and build locally, then run:
+
+```powershell
+./Sources/docs/tools/Sync-DetailedHelp.ps1
+./Sources/docs/tools/Sync-DetailedHelp.ps1 -Apply
+python Sources/docs/tools/docs_preview.py build --require-help-links
+```
+
+The first command inspects the target URLs. `-Apply` backs up the VIs under
+`_review/detailed-help-backup`, refuses unsaved changes, sets only HelpDocumentUrl
+and HelpUseOnline through LabVIEW's ActiveX server and saves using SaveInstrument.
+Run on Windows with LabVIEW installed, from the repository root, with projects
+closed. It never runs product VIs or cleans diagrams. LabVIEW may update compiled
+or serialized resources when saving. CI checks descriptions and saved help URLs
+for the pushed source without needing LabVIEW; historical versions are still
+buildable without imposing that new check on their metadata.
 
 Repository setup: make the repository public and set Settings → Pages → Source to
 GitHub Actions. The `github-pages` environment must allow repository work branches,
 `develop`, `main` and release tags to deploy. GitHub's environment protections can
 otherwise reject a branch even when the workflow itself is correct.
 
-Publication is not active until these files are committed/pushed and Pages setup
-is complete. Keep `main` reserved for releases; review this branch into `develop`.
+GitHub Pages uses GitHub Actions. The environment allows `main`, `develop`,
+`codex/*` work branches and `v*` release tags. For another branch naming convention,
+add its deployment rule before pushing. Keep `main` reserved for releases; review
+this branch into `develop`.
 
 Docsify 4.13.1 is the explicit initial baseline. A runtime update should be reviewed
 separately. Upstream assets came from the npm 4.13.1 jsDelivr `lib` paths and matching
