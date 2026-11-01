@@ -55,7 +55,7 @@ def main() -> None:
         raise SystemExit('No branch contains Sources/docs/site/index.html')
     versions.sort(key=lambda v: (0 if v['label'] == 'main' else 1 if v['label'] == 'develop' else 2, v['label']))
     for current in versions:
-        manifest = dict(current=current['id'], versions=[dict(v, path='../' + v['id'] + '/') for v in versions])
+        manifest = dict(current=current['id'], versions=[dict(v, path='../' + v['id'] + '/?build=' + v['commit'][:12]) for v in versions])
         (output / 'versions' / current['id'] / 'versions.json').write_text(json.dumps(manifest, indent=2), encoding='utf-8')
     # The stable root keeps VI detailed-help links independent of branch slugs.
     # Before main contains docs, show an explicit version landing page.
@@ -63,7 +63,7 @@ def main() -> None:
     if stable is None:
         stable = next((v for v in versions if v['label'] == 'develop'), versions[0])
     if stable:
-        target = 'versions/' + stable['id'] + '/'
+        target = 'versions/' + stable['id'] + '/?build=' + stable['commit'][:12]
         page = '<!doctype html><title>ToastAPI documentation</title><script>location.replace(' + json.dumps(target) + '+location.hash)</script>'
     else:
         links = ''.join('<li><a href="versions/' + v['id'] + '/">' + html.escape(v['label']) + '</a></li>' for v in versions)
