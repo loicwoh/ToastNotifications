@@ -1,100 +1,106 @@
-# Reply input — implementation guide
+# Toast with a reply input
 
-Status: preparation only for [issue #7](https://github.com/loicwoh/ToastNotifications/issues/7).
-The owner will implement the VIs manually. Reuse the existing UserEventActivationHandler;
-this scenario does not require the argument API redesign in #4 or ToastSource work.
+Open `ToastAPI.lvproj`, then `Examples/Toast With Reply.vi`.
+This example implements the text-input scenario tracked in
+[#7](https://github.com/loicwoh/ToastNotifications/issues/7), using the existing
+UserEventActivationHandler to forward the submitted value to a LabVIEW event loop.
 
-## Scenario and configuration
+## Try it
 
-Ask for a reason to reject request #42. Use only these two text elements, without
-keeping extra introductory Add Text calls from the source example.
+1. Run the VI. Windows displays the notification described below.
+2. Enter a reason in the text field and click **Send**.
+3. Inspect `Activation.Arguments` and `Activation.User Inputs` on the front panel.
+4. Press **stop** after trying the notification. Receiving a reply does not stop the VI.
+5. Run again to submit a different value if Windows has removed the notification.
 
-| Method/input | Value |
+| Element | Value configured in the example |
 |---|---|
-| First Add Text | `Request #42` |
-| Second Add Text | `Why do you reject this request?` |
-| Add Text Input: id | `Reason` |
-| Add Text Input: Title | `Reason for rejection` |
-| Add Text Input: Placeholder Text | `Enter your reason` |
-| Application button: Content | `Send` |
-| Application button: Arguments | `action=reject&requestId=42` |
+| First text | `Request #42` |
+| Second text | `Why do you reject this request?` |
+| Input ID | `Reason` |
+| Input title | `Reason for rejection` |
+| Input placeholder | `Enter your reason` |
+| Button content | `Send` |
+| Button arguments | `action=reject&requestId=42` |
 
-The input ID is a stable key, not the visible title or placeholder. Use the exact
-case `Reason` when looking up the submitted value. The button must use application
-activation; Add Link Button uses Protocol and is not appropriate here.
+These values are diagram constants. The example uses two Add Text calls,
+Add Text Input and the existing Add Bouton method. It does not use Protocol activation
+or configure a separate body action. Clicking Send is the intended submission path.
 
-## Starting point
+## Reading the result
 
-Prefer evolving the existing `Build Toast With Classes.vi`, which already contains
-a text input and a reply button, rather than keeping two equivalent reply demos.
-Suggested final name: `Toast With Reply.vi`. If you rename it, do so through LabVIEW,
-update project links and the examples index, and preserve its existing useful content.
-
-Use `Toast With Multiple Actions.vi` as the reference for the working handler,
-User Event registration, receiving loop and Stop sequence. Keep the multiple-action
-example itself unchanged: it demonstrates a different scenario.
-
-## First milestone: receive text
-
-1. Configure the builder as in the table. A standard application button is sufficient
-   for the first capture check; explicit input association is the next milestone.
-2. Pass a UserEventActivationHandler instance to ToastService.Initialize.
-3. Retrieve the initialized handler, cast to its concrete class and read Event Ref.
-   Register that User Event with the receiving Event Structure before displaying the toast.
-4. Call ToastService.Register For Events and Show using the existing pattern.
-5. Keep the Event Structure in a While Loop. In its User Event case, display the
-   delivered Activation and conversion error. Find the User Inputs entry by Key
-   `Reason`, rather than assuming an array index. Distinguish a missing key from
-   a present key with an empty value.
-6. Stop exits the loop and follows the existing cleanup sequence. Receiving the
-   reply updates the indicators and leaves the loop running.
-
-For a reply such as `Missing information`, the expected payload is:
+With the text `too bussy` shown in the user's validation capture, the expected result is:
 
 ```text
 Activation.Arguments = action=reject&requestId=42
-Activation.User Inputs = [{Key: Reason, Value: Missing information}]
-error.status = false
-error.code = 0
+Activation.User Inputs = [{Key: Reason, Value: too bussy}]
 ```
 
-The action and request ID are application context in Arguments. The user's text
-is in User Inputs; it does not automatically become part of the Arguments string.
-Displayed text, placeholder and input title are not submitted values.
+Arguments carries application context supplied before display. User Inputs carries
+the submitted field value. The ID `Reason` is the returned Key; neither the visible
+input title nor the placeholder becomes the key. Look up entries by Key, not by
+array index. A missing entry and an entry whose Value is empty are different cases.
+The current example displays the complete cluster rather than implementing that lookup.
 
-## Second milestone: associate the reply button with the input
+`Toast XML` is the notification serialized before display. The `input` element uses
+`id="Reason"`; the `action` contains the Send arguments. The XML represents `&` as
+`&amp;`, while the activation string returned to the application uses the raw character.
+Text typed after display is returned through the callback, not inserted into this
+pre-display XML indicator.
 
-Inspect the installed native AddButton overloads accepting a textBoxId, or configure
-a ToastButton through SetTextBoxId before adding it. In both cases the association
-must name the existing input ID `Reason`.
+## Callback and receiving loop
 
-Keep the .NET details inside Toast Native and ToastBuilder. A dedicated public
-`Add Reply Button` is one possible interface to review; preserve existing callers
-of Add Bouton if its interface is changed instead. Native button objects acquired
-along this path need explicit ownership and cleanup.
+The example passes a UserEventActivationHandler instance to ToastService.Initialize.
+The service initializes and retains that handler. The example retrieves the returned
+initialized instance, casts it to the concrete handler and reads Event Ref. It creates
+its own event registration before registering the native callback and showing the toast.
 
-The toolkit documents an image URI as required for a button displayed beside the
-input. Include a redistributable local icon and correct deployment paths if choosing
-that layout; do not promise inline rendering from TextBoxId alone. Verify the final
-rendering and inspect Toast XML for the input ID, action arguments and association.
+The While Loop contains a User Event case that updates `Activation` and `error`,
+and a Stop case that ends the loop. The indicators show the most recent payload;
+they do not retain a history. The `error` indicator contains the conversion error
+delivered alongside Activation. The separate `error out` is the final example result.
 
-Reference: [ToastButton API, TextBoxId and ImageUri](https://learn.microsoft.com/en-us/dotnet/api/microsoft.toolkit.uwp.notifications.toastbutton?view=win-comm-toolkit-dotnet-7.0).
+The handler owns its User Event and destroys it from its Close hook. The application
+borrows the event reference and owns the event registration. After Stop, the example
+attempts to unregister that registration, close the service and handler, close the
+builder and perform the existing final System.GC.Collect workaround. Setup/Show
+errors skip the wait and proceed to cleanup. This does not establish a guarantee
+that callbacks in progress have drained; see #16. Event-generation error reporting
+and invalid-reference handling remain part of #22.
 
-## Manual checks and completion
+## Button layout
 
-- Type a normal sentence, click Send and verify Arguments plus the Reason Key/Value.
-- Try `Réponse : délai dépassé & pièce <manquante> "à fournir"` and verify the text
-  survives unchanged. Encoding in Toast XML is distinct from the returned string.
-- Submit an empty field. Record whether Windows delivers Reason with an empty value
-  or omits it; handle that result explicitly without treating it as a conversion error.
-- Repeat the run with a different reply and verify reception in the application loop.
-  Re-show the toast if a click removes it.
-- Press Stop and restart without quitting LabVIEW. The handler owns its User Event;
-  the application owns only the event registration and must not destroy the event itself.
-- Verify the explicit reply-button association and any icon path on the target machine.
-- Update the VI/parameter context help, examples index and this guide to describe
-  the actual implementation and observed results before delivery.
+The implemented Send button is a standard application-action button below the input.
+The submitted XML does not contain an explicit `hint-inputId` association or a button
+icon. This is sufficient for the demonstrated input capture; an inline quick-reply
+button beside the field is a separate presentation enhancement, not a feature claimed
+by this example.
 
-Do not extend lifecycle guarantees: delivery failures/invalid references remain
-part of #22 and in-flight callback shutdown remains in #16. No framework installation
-or unit-test suite is required. This preparation has not run or changed any VI.
+If that layout is implemented later, inspect the toolkit's TextBoxId/SetTextBoxId and
+ImageUri requirements, keep native references encapsulated, and validate the rendered
+result and resource deployment paths.
+[ToastButton API](https://learn.microsoft.com/en-us/dotnet/api/microsoft.toolkit.uwp.notifications.toastbutton?view=win-comm-toolkit-dotnet-7.0).
+
+## Validation
+
+The user's captures show the displayed Reason field, the entered text `too bussy`,
+and the received User Inputs pair `Reason` / `too bussy`. The saved diagram configures
+the complete action/context string shown above. The VI is executable and its help
+describes the current implementation. The documentation update does not emit another toast.
+
+The user also confirmed the expected behavior when clicking outside the toast,
+closing the notification and interacting with it from Windows notification history.
+These observations do not claim that dismissal generates an activation callback;
+the exact callback payload for each interaction has not been separately recorded.
+
+The user additionally confirmed these submissions:
+
+- Empty submission: User Inputs contains Key `Reason` with an empty Value; the key is not omitted.
+- Special characters: `Réponse & pièce <manquante> "à fournir"` is returned unchanged,
+  including accents, ampersand, angle brackets and quotation marks.
+- Several submissions with different values were received during these checks.
+
+These results were reported explicitly by the user, rather than inferred from the captures.
+Broader lifecycle guarantees and handler delivery failures remain tracked separately
+in #16/#22. No unit-test framework has been added. The older Build Toast With Classes
+example is still present; it has not been deleted or renamed as part of this work.
