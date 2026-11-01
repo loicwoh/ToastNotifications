@@ -12,10 +12,18 @@ Ouvrir `ToastAPI.lvproj`, puis `Examples/Build Toast With Classes.vi`. Le projet
 5. Appeler `ToastService.Initialize`, puis `Register For Events` avec le gestionnaire injecté, avant `Show`.
 6. Attendre l'interaction utilisateur. Fermer les ressources après la fin de cette attente.
 
-L'exemple fournit un champ `Reply` et un bouton `Répondre` avec l'argument `action=Reply`. Saisir un texte puis cliquer sur ce bouton. Le gestionnaire de base affiche le payload LabVIEW en JSON ; fermer son dialogue puis appuyer sur Stop pour terminer l'exemple.
+L'exemple fournit un champ `Reply` et un bouton `Répondre` avec l'argument `action=Reply`. Le gestionnaire de base est désormais sans action : pour exploiter ou afficher la réponse, utiliser un gestionnaire dérivé. Appuyer sur Stop pour terminer l'exemple.
 Les textes affichés ne deviennent pas automatiquement des arguments d'activation.
 
 Pour changer la réaction, créer une classe enfant d'`ActivationHandler`, surcharger `Handle Activation` et passer cette instance à `Register For Events`. Les données reçues sont des chaînes et des paires clé/valeur LabVIEW ; aucune référence .NET n'est exposée au gestionnaire.
+
+## Bouton ouvrant un lien
+
+`ToastBuilder.Add Link Button` ajoute un bouton avec deux chaînes : `Content` pour le texte affiché et `URl` pour l'adresse à ouvrir. Il utilise l'activation `Protocol` de Windows ; le clic sur ce bouton ouvre l'application associée à l'URI au lieu d'appeler le handler LabVIEW. Le clic sur le corps du toast est une activation distincte.
+
+Ouvrir `Examples/Toast With Link Button.vi`, lancer le VI et cliquer sur **Open project on GitHub**. Le lien utilisé est `https://github.com/loicwoh/ToastNotifications`. Appuyer ensuite sur **stop** dans LabVIEW pour libérer le service et le builder. Les valeurs sont des constantes sur le diagramme ; `Toast XML` expose le contenu sérialisé. L'exemple attend Stop même si la préparation retourne une erreur.
+
+Voir le [guide de l'exemple](Examples/Protocol%20Activation.md) et l'[index des exemples](Examples/README.md). L'ouverture du lien a été validée manuellement par l'utilisateur.
 
 ## Organisation sur disque
 
@@ -47,6 +55,6 @@ L'exemple appelle `System.GC.Collect()` après les fermetures : une collecte pon
 - Aides contextuelles des VIs, contrôles, classes, bibliothèques et projet renseignées.
 - Aucun framework de tests unitaires ni dépendance Caraya ajouté.
 
-Le gestionnaire de démonstration bloque le callback pendant son dialogue. La protection contre les doubles enregistrements, l'attente bornée des callbacks en cours et les mesures de stabilité mémoire restent à traiter. La gestion systématique des références temporaires de composition, notamment du bouton créé par `Add Bouton`, demande encore une passe dédiée.
+Le gestionnaire de base n'effectue aucune action ; le handler applicatif doit retourner rapidement. La protection contre les doubles enregistrements, l'attente bornée des callbacks en cours et les mesures de stabilité mémoire restent à traiter. La gestion systématique des références temporaires de composition, notamment du bouton créé par `Add Bouton`, demande encore une passe dédiée. `Add Link Button` utilise une surcharge directe du builder et n'acquiert pas ce handle temporaire de bouton.
 
 Voir [ARCHITECTURE.md](ARCHITECTURE.md), [CALLBACK-LIFETIME.md](CALLBACK-LIFETIME.md) et [HANDOFF.md](HANDOFF.md).

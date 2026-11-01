@@ -10,15 +10,17 @@ Les nœuds de propriétés de classe donnent accès aux références stockées. 
 
 | Composant | Rôle |
 |---|---|
-| ToastBuilder | Create, Add Text, Add Text Input, Add Bouton, Get XML, Show, Close |
+| ToastBuilder | Create, Add Text, Add Text Input, Add Bouton, Add Link Button, Get XML, Show, Close |
 | ToastService | Initialize, Register For Events avec handler injecté, Show sur un builder emprunté, Close |
-| ActivationHandler.Handle Activation | Extension à dispatch dynamique ; le gestionnaire de base affiche actuellement les données en JSON |
+| ActivationHandler.Handle Activation | Extension à dispatch dynamique ; le gestionnaire de base ne fait aucune action et propage l'erreur |
 | Toast Native.lvlib | Appels directs du toolkit, construction et manipulation des objets natifs |
 | Reflection DotNet.lvlib | Métadonnées de réflexion, lecture de propriétés, invocation d'interface et fermeture des handles |
 | Activation.ctl / Argument.ctl | Arguments d'activation bruts et tableau de paires Key/Value copiés en LabVIEW |
 
 `Initialize` prépare la référence du gestionnaire natif. Le handler est injecté séparément dans `Register For Events`, comme paramètre utilisateur du callback `OnActivated`.
 Les arguments restent une chaîne brute : aucun format de parsing n'est imposé à tous les gestionnaires.
+
+`Add Link Button` appelle directement `ToastContentBuilder.AddButton(content, activationType, arguments)` avec `activationType = Protocol` et la chaîne `URl` sur `arguments`. Il n'acquiert ni `System.Uri` ni handle `ToastButton` séparé. Windows ouvre l'URI à l'activation du bouton ; le handler LabVIEW n'est pas appelé pour cette action. Le corps du toast conserve son activation applicative distincte, sans réaction visible avec le handler de base actuel. La validation des URI reste déléguée au toolkit et à Windows.
 
 ## Propriété et erreurs
 

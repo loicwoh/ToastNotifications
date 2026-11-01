@@ -1,0 +1,16 @@
+# Examples
+
+Open `../ToastAPI.lvproj` before opening the examples.
+
+| VI | Purpose | How to try it |
+|---|---|---|
+| `Build Toast With Classes.vi` | Public class workflow with text input and an application-action button | Run, enter a reply, click the button, then press Stop. The current base handler does nothing; inject a derived handler to consume the activation data. |
+| `Toast With Link Button.vi` | Public class workflow with a protocol-activation button | Run, click Open project on GitHub, then press stop in LabVIEW. See [the guide](Protocol%20Activation.md). |
+| `Native Toast Example.vi` | Lower-level toolkit calls | Inspect the diagram before running. Prefer the class examples for application code. |
+
+Running an example can display a Windows notification. The class examples remain
+active until their Stop event, then close the service and builder and perform the
+existing final .NET collection workaround. A protocol button opens its URI through
+Windows; it does not send that button action to the application's activation handler.
+
+The historical prototype remains in `../Archive/SandBox`.

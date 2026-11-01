@@ -23,7 +23,9 @@ Les sorties `object out` des lecteurs de propriétés sont des alias empruntés 
 
 La conversion s'arrête à la première erreur et conserve les entrées déjà copiées. Les références temporaires sont nettoyées avant l'appel du handler. Le payload contient uniquement `Arguments` et `User Inputs` ; l'erreur de conversion est transmise séparément à l'entrée d'erreur du handler. `Last Callback Error` expose sa sortie d'erreur pour diagnostic ; ce n'est pas une file d'événements.
 
-Pour personnaliser la réaction, surcharger `Handle Activation` dans une classe enfant et passer cette instance à l'enregistrement des événements. Le handler travaille sur les données LabVIEW et n'a pas à conserver de référence .NET issue du callback. La boîte de dialogue de démonstration actuellement présente dans le handler de base bloque le retour du callback jusqu'à sa fermeture.
+Pour personnaliser la réaction, surcharger `Handle Activation` dans une classe enfant et passer cette instance à l'enregistrement des événements. Le handler travaille sur les données LabVIEW et n'a pas à conserver de référence .NET issue du callback. Le handler de base actuel est sans action et propage l'erreur ; l'ancien dialogue de démonstration a été retiré. Le handler applicatif doit retourner rapidement et transmettre les données vers sa boucle si nécessaire.
+
+Un bouton ajouté avec `Add Link Button` utilise l'activation Protocol : Windows ouvre son URI sans remettre cette action au callback LabVIEW. Le clic sur le corps du toast est une activation applicative distincte ; le handler de base actuel n'affiche rien pour cette activation. L'exemple de lien conserve l'enregistrement du service et attend stop avant sa fermeture.
 
 ## Vérifications et limites
 
