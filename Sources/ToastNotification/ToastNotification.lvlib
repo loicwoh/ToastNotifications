@@ -17,6 +17,9 @@
 		<Item Name="Reflection DotNet.lvlib" Type="Library" URL="../../Reflection DotNet/Reflection DotNet.lvlib"/>
 		<Item Name="Toast Native.lvlib" Type="Library" URL="../../Toast Native/Toast Native.lvlib"/>
 	</Item>
+	<Item Name="PlugIns" Type="Folder">
+		<Item Name="UserEventActivationHandler.lvclass" Type="LVClass" URL="../../PlugIns/UserEventActivationHandler/UserEventActivationHandler.lvclass"/>
+	</Item>
 	<Item Name="Typedefs" Type="Folder">
 		<Item Name="Activation.ctl" Type="VI" URL="../Activation.ctl"/>
 		<Item Name="Argument.ctl" Type="VI" URL="../Argument.ctl"/>
