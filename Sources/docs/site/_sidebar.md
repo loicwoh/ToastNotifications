@@ -1,0 +1,16 @@
+- **Start here**
+  - [Overview](/)
+  - [Getting started](getting-started.md)
+- **Use the toolkit**
+  - [Public API](api.md)
+  - [VI reference](reference.md)
+  - [Callbacks & ownership](callbacks.md)
+- **Examples**
+  - [Choose an example](examples.md)
+  - [Receive a text reply](guides/reply.md)
+  - [Handle multiple actions](guides/multiple-actions.md)
+  - [Open a link](guides/protocol.md)
+- **Project**
+  - [Microsoft documentation](microsoft.md)
+  - [Coverage & known limits](coverage.md)
+  - [Repository](https://github.com/loicwoh/ToastNotifications)

@@ -7,6 +7,7 @@
 
 # Generated inspection exports and screenshots
 /_review/
+__pycache__/
 
 # LabVIEW local workspace state
 *.aliases
