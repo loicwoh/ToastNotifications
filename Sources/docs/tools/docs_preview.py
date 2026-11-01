@@ -95,6 +95,13 @@ def build() -> None:
         (SITE / 'guides' / f'{name}.md').write_text(source.read_text(encoding='utf-8-sig'), encoding='utf-8')
     routes = reference()
     (SITE / 'reference-routes.js').write_text('window.toastApiReferenceRoutes = ' + json.dumps(routes) + ';\n', encoding='utf-8')
+    # Pages/browser caches must not reuse a runtime/configuration from a previous
+    # publication while the version manifest points at a new commit.
+    revision = hashlib.sha256(b''.join(p.read_bytes() for p in sorted(SITE.rglob('*')) if p.is_file())).hexdigest()[:12]
+    entry = SITE / 'index.html'
+    html = entry.read_text(encoding='utf-8')
+    html = re.sub(r'((?:src|href)=["\'])([^"\']+\.(?:js|css))(["\'])', lambda m: m[1] + m[2] + '?v=' + revision + m[3], html)
+    entry.write_text(html, encoding='utf-8')
     print(f'Staged site: {SITE}')
 
 
@@ -124,7 +131,7 @@ def check() -> None:
                 failures.append(f'{page.relative_to(SITE)}: {link}')
     index = (SITE / 'index.html').read_text(encoding='utf-8')
     for asset in re.findall(r'(?:src|href)=["\']([^"\']+)["\']', index):
-        if not asset.startswith('#') and not urlsplit(asset).scheme and not (SITE / asset).is_file():
+        if not asset.startswith('#') and not urlsplit(asset).scheme and not (SITE / urlsplit(asset).path).is_file():
             failures.append(f'index.html: {asset}')
     if failures:
         raise SystemExit('Broken local links/assets:\n' + '\n'.join(failures))

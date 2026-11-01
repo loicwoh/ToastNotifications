@@ -1,7 +1,7 @@
 /* A shared manifest is installed alongside each version during the Pages build. */
 (function () {
   'use strict';
-  fetch('versions.json').then(function (response) {
+  fetch('versions.json', {cache: 'no-store'}).then(function (response) {
     if (!response.ok) return null;
     return response.json();
   }).then(function (manifest) {
