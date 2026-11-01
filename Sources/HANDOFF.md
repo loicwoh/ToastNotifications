@@ -1,5 +1,9 @@
 # Reprise dans LabVIEW
 
+Validation de l'exemple Reply (#7) : l'utilisateur confirme le comportement attendu lors d'un clic à côté du toast, de sa fermeture et d'une interaction depuis l'historique des notifications Windows. Il confirme également une soumission vide avec la clé `Reason` présente et une valeur vide, ainsi que la restitution exacte de `Réponse & pièce <manquante> "à fournir"`. Une fermeture n'est pas présentée comme générant un callback d'activation. Le bouton Send standard sous le champ est le périmètre livré ; le rendu inline n'est pas implémenté.
+
+Exemple de saisie #7 : `Examples/Toast With Reply.vi` ajoute un champ `Reason` et un bouton **Send** avec `action=reject&requestId=42`. Il réutilise UserEventActivationHandler et la boucle de réception. Les captures utilisateur montrent la paire `Reason` / `too bussy` reçue. Le guide `Examples/Reply Input.md` et l'aide du VI reflètent le code et les validations rapportées. L'ancien `Build Toast With Classes.vi` est conservé. Les garanties de fermeture concurrente et de diagnostic d'envoi restent suivies dans #16/#22.
+
 Ouvrir `ToastAPI.lvproj`, puis `Examples/Build Toast With Classes.vi`.
 La première phase fournit le wrapper direct, un champ Reply, un bouton Répondre, l'enregistrement OnActivated, la conversion des données et le handler à dispatch dynamique injecté.
 

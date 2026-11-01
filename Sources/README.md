@@ -25,6 +25,10 @@ Le handler crée son User Event dans `Initialize` et le détruit dans `Close`. L
 
 Voir le [guide détaillé](Examples/Multiple%20Actions.md) pour le câblage, la procédure d'essai et les vérifications restantes du handler (#22) et du cycle de vie (#16).
 
+## Réponse texte
+
+Pour un exemple de saisie dont le résultat est visible dans la boucle LabVIEW, ouvrir `Examples/Toast With Reply.vi`. Le champ `Reason` et le bouton **Send** transmettent le texte dans `Activation.User Inputs` ; `action=reject&requestId=42` reste dans `Activation.Arguments`. La réception de la clé `Reason` et de la valeur saisie a été confirmée par les captures de l'utilisateur. Voir le [guide de réponse texte](Examples/Reply%20Input.md), qui distingue le fonctionnement validé des essais restant à réaliser. Le bouton est actuellement affiché sous le champ, sans association visuelle inline explicite.
+
 ## Bouton ouvrant un lien
 
 `ToastBuilder.Add Link Button` ajoute un bouton avec deux chaînes : `Content` pour le texte affiché et `URl` pour l'adresse à ouvrir. Il utilise l'activation `Protocol` de Windows ; le clic sur ce bouton ouvre l'application associée à l'URI au lieu d'appeler le handler LabVIEW. Le clic sur le corps du toast est une activation distincte.
