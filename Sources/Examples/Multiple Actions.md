@@ -1,97 +1,116 @@
-# Multiple actions with a User Event — implementation guide
+# Multiple actions with a User Event
 
-Status: preparation only. No VI or handler has been implemented for this scenario.
-Tracked in [#6](https://github.com/loicwoh/ToastNotifications/issues/6) and
-[#22](https://github.com/loicwoh/ToastNotifications/issues/22).
+Open `ToastAPI.lvproj`, then `Examples/Toast With Multiple Actions.vi`.
+The example and User Event handler have been implemented manually. This guide describes
+the current code, tracked in [#6](https://github.com/loicwoh/ToastNotifications/issues/6)
+and [#22](https://github.com/loicwoh/ToastNotifications/issues/22).
 
-## Scenario
+## Trying the example
 
-Suggested main VI: `Toast With Multiple Actions.vi` in this folder.
-Show a request with two application-activation buttons, **Accept** and **Reject**.
-Display received activation data in the main VI through a LabVIEW User Event.
-Use the existing raw argument interface for now; this work does not implement #4.
+1. Run the VI. The toast displays **Request #42**, **Do you accept this request?**,
+   and the **Accept** and **Reject** buttons.
+2. Click one target and inspect `Activation.Arguments` on the example's front panel.
 
-| Click target | Proposed activation arguments |
+| Click target | Configured raw arguments |
 |---|---|
 | Notification body | `action=open&requestId=42` |
 | Accept button | `action=accept&requestId=42` |
 | Reject button | `action=reject&requestId=42` |
 
-These are fixed demonstration strings, not a general-purpose encoding contract.
-Initially display and compare the complete strings; do not introduce a partial
-URL parser or concatenate arbitrary user input. Repeat the example to click each
-target: clicking a button may consume the notification.
+3. The User Event updates the `Activation` and `error` indicators without stopping
+   the loop. These indicators show the most recently received payload, not a history.
+4. Press **stop** to leave the receiving loop and allow cleanup.
+5. Run again to try another target if Windows has removed the notification.
 
-Use `ToastBuilder.Add Bouton` for application buttons, not `Add Link Button`:
-Protocol activation is handled by Windows and does not relay this action to the handler.
-Body launch arguments need their own builder configuration. Inspect the existing
-native Add Argument helpers and toolkit behavior, then expose the smallest class
-method necessary. Verify whether builder arguments are also inherited by buttons;
-record the actual payload and adjust the fixed-string checks accordingly.
+The example uses fixed diagram constants and displays raw strings. It does not
+implement the typed argument API planned in #4 or parse arbitrary key/value data.
+`Toast XML` contains the serialized toast before display: inspect its `launch`
+attribute for the body and the action arguments for the buttons.
 
-## Suggested components
+## Arguments versus User Inputs
 
-| Component | Responsibility |
+`action` and `requestId` are application-provided activation arguments. They are
+returned in `Activation.Arguments`, not as entries in `Activation.User Inputs`.
+
+This example has no text input or selection control, so an empty `User Inputs`
+array is expected. To receive input values, add an input control with a stable ID
+and submit it through an appropriate application-action button. Input IDs and
+submitted values then appear as Key/Value pairs. Displayed text is not input data.
+
+## Construction and body activation
+
+The builder sequence is Create, two Add Text calls, two Add Bouton calls,
+Set Activation Arguments and Get XML. The old introductory text calls were removed:
+adding them as well exceeded the toolkit's text capacity; the question mark is valid.
+
+`ToastBuilder.Set Activation Arguments` takes the raw string `launchArgs` and fixes
+body activation to Foreground. Its native helper, `Toast Native.Add ToastActivation Info`,
+calls `AddToastActivationInfo(launchArgs, activationType)` on the borrowed builder.
+This replaces the body's launch string; it does not append or parse arguments.
+Each button keeps the arguments configured through Add Bouton.
+
+These are application activations, unlike Add Link Button, whose Protocol action
+is handled by Windows rather than the LabVIEW handler.
+
+## Handler and receiving loop
+
+| Component | Current responsibility |
 |---|---|
-| `UserEventActivationHandler.lvclass` | Concrete child of ActivationHandler that forwards activations through a borrowed User Event reference |
-| Handler configuration method | Stores the event reference before injection into Register For Events |
-| `Handle Activation.vi` override | Copies activation and conversion error into an event payload, generates the event and returns promptly |
-| Shared delivery typedef | Cluster containing `Activation` (existing Activation.ctl) and `Error` (standard error cluster) |
-| Main example VI | Owns the User Event and its registration, handles incoming data and Stop, and closes resources |
+| `ActivationHandler` | Base dynamic-dispatch Initialize, Handle Activation and Close hooks |
+| `UserEventActivationHandler.Initialize` | Creates a typed User Event and stores its reference |
+| `Activation Event Data.ctl` | Delivery cluster with `Activation` and `error` |
+| `UserEventActivationHandler.Handle Activation` | Bundles the activation and conversion error, then generates the User Event |
+| `UserEventActivationHandler.Close` | Destroys the owned User Event and merges cleanup errors with its incoming error |
+| Main example | Borrows the event reference, owns its event registration, receives data and controls shutdown |
 
-Names are proposals to confirm while authoring. Keep each class/library in its
-own flat folder; the reusable handler belongs to the toolkit, not inside the example.
-Choose one owner for the delivery typedef so the future FIFO handler can reuse it.
-Do not add .NET references to the event payload or modify Activation.ctl solely
-to add an error field: the delivery wrapper carries the error separately.
+The reusable handler is in `Sources/PlugIns/UserEventActivationHandler`; it is not
+an example-only class. No .NET reference crosses the User Event payload.
 
-## Authoring order
+Initialize ToastService **with** the handler instance. The service calls the
+handler's Initialize hook, stores the returned initialized instance, and also
+returns it to the caller. The example casts that result to UserEventActivationHandler
+and reads its Event Ref property. Using the original pre-initialization class value
+would not retrieve the reference created by Initialize.
 
-1. Define the delivery typedef and create the User Event in the example.
-2. Create the handler child class and its event-reference data member. Use the
-   native accessor/property conventions, class banner and virtual scope folders.
-   Override Handle Activation with the native override facility, retaining its connector.
-3. Implement only the relay. The handler borrows the configured event reference;
-   it must not create/destroy the application's event or registration.
-4. Register the User Event with an Event Structure inside the application's loop.
-   Display the received Arguments, User Inputs and conversion error. Add a Stop event.
-5. Configure the handler, initialize the service and inject the handler with
-   Register For Events. Have the event registration ready before showing the toast.
-6. Add text, the Accept and Reject buttons and body arguments, then show the toast.
-7. Complete shutdown and documentation after the delivery path works.
+The example registers the User Event with the application's Event Structure, then
+registers the native callback through ToastService.Register For Events and shows
+the toast. The receiving loop starts only if setup and Show succeed. Its Stop case
+ends the loop; its User Event case displays the received activation and conversion error.
 
-First milestone: one application button reaches the main VI through the User Event.
-Then add the second button and the distinct notification-body action.
+## Errors and resource ownership
 
-## Errors and lifetime
+The conversion error is bundled into the User Event payload. It is not wired into
+Generate User Event's error input, so an incoming conversion error does not itself
+suppress the send. The `error` indicator displays that delivered conversion error;
+the example's `error out` is its final setup/cleanup result.
 
-- A conversion error arriving at Handle Activation is data to deliver, not a reason
-  to silently suppress the event. Keep it in the payload. Ensure it does not cause
-  Generate User Event to skip the send through its error input.
-- Report an invalid event reference or generation failure through the handler's
-  error output; define error precedence without losing the original conversion error.
-  Do not claim a failed event was delivered.
-- The callback must not wait for a response, show a dialog or close the service.
-  Application work belongs in the receiving loop.
-- Keep the event and its registration alive while a callback can use them.
-  Stop notification production, unregister the callback and resolve callbacks
-  already in progress before destroying communication resources. Decide how to
-  handle already-delivered events and avoid waiting on the loop doing shutdown.
-- The current service does not yet guarantee draining callbacks in progress.
-  Coordinate with #16; a simple Close call or GC.Collect is not proof that event
-  destruction is safe. Do not silently extend the concurrency guarantees.
-- The application owns service closure, builder closure, event unregistration and
-  event destruction. Copies of the handler share the borrowed event reference.
+The current handler does not expose the error output of Generate User Event.
+Invalid references and delivery failures therefore still need an explicit diagnostic
+contract and validation before #22 is considered complete. An unchanged display
+does not prove that a new event was delivered.
 
-## Manual verification before review
+The handler owns the User Event; the application borrows its reference for registration
+and must not destroy it independently. The application owns and unregisters its
+Event Registration Ref. Copies of the handler share the same underlying event.
 
-- A first button activation reaches the receiving loop without blocking the callback.
-- Accept, Reject and body clicks can be distinguished and retain request context.
-- Received data matches what the toolkit actually emits; record body/button inheritance.
-- Conversion errors remain observable; invalid event references fail visibly.
-- Repeated activations do not require restarting LabVIEW.
-- Stop closes resources under the documented supported conditions; pending callback
-  limitations are explicit and not advertised as solved without verification.
-- Context help, parameter descriptions and this guide match the final implementation.
+After the loop, the example attempts to unregister its event registration, close
+the service (including the handler Close hook), close the builder and perform the
+existing final System.GC.Collect workaround. The setup-error path skips the wait
+and proceeds to cleanup. This sequence does not establish that concurrent callbacks
+have drained: callbacks in progress, repeated initialization/closure and partial
+failures remain part of [#16](https://github.com/loicwoh/ToastNotifications/issues/16).
+Do not destroy a resource while a callback may still use it, wait for application
+work inside the callback, or close the service from Handle Activation.
 
-No framework installation or unit-test suite is part of this preparation.
+## Validation status
+
+The user confirmed the nominal User Event reception path, the button actions,
+Stop/restart without quitting LabVIEW, and body activation returning
+`action=open&requestId=42`. The three configured targets are covered by this manual
+validation for #6. No additional notification was emitted during documentation or delivery.
+
+The native body-activation helper, the public method and the example have been
+checked executable, with saved context-help text and icons verified. Conversion-error
+delivery, invalid event references, event-generation failures and shutdown during
+an active callback still require dedicated validation for #22/#16. No unit-test
+framework has been added.

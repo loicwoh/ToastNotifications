@@ -9,13 +9,21 @@ Ouvrir `ToastAPI.lvproj`, puis `Examples/Build Toast With Classes.vi`. Le projet
 2. Ajouter un champ avec `Add Text Input` : `id` identifie la valeur renvoyée au callback ; `Title` et `Placeholder Text` règlent sa présentation.
 3. Ajouter `Add Bouton` : `Content` est le libellé affiché et `Arguments` la chaîne renvoyée à l'activation.
 4. Lire éventuellement le XML avec `Get XML`.
-5. Appeler `ToastService.Initialize`, puis `Register For Events` avec le gestionnaire injecté, avant `Show`.
+5. Appeler `ToastService.Initialize` avec le gestionnaire injecté. Récupérer le handler initialisé si nécessaire, préparer sa réception côté application, puis appeler `ToastService.Register For Events` avant `Show`.
 6. Attendre l'interaction utilisateur. Fermer les ressources après la fin de cette attente.
 
 L'exemple fournit un champ `Reply` et un bouton `Répondre` avec l'argument `action=Reply`. Le gestionnaire de base est désormais sans action : pour exploiter ou afficher la réponse, utiliser un gestionnaire dérivé. Appuyer sur Stop pour terminer l'exemple.
 Les textes affichés ne deviennent pas automatiquement des arguments d'activation.
 
-Pour changer la réaction, créer une classe enfant d'`ActivationHandler`, surcharger `Handle Activation` et passer cette instance à `Register For Events`. Les données reçues sont des chaînes et des paires clé/valeur LabVIEW ; aucune référence .NET n'est exposée au gestionnaire.
+Pour changer la réaction, créer une classe enfant d'`ActivationHandler`, surcharger `Handle Activation` et passer cette instance à `ToastService.Initialize`. Les hooks `Initialize` et `Close` permettent au handler de gérer ses ressources. Le service conserve le handler initialisé et l'utilise lors de `Register For Events`. Les données reçues sont des chaînes et des paires clé/valeur LabVIEW ; aucune référence .NET n'est exposée au gestionnaire.
+
+## Plusieurs actions et User Event
+
+`Examples/Toast With Multiple Actions.vi` utilise `UserEventActivationHandler` pour transmettre les activations à une boucle Event Structure. Les boutons **Accept** et **Reject** portent leurs propres arguments ; `Set Activation Arguments` configure ceux du corps du toast, avec l'activation Foreground. Les trois chaînes incluent `requestId=42` et une action distincte.
+
+Le handler crée son User Event dans `Initialize` et le détruit dans `Close`. L'exemple récupère la référence sur le handler initialisé et possède son propre enregistrement d'événement. Le payload comporte `Activation` et `error`. Sans champ de saisie, `Activation.User Inputs` est normalement vide : les actions sont dans `Activation.Arguments`.
+
+Voir le [guide détaillé](Examples/Multiple%20Actions.md) pour le câblage, la procédure d'essai et les vérifications restantes du handler (#22) et du cycle de vie (#16).
 
 ## Bouton ouvrant un lien
 
@@ -35,6 +43,7 @@ Voir le [guide de l'exemple](Examples/Protocol%20Activation.md) et l'[index des 
 | ActivationHandler | Classe du point d'extension à dispatch dynamique |
 | Toast Native | Bibliothèque des appels natifs du toolkit et ses membres |
 | Reflection DotNet | Bibliothèque des helpers génériques de réflexion et de nettoyage |
+| PlugIns/UserEventActivationHandler | Handler concret, méthodes de cycle de vie, référence d'événement et typedef du payload |
 | Examples | Exemples avec classes et appels natifs directs |
 
 Chaque classe ou bibliothèque et ses membres occupent un dossier plat. Les dossiers virtuels de scope restent indépendants de cette organisation physique.
