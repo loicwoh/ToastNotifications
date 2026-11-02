@@ -4,6 +4,7 @@ Build interactive Windows notifications from LabVIEW, and receive activation
 arguments and submitted text through a customizable handler.
 
 - [Documentation and examples](https://loicwoh.github.io/ToastNotifications/)
+- [Why this project](https://loicwoh.github.io/ToastNotifications/#/background)
 - [Source project](Sources/ToastAPI.lvproj)
 - [Documentation maintenance](Sources/docs/README.md)
 - [Current coverage and limitations](Sources/docs/site/coverage.md)

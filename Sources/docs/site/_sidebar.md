@@ -1,5 +1,6 @@
 - **Start here**
   - [Overview](/)
+  - [Why this project](background.md)
   - [Getting started](getting-started.md)
   - [Concepts](concepts.md)
 - **API by owner**

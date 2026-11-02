@@ -7,6 +7,7 @@ information, rather than keeping another copy of each explanation.
 
 | Information | Canonical source | Build / consumer |
 |---|---|---|
+| Project motivation, history and author's experience with AI assistance | site/background.md | Personal account based on the author's notes; home and repository pages link here |
 | Physical ownership, item URL and technical scope | Saved root .lvlib and referenced .lvlib/.lvclass XML | api_inventory.py discovers owners and public members |
 | Documented layer, owner ID, related workflows, native-accessor annotations | api-map.json | Human-reviewed classification; does not change access scope |
 | Role, boundary and dependencies of each owner | site/api/*.md | API-MEMBERS marker is replaced only in the staged copy |

@@ -6,6 +6,7 @@ Open `ToastAPI.lvproj` in LabVIEW. Start with the focused examples listed in
 ## Documentation entry points
 
 - [Published documentation](https://loicwoh.github.io/ToastNotifications/)
+- [Project motivation and background](docs/site/background.md)
 - [Getting started source](docs/site/getting-started.md)
 - [API overview source](docs/site/api.md)
 - [Concept map source](docs/site/concepts.md)
