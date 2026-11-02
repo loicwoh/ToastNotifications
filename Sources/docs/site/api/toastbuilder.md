@@ -6,7 +6,7 @@ Display through the application's [ToastService](/api/toastservice.md) workflow.
 
 ## Boundary and dependencies
 
-This class uses [Toast Native](/api/toast-native.md). Its methods change the native
+This class delegates composition to the native toolkit. Its methods change the native
 builder directly; there is no separate LabVIEW content engine. The class exposes
 composition methods for displayed text, text input, application buttons, protocol
 buttons and body arguments. Loading saved XML remains planned.
@@ -14,8 +14,20 @@ buttons and body arguments. Loading saved XML remains planned.
 One caller owns Close. Copies of the class share a handle, so closing an alias
 affects the other copies. See [resource ownership](/callbacks.md).
 
-The native reference accessor and its data type are listed for completeness.
-Ordinary application examples use the class methods instead of manipulating
-the underlying .NET handle.
+The application uses these methods without manipulating the underlying .NET handle.
+Native reference accessors and storage types are implementation details.
+
+## Choose a method
+
+- [Create](/reference/toastbuilder/create.md), then compose [text](/reference/toastbuilder/add-text.md),
+  [text input](/reference/toastbuilder/add-text-input.md), [application actions](/reference/toastbuilder/add-bouton.md)
+  or [a link button](/reference/toastbuilder/add-link-button.md).
+- Set [body activation arguments](/reference/toastbuilder/set-activation-arguments.md)
+  separately from button arguments and submitted values.
+- [Inspect XML](/reference/toastbuilder/get-xml.md), then display through
+  [ToastService.Show](/reference/toastservice/show.md). The builder's
+  [Show](/reference/toastbuilder/show.md) is the delegated display call.
+- [Close](/reference/toastbuilder/close.md) the builder after its last use, including
+  after a failure. Class copies alias one handle; keep one explicit owner.
 
 <!-- API-MEMBERS -->

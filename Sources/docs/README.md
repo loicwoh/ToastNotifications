@@ -10,6 +10,9 @@ owner inventory, route compatibility and generated/manual boundaries.
 
 - `api-map.json`: owner IDs, documented layers and related workflows. Membership
   and public scope are discovered from the root library and actual owner XML.
+  `audience: internal` and `internal_members` exclude implementation details from
+  the application reference without changing access scope. Repository-only support
+  notes live in `maintenance/`. See CONTENT-MAP.md for compatibility help URLs.
 - `site/api/*.md`: authored role/dependency pages. The API-MEMBERS marker receives
   the generated member list in staging only.
 - `VISUAL-IDENTITY.md` and `site/assets/identity.css`: toolkit/class palette and
@@ -18,9 +21,9 @@ owner inventory, route compatibility and generated/manual boundaries.
   `visual_family`; the User Event plugin uses the handler family.
 - `site/`: authored English guides, navigation, API overview and Microsoft directory.
 - `Sources/Examples/*.md`: canonical scenario guides, copied into the generated site.
-- Saved public VI/data-type descriptions in all discovered owners: generated reference.
-  Class methods keep their existing help routes; libraries and types gain reference
-  entries without changing the saved VIs or adding help URLs to them.
+- Saved application VI/payload descriptions: generated reference. Class methods
+  keep existing help routes without changing VIs. Raw-handle accessor Help URLs
+  retain a short class-directed compatibility page, outside indexes and search.
 - `vendor/docsify-4.13.1/`: pinned runtime, search plugin, theme and MIT licence.
 - `vendor/mermaid-tiny-12.2.0/`: pinned local renderer for authored Mermaid flowcharts.
 
@@ -33,15 +36,16 @@ Connector terminal descriptions and
 diagrams are not automatically extracted yet. Authored walkthroughs still require human review
 when behavior changes; a generated description cannot verify that it is correct.
 
-## Hybrid detailed help (pilot)
+## Hybrid detailed help
 
 `reference/toastbuilder/add-text.md` is the authored enrichment for the existing
 `/reference/toastbuilder/add-text` route. The generator keeps the title, owner,
 scope, source path and **Short description** from the versioned files, then appends
 this Markdown. It never writes back to the authored directory or saved VIs.
 The short description reproduces the saved LabVIEW Context Help text exactly;
-it is read again on each build. Other entries explicitly say **Short description only**. Review the pilot before
-expanding coverage in #42; automated terminal/diagram export is tracked in #46.
+it is read again on each build. The nine ToastBuilder application methods now
+use this model. Other entries explicitly say **Short description only**; the
+ToastService/handler lots remain in #42. Automated export remains tracked in #46.
 
 To author a page after the pilot is approved:
 

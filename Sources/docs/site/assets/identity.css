@@ -31,7 +31,7 @@
 .module-card .module-symbol { display: inline-flex; color: #fff; font-size: 18px; font-weight: 750; margin-bottom: 8px; }
 .module-card .card-number { color: var(--module-color); }
 .palette-swatch { display: inline-block; width: 1.2em; height: 1.2em; border-radius: 3px; vertical-align: middle; margin-right: 8px; background: var(--module-color); }
-.markdown-section table { display: table; }
+.markdown-section table { display: table; overflow-wrap: normal; }
 @media (max-width: 768px) {
   .module-banner { padding: 12px; gap: 10px; }
   .module-kind { display: none; }

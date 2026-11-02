@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "source": "Sources/ToastBuilder/Show.vi",
+  "reviewed_on": "2026-11-02",
+  "method": "Read-only review of saved develop c856044 sources in LabVIEW 2026 Q3 (64-bit). Native gRPC AIXML: terminal names/types/defaults, Error/No Error wiring and called helper behavior. Native Print.VI To HTML over ActiveX (pylabview backend): connector icon and named terminals copied byte-for-byte from the same worktree. No product execution or save.",
+  "error_behavior": "skip",
+  "reviewed_files": {
+    "Sources/ToastBuilder/Show.vi": "876569be4345a236d7f70f7f4cc66e51b2f316a0a79ed557ff1664d9aa5230ad",
+    "Sources/ToastBuilder/Read Builder Reference.vi": "2deab20e92ad56b47528b89fcded70d01e5653758bcd8812a66bb4e61379da41",
+    "Sources/Toast Native/Show.vi": "9b68727313d26404d19e8594050be0409dc2a32cf4db93c834b11b8316ab4df7",
+    "Sources/ToastBuilder/Write Builder Reference.vi": "4a1ae78b5abdcf729b91da0b08fec1e312fbd953eb7d8078bdfebf434b91d82f"
+  },
+  "visual": "toastbuilder/show.png",
+  "visual_sha256": "5dcf014f1ce914205bb4c924c7a41d24df1c5ad77d902e89d60b6486280445fa"
+}

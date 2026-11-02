@@ -24,6 +24,8 @@ information, rather than keeping another copy of each explanation.
 | Detailed-help authoring structure | templates/detailed-help.md | Maintainer scaffold; never published as an API entry |
 | Toolkit/class visual conventions | VISUAL-IDENTITY.md and site/assets/identity.css | Repository-only maintainer reference for the shared palette and future LabVIEW banners; not published as a website page |
 | Owner to visual family | api-map.json: visual_family | Generated owner banners; plugin uses its base handler family |
+| Application API documentation boundary | api-map.json: audience and internal_members | Excludes support libraries and raw-reference members independently of saved access rights |
+| Internal library implementation notes | maintenance/*.md | Repository-only; never copied into the website |
 
 ## Existing repository documents
 
@@ -52,7 +54,8 @@ canonical destination.
 - Owner pages use /api/{owner-id}. Methods and data types use
   /reference/{owner-id}/{member-slug}. Existing class owner IDs and all 23 saved
   VI help URLs are retained. The 23-entry api-links.json remains the input to
-  Sync-DetailedHelp.ps1; new low-level/type pages do not require saving VIs.
+  Sync-DetailedHelp.ps1. Payload-type pages do not require saving VIs; internal
+  support libraries are excluded from the current website.
 - api-map.json fixes IDs independently of display labels. Inventory validates
   collisions and missing/ambiguous source URLs. A new owner must be classified.
 - Breadcrumbs go API → root library → owner → member. Each member links back
@@ -69,11 +72,18 @@ The root is ToastNotification.lvlib, not a hard-coded list of four classes.
 Traverse library/class membership, resolve actual item URLs and retain Public
 members. Explicit method/item scope takes precedence over inherited folder scope.
 Private, Protected and Community members are excluded from the public lists.
-Class private-data controls are excluded. Public .ctl files have their own entries.
+Class private-data controls are excluded. Application payload .ctl files have their
+own entries; internal storage types are excluded by internal_members.
 
-Application, Extension and Low-level are documentation categories describing the
-existing examples. Public native-reference accessors stay listed in a separate
-section; they do not become a recommended application API through documentation.
+Application and Extension define the user-facing classes. Support owners marked
+audience=internal and members listed in internal_members are not promoted in
+public lists, owner children, search routes or the published inventory. This does
+not modify LabVIEW scopes. Existing saved Help URLs for the two raw-reference
+accessors retain small compatibility pages pointing to their class; their full
+descriptions are not published. The 23-entry help-link maintenance map is retained.
+The low-level owner notes remain in maintenance/, outside site/. A mapped internal
+owner can later become Community/Private without breaking documentation inventory
+validation, provided its recorded source still exists.
 The stable support boundary remains undecided in #18.
 
 ## Generated output and historical versions
@@ -90,3 +100,5 @@ For those refs it discovers owners from their root library, preserves class
 reference IDs and supplies minimal generated owner pages with an Unclassified
 layer. It does not require new authored pages or execute old branch scripts.
 This compatibility path does not make old release documentation immutable.
+Audience exclusions come from each source version's map; historical versions
+without the flags retain their earlier inventory and references.

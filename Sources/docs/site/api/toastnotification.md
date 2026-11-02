@@ -9,8 +9,6 @@ native wrappers and shared activation data types.
   callback registration with [ToastService](/api/toastservice.md).
 - **Extension:** use the [ActivationHandler](/api/activationhandler.md) contract and
   the supplied [User Event implementation](/api/usereventactivationhandler.md).
-- **Low-level:** inspect [Toast Native](/api/toast-native.md) and
-  [Reflection DotNet](/api/reflection-dotnet.md) when maintaining the integration.
 
 These categories describe the current workflows. They do not change LabVIEW
 access scope or establish a stable release API; that policy remains in

@@ -62,5 +62,5 @@ its own class wire. See [Toast With Reply.vi](/guides/reply.md) for a runnable e
 
 - [ToastBuilder](/api/toastbuilder.md) · [Builder and service concepts](/concepts.md)
 - [Create](/reference/toastbuilder/create.md) · [Get XML](/reference/toastbuilder/get-xml.md) · [Close](/reference/toastbuilder/close.md)
-- [Receive a text reply](/guides/reply.md) · [Native Add Text](/reference/toast-native/add-text.md)
+- [Receive a text reply](/guides/reply.md) · [ToastService](/api/toastservice.md)
 - [Microsoft API reference directory](/microsoft.md)

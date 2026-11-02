@@ -78,5 +78,19 @@ class InventoryChecks(unittest.TestCase):
             inventory(self.root)
 
 
+    def test_internal_owner_can_become_community_without_breaking_the_map(self):
+        self.write('Sources/ToastBuilder/ToastBuilder.lvclass', '<LVClass/>')
+        self.write('Sources/Support/Support.lvlib', '<Library/>')
+        self.write('Sources/ToastNotification/ToastNotification.lvlib',
+                   '<Library><Item Type="LVClass" URL="../../ToastBuilder/ToastBuilder.lvclass"/>'
+                   '<Item Type="Library" URL="../../Support/Support.lvlib">'
+                   '<Property Name="NI.LibItem.Scope">4</Property></Item></Library>')
+        self.write('Sources/docs/api-map.json', json.dumps({'owners': {
+            'Sources/ToastNotification/ToastNotification.lvlib': {'id': 'toastnotification'},
+            'Sources/ToastBuilder/ToastBuilder.lvclass': {'id': 'toastbuilder'},
+            'Sources/Support/Support.lvlib': {'id': 'support', 'audience': 'internal'}}}))
+        self.assertEqual([o.id for o in inventory(self.root)], ['toastnotification', 'toastbuilder'])
+
+
 if __name__ == '__main__':
     unittest.main()
