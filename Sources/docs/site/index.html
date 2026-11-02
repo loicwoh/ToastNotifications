@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <div id="app">Loading ToastAPI documentation…</div>
   <script src="reference-routes.js"></script>
   <script src="navigation.js"></script>
@@ -21,6 +22,7 @@
       loadSidebar: true,
       subMaxLevel: 2,
       auto2top: true,
+      topMargin: 72,
       requestHeaders: { 'Cache-Control': 'no-cache' },
       alias: { '/.*/_sidebar.md': '/_sidebar.md' },
       notFoundPage: true,
@@ -44,6 +46,7 @@
   </script>
   <script src="vendor/mermaid-tiny-12.2.0/mermaid.tiny.js"></script>
   <script src="assets/diagrams.js"></script>
+  <script src="assets/navigation.js"></script>
   <script src="vendor/docsify-4.13.1/docsify.min.js"></script>
   <script src="vendor/docsify-4.13.1/search.min.js"></script>
   <script src="assets/versions.js"></script>

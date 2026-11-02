@@ -44,7 +44,35 @@ body { color: var(--ink); font-family: "Segoe UI", system-ui, sans-serif; font-s
 .flow b { color: var(--ink); }
 .doc-footer { margin-top: 55px; border-top: 1px solid var(--line); padding-top: 18px; color: #7a8a95; font-size: 12px; }
 @media (max-width: 1000px) { .cards { grid-template-columns: 1fr; } .markdown-section { padding: 35px 28px; } }
-@media (max-width: 768px) { .sidebar { transform: translateX(-280px); } body.close .sidebar { transform: translateX(0); } .content { left: 0; } .sidebar-toggle { width: auto; } .markdown-section h1 { font-size: 31px; } .markdown-section table { display: block; } }
-:root { --version-picker-height: 48px; }
-.version-picker { position: fixed; z-index: 50; right: 12px; top: 8px; padding: 6px 10px; background: #fff; border: 1px solid #d5e1e8; border-radius: 5px; font-size: 12px; }
-.version-picker select { max-width: 250px; background: #fff; color: #132c41; border: 0; }
+:root { --version-picker-height: 56px; }
+main { z-index: auto; }
+.version-picker { position: fixed; z-index: 40; right: 0; left: 280px; top: 0; min-height: var(--version-picker-height); box-sizing: border-box; padding: 6px 16px; background: #fff; border-bottom: 1px solid var(--line); font-size: 12px; display: flex; align-items: center; justify-content: flex-end; gap: 10px; }
+.version-picker select { min-width: 0; max-width: 100%; min-height: 44px; background: #fff; color: var(--ink); border: 1px solid var(--line); border-radius: 5px; padding: 0 8px; font: inherit; }
+body.close .version-picker { left: 0; }
+.markdown-section { padding-top: 80px; overflow-wrap: anywhere; }
+.markdown-section img { max-width: 100%; height: auto; }
+.markdown-section table, .markdown-section pre, .mermaid { max-width: 100%; overflow-x: auto; }
+.markdown-section table { display: block; }
+.markdown-section :is(h1,h2,h3,h4) { scroll-margin-top: 72px; }
+:focus-visible { outline: 3px solid #176357; outline-offset: 3px; }
+.skip-link { position: fixed; top: -100px; left: 60px; z-index: 100; padding: 10px 16px; background: #fff; color: var(--ink); }
+.skip-link:focus { top: 6px; }
+.sidebar-toggle { min-width: 44px; min-height: 44px; }
+.menu-backdrop { display: none; }
+@media (max-width: 768px) {
+  /* Docsify uses body.close for an OPEN mobile drawer, but a CLOSED desktop one. */
+  .sidebar { position: fixed; top: 56px; left: 0; bottom: 0; width: min(280px, calc(100vw - 48px)); transform: translateX(-100%); z-index: 50; padding-top: 12px; padding-bottom: 24px; box-sizing: border-box; }
+  body.close .sidebar { transform: translateX(0); }
+  .content, body.close .content { left: 0; transform: none; padding-top: 0; }
+  .sidebar-toggle, body.close .sidebar-toggle { position: fixed; top: 0; bottom: auto; left: 0; width: 48px; height: 56px; padding: 16px; background: #fff; z-index: 60; }
+  .version-picker, body.close .version-picker { left: 0; padding: 6px 8px 6px 56px; }
+  .version-picker span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .version-picker select { width: 100%; }
+  .markdown-section { padding: 80px 20px 24px; }
+  .markdown-section h1 { font-size: 30px; }
+  .mermaid svg { min-width: 680px; }
+  .sidebar-nav a { display: inline-block; min-height: 44px; box-sizing: border-box; padding-top: 10px; padding-bottom: 10px; }
+  body.close { overflow: hidden; }
+  body.close .menu-backdrop { display: block; position: fixed; inset: 56px 0 0; z-index: 45; border: 0; background: #132c4166; }
+}
+@media (prefers-reduced-motion: reduce) { .sidebar, .content { transition: none; } }

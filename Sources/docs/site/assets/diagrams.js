@@ -15,6 +15,9 @@
       document.querySelectorAll('.markdown-section pre > code.lang-mermaid').forEach(function (code) {
         var diagram = document.createElement('div');
         diagram.className = 'mermaid';
+        diagram.setAttribute('tabindex', '0');
+        diagram.setAttribute('role', 'region');
+        diagram.setAttribute('aria-label', 'Diagram; scroll horizontally to explore');
         diagram.textContent = code.textContent;
         code.parentElement.replaceWith(diagram);
         nodes.push(diagram);
