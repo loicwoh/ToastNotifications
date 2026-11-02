@@ -1,0 +1,36 @@
+{
+  "root": "Sources/ToastNotification/ToastNotification.lvlib",
+  "owners": {
+    "Sources/ToastNotification/ToastNotification.lvlib": {
+      "id": "toastnotification", "category": "Toolkit",
+      "concept": "concepts.md", "examples": ["reply", "multiple-actions", "protocol"]
+    },
+    "Sources/ToastBuilder/ToastBuilder.lvclass": {
+      "id": "toastbuilder", "category": "Application",
+      "concept": "concepts.md?id=builder",
+      "examples": ["reply", "multiple-actions", "protocol"],
+      "native_accessors": ["Read Builder Reference.vi"]
+    },
+    "Sources/ToastService/ToastService.lvclass": {
+      "id": "toastservice", "category": "Application",
+      "concept": "callbacks.md", "examples": ["reply", "multiple-actions", "protocol"],
+      "native_accessors": ["Read reference.vi"]
+    },
+    "Sources/ActivationHandler/ActivationHandler.lvclass": {
+      "id": "activationhandler", "category": "Extension",
+      "concept": "concepts.md?id=activation", "examples": ["reply", "multiple-actions"]
+    },
+    "Sources/PlugIns/UserEventActivationHandler/UserEventActivationHandler.lvclass": {
+      "id": "usereventactivationhandler", "category": "Extension",
+      "concept": "callbacks.md", "examples": ["reply", "multiple-actions"]
+    },
+    "Sources/Toast Native/Toast Native.lvlib": {
+      "id": "toast-native", "category": "Low-level",
+      "concept": "concepts.md?id=builder", "examples": ["protocol", "multiple-actions"]
+    },
+    "Sources/Reflection DotNet/Reflection DotNet.lvlib": {
+      "id": "reflection-dotnet", "category": "Low-level",
+      "concept": "concepts.md?id=reflection", "examples": ["reply", "multiple-actions"]
+    }
+  }
+}

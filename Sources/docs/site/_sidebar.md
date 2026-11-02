@@ -1,9 +1,17 @@
 - **Start here**
   - [Overview](/)
   - [Getting started](getting-started.md)
-- **Use the toolkit**
-  - [Public API](api.md)
-  - [VI reference](reference.md)
+  - [Concepts](concepts.md)
+- **API by owner**
+  - [Choose a layer](api.md)
+  - [ToastNotification](api/toastnotification.md)
+  - [ToastBuilder](api/toastbuilder.md)
+  - [ToastService](api/toastservice.md)
+  - [ActivationHandler](api/activationhandler.md)
+  - [User Event plugin](api/usereventactivationhandler.md)
+  - [Toast Native](api/toast-native.md)
+  - [Reflection DotNet](api/reflection-dotnet.md)
+  - [VI and data type index](reference.md)
   - [Callbacks & ownership](callbacks.md)
 - **Examples**
   - [Choose an example](examples.md)

@@ -22,15 +22,19 @@
 
 ## A small public surface
 
-Use `ToastBuilder` to construct content, `ToastService` to manage notification
-registration, and an `ActivationHandler` to decide what happens after a click.
+Use [ToastBuilder](api/toastbuilder.md) to construct content,
+[ToastService](api/toastservice.md) to manage notification registration, and an
+[ActivationHandler](api/activationhandler.md) to decide what happens after a click.
 The application sees LabVIEW values and classes; the .NET references stay inside the wrapper.
 
-<div class="flow"><b>ToastBuilder</b> → Windows notification → <b>ActivationHandler</b> → your LabVIEW loop</div>
+<div class="flow"><a href="#/api/toastbuilder">ToastBuilder</a> → Windows notification → <a href="#/api/activationhandler">ActivationHandler</a> → your LabVIEW loop</div>
 
-`UserEventActivationHandler` provides the current working relay. Its event payload
+[UserEventActivationHandler](api/usereventactivationhandler.md) provides the current working relay. Its event payload
 contains `Activation` and the conversion `error`. It allows your application to
 handle the result outside the native callback.
+
+Browse the [API by owner](api.md), [concept map](concepts.md) or
+[reference index](reference.md) to follow this workflow into the saved methods.
 
 ## Know what is ready
 

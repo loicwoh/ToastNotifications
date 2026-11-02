@@ -1,5 +1,9 @@
 # Callbacks & ownership
 
+[Concepts](/concepts.md) · [ToastService](/api/toastservice.md) ·
+[ActivationHandler](/api/activationhandler.md) ·
+[User Event plugin](/api/usereventactivationhandler.md)
+
 Keep the native callback short. Transfer data to the application's loop before
 performing long-running work or interacting with the UI.
 

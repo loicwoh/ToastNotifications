@@ -9,11 +9,10 @@ import re
 import shutil
 import hashlib
 import json
-import xml.etree.ElementTree as ET
 import sys
 from urllib.parse import unquote, urlsplit
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from vi_descriptions import description, resource
+from reference_docs import generate_reference
 
 ROOT = Path(__file__).resolve().parents[3]
 STAGE = ROOT / '_review' / 'docsify-preview'
@@ -26,57 +25,8 @@ GUIDES = {
 }
 
 
-def slug(value: str) -> str:
-    return re.sub(r'[^a-z0-9]+', '-', value.lower()).strip('-')
-
-
 def reference() -> list[str]:
-    routes = []
-    links = []
-    index = ['# VI reference', '', 'Generated from saved VI descriptions and class membership at build time.',
-             'Edit context help in LabVIEW and save the VI to update these pages.', '',
-             'Connector terminal details remain available in LabVIEW Context Help.', '']
-    owners = ['Sources/ToastBuilder/ToastBuilder.lvclass',
-              'Sources/ToastService/ToastService.lvclass',
-              'Sources/ActivationHandler/ActivationHandler.lvclass',
-              'Sources/PlugIns/UserEventActivationHandler/UserEventActivationHandler.lvclass']
-    for relative in owners:
-        owner = ROOT / relative
-        tree = ET.parse(owner)
-        index += [f'## {owner.stem}', '']
-        for item in tree.iter('Item'):
-            if item.get('Type') != 'VI' or not item.get('Name', '').endswith('.vi'):
-                continue
-            scope = item.find("Property[@Name='NI.ClassItem.MethodScope']")
-            if scope is None or scope.text != '1':
-                continue
-            path = owner.parent / item.get('Name')
-            name = path.stem
-            route = f'reference/{slug(owner.stem)}/{slug(name)}'
-            destination = SITE / (route + '.md')
-            destination.parent.mkdir(parents=True, exist_ok=True)
-            source = path.relative_to(ROOT).as_posix()
-            body = description(path)
-            if not body.strip():
-                if REQUIRE_HELP_LINKS:
-                    raise ValueError(f'Missing public VI description: {source}')
-                print(f'Warning: missing public VI description: {source}')
-                body = 'Context help has not been documented for this VI yet.'
-            if REQUIRE_HELP_LINKS:
-                expected = ('https://loicwoh.github.io/ToastNotifications/#/' + route).encode('ascii')
-                raw = resource(path, b'HLPW')
-                if raw != len(expected).to_bytes(4, 'big') + expected or resource(path, b'HLPU') != b'\x01\x00\x00\x00':
-                    raise ValueError(f'Missing or outdated detailed help URL: {source}. Run Sync-DetailedHelp.ps1 after a normal build.')
-            destination.write_text(f'# {owner.stem}: {name}\n\n{body}\n\n'
-                                   f'**Source:** `{source}`\n\n'
-                                   f'<!-- VI SHA-256: {hashlib.sha256(path.read_bytes()).hexdigest()} -->\n', encoding='utf-8')
-            index.append(f'- [{name}](/{route}.md)')
-            routes.append('/' + route)
-            links.append(dict(source=source, route='#/' + route))
-        index.append('')
-    (SITE / 'reference.md').write_text('\n'.join(index), encoding='utf-8')
-    (SITE / 'api-links.json').write_text(json.dumps(links, indent=2), encoding='utf-8')
-    return ['/reference', *routes]
+    return generate_reference(ROOT, SITE, REQUIRE_HELP_LINKS)
 
 
 def build() -> None:
@@ -98,6 +48,8 @@ def build() -> None:
     # Pages/browser caches must not reuse a runtime/configuration from a previous
     # publication while the version manifest points at a new commit.
     revision = hashlib.sha256(b''.join(p.read_bytes() for p in sorted(SITE.rglob('*')) if p.is_file())).hexdigest()[:12]
+    with (SITE / 'reference-routes.js').open('a', encoding='utf-8') as config:
+        config.write('window.toastApiBuildRevision = ' + json.dumps(revision) + ';\n')
     entry = SITE / 'index.html'
     html = entry.read_text(encoding='utf-8')
     html = re.sub(r'((?:src|href)=["\'])([^"\']+\.(?:js|css))(["\'])', lambda m: m[1] + m[2] + '?v=' + revision + m[3], html)
