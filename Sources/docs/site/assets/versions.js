@@ -8,7 +8,9 @@
     if (!manifest) return;
     var label = document.createElement('label');
     label.className = 'version-picker';
-    label.textContent = 'Documentation version ';
+    var caption = document.createElement('span');
+    caption.textContent = 'Documentation version';
+    label.appendChild(caption);
     var select = document.createElement('select');
     select.setAttribute('aria-label', 'Documentation version');
     manifest.versions.forEach(function (version) {
