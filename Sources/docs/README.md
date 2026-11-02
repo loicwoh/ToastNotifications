@@ -12,8 +12,9 @@ owner inventory, route compatibility and generated/manual boundaries.
   and public scope are discovered from the root library and actual owner XML.
 - `site/api/*.md`: authored role/dependency pages. The API-MEMBERS marker receives
   the generated member list in staging only.
-- `site/visual-identity.md` and `site/assets/identity.css`: toolkit/class visual
-  proposal, palette and usage rules. `api-map.json` assigns each owner a
+- `VISUAL-IDENTITY.md` and `site/assets/identity.css`: toolkit/class palette and
+  usage rules. The maintainer reference stays outside the published site.
+  `api-map.json` assigns each owner a
   `visual_family`; the User Event plugin uses the handler family.
 - `site/`: authored English guides, navigation, API overview and Microsoft directory.
 - `Sources/Examples/*.md`: canonical scenario guides, copied into the generated site.

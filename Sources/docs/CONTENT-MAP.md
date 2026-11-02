@@ -7,6 +7,7 @@ information, rather than keeping another copy of each explanation.
 
 | Information | Canonical source | Build / consumer |
 |---|---|---|
+| Project motivation, history and author's experience with AI assistance | site/background.md | Personal account based on the author's notes; home and repository pages link here |
 | Physical ownership, item URL and technical scope | Saved root .lvlib and referenced .lvlib/.lvclass XML | api_inventory.py discovers owners and public members |
 | Documented layer, owner ID, related workflows, native-accessor annotations | api-map.json | Human-reviewed classification; does not change access scope |
 | Role, boundary and dependencies of each owner | site/api/*.md | API-MEMBERS marker is replaced only in the staged copy |
@@ -21,7 +22,7 @@ information, rather than keeping another copy of each explanation.
 | Compact incoming-error behavior | Adjacent reference/*.json: error_behavior=skip/always | Bold cue in detailed help; use the same wording in authorized context-help edits |
 | Detailed-help review provenance and saved-file fingerprints | Adjacent reference/*.json | Build checks freshness; technical review evidence is not published in the help page |
 | Detailed-help authoring structure | templates/detailed-help.md | Maintainer scaffold; never published as an API entry |
-| Toolkit/class visual conventions | site/visual-identity.md and site/assets/identity.css | Shared navy/amber identity and three class accents; native VI captures unchanged |
+| Toolkit/class visual conventions | VISUAL-IDENTITY.md and site/assets/identity.css | Repository-only maintainer reference for the shared palette and future LabVIEW banners; not published as a website page |
 | Owner to visual family | api-map.json: visual_family | Generated owner banners; plugin uses its base handler family |
 
 ## Existing repository documents

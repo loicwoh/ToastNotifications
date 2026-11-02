@@ -1,5 +1,6 @@
 - **Start here**
   - [Overview](/)
+  - [Why this project](background.md)
   - [Getting started](getting-started.md)
   - [Concepts](concepts.md)
 - **API by owner**
@@ -19,7 +20,6 @@
   - [Handle multiple actions](guides/multiple-actions.md)
   - [Open a link](guides/protocol.md)
 - **Project**
-  - [Visual identity](visual-identity.md)
   - [Microsoft documentation](microsoft.md)
   - [Coverage & known limits](coverage.md)
   - [Repository](https://github.com/loicwoh/ToastNotifications)
