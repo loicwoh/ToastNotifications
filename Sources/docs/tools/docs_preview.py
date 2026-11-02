@@ -29,6 +29,21 @@ def reference() -> list[str]:
     return generate_reference(ROOT, SITE, REQUIRE_HELP_LINKS)
 
 
+def stage_legal(root: Path, site: Path) -> None:
+    """Publish this version's own licence texts; never invent them for old refs."""
+    if not (site / 'licenses.md').is_file():
+        return
+    required = [root / 'LICENSE', root / 'THIRD-PARTY-NOTICES.md',
+                root / 'Sources/third-party-licenses']
+    if not all(path.exists() for path in required):
+        raise ValueError('Licenses page requires the versioned project licence and third-party texts')
+    legal = site / 'legal'
+    legal.mkdir()
+    shutil.copyfile(required[0], legal / 'toastapi-license.txt')
+    shutil.copyfile(required[1], legal / 'third-party-notices.txt')
+    shutil.copytree(required[2], legal / 'third-party')
+
+
 def build() -> None:
     # A clean staging tree prevents deleted methods/pages surviving a rebuild.
     source = (ROOT / 'Sources').resolve()
@@ -40,6 +55,7 @@ def build() -> None:
     SITE.mkdir(parents=True, exist_ok=True)
     shutil.copytree(ROOT / 'Sources/docs/site', SITE, dirs_exist_ok=True)
     shutil.copytree(ROOT / 'Sources/docs/vendor', SITE / 'vendor', dirs_exist_ok=True)
+    stage_legal(ROOT, SITE)
     (SITE / 'guides').mkdir(exist_ok=True)
     for name, source in GUIDES.items():
         (SITE / 'guides' / f'{name}.md').write_text(source.read_text(encoding='utf-8-sig'), encoding='utf-8')

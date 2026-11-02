@@ -13,3 +13,12 @@ Development currently uses LabVIEW 2026 on Windows and
 Microsoft.Toolkit.Uwp.Notifications. `develop` is the integration branch; `main`
 is reserved for releases. Documentation previews identify their branch and commit
 in the version selector. Compatibility with LabVIEW 2020 remains planned.
+
+## License
+
+Original ToastAPI code and authored documentation are available under the
+[MIT License](LICENSE), copyright (c) 2026 loicwoh, without warranty or an
+obligation to provide support. Third-party components retain their own terms;
+see [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md), including the legacy DLL
+remaining in repository history. LabVIEW and platform prerequisites are
+licensed separately.

@@ -20,4 +20,5 @@
 - **Project**
   - [Microsoft documentation](microsoft.md)
   - [Coverage & known limits](coverage.md)
+  - [Licenses & third-party notices](licenses.md)
   - [Repository](https://github.com/loicwoh/ToastNotifications)
