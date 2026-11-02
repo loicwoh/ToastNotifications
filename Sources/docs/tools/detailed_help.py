@@ -8,6 +8,7 @@ import shutil
 ERROR_BEHAVIORS = {
     'skip': 'Skipped on incoming error.',
     'always': 'Executes even on incoming error.',
+    'noop': 'No action, with or without incoming error.',
 }
 
 
@@ -44,7 +45,7 @@ def load_help(root: Path, site: Path, members: dict[str, str]) -> dict[str, str]
             raise ValueError(f'Changed detailed help visual: {route}; review capture provenance')
         behavior = record.get('error_behavior')
         if behavior not in ERROR_BEHAVIORS:
-            raise ValueError(f'Choose skip or always error_behavior: {route}')
+            raise ValueError(f'Choose skip, always or noop error_behavior: {route}')
         content = stem.with_suffix('.md').read_text(encoding='utf-8')
         if re.search(r'^# ', content, re.MULTILINE):
             raise ValueError(f'Detailed help enrichment must start at H2: {route}')

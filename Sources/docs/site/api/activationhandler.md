@@ -18,4 +18,18 @@ the current relay. A FIFO handler and a complete custom-handler tutorial remain
 tracked separately. See [activation](/concepts.md?id=activation) and
 [ownership](/callbacks.md) before implementing another destination.
 
+## Choose a hook
+
+- [Initialize](/reference/activationhandler/initialize.md): return the initialized
+  child value with the resources it needs for callback delivery.
+- [Handle Activation](/reference/activationhandler/handle-activation.md): receive
+  Activation and its conversion error, with no connector outputs.
+- [Close](/reference/activationhandler/close.md): release child-owned resources
+  while preserving the primary error.
+
+The three base implementations perform no action. Error handling and delivery
+are child responsibilities; the [User Event implementation](/api/usereventactivationhandler.md)
+shows one concrete policy. A minimal custom handler implements these hooks and
+exposes only the communication references needed by its caller.
+
 <!-- API-MEMBERS -->

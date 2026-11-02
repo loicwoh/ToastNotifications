@@ -76,6 +76,14 @@ class DetailedHelpChecks(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Stale detailed help'):
             self.load()
 
+    def test_noop_base_hook_is_distinguished_from_error_gated_work(self):
+        self.record['error_behavior'] = 'noop'
+        self.save_record()
+        content = self.load()[self.route]
+        self.assertIn('**Error behavior: No action, with or without incoming error.**', content)
+        self.assertNotIn('Skipped on incoming error.', content)
+        self.assertNotIn('Executes even on incoming error.', content)
+
     def test_orphaned_or_wrong_member_is_rejected(self):
         self.record['source'] = 'Sources/ToastBuilder/Wrong.vi'
         self.save_record()
@@ -109,7 +117,7 @@ class DetailedHelpChecks(unittest.TestCase):
     def test_unknown_error_behavior_is_rejected(self):
         self.record['error_behavior'] = 'guessed'
         self.save_record()
-        with self.assertRaisesRegex(ValueError, 'Choose skip or always'):
+        with self.assertRaisesRegex(ValueError, 'Choose skip, always or noop'):
             self.load()
 
     def test_changed_captured_visual_is_rejected(self):

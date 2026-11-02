@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "source": "Sources/ActivationHandler/Close.vi",
+  "reviewed_on": "2026-11-02",
+  "method": "Read-only review of committed develop dd2e5ec sources in LabVIEW 2026 Q3 64-bit. Native gRPC AIXML: terminals, defaults, dynamic dispatch, error wiring and called helpers. Native Print.VI To HTML over ActiveX (pylabview): icon/terminal PNG copied unchanged. No product execution, save or scope edit. Base hooks are no-ops; Handle Activation has no outputs despite inherited summary wording. Plugin delivery attempts even on conversion error; its summary is inherited base text. Shutdown diagrams retain the maintainer-approved target sequence; see reviews/42-toastservice.md and reviews/42-handlers.md for pending code sequencing.",
+  "error_behavior": "noop",
+  "reviewed_files": {
+    "Sources/ActivationHandler/Close.vi": "0004e204c3598f59f379b1cfac45b306175145d59bae055c8675cdbb53171638",
+    "Sources/ToastService/Close.vi": "f4c6ca8e3d5b79277c1e1dbeb1cf63343da331d6bf649599d11bd18246d5ae41",
+    "Sources/ActivationHandler/ActivationHandler.lvclass": "507937ade16e8192e7f6710a4670a8aa341e47032675dd33bee07387c84ceab7"
+  },
+  "visual": "activationhandler/close.png",
+  "visual_sha256": "fb0161ae0306d5327d76268cafffabaaee5a88d2054f70aae70071f083f76ea5"
+}
