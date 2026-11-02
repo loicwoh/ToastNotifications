@@ -10,7 +10,7 @@ Handler violet. The User Event plugin shares the handler family; low-level
 libraries retain the common toolkit treatment. Full owner names and B/S/H
 markers keep the distinction usable without color perception.
 
-The short, public convention is [visual-identity.md](../site/visual-identity.md):
+The convention is preserved as the repository-only [VISUAL-IDENTITY.md](../VISUAL-IDENTITY.md):
 hex/RGB values, dark accents, light surfaces, class/VI banners, diagram treatment
 and a possible future LabVIEW icon-banner application. No VI icon, class, library,
 connector or diagram binary has been modified. Native exported PNGs are unchanged.
