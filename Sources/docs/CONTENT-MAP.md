@@ -52,8 +52,9 @@ canonical destination.
 - Keep /api and /reference as entry points. Existing /api?id=toastbuilder,
   toastservice, activationhandler, activation-data and xml-support anchors remain.
 - Owner pages use /api/{owner-id}. Methods and data types use
-  /reference/{owner-id}/{member-slug}. Existing class owner IDs and all 23 saved
-  VI help URLs are retained. The 23-entry api-links.json remains the input to
+  /reference/{owner-id}/{member-slug}. Existing class owner IDs and saved
+  VI help URLs (with a compatibility page for the renamed Create method) are retained.
+  The generated api-links.json remains the input to
   Sync-DetailedHelp.ps1. Payload-type pages do not require saving VIs; internal
   support libraries are excluded from the current website.
 - api-map.json fixes IDs independently of display labels. Inventory validates
@@ -68,7 +69,7 @@ canonical destination.
 
 ## Inventory and scope
 
-The root is ToastNotification.lvlib, not a hard-coded list of four classes.
+The root is ToastNotification.lvlib, not a hard-coded list of classes.
 Traverse library/class membership, resolve actual item URLs and retain Public
 members. Explicit method/item scope takes precedence over inherited folder scope.
 Private, Protected and Community members are excluded from the public lists.
@@ -80,7 +81,7 @@ audience=internal and members listed in internal_members are not promoted in
 public lists, owner children, search routes or the published inventory. This does
 not modify LabVIEW scopes. Existing saved Help URLs for the two raw-reference
 accessors retain small compatibility pages pointing to their class; their full
-descriptions are not published. The 23-entry help-link maintenance map is retained.
+descriptions are not published. The help-link maintenance map follows the current class inventory.
 The low-level owner notes remain in maintenance/, outside site/. A mapped internal
 owner can later become Community/Private without breaking documentation inventory
 validation, provided its recorded source still exists.

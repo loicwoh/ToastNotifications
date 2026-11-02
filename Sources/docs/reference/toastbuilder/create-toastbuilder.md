@@ -1,6 +1,6 @@
 ## Connector
 
-![Native LabVIEW Create icon and terminals: error in; ToastBuilder out and error out.](create.png)
+![Native LabVIEW Create icon and terminals: error in; ToastBuilder out and error out.](create-toastbuilder.png)
 
 ## Inputs and outputs
 
@@ -26,6 +26,10 @@ flowchart LR
 For callback setup and service shutdown, follow the [reply example](/guides/reply.md).
 
 ## Usage notes
+
+- Call Create ToastBuilder directly or select it through
+  [Create ToastSource (Poly)](/reference/toastnotification/create-toastsource-poly.md).
+  The concrete ToastBuilder output supports composition and the ToastSource contract.
 
 - There is no builder input. This creates a new instance; it does not reinitialize
   or release a previously created builder. Close the previous owner before discarding it.

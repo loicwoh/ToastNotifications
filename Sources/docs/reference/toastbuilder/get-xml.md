@@ -30,6 +30,10 @@ The [reply example](/guides/reply.md) displays the generated XML on its front pa
 
 ## Usage notes
 
+- This is the ToastBuilder override of the XML export operation on
+  [ToastSource](/api/toastsource.md). Calls through the base type select this
+  implementation for a ToastBuilder instance.
+
 - `GetContent` is the saved output name. It contains XML text, not a .NET handle.
   There is no reference to close for this String output.
 - The method does not display a notification. It acquires a temporary content

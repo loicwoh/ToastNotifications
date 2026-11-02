@@ -1,15 +1,17 @@
 # ToastBuilder
 
 Compose a notification by calling the native builder through a LabVIEW class.
-Start with Create, add the required content and inspect Get XML when useful.
+Start with Create ToastBuilder, add the required content and inspect Get XML when useful.
 Display through the application's [ToastService](/api/toastservice.md) workflow.
 
 ## Boundary and dependencies
 
-This class delegates composition to the native toolkit. Its methods change the native
+This class derives from [ToastSource](/api/toastsource.md) and delegates composition
+to the native toolkit. Its methods change the native
 builder directly; there is no separate LabVIEW content engine. The class exposes
 composition methods for displayed text, text input, application buttons, protocol
-buttons and body arguments. Loading saved XML remains planned.
+buttons and body arguments. Show, Get XML and Close override the source operations. Loading saved XML through ToastFromXML
+remains planned.
 
 One caller owns Close. Copies of the class share a handle, so closing an alias
 affects the other copies. See [resource ownership](/callbacks.md).
@@ -19,7 +21,7 @@ Native reference accessors and storage types are implementation details.
 
 ## Choose a method
 
-- [Create](/reference/toastbuilder/create.md), then compose [text](/reference/toastbuilder/add-text.md),
+- [Create](/reference/toastbuilder/create-toastbuilder.md), then compose [text](/reference/toastbuilder/add-text.md),
   [text input](/reference/toastbuilder/add-text-input.md), [application actions](/reference/toastbuilder/add-bouton.md)
   or [a link button](/reference/toastbuilder/add-link-button.md).
 - Set [body activation arguments](/reference/toastbuilder/set-activation-arguments.md)

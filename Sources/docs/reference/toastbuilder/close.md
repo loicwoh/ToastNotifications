@@ -29,6 +29,10 @@ call inside a No Error-only case that prevents cleanup when an earlier call fail
 
 ## Usage notes
 
+- This is the ToastBuilder override of the cleanup operation on
+  [ToastSource](/api/toastsource.md). Calls through the base type select this
+  implementation for a ToastBuilder instance.
+
 - Close has **no builder output**. Treat the input and all its aliases as finished
   after closing their shared native handle. This method does not clear the stored
   handle in other copies of the class.
@@ -41,5 +45,5 @@ call inside a No Error-only case that prevents cleanup when an earlier call fail
 
 ## Related reading
 
-[ToastBuilder](/api/toastbuilder.md) · [Create](/reference/toastbuilder/create.md) ·
+[ToastBuilder](/api/toastbuilder.md) · [Create](/reference/toastbuilder/create-toastbuilder.md) ·
 [ToastService.Close](/reference/toastservice/close.md) · [Coverage and limits](/coverage.md)

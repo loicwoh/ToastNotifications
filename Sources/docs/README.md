@@ -58,7 +58,9 @@ this Markdown. It never writes back to the authored directory or saved VIs.
 The short description reproduces the saved LabVIEW Context Help text exactly;
 it is read again on each build. The nine ToastBuilder and five ToastService
 application methods, the three ActivationHandler hooks and four User Event
-plugin methods now use this model: 21 application VIs across the four classes.
+plugin methods and three ToastSource methods use this model: 24 application VIs
+across five classes. The root-library creation polymorph has its saved short
+description and is explained on the ToastSource and ToastNotification owner pages.
 Payload types retain their generated summaries and are explained at method
 terminals. Other entries explicitly say **Short description only**. Automated
 export remains tracked in #46.
@@ -187,8 +189,10 @@ https://loicwoh.github.io/ToastNotifications/#/reference/<class-slug>/<vi-slug>
 
 For example: `#/reference/toastbuilder/add-text`. These stable URLs resolve to the
 released documentation. During development, open the work branch using the selector.
-The 23 current public VIs have their online detailed-help URL saved. After adding
-or renaming a public method, close the LabVIEW project and build locally, then run:
+The current public class VIs have their online detailed-help URL saved. The old
+ToastBuilder Create route remains a compatibility landing page for Create ToastBuilder.
+After adding or renaming a public method, close the LabVIEW project and build
+locally, then run:
 
 ```powershell
 ./Sources/docs/tools/Sync-DetailedHelp.ps1

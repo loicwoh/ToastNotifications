@@ -5,6 +5,15 @@ Expanded explanations belong to
 [#40](https://github.com/loicwoh/ToastNotifications/issues/40); the links below
 already lead to the current API and contracts.
 
+## Toast source
+
+[ToastSource](/api/toastsource.md) is the base class for Show, Get XML and Close.
+The application creates a concrete source and retains responsibility for its
+cleanup. ToastService borrows it and invokes its Show override.
+
+The creation polymorph groups concrete constructors; it currently offers
+ToastBuilder. Composition remains specific to that class. ToastFromXML is planned.
+
 ## Builder
 
 Microsoft's ToastContentBuilder is the native composition object.

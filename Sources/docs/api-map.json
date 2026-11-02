@@ -5,6 +5,10 @@
       "id": "toastnotification", "category": "Toolkit",
       "concept": "concepts.md", "examples": ["reply", "multiple-actions", "protocol"]
     },
+    "Sources/ToastSource/ToastSource.lvclass": {
+      "id": "toastsource", "category": "Application",
+      "concept": "concepts.md?id=toast-source", "examples": ["reply", "multiple-actions", "protocol"]
+    },
     "Sources/ToastBuilder/ToastBuilder.lvclass": {
       "id": "toastbuilder", "category": "Application", "visual_family": "builder",
       "concept": "concepts.md?id=builder",

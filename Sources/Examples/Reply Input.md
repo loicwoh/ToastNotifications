@@ -5,6 +5,12 @@ This example implements the text-input scenario tracked in
 [#7](https://github.com/loicwoh/ToastNotifications/issues/7), using the existing
 UserEventActivationHandler to forward the submitted value to a LabVIEW event loop.
 
+The example creates its concrete ToastBuilder through `Create ToastSource (Poly)`
+(Create ToastBuilder instance). Composition and XML export use the builder;
+`ToastService.Show` accepts it as a ToastSource and dynamically calls the
+builder Show override. The example retains ownership and closes the builder
+after the service. This does not load an external XML file.
+
 ## Try it
 
 1. Run the VI. Windows displays the notification described below.

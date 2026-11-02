@@ -4,6 +4,12 @@ Tracked in [issue #11](https://github.com/loicwoh/ToastNotifications/issues/11).
 Open `ToastAPI.lvproj`, then `Examples/Toast With Link Button.vi`.
 The example was implemented manually and the user confirmed that the link button works.
 
+The example creates its concrete ToastBuilder through `Create ToastSource (Poly)`
+(Create ToastBuilder instance). Composition and XML export use the builder;
+`ToastService.Show` accepts it as a ToastSource and dynamically calls the
+builder Show override. The example retains ownership and closes the builder
+after the service. This does not load an external XML file.
+
 ## Public API
 
 `ToastBuilder.Add Link Button` accepts two LabVIEW strings: `Content` and `URl`

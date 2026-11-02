@@ -1,7 +1,7 @@
 # ToastService
 
 Initialize the notification integration, register the activation callback, display
-a borrowed [ToastBuilder](/api/toastbuilder.md) and close the service.
+a borrowed [ToastSource](/api/toastsource.md) and close the service.
 
 ## Boundary and dependencies
 
@@ -17,8 +17,9 @@ Handle Activation or Close. See the
 for the boundary between application calls, dynamic hooks and callback delivery.
 
 The callback uses internal reflection helpers to convert
-native activation data before invoking the handler. The builder remains owned by
-the caller; the service does not give it an independent lifetime.
+native activation data before invoking the handler. Show calls ToastSource.Show
+through dynamic dispatch; the concrete source remains owned by the caller.
+The service does not give it an independent lifetime or close it.
 
 The service owns its native reference and callback registration. Its Close path
 also calls the handler Close hook. Concurrent callbacks, repeated registration
@@ -34,7 +35,7 @@ Native reference access is an implementation detail, outside the application API
   obtain the stored initialized handler through its read-only property.
 - [Register For Events](/reference/toastservice/register-for-events.md): connect
   the native activation callback to that handler.
-- [Show](/reference/toastservice/show.md): display caller-owned builder content.
+- [Show](/reference/toastservice/show.md): display caller-owned source content.
 - [Close](/reference/toastservice/close.md): attempt service/handler cleanup,
   including when an earlier operation failed.
 

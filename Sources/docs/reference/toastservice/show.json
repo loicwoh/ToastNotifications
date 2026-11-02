@@ -2,14 +2,16 @@
   "schema_version": 1,
   "source": "Sources/ToastService/Show.vi",
   "reviewed_on": "2026-11-02",
-  "method": "Review of committed LabVIEW sources (develop c856044; documentation base ae1661f) in LabVIEW 2026 Q3 64-bit. Native gRPC AIXML and native Print.VI To HTML over ActiveX (pylabview): terminals, defaults, error wiring and helper behavior. Native PNG copied byte-for-byte. Initialize description corrected through native VI Server with user authorization; no product execution or diagram edit. Close shutdown sequence documents the maintainer-approved target; current wiring still needs sequencing, tracked in reviews/42-toastservice.md. Maintenance refresh 2026-11-02: maintainer-applied LabVIEW theme and diagram cleanup. Native gRPC exports confirm unchanged public connector names, slots, types, defaults and connection requirements; saved summaries match the develop baseline. Native icon/terminal images re-exported by Print.VI To HTML over ActiveX and visually inspected. Changed VIs report eIdle with no execution errors. No product execution or save by the reviewer. Functional equivalence of every cleaned wire is not claimed; see reviews/labview-theme.md.",
+  "method": "ToastSource migration review, 2026-11-02, LabVIEW 2026 Q3 64-bit. Native gRPC exports reviewed for dispatch terminals, connectors, error cases and called subVIs. ToastSource is a base class chosen by the maintainer, not a LabVIEW interface. Get XML names aligned by the maintainer. Native Print.VI To HTML over ActiveX supplied the unchanged connector images; all eight captures visually inspected. VI descriptions updated through VI Server only, with offline STRG and icon checks; saved detailed-help URLs synchronized through the repository script. No product VI was executed and no diagram was edited by the reviewer. See reviews/27-toastsource.md for validation and remaining work.",
   "error_behavior": "skip",
   "reviewed_files": {
-    "Sources/ToastService/Show.vi": "bd50819c5d03b2348ddfc7ad89ef5e9bb50e1544da6c64c0953ab3648dd08f22",
+    "Sources/ToastService/Show.vi": "d90b03ea1a8bb42d4965c1ae9ef523ee0e74b652debcc0b49d2ecc27256ea09e",
     "Sources/ToastService/ToastService.lvclass": "5b02c342e50316167f8fd162fc76107427afa3121fec7839665ab1168e85847c",
-    "Sources/ToastBuilder/Show.vi": "361bcebd31be48364ff6ab2194c4b9bd97d746e36ccf0f059f7378e0e4870594"
+    "Sources/ToastBuilder/Show.vi": "295a9c0817d78c4e54f95f8b9d2397f6c526ba6d9e1626b3a5de52968184de4d",
+    "Sources/ToastSource/Show.vi": "01a39bcd55fae8a6261a034df1b07cc6290486f7a1d78b4a42f34e6b18de3637",
+    "Sources/ToastBuilder/ToastBuilder.lvclass": "224290a9b83fcbf55ef2b43f626c050ef80673289200bd73ec52ad3fe1e86609"
   },
   "visual": "toastservice/show.png",
-  "visual_sha256": "9256dd7261024d1a4777cbd92246f7657ede13cdfd3e16cb173c45b7f8d93744",
+  "visual_sha256": "5491c34ec28ff9ec97aa35210accb39dfd81d7d2ed03991773d1c59b9d407efa",
   "fingerprint_format": "sha256-lf-xml"
 }

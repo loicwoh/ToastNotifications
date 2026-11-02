@@ -2,13 +2,14 @@
   "schema_version": 1,
   "source": "Sources/ToastBuilder/Close.vi",
   "reviewed_on": "2026-11-02",
-  "method": "Read-only review of saved develop c856044 sources in LabVIEW 2026 Q3 (64-bit). Native gRPC AIXML: terminal names/types/defaults, Error/No Error wiring and called helper behavior. Native Print.VI To HTML over ActiveX (pylabview backend): connector icon and named terminals copied byte-for-byte from the same worktree. No product execution or save. Maintenance refresh 2026-11-02: maintainer-applied LabVIEW theme and diagram cleanup. Native gRPC exports confirm unchanged public connector names, slots, types, defaults and connection requirements; saved summaries match the develop baseline. Native icon/terminal images re-exported by Print.VI To HTML over ActiveX and visually inspected. Changed VIs report eIdle with no execution errors. No product execution or save by the reviewer. Functional equivalence of every cleaned wire is not claimed; see reviews/labview-theme.md.",
+  "method": "ToastSource migration review, 2026-11-02, LabVIEW 2026 Q3 64-bit. Native gRPC exports reviewed for dispatch terminals, connectors, error cases and called subVIs. ToastSource is a base class chosen by the maintainer, not a LabVIEW interface. Get XML names aligned by the maintainer. Native Print.VI To HTML over ActiveX supplied the unchanged connector images; all eight captures visually inspected. VI descriptions updated through VI Server only, with offline STRG and icon checks; saved detailed-help URLs synchronized through the repository script. No product VI was executed and no diagram was edited by the reviewer. See reviews/27-toastsource.md for validation and remaining work.",
   "error_behavior": "always",
   "reviewed_files": {
-    "Sources/ToastBuilder/Close.vi": "f162e948754e8af83590d040dfab027950fc8e67487784bf88c08efbfb8022d9",
+    "Sources/ToastBuilder/Close.vi": "89dde1aa0d16da5d90fb8aee6bfa8d13f52e54680937d0318cbc7a3e7be4bd1a",
     "Sources/ToastBuilder/Read Builder Reference.vi": "5c699ee7b5eb7833b385768404ed74af2e59119fe184e204bca5cf54ac0cbbed",
     "Sources/ToastBuilder/Release Valid Builder Reference.vi": "548ab806da523642e0541ddca907279fc7c10dd3bc8a7fac26071b0ebc99ad9d"
   },
   "visual": "toastbuilder/close.png",
-  "visual_sha256": "349618161bff0f0cc73af5c1efde27aaecbc51911d48f486ab852551d05df8c4"
+  "visual_sha256": "487e718f617228cbc92cc8917448d522f6d280ebdcdc4295ea9679f54329ea68",
+  "fingerprint_format": "sha256-lf-xml"
 }

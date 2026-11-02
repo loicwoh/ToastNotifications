@@ -6,6 +6,7 @@
 - **API by owner**
   - [Choose a layer](api.md)
   - [ToastNotification](api/toastnotification.md)
+  - [ToastSource](api/toastsource.md)
   - [ToastBuilder](api/toastbuilder.md)
   - [ToastService](api/toastservice.md)
   - [ActivationHandler](api/activationhandler.md)

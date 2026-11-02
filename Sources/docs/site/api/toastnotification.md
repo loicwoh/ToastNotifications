@@ -7,6 +7,7 @@ native wrappers and shared activation data types.
 
 - **Application:** compose with [ToastBuilder](/api/toastbuilder.md) and manage the
   callback registration with [ToastService](/api/toastservice.md).
+  [ToastSource](/api/toastsource.md) carries the common source contract.
 - **Extension:** use the [ActivationHandler](/api/activationhandler.md) contract and
   the supplied [User Event implementation](/api/usereventactivationhandler.md).
 
@@ -17,5 +18,10 @@ access scope or establish a stable release API; that policy remains in
 The root library includes `Activation.ctl` (raw Arguments and User Inputs) and
 `Argument.ctl` (a Key/Value pair). The User Event delivery wrapper belongs to the
 plugin, rather than adding an error field to Activation itself.
+
+`Create ToastSource (Poly).vi` groups concrete source creation VIs. Its only
+current instance is Create ToastBuilder, returning a concrete ToastBuilder for
+composition. The caller closes the created source; this selector neither
+initializes ToastService nor registers a callback.
 
 <!-- API-MEMBERS -->
