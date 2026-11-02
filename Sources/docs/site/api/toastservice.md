@@ -20,4 +20,19 @@ and partial failure remain [known limits](/callbacks.md?id=shutdown-is-still-bei
 
 Native reference access is an implementation detail, outside the application API.
 
+## Choose a method
+
+- [Initialize](/reference/toastservice/initialize.md): inject the handler and
+  initialize the service and handler resources.
+- [Read ActivationHandler](/reference/toastservice/read-activationhandler.md):
+  obtain the stored initialized handler through its read-only property.
+- [Register For Events](/reference/toastservice/register-for-events.md): connect
+  the native activation callback to that handler.
+- [Show](/reference/toastservice/show.md): display caller-owned builder content.
+- [Close](/reference/toastservice/close.md): attempt service/handler cleanup,
+  including when an earlier operation failed.
+
+The detailed Close page shows the shutdown order and the lifetime guarantees
+still tracked in [issue #16](https://github.com/loicwoh/ToastNotifications/issues/16).
+
 <!-- API-MEMBERS -->

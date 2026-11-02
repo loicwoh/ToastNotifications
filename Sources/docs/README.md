@@ -43,9 +43,10 @@ when behavior changes; a generated description cannot verify that it is correct.
 scope, source path and **Short description** from the versioned files, then appends
 this Markdown. It never writes back to the authored directory or saved VIs.
 The short description reproduces the saved LabVIEW Context Help text exactly;
-it is read again on each build. The nine ToastBuilder application methods now
-use this model. Other entries explicitly say **Short description only**; the
-ToastService/handler lots remain in #42. Automated export remains tracked in #46.
+it is read again on each build. The nine ToastBuilder and five ToastService
+application methods now use this model. Other entries explicitly say **Short
+description only**; the handler lot remains in #42. Automated export remains
+tracked in #46.
 
 To author a page after the pilot is approved:
 
