@@ -9,6 +9,11 @@ performing long-running work or interacting with the UI.
 
 ## User Event flow
 
+Initialize, Handle Activation and Close on the handler are hooks invoked by
+the service and its callback. The application calls the service and prepares
+its own receiver. See the
+[lifecycle sequence](/api/activationhandler.md?id=hooks-orchestrated-by-toastservice).
+
 ```text
 ToastService.Initialize(handler)
     → handler.Initialize creates the User Event

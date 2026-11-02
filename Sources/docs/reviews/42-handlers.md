@@ -72,3 +72,15 @@ without the flag on their original byte-exact verification policy.
 PR review completes this documentation lot; the functional gaps above remain
 separate work. The remaining inherited-summary corrections can be made alongside
 the maintainer's pending local code changes, then their fingerprints re-reviewed.
+
+## Review follow-up: service-orchestrated hooks
+
+The maintainer requested an explicit explanation of who calls the three hooks.
+The ActivationHandler owner page now holds the canonical sequence diagram:
+application/service calls, dynamic Initialize and Close, callback-driven Handle
+Activation, plus optional User Event setup and delivery. Service/plugin owner
+pages, the ownership guide and all six hook fiches link to it. Application-side
+Event Ref reads remain visibly separate from hook calls. The sequence renders
+with the existing pinned Mermaid Tiny runtime; no dependency upgrade is needed.
+The diagram retains the already approved shutdown target and does not resolve
+the implementation gap recorded above. No LabVIEW source was changed.

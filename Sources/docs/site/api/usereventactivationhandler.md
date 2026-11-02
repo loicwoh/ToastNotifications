@@ -3,6 +3,11 @@
 A supplied [ActivationHandler](/api/activationhandler.md) implementation that
 forwards activations to a typed LabVIEW User Event.
 
+Initialize, Handle Activation and Close are **service-orchestrated hooks**,
+not calls to add manually to your application diagram. Supply this plugin to
+ToastService and read Event Ref from its initialized value; see the
+[lifecycle sequence](/api/activationhandler.md?id=hooks-orchestrated-by-toastservice).
+
 ## Boundary and dependencies
 
 Initialize creates and owns the event. The caller retrieves the initialized

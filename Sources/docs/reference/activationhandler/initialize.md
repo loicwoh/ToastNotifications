@@ -1,3 +1,7 @@
+> **Lifecycle hook:** invoked by ToastService.Initialize. Override it in your child;
+> in the service workflow, do not call it separately from the application.
+> [See the lifecycle sequence](/api/activationhandler.md?id=hooks-orchestrated-by-toastservice).
+
 ## Connector
 
 ![Native LabVIEW Initialize icon with dynamic ActivationHandler input/output and error input/output.](initialize.png)

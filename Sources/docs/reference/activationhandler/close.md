@@ -1,3 +1,7 @@
+> **Lifecycle hook:** invoked by ToastService.Close. Override it in your child;
+> in the service workflow, do not also close the handler manually.
+> [See the lifecycle sequence](/api/activationhandler.md?id=hooks-orchestrated-by-toastservice).
+
 ## Connector
 
 ![Native LabVIEW Close icon with dynamic ActivationHandler input, error input and error output; no handler output.](close.png)

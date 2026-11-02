@@ -1,3 +1,7 @@
+> **Lifecycle hook:** ToastService.Close invokes this override to destroy the
+> owned event. Close the service instead of also closing the plugin manually.
+> [See the lifecycle sequence](/api/activationhandler.md?id=hooks-orchestrated-by-toastservice).
+
 ## Connector
 
 ![Native LabVIEW Close icon with dynamic UserEventActivationHandler input, error input and error output; no handler output.](close.png)

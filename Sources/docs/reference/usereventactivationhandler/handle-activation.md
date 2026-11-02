@@ -1,3 +1,7 @@
+> **Callback hook:** ToastService's registered callback invokes this override.
+> The application handles the resulting User Event; it does not call this hook.
+> [See the lifecycle sequence](/api/activationhandler.md?id=hooks-orchestrated-by-toastservice).
+
 ## Connector
 
 ![Native LabVIEW Handle Activation icon with UserEventActivationHandler in, Activation and error in inputs, and no outputs.](handle-activation.png)

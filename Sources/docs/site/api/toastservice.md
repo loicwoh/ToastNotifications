@@ -10,6 +10,12 @@ Initialize hook, stores the initialized value and returns it. Register For Event
 uses that stored handler. For the supplied plugin, retrieve Event Ref from the
 returned [UserEventActivationHandler](/api/usereventactivationhandler.md).
 
+**Call the service methods; let the service orchestrate the handler hooks.**
+The application supplies a handler but does not separately call its Initialize,
+Handle Activation or Close. See the
+[handler lifecycle sequence](/api/activationhandler.md?id=hooks-orchestrated-by-toastservice)
+for the boundary between application calls, dynamic hooks and callback delivery.
+
 The callback uses internal reflection helpers to convert
 native activation data before invoking the handler. The builder remains owned by
 the caller; the service does not give it an independent lifetime.

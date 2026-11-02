@@ -1,3 +1,7 @@
+> **Lifecycle hook:** ToastService.Initialize invokes this override to create the
+> event. Supply the plugin to the service instead of calling this hook yourself.
+> [See the lifecycle sequence](/api/activationhandler.md?id=hooks-orchestrated-by-toastservice).
+
 ## Connector
 
 ![Native LabVIEW Initialize icon with dynamic UserEventActivationHandler input/output and error input/output.](initialize.png)

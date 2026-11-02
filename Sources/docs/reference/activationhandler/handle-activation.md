@@ -1,3 +1,7 @@
+> **Callback hook:** invoked by ToastService's registered callback for an activation.
+> Override it in your child; the application receives the delivered data instead
+> of calling this hook. [See the lifecycle sequence](/api/activationhandler.md?id=hooks-orchestrated-by-toastservice).
+
 ## Connector
 
 ![Native LabVIEW Handle Activation icon with ActivationHandler in, Activation and error in inputs, and no outputs.](handle-activation.png)
