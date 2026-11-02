@@ -80,7 +80,7 @@ def generate_reference(root: Path, site: Path, require_help: bool) -> list[str]:
             page += f'Layer: {owner.category} · Kind: {member.role} · Saved scope: {member.scope}\n\n'
             page += ('' if route in authored
                      else '**Short description only** — a full usage walkthrough is not yet authored.\n\n')
-            page += '## Short description\n\n*From LabVIEW Context Help.*\n\n' + note + body + '\n\n'
+            page += '## Short description\n\n' + note + body + '\n\n'
             if route in authored:
                 page += authored[route] + '\n'
             page += f'[Back to {owner.label}](/api/{owner.id}.md) · [Reference index](/reference.md)\n\n'
