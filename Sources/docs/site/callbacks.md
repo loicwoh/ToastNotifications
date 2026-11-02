@@ -14,20 +14,6 @@ the service and its callback. The application calls the service and prepares
 its own receiver. See the
 [lifecycle sequence](/api/activationhandler.md?id=hooks-orchestrated-by-toastservice).
 
-```text
-ToastService.Initialize(handler)
-    → handler.Initialize creates the User Event
-    → initialized handler is stored and returned
-    → application reads Event Ref and registers its receiving loop
-ToastService.Register For Events
-    → native callback uses the stored handler
-ToastService.Show(builder)
-    → user activates the toast
-    → callback converts native arguments into LabVIEW values
-    → handler generates a User Event
-    → application loop receives Activation + error
-```
-
 Read the reference from the initialized handler. A copy of the original pre-initialized
 class value does not acquire references that were subsequently created on another value.
 
