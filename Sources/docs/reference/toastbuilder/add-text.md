@@ -37,6 +37,10 @@ flowchart LR
         H["ToastService.Close"] --> I["ToastBuilder.Close"]
     end
     compose --> display --> cleanup
+    classDef builder fill:#edf3fc,stroke:#2455a4,color:#183247,stroke-width:2px
+    classDef service fill:#edf7f4,stroke:#176b62,color:#183247,stroke-width:2px
+    class A,B,C,D,I builder
+    class E,F,H service
 ```
 
 Wire the builder and error chain through composition calls; keep the service on

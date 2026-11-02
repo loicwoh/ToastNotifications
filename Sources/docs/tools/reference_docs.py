@@ -9,6 +9,9 @@ from detailed_help import load_help
 
 GUIDE_LABELS = {'reply': 'Receive a text reply', 'multiple-actions': 'Handle multiple actions',
                 'protocol': 'Open a link'}
+FAMILIES = {'toolkit': ('T', 'Windows notifications for LabVIEW'),
+            'builder': ('B', 'Compose content'), 'service': ('S', 'Display and lifecycle'),
+            'handler': ('H', 'React to activation')}
 
 
 def generate_reference(root: Path, site: Path, require_help: bool) -> list[str]:
@@ -35,9 +38,18 @@ def generate_reference(root: Path, site: Path, require_help: bool) -> list[str]:
         crumbs.append((owner.label, '/api/' + owner.id if member else None))
         if member:
             crumbs.append((member.path.stem, None))
-        return '<nav aria-label="Breadcrumb">' + ' / '.join(
+        family = owner.config.get('visual_family', 'toolkit')
+        if family not in FAMILIES:
+            raise ValueError(f'Unknown visual family: {family}')
+        symbol, purpose = FAMILIES[family]
+        banner = (f'<div class="module-banner family-{family}"><span class="module-symbol" aria-hidden="true">{symbol}</span>'
+                  f'<span><strong>{html.escape(owner.label)}</strong><small>{purpose}</small></span>'
+                  f'<span class="module-kind">{owner.kind}</span></div>')
+        nav = '<nav aria-label="Breadcrumb">' + ' / '.join(
             '<a href="#' + url + '">' + html.escape(label) + '</a>' if url else html.escape(label)
             for label, url in crumbs) + '</nav>'
+        # Historical versions retain their own presentation assets.
+        return nav + banner if (site / 'assets/identity.css').is_file() else nav
 
     def related(owner):
         items = []

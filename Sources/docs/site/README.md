@@ -22,6 +22,12 @@
 
 ## A small public surface
 
+<div class="cards">
+<a class="card module-card family-builder" href="#/api/toastbuilder"><span class="module-symbol" aria-hidden="true">B</span><span class="card-number">COMPOSITION</span><strong>ToastBuilder</strong><span>Compose the message, inputs and actions.</span></a>
+<a class="card module-card family-service" href="#/api/toastservice"><span class="module-symbol" aria-hidden="true">S</span><span class="card-number">LIFECYCLE</span><strong>ToastService</strong><span>Display notifications and manage registration.</span></a>
+<a class="card module-card family-handler" href="#/api/activationhandler"><span class="module-symbol" aria-hidden="true">H</span><span class="card-number">ACTIVATION</span><strong>ActivationHandler</strong><span>Choose how activations reach your application.</span></a>
+</div>
+
 Use [ToastBuilder](api/toastbuilder.md) to construct content,
 [ToastService](api/toastservice.md) to manage notification registration, and an
 [ActivationHandler](api/activationhandler.md) to decide what happens after a click.

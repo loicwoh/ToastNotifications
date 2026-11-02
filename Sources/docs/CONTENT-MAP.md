@@ -21,6 +21,8 @@ information, rather than keeping another copy of each explanation.
 | Compact incoming-error behavior | Adjacent reference/*.json: error_behavior=skip/always | Bold cue in detailed help; use the same wording in authorized context-help edits |
 | Detailed-help review provenance and saved-file fingerprints | Adjacent reference/*.json | Build checks freshness; technical review evidence is not published in the help page |
 | Detailed-help authoring structure | templates/detailed-help.md | Maintainer scaffold; never published as an API entry |
+| Toolkit/class visual conventions | site/visual-identity.md and site/assets/identity.css | Shared navy/amber identity and three class accents; native VI captures unchanged |
+| Owner to visual family | api-map.json: visual_family | Generated owner banners; plugin uses its base handler family |
 
 ## Existing repository documents
 

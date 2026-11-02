@@ -19,6 +19,7 @@
   - [Handle multiple actions](guides/multiple-actions.md)
   - [Open a link](guides/protocol.md)
 - **Project**
+  - [Visual identity](visual-identity.md)
   - [Microsoft documentation](microsoft.md)
   - [Coverage & known limits](coverage.md)
   - [Repository](https://github.com/loicwoh/ToastNotifications)

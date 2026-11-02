@@ -6,22 +6,22 @@
       "concept": "concepts.md", "examples": ["reply", "multiple-actions", "protocol"]
     },
     "Sources/ToastBuilder/ToastBuilder.lvclass": {
-      "id": "toastbuilder", "category": "Application",
+      "id": "toastbuilder", "category": "Application", "visual_family": "builder",
       "concept": "concepts.md?id=builder",
       "examples": ["reply", "multiple-actions", "protocol"],
       "native_accessors": ["Read Builder Reference.vi"]
     },
     "Sources/ToastService/ToastService.lvclass": {
-      "id": "toastservice", "category": "Application",
+      "id": "toastservice", "category": "Application", "visual_family": "service",
       "concept": "callbacks.md", "examples": ["reply", "multiple-actions", "protocol"],
       "native_accessors": ["Read reference.vi"]
     },
     "Sources/ActivationHandler/ActivationHandler.lvclass": {
-      "id": "activationhandler", "category": "Extension",
+      "id": "activationhandler", "category": "Extension", "visual_family": "handler",
       "concept": "concepts.md?id=activation", "examples": ["reply", "multiple-actions"]
     },
     "Sources/PlugIns/UserEventActivationHandler/UserEventActivationHandler.lvclass": {
-      "id": "usereventactivationhandler", "category": "Extension",
+      "id": "usereventactivationhandler", "category": "Extension", "visual_family": "handler",
       "concept": "callbacks.md", "examples": ["reply", "multiple-actions"]
     },
     "Sources/Toast Native/Toast Native.lvlib": {
