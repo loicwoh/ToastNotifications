@@ -6,12 +6,13 @@
   "error_behavior": "skip",
   "reviewed_files": {
     "Sources/ToastService/Initialize.vi": "d63e35c8bb49f850dc5398875cf413193e1e16c8f2493b65a691d32182884c99",
-    "Sources/ToastService/ToastService.lvclass": "d3256b660ddcdac216d6ebbf5bc211237397dfc5897bdf59c18fa39202dc14d8",
+    "Sources/ToastService/ToastService.lvclass": "b8f2da1e725e4c73719b27a21c99c86c7256b038651c896f510cdc2a58d5afdc",
     "Sources/ToastService/Write reference.vi": "362dc1399117d98183ebc4e35b4e6ecc4b94522e52ed8e32c1c60274a94ef7e4",
     "Sources/ToastService/Write ActivationHandler.vi": "3cb9b6c96373dea7849fbeea8dae87ee4643710cde918dc6cfc9df7e38119ca3",
     "Sources/ActivationHandler/Initialize.vi": "5578f16ca9fe1bcef0d33881d1184ec0024a13042a2ea1284d522f2d310b294a",
     "Sources/PlugIns/UserEventActivationHandler/Initialize.vi": "a82084f520568e22056a87f4532c5f2d8e57b80d3e142110ea1bd59e6f215c81"
   },
   "visual": "toastservice/initialize.png",
-  "visual_sha256": "c1c29f14450b9ef42d9d193c4dc6c34ac4a6910ba5303d2ff8e865d7e30640f2"
+  "visual_sha256": "c1c29f14450b9ef42d9d193c4dc6c34ac4a6910ba5303d2ff8e865d7e30640f2",
+  "fingerprint_format": "sha256-lf-xml"
 }

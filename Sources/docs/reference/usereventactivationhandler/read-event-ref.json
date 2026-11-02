@@ -9,8 +9,9 @@
     "Sources/PlugIns/UserEventActivationHandler/Initialize.vi": "a82084f520568e22056a87f4532c5f2d8e57b80d3e142110ea1bd59e6f215c81",
     "Sources/PlugIns/UserEventActivationHandler/Close.vi": "b53fa003e4615b89f9eed0aec4b8bb100182b33c20d6afc96b07aaa52cfc8b0a",
     "Sources/PlugIns/UserEventActivationHandler/Activation Event Data.ctl": "a99f5fdfa846251ce4d3fd94b1fc70cdf5f7ee13394fe678963c292ee103baa9",
-    "Sources/PlugIns/UserEventActivationHandler/UserEventActivationHandler.lvclass": "7c58acad4fe70824566310358f03b236f3edef182631c6dec012ad2e36333f82"
+    "Sources/PlugIns/UserEventActivationHandler/UserEventActivationHandler.lvclass": "2d6b03cde15c250a125625ccc3df82e4e400d5b4fed8c02f1edbc28da4509507"
   },
   "visual": "usereventactivationhandler/read-event-ref.png",
-  "visual_sha256": "a6ea5ea827c2c1dbaab4394ce142e873a12a8927d6a2b2fbf3fb2eed1f030575"
+  "visual_sha256": "a6ea5ea827c2c1dbaab4394ce142e873a12a8927d6a2b2fbf3fb2eed1f030575",
+  "fingerprint_format": "sha256-lf-xml"
 }

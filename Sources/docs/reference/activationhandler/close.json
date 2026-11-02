@@ -7,8 +7,9 @@
   "reviewed_files": {
     "Sources/ActivationHandler/Close.vi": "0004e204c3598f59f379b1cfac45b306175145d59bae055c8675cdbb53171638",
     "Sources/ToastService/Close.vi": "f4c6ca8e3d5b79277c1e1dbeb1cf63343da331d6bf649599d11bd18246d5ae41",
-    "Sources/ActivationHandler/ActivationHandler.lvclass": "507937ade16e8192e7f6710a4670a8aa341e47032675dd33bee07387c84ceab7"
+    "Sources/ActivationHandler/ActivationHandler.lvclass": "389981f4d39eaa644eb8562cc5ace08bdc1b842bae7d58b7d2d17e1f7d4707b9"
   },
   "visual": "activationhandler/close.png",
-  "visual_sha256": "fb0161ae0306d5327d76268cafffabaaee5a88d2054f70aae70071f083f76ea5"
+  "visual_sha256": "fb0161ae0306d5327d76268cafffabaaee5a88d2054f70aae70071f083f76ea5",
+  "fingerprint_format": "sha256-lf-xml"
 }

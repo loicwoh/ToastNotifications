@@ -69,7 +69,12 @@ To author another page using the approved model:
    (tools, LabVIEW version, evidence and visual revision), `reviewed_files`
    (repository-relative source paths to lowercase SHA-256), `visual` (relative
    to `Sources/docs/reference`), `visual_sha256` and `error_behavior` (`skip`,
-   `always`, or `noop` for an empty base hook). Include helper files whose behavior the page
+   `always`, or `noop` for an empty base hook). Use `review_fingerprint` from
+   `tools/detailed_help.py`: XML owner files (.lvclass/.lvlib/.lvproj) normalize
+   CRLF to LF for cross-platform checkouts when the record sets
+   `fingerprint_format: sha256-lf-xml`; VIs, typedefs and images remain
+   byte-exact. Historical records without this field keep their raw hashes.
+   Include helper files whose behavior the page
    relies on. `Get-FileHash -Algorithm SHA256` or Python hashlib can calculate hashes.
 5. Build twice, check routes, compare the terminals with Context Help and inspect
    the rendered page, search and links. Record separately any actual runtime test.

@@ -7,7 +7,7 @@ import sys
 import tempfile
 import unittest
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from detailed_help import load_help
+from detailed_help import load_help, review_fingerprint
 from reference_docs import generate_reference
 import reference_docs
 
@@ -83,6 +83,37 @@ class DetailedHelpChecks(unittest.TestCase):
         self.assertIn('**Error behavior: No action, with or without incoming error.**', content)
         self.assertNotIn('Skipped on incoming error.', content)
         self.assertNotIn('Executes even on incoming error.', content)
+
+    def test_owner_checkout_line_endings_do_not_invalidate_review(self):
+        owner = 'Sources/ToastBuilder/ToastBuilder.lvclass'
+        path = self.root / owner
+        path.write_bytes(b'<LVClass>\r\n</LVClass>\r\n')
+        self.record['reviewed_files'][owner] = review_fingerprint(path)
+        self.record['fingerprint_format'] = 'sha256-lf-xml'
+        self.save_record()
+        path.write_bytes(b'<LVClass>\n</LVClass>\n')
+        self.load()
+        path.write_bytes(b'<LVClass changed="true">\n</LVClass>\n')
+        with self.assertRaisesRegex(ValueError, 'Stale detailed help'):
+            self.load()
+
+    def test_binary_fingerprints_remain_byte_exact(self):
+        path = self.root / self.source
+        path.write_bytes(b'VI binary\r\n')
+        first = review_fingerprint(path)
+        path.write_bytes(b'VI binary\n')
+        self.assertNotEqual(first, review_fingerprint(path))
+
+    def test_historical_records_keep_raw_owner_fingerprints(self):
+        owner = 'Sources/ToastBuilder/ToastBuilder.lvclass'
+        path = self.root / owner
+        path.write_bytes(b'<LVClass>\r\n</LVClass>\r\n')
+        self.record['reviewed_files'][owner] = hashlib.sha256(path.read_bytes()).hexdigest()
+        self.save_record()  # No fingerprint_format: legacy byte-exact behavior.
+        self.load()
+        path.write_bytes(b'<LVClass>\n</LVClass>\n')
+        with self.assertRaisesRegex(ValueError, 'Stale detailed help'):
+            self.load()
 
     def test_orphaned_or_wrong_member_is_rejected(self):
         self.record['source'] = 'Sources/ToastBuilder/Wrong.vi'

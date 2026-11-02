@@ -6,7 +6,7 @@
   "error_behavior": "always",
   "reviewed_files": {
     "Sources/ToastService/Close.vi": "f4c6ca8e3d5b79277c1e1dbeb1cf63343da331d6bf649599d11bd18246d5ae41",
-    "Sources/ToastService/ToastService.lvclass": "d3256b660ddcdac216d6ebbf5bc211237397dfc5897bdf59c18fa39202dc14d8",
+    "Sources/ToastService/ToastService.lvclass": "b8f2da1e725e4c73719b27a21c99c86c7256b038651c896f510cdc2a58d5afdc",
     "Sources/ToastService/Read reference.vi": "f752cd3ee5ea9dad7e3dfc8ef477e2eb9e0b15baf3bf0d1c9df276e7c4d5d740",
     "Sources/ToastService/Read event callback refnum.vi": "65ffafd537dfa421c04d7eab62908a2105ab5b83fc9e5a9f18218abac67419c5",
     "Sources/ToastService/Read ActivationHandler.vi": "e61736082a5a05c3bb8515751c80674339da62e4bc75639f3d9e9552c22dcd82",
@@ -14,5 +14,6 @@
     "Sources/PlugIns/UserEventActivationHandler/Close.vi": "b53fa003e4615b89f9eed0aec4b8bb100182b33c20d6afc96b07aaa52cfc8b0a"
   },
   "visual": "toastservice/close.png",
-  "visual_sha256": "0f86ec8e5c2bd95952f9840f06b77a56557d4b9164ba1121921692998d5d04f2"
+  "visual_sha256": "0f86ec8e5c2bd95952f9840f06b77a56557d4b9164ba1121921692998d5d04f2",
+  "fingerprint_format": "sha256-lf-xml"
 }

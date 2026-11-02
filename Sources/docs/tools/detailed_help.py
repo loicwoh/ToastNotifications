@@ -12,6 +12,14 @@ ERROR_BEHAVIORS = {
 }
 
 
+def review_fingerprint(path: Path) -> str:
+    """Ignore checkout line endings in XML owners, never in VI/image binaries."""
+    data = path.read_bytes()
+    if path.suffix.lower() in {'.lvclass', '.lvlib', '.lvproj'}:
+        data = data.replace(b'\r\n', b'\n')
+    return hashlib.sha256(data).hexdigest()
+
+
 def load_help(root: Path, site: Path, members: dict[str, str]) -> dict[str, str]:
     """Validate all authored records; return route -> publishable enrichment."""
     directory = root / 'Sources/docs/reference'
@@ -30,13 +38,18 @@ def load_help(root: Path, site: Path, members: dict[str, str]) -> dict[str, str]
         if route not in members or record.get('source') != members[route]:
             raise ValueError(f'Orphaned or mismatched detailed help: {route}')
         reviewed = record['reviewed_files']
+        fingerprint_format = record.get('fingerprint_format', 'sha256-raw')
+        if fingerprint_format not in {'sha256-raw', 'sha256-lf-xml'}:
+            raise ValueError(f'Unsupported review fingerprint format: {route}')
         if record['source'] not in reviewed or not reviewed:
             raise ValueError(f'Missing reviewed VI fingerprint: {route}')
         for name, expected in reviewed.items():
             path = (root / name).resolve()
             if not path.is_relative_to((root / 'Sources').resolve()) or not path.is_file():
                 raise ValueError(f'Invalid reviewed source: {name}')
-            if hashlib.sha256(path.read_bytes()).hexdigest() != expected:
+            actual = (review_fingerprint(path) if fingerprint_format == 'sha256-lf-xml'
+                      else hashlib.sha256(path.read_bytes()).hexdigest())
+            if actual != expected:
                 raise ValueError(f'Stale detailed help: {route}; review {name} before updating its fingerprint')
         visual = (directory / record['visual']).resolve()
         if visual.parent != stem.parent.resolve() or visual.suffix not in {'.png', '.svg'} or not visual.is_file():

@@ -52,13 +52,22 @@ remain unchanged in this worktree.
 ## Validation
 
 - Strict build and local Markdown/asset link checks pass.
-- Thirteen detailed-help checks (including the new no-op cue) and eight inventory
+- Sixteen detailed-help checks (including the no-op cue and cross-platform
+  XML-owner fingerprints) and eight inventory
   regressions pass. These are documentation-pipeline tests, not LabVIEW tests.
 - Two consecutive final builds are byte-identical and preserve authored sources.
 - Chromium renders all seven routes, native images, Mermaid diagrams and exact
   no-op/skip/always cues. Delivery scenario and connector layout were inspected.
 - Existing saved VI Help URLs and the application/internal API boundary remain
   unchanged. No new public support-library pages are introduced.
+
+The first CI attempt exposed CRLF/LF differences in XML class-owner hashes.
+Owner fingerprints now normalize only CRLF to LF for .lvclass/.lvlib/.lvproj;
+substantive XML changes still invalidate review. VI, typedef and image hashes
+remain byte-exact. Existing ToastService records containing a class-owner hash
+were migrated to the same rule; their VIs and authored help were not changed.
+The explicit `fingerprint_format: sha256-lf-xml` flag leaves historical records
+without the flag on their original byte-exact verification policy.
 
 PR review completes this documentation lot; the functional gaps above remain
 separate work. The remaining inherited-summary corrections can be made alongside

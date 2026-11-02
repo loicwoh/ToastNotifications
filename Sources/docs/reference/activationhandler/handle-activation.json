@@ -7,10 +7,11 @@
   "reviewed_files": {
     "Sources/ActivationHandler/Handle Activation.vi": "02b4fe5b717a689571b68e681c381fb515bfe9d106239d2ff3771bb5031c5a1b",
     "Sources/ToastService/CallBack VI - OnActivated.vi": "458afa3deebe7a9d2cd87264daac93025ffe70d1e14c015a91f2e6ca8fe1f38c",
-    "Sources/ActivationHandler/ActivationHandler.lvclass": "507937ade16e8192e7f6710a4670a8aa341e47032675dd33bee07387c84ceab7",
+    "Sources/ActivationHandler/ActivationHandler.lvclass": "389981f4d39eaa644eb8562cc5ace08bdc1b842bae7d58b7d2d17e1f7d4707b9",
     "Sources/ToastNotification/Activation.ctl": "0238c02e64306920a6be8a57d6e009b87c603a4418df2fdec4bd13b6adfbae82",
     "Sources/ToastNotification/Argument.ctl": "dc2d1915ed3df0665280ee12d4bf2614b6e5825a36ab4739493a61063d8460ba"
   },
   "visual": "activationhandler/handle-activation.png",
-  "visual_sha256": "2e08aca19638784df48b6e3483c4756fa83d5a2aec9c3f6166c6e2b1ed147bd9"
+  "visual_sha256": "2e08aca19638784df48b6e3483c4756fa83d5a2aec9c3f6166c6e2b1ed147bd9",
+  "fingerprint_format": "sha256-lf-xml"
 }
