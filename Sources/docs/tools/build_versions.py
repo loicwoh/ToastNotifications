@@ -37,7 +37,9 @@ def main() -> None:
             source.mkdir()
             # Read archive bytes as data. Reject links and path traversal; never run
             # scripts/workflows from another branch or tag.
-            archive = git('archive', ref, 'Sources')
+            legal_files = git('ls-tree', '--name-only', ref, 'LICENSE',
+                              'THIRD-PARTY-NOTICES.md').decode().splitlines()
+            archive = git('archive', ref, 'Sources', *legal_files)
             with tarfile.open(fileobj=io.BytesIO(archive)) as bundle:
                 for member in bundle:
                     if not member.isfile():

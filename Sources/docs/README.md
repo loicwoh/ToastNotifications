@@ -3,6 +3,19 @@
 Documentation lives under `Sources/docs` and is reviewed with the implementation.
 No global npm installation or LabVIEW licence is needed to build the website.
 
+## Project and third-party licences
+
+The root `LICENSE` covers original ToastAPI code and authored documentation.
+`THIRD-PARTY-NOTICES.md` distinguishes redistributed components, development
+tools and proprietary prerequisites. `Sources/third-party-licenses` preserves
+the upstream texts; existing vendor licences and bundle notices remain intact.
+
+The build copies these files unchanged into `legal/` for versions that contain
+`site/licenses.md`. The branch/release archive includes its own root licence
+and notices when present. Historical refs without the page receive no new
+licence or retroactive claim of rights. Review notices whenever DLLs or website
+bundles change, and include the relevant files in any future VIPM package.
+
 ## Sources of truth
 
 See [CONTENT-MAP.md](CONTENT-MAP.md) for the canonical source of each topic,

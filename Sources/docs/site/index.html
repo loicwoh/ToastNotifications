@@ -28,7 +28,7 @@
       alias: { '/.*/_sidebar.md': '/_sidebar.md' },
       notFoundPage: true,
       search: {
-        paths: ['/', '/background', '/getting-started', '/concepts', '/api', '/callbacks', '/examples', '/coverage', '/microsoft', '/guides/reply', '/guides/multiple-actions', '/guides/protocol'].concat(window.toastApiReferenceRoutes || []),
+        paths: ['/', '/background', '/getting-started', '/concepts', '/api', '/callbacks', '/examples', '/coverage', '/microsoft', '/licenses', '/guides/reply', '/guides/multiple-actions', '/guides/protocol'].concat(window.toastApiReferenceRoutes || []),
         placeholder: 'Search the documentation',
         noData: 'No matching pages.',
         depth: 3,
@@ -39,7 +39,7 @@
         hook.afterEach(function (html) {
           var route = (window.location.hash.slice(1).split('?')[0] || '/').replace(/\.md$/, '');
           var breadcrumbs = (window.toastApiBreadcrumbs || {})[route] || '';
-          return breadcrumbs + html + '<footer class="doc-footer">ToastAPI · <a href="#/coverage">Compatibility &amp; known limits</a></footer>';
+          return breadcrumbs + html + '<footer class="doc-footer">ToastAPI · <a href="#/coverage">Compatibility &amp; known limits</a> · <a href="#/licenses">MIT &amp; third-party notices</a></footer>';
         });
         hook.doneEach(function () { document.documentElement.lang = 'en'; });
       }]
