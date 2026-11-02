@@ -13,6 +13,7 @@
 <body>
   <div id="app">Loading ToastAPI documentation…</div>
   <script src="reference-routes.js"></script>
+  <script src="navigation.js"></script>
   <script>
     window.$docsify = {
       name: 'ToastAPI<span class="brand-subtitle">WINDOWS NOTIFICATIONS FOR LABVIEW</span>',
@@ -28,12 +29,14 @@
         placeholder: 'Search the documentation',
         noData: 'No matching pages.',
         depth: 3,
-        namespace: 'toastapi-docs-' + window.location.pathname,
+        namespace: 'toastapi-docs-' + window.location.pathname + '-' + window.toastApiBuildRevision,
         maxAge: 60000
       },
       plugins: [function (hook) {
         hook.afterEach(function (html) {
-          return html + '<footer class="doc-footer">ToastAPI · <a href="#/coverage">Compatibility &amp; known limits</a></footer>';
+          var route = (window.location.hash.slice(1).split('?')[0] || '/').replace(/\.md$/, '');
+          var breadcrumbs = (window.toastApiBreadcrumbs || {})[route] || '';
+          return breadcrumbs + html + '<footer class="doc-footer">ToastAPI · <a href="#/coverage">Compatibility &amp; known limits</a></footer>';
         });
         hook.doneEach(function () { document.documentElement.lang = 'en'; });
       }]

@@ -48,6 +48,8 @@ def build() -> None:
     # Pages/browser caches must not reuse a runtime/configuration from a previous
     # publication while the version manifest points at a new commit.
     revision = hashlib.sha256(b''.join(p.read_bytes() for p in sorted(SITE.rglob('*')) if p.is_file())).hexdigest()[:12]
+    with (SITE / 'reference-routes.js').open('a', encoding='utf-8') as config:
+        config.write('window.toastApiBuildRevision = ' + json.dumps(revision) + ';\n')
     entry = SITE / 'index.html'
     html = entry.read_text(encoding='utf-8')
     html = re.sub(r'((?:src|href)=["\'])([^"\']+\.(?:js|css))(["\'])', lambda m: m[1] + m[2] + '?v=' + revision + m[3], html)

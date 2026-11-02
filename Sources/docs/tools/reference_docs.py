@@ -1,6 +1,7 @@
 """Assemble owner pages and reference links around the existing saved VI help."""
 from pathlib import Path
 import hashlib
+import html
 import json
 from api_inventory import inventory, slug
 from vi_descriptions import description, resource
@@ -12,7 +13,7 @@ GUIDE_LABELS = {'reply': 'Receive a text reply', 'multiple-actions': 'Handle mul
 def generate_reference(root: Path, site: Path, require_help: bool) -> list[str]:
     owners = inventory(root)
     by_id = {o.id: o for o in owners}
-    links, routes = [], ['/reference']
+    links, routes, breadcrumbs = [], ['/reference'], {}
     index = ['# VI and data type reference', '',
              '[API overview](/api.md) · [Choose an example](/examples.md)', '',
              'Names, ownership, scope and saved descriptions are generated from the versioned sources. '
@@ -23,14 +24,16 @@ def generate_reference(root: Path, site: Path, require_help: bool) -> list[str]:
              '[#37](https://github.com/loicwoh/ToastNotifications/issues/37).', '']
 
     def breadcrumb(owner, member=None):
-        crumbs = ['[API](/api.md)']
+        crumbs = [('API', '/api')]
         if owner.parent:
             parent = by_id[owner.parent]
-            crumbs.append(f'[{parent.label}](/api/{parent.id}.md)')
-        crumbs.append(f'[{owner.label}](/api/{owner.id}.md)' if member else owner.label)
+            crumbs.append((parent.label, '/api/' + parent.id))
+        crumbs.append((owner.label, '/api/' + owner.id if member else None))
         if member:
-            crumbs.append(member.path.stem)
-        return ' / '.join(crumbs)
+            crumbs.append((member.path.stem, None))
+        return '<nav aria-label="Breadcrumb">' + ' / '.join(
+            '<a href="#' + url + '">' + html.escape(label) + '</a>' if url else html.escape(label)
+            for label, url in crumbs) + '</nav>'
 
     def related(owner):
         items = []
@@ -68,8 +71,9 @@ def generate_reference(root: Path, site: Path, require_help: bool) -> list[str]:
             if member.role == 'Native reference access':
                 note = ('This technically public accessor exposes implementation-level reference access. '
                         'Prefer the application workflow on the owner page; copying a handle does not transfer ownership.\n\n')
-            page = f'{breadcrumb(owner, member)}\n\n# {owner.label}: {title}\n\n'
-            page += f'**Layer:** {owner.category} · **Kind:** {member.role} · **Saved scope:** {member.scope}\n\n'
+            breadcrumbs['/' + route] = breadcrumb(owner, member)
+            page = f'# {owner.label}: {title}\n\n'
+            page += f'Layer: {owner.category} · Kind: {member.role} · Saved scope: {member.scope}\n\n'
             page += note + body + '\n\n'
             page += f'[Back to {owner.label}](/api/{owner.id}.md) · [Reference index](/reference.md)\n\n'
             if related(owner):
@@ -105,7 +109,8 @@ def generate_reference(root: Path, site: Path, require_help: bool) -> list[str]:
         else:
             # Compatibility for published refs that predate authored owner pages.
             content = f'# {owner.label}\n\nMembers discovered from the saved owner file.\n\n' + generated
-        destination.write_text(breadcrumb(owner) + '\n\n' + content, encoding='utf-8')
+        breadcrumbs['/api/' + owner.id] = breadcrumb(owner)
+        destination.write_text(content, encoding='utf-8')
         index.append('')
 
     for guide, label in GUIDE_LABELS.items():
@@ -113,12 +118,13 @@ def generate_reference(root: Path, site: Path, require_help: bool) -> list[str]:
         if not path.exists():
             continue
         content = path.read_text(encoding='utf-8')
-        navigation = '[Examples](/examples.md) / ' + label + '\n\n'
+        breadcrumbs['/guides/' + guide] = '<nav aria-label="Breadcrumb"><a href="#/examples">Examples</a> / ' + html.escape(label) + '</nav>'
         owner_links = [f'[{o.label}](/api/{o.id}.md)' for o in owners if guide in o.config.get('examples', [])]
         footer = '\n\n## Related API owners\n\n' + ' · '.join(owner_links) if owner_links else ''
-        path.write_text(navigation + content + footer + '\n\n[Back to all examples](/examples.md)\n', encoding='utf-8')
+        path.write_text(content + footer + '\n\n[Back to all examples](/examples.md)\n', encoding='utf-8')
     (site / 'reference.md').write_text('\n'.join(index), encoding='utf-8')
     (site / 'api-links.json').write_text(json.dumps(links, indent=2), encoding='utf-8')
+    (site / 'navigation.js').write_text('window.toastApiBreadcrumbs = ' + json.dumps(breadcrumbs) + ';\n', encoding='utf-8')
     (site / 'api-inventory.json').write_text(json.dumps([
         dict(source=o.path.relative_to(root).as_posix(), id=o.id, kind=o.kind, category=o.category,
              members=[dict(source=m.path.relative_to(root).as_posix(), scope=m.scope, role=m.role) for m in o.members])

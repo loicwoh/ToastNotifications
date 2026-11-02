@@ -74,6 +74,9 @@ The stable support boundary remains undecided in #18.
 
 All generated references, api-inventory.json, api-links.json, staged guide
 navigation and assembled owner pages stay under the ignored output directory.
+Breadcrumbs are rendered from navigation.js outside the Markdown source so the
+search plugin does not index them as duplicate sections. Search caches identify
+the generated revision.
 Edit the sources above; never hand-edit the staged pages.
 
 The current builder must still read published refs that predate api-map.json.
