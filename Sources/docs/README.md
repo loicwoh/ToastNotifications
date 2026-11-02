@@ -138,16 +138,44 @@ availability. Vendor files are local so navigation and search work without a CDN
 ## Publication and versions
 
 `.github/workflows/documentation.yml` checks every push and pull request. Pushes
-also build and publish the available remote branches and tags containing this docs
-layout. A merge onto `develop` or `main` is a push and follows the same path.
-Pull requests validate without publishing; no fork credentials are exposed.
+also publish the selected catalogue. It contains only versions with documentation:
+
+- `main` and `develop`;
+- same-repository branches with an **open PR**, including draft PRs;
+- tags attached to **published GitHub releases**, including prereleases.
+
+Branches without an open PR, closed/merged PR branches, draft releases and bare
+tags are omitted even if their Git refs remain. A branch preview starts when its
+PR is opened; a Git branch has no independent open/closed state.
+
+`.github/workflows/documentation-catalogue.yml` is a small orchestration workflow
+installed on the default branch `main` as well as retained in `develop`. It
+refreshes Pages on PR opening/reopening/closure and release changes, including
+closure without merging. It explicitly checks out trusted `develop` scripts,
+never a PR head. The public catalogue excludes fork PRs; their ordinary checks
+remain read-only and do not publish. This main-branch workflow is infrastructure,
+not a toolkit release. A merge onto develop/main also refreshes through its push.
 
 Each version is built from its own saved VIs and Markdown. The current workflow's
 builder treats other refs as data, never executing their scripts. Every deployment
 contains the full version catalogue, so publishing a work branch preserves the
 integration and release documentation. The selector preserves the requested page;
 an absent page shows that version's 404 rather than silently switching content.
-Deleted branches disappear at the next publication; release tags remain selectable.
+Each publication is a fresh complete artifact: excluded previews disappear from
+the selector, every version manifest and the deployed directories. Their old
+URLs cease to be published; Git branches and commit history are unchanged.
+The event payload overrides briefly stale PR/release API results. API failures
+fail the build instead of silently retaining an unfiltered catalogue.
+
+The catalogue builder reads GitHub's paginated PR/release endpoints with a
+read-only token in CI. For deterministic offline review, pass a JSON snapshot:
+
+```powershell
+python Sources/docs/tools/build_versions.py --output _review/pages --github-state _review/github-state.json
+python Sources/docs/tools/test_build_versions.py
+```
+
+The snapshot has `pulls` and `releases` arrays using GitHub API field names.
 
 The root URL redirects to `main` once main contains documentation. Until then it
 opens `develop`, or the first available work branch. The version selector always
