@@ -19,7 +19,7 @@ information, rather than keeping another copy of each explanation.
 | Upstream Microsoft links and API families | site/microsoft.md | Shared destination for deeper reference |
 | Site build/publication procedure | README.md in this directory | Maintainer instructions |
 | Detailed VI explanations, Mermaid call sequence, native help image and terminal tables | reference/<owner-id>/<member-slug>.md and .png | Appended to generated summary in staging; no redrawn connector |
-| Compact incoming-error behavior | Adjacent reference/*.json: error_behavior=skip/always | Bold cue in detailed help; use the same wording in authorized context-help edits |
+| Compact incoming-error behavior | Adjacent reference/*.json: error_behavior=skip/always/noop | Bold cue in detailed help; noop identifies an empty base hook; use the same wording in authorized context-help edits |
 | Detailed-help review provenance and saved-file fingerprints | Adjacent reference/*.json | Build checks freshness; technical review evidence is not published in the help page |
 | Detailed-help authoring structure | templates/detailed-help.md | Maintainer scaffold; never published as an API entry |
 | Toolkit/class visual conventions | VISUAL-IDENTITY.md and site/assets/identity.css | Repository-only maintainer reference for the shared palette and future LabVIEW banners; not published as a website page |

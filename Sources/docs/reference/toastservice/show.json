@@ -6,9 +6,10 @@
   "error_behavior": "skip",
   "reviewed_files": {
     "Sources/ToastService/Show.vi": "f7ac7d78a27d74aeea32f1aeedebc8a8a4f916e3384effcfe6021764a1386c27",
-    "Sources/ToastService/ToastService.lvclass": "d3256b660ddcdac216d6ebbf5bc211237397dfc5897bdf59c18fa39202dc14d8",
+    "Sources/ToastService/ToastService.lvclass": "b8f2da1e725e4c73719b27a21c99c86c7256b038651c896f510cdc2a58d5afdc",
     "Sources/ToastBuilder/Show.vi": "876569be4345a236d7f70f7f4cc66e51b2f316a0a79ed557ff1664d9aa5230ad"
   },
   "visual": "toastservice/show.png",
-  "visual_sha256": "8ca2b43f73e5330c52da17b94667adf8e3e9af7ee098cad4922b23c9c1ac5f71"
+  "visual_sha256": "8ca2b43f73e5330c52da17b94667adf8e3e9af7ee098cad4922b23c9c1ac5f71",
+  "fingerprint_format": "sha256-lf-xml"
 }

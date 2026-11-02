@@ -36,7 +36,8 @@ flowchart TD
 ## Usage notes
 
 <!-- Keep only meaningful constraints, validation, errors, pitfalls and ownership.
-The generated error cue uses error_behavior=skip or always. Use the same compact
+The generated error cue uses error_behavior=skip, always or noop (empty base
+hooks only). Use the same compact
 wording in the VI context-help summary when an authorized VI documentation edit
 is made: "Skipped on incoming error." / "Executes even on incoming error."
 For always methods, explain error merging if needed. No internal node-by-node

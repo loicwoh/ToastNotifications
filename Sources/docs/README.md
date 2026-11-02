@@ -44,11 +44,13 @@ scope, source path and **Short description** from the versioned files, then appe
 this Markdown. It never writes back to the authored directory or saved VIs.
 The short description reproduces the saved LabVIEW Context Help text exactly;
 it is read again on each build. The nine ToastBuilder and five ToastService
-application methods now use this model. Other entries explicitly say **Short
-description only**; the handler lot remains in #42. Automated export remains
-tracked in #46.
+application methods, the three ActivationHandler hooks and four User Event
+plugin methods now use this model: 21 application VIs across the four classes.
+Payload types retain their generated summaries and are explained at method
+terminals. Other entries explicitly say **Short description only**. Automated
+export remains tracked in #46.
 
-To author a page after the pilot is approved:
+To author another page using the approved model:
 
 1. Copy `templates/detailed-help.md` to `reference/<owner-id>/<member-slug>.md`.
    Start at H2. Do not copy the VI summary or add another page title.
@@ -66,8 +68,13 @@ To author a page after the pilot is approved:
    `source` (repository-relative saved VI), `reviewed_on` (ISO date), `method`
    (tools, LabVIEW version, evidence and visual revision), `reviewed_files`
    (repository-relative source paths to lowercase SHA-256), `visual` (relative
-   to `Sources/docs/reference`), `visual_sha256` and `error_behavior` (`skip` or
-   `always`). Include helper files whose behavior the page
+   to `Sources/docs/reference`), `visual_sha256` and `error_behavior` (`skip`,
+   `always`, or `noop` for an empty base hook). Use `review_fingerprint` from
+   `tools/detailed_help.py`: XML owner files (.lvclass/.lvlib/.lvproj) normalize
+   CRLF to LF for cross-platform checkouts when the record sets
+   `fingerprint_format: sha256-lf-xml`; VIs, typedefs and images remain
+   byte-exact. Historical records without this field keep their raw hashes.
+   Include helper files whose behavior the page
    relies on. `Get-FileHash -Algorithm SHA256` or Python hashlib can calculate hashes.
 5. Build twice, check routes, compare the terminals with Context Help and inspect
    the rendered page, search and links. Record separately any actual runtime test.

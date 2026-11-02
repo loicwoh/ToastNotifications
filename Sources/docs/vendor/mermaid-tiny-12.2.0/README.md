@@ -11,5 +11,6 @@ Copied without modification; the site has no runtime CDN dependency.
 
 `site/assets/diagrams.js` renders Mermaid code fences after Docsify navigation,
 using strict security mode, Dagre layout and system fonts. Tiny supports the
-flowcharts used here; it intentionally omits some full Mermaid features.
+flowcharts and lifecycle sequence diagrams used here; it intentionally omits
+some full Mermaid features.
 Verify a rendered diagram and navigation after upgrading the pinned runtime.
