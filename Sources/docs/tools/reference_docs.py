@@ -5,6 +5,7 @@ import html
 import json
 from api_inventory import inventory, slug
 from vi_descriptions import description, resource
+from detailed_help import load_help
 
 GUIDE_LABELS = {'reply': 'Receive a text reply', 'multiple-actions': 'Handle multiple actions',
                 'protocol': 'Open a link'}
@@ -13,6 +14,9 @@ GUIDE_LABELS = {'reply': 'Receive a text reply', 'multiple-actions': 'Handle mul
 def generate_reference(root: Path, site: Path, require_help: bool) -> list[str]:
     owners = inventory(root)
     by_id = {o.id: o for o in owners}
+    authored = load_help(root, site, {
+        f'reference/{o.config.get("reference_prefix", o.id)}/{slug(m.path.stem)}': m.path.relative_to(root).as_posix()
+        for o in owners for m in o.members})
     links, routes, breadcrumbs = [], ['/reference'], {}
     index = ['# VI and data type reference', '',
              '[API overview](/api.md) · [Choose an example](/examples.md)', '',
@@ -20,8 +24,8 @@ def generate_reference(root: Path, site: Path, require_help: bool) -> list[str]:
              'This index includes application methods, extension points and low-level helpers. '
              'Technical Public scope does not establish a release support guarantee.', '',
              'Start with the [owner pages](/api.md) to choose the appropriate layer. '
-             'Connector details remain in LabVIEW Context Help while the detailed-help template is developed in '
-             '[#37](https://github.com/loicwoh/ToastNotifications/issues/37).', '']
+             'Entries marked **Detailed help pilot** add a reviewed connector, terminals and usage scenario. '
+             'Other entries contain the saved summary only; consult LabVIEW Context Help for their connectors.', '']
 
     def breadcrumb(owner, member=None):
         crumbs = [('API', '/api')]
@@ -74,7 +78,11 @@ def generate_reference(root: Path, site: Path, require_help: bool) -> list[str]:
             breadcrumbs['/' + route] = breadcrumb(owner, member)
             page = f'# {owner.label}: {title}\n\n'
             page += f'Layer: {owner.category} · Kind: {member.role} · Saved scope: {member.scope}\n\n'
-            page += note + body + '\n\n'
+            page += ('**Detailed help pilot** — reviewed explanation and connector below.\n\n' if route in authored
+                     else '**Saved summary only** — a full usage walkthrough is not yet authored.\n\n')
+            page += '## Saved summary\n\n' + note + body + '\n\n'
+            if route in authored:
+                page += authored[route] + '\n'
             page += f'[Back to {owner.label}](/api/{owner.id}.md) · [Reference index](/reference.md)\n\n'
             if related(owner):
                 page += '## Related owner workflows\n\n' + related(owner) + '\n\n'
@@ -85,7 +93,8 @@ def generate_reference(root: Path, site: Path, require_help: bool) -> list[str]:
             destination.write_text(page, encoding='utf-8')
             row = f'| [{title}](/{route}.md) | {member.role} | {member.scope} |'
             (reference_rows if member.role == 'Native reference access' else rows).append(row)
-            index.append(f'- [{title}](/{route}.md) — {member.role}')
+            help_label = ' · **Detailed help pilot**' if route in authored else ''
+            index.append(f'- [{title}](/{route}.md) — {member.role}{help_label}')
 
         generated = f'**Kind:** {owner.kind} · **Layer:** {owner.category}\n\n'
         if owner.children:

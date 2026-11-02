@@ -25,8 +25,43 @@ resource in the current VIs, is read-only, and refuses unsupported encodings or
 layouts. It does not inspect wiring or infer behavior. Missing non-class descriptions
 produce visible placeholders; strict CI rejects missing class-method descriptions.
 Connector terminal descriptions and
-diagrams are not extracted yet. Authored walkthroughs still require human review
+diagrams are not automatically extracted yet. Authored walkthroughs still require human review
 when behavior changes; a generated description cannot verify that it is correct.
+
+## Hybrid detailed help (pilot)
+
+`reference/toastbuilder/add-text.md` is the authored enrichment for the existing
+`/reference/toastbuilder/add-text` route. The generator keeps the title, owner,
+scope, source path and **Saved summary** from the versioned files, then appends
+this Markdown. It never writes back to the authored directory or saved VIs.
+Other entries explicitly say **Saved summary only**. Review the pilot before
+expanding coverage in #42; automated terminal/diagram export is tracked in #46.
+
+To author a page after the pilot is approved:
+
+1. Copy `templates/detailed-help.md` to `reference/<owner-id>/<member-slug>.md`.
+   Start at H2. Do not copy the VI summary or add another page title.
+2. Inspect the saved VI and actual connector in LabVIEW, including slot positions,
+   types, defaults and connection settings. Inspect its error branches and called
+   helpers. Do not infer behavior from a majority-orientation offline estimate.
+3. Add a controlled `.svg` schematic in the reference directory with an accessible
+   title/description; label it as a schematic. Keep it next to the Markdown and
+   link it by filename, e.g. `add-text.svg`, so Docsify resolves the version subpath.
+4. Add an adjacent `.json` using the pilot record's schema: `schema_version: 1`,
+   `source` (repository-relative saved VI), `reviewed_on` (ISO date), `method`
+   (tools, LabVIEW version, evidence and visual revision), `reviewed_files`
+   (repository-relative source paths to lowercase SHA-256) and `visual` (relative
+   to `Sources/docs/reference`). Include helper files whose behavior the page
+   relies on. `Get-FileHash -Algorithm SHA256` or Python hashlib can calculate hashes.
+5. Build twice, check routes, compare the terminals with Context Help and inspect
+   the rendered page, search and links. Record separately any actual runtime test.
+
+Any byte change in a reviewed file makes the detailed-help build fail, including
+a summary-only edit or a LabVIEW resave. Review the impact, update the Markdown/
+visual if needed, then update the date, method and hashes. Never refresh hashes
+blindly: a matching hash confirms the inspected snapshot, not correctness.
+The saved summary is re-read on every build; no Markdown copy is maintained.
+Historical refs without this authored directory still build with summaries only.
 
 ## Local preview
 
@@ -43,6 +78,7 @@ Open `http://127.0.0.1:8766/ToastNotifications/`. Stop with Ctrl+C.
 python Sources/docs/tools/docs_preview.py build
 python Sources/docs/tools/docs_preview.py check
 python Sources/docs/tools/test_api_inventory.py
+python Sources/docs/tools/test_detailed_help.py
 ```
 
 The ignored `_review/docsify-preview/ToastNotifications` directory holds generated

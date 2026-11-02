@@ -26,6 +26,8 @@ jobs:
         run: python Sources/docs/tools/docs_preview.py build --require-help-links
       - name: Check owner inventory URL, scope and route regressions
         run: python Sources/docs/tools/test_api_inventory.py
+      - name: Check detailed help assembly, freshness and preservation
+        run: python Sources/docs/tools/test_detailed_help.py
 
   build:
     if: github.event_name != 'pull_request'
