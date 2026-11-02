@@ -119,6 +119,44 @@ class DetailedHelpChecks(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Changed detailed help visual'):
             self.load()
 
+    def test_internal_accessor_retains_help_url_without_promoting_it(self):
+        self.write('Sources/docs/api-map.json', json.dumps({'owners': {
+            'Sources/ToastNotification/ToastNotification.lvlib': {'id': 'toastnotification'},
+            'Sources/ToastBuilder/ToastBuilder.lvclass': {
+                'id': 'toastbuilder', 'internal_members': ['Add Text.vi']}}}))
+        reference_docs.description = lambda path: 'Internal description must not be published'
+        # Authored full help for an excluded member is an error, not silent loss.
+        with self.assertRaisesRegex(ValueError, 'Orphaned or mismatched'):
+            generate_reference(self.root, self.site, False)
+        shutil.rmtree(self.root / 'Sources/docs/reference')
+        routes = generate_reference(self.root, self.site, False)
+        self.assertNotIn('/' + self.route, routes)
+        page = (self.site / (self.route + '.md')).read_text(encoding='utf-8')
+        self.assertIn('implementation detail', page)
+        self.assertNotIn('Internal description', page)
+        self.assertNotIn('Add Text', (self.site / 'reference.md').read_text(encoding='utf-8'))
+        links = json.loads((self.site / 'api-links.json').read_text(encoding='utf-8'))
+        self.assertEqual(links, [dict(source=self.source, route='#/' + self.route)])
+
+    def test_internal_library_is_absent_from_all_public_indexes(self):
+        self.write('Sources/ToastNotification/ToastNotification.lvlib',
+                   '<Library><Item Type="LVClass" URL="../../ToastBuilder/ToastBuilder.lvclass"/>'
+                   '<Item Type="Library" URL="../../Support/Support.lvlib"/></Library>')
+        self.write('Sources/Support/Support.lvlib',
+                   '<Library><Item Type="VI" URL="../Helper.vi"/></Library>')
+        self.write('Sources/Support/Helper.vi', 'helper fixture')
+        self.write('Sources/docs/api-map.json', json.dumps({'owners': {
+            'Sources/ToastNotification/ToastNotification.lvlib': {'id': 'toastnotification'},
+            'Sources/ToastBuilder/ToastBuilder.lvclass': {'id': 'toastbuilder'},
+            'Sources/Support/Support.lvlib': {'id': 'support', 'audience': 'internal'}}}))
+        reference_docs.description = lambda path: 'Public saved summary'
+        routes = generate_reference(self.root, self.site, False)
+        self.assertFalse(any('support' in route for route in routes))
+        self.assertFalse((self.site / 'api/support.md').exists())
+        self.assertNotIn('Support', (self.site / 'api/toastnotification.md').read_text(encoding='utf-8'))
+        public = json.loads((self.site / 'api-inventory.json').read_text(encoding='utf-8'))
+        self.assertNotIn('support', [owner['id'] for owner in public])
+
     def test_historical_ref_without_authored_directory_still_generates_summaries(self):
         shutil.rmtree(self.root / 'Sources/docs/reference')
         reference_docs.description = lambda path: 'Historical saved summary'

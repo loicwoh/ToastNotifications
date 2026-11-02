@@ -119,7 +119,11 @@ def inventory(root: Path) -> list[Owner]:
         return owner
 
     visit(entry.resolve())
-    missing = set(owner_config) - {p.relative_to(root).as_posix() for p in owners}
+    # Internal owners can become Community/Private without requiring public docs.
+    # Their recorded source must still exist; stale map entries are not ignored.
+    hidden = {name for name, options in owner_config.items()
+              if options.get('audience') == 'internal' and (root / name).is_file()}
+    missing = set(owner_config) - {p.relative_to(root).as_posix() for p in owners} - hidden
     if missing:
         raise ValueError(f'Documentation owners absent from the root library: {sorted(missing)}')
     return list(owners.values())

@@ -11,7 +11,7 @@ Microsoft's ToastContentBuilder is the native composition object.
 [ToastBuilder](/api/toastbuilder.md) is the LabVIEW wrapper around that object.
 Its methods change the native content directly.
 
-Continue with [Toast Native](/api/toast-native.md), the
+Continue with the [builder methods](/api/toastbuilder.md), the
 [reply example](/guides/reply.md) or the [link example](/guides/protocol.md).
 
 ## Activation
@@ -39,5 +39,5 @@ The integration obtains native type/member information to reach operations that
 are awkward to call directly from LabVIEW. Conversion helpers keep those details
 outside the application's activation payload.
 
-Continue with [Reflection DotNet](/api/reflection-dotnet.md),
-[ToastService](/api/toastservice.md) and the [Microsoft directory](/microsoft.md).
+Continue with [ToastService](/api/toastservice.md), the [ownership contract](/callbacks.md)
+and the [Microsoft directory](/microsoft.md).

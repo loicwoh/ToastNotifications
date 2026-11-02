@@ -14,17 +14,28 @@ FAMILIES = {'toolkit': ('T', 'Windows notifications for LabVIEW'),
             'handler': ('H', 'React to activation')}
 
 
+def application_owners(owners):
+    for owner in owners:
+        if owner.config.get('audience', 'public') not in ('public', 'internal'):
+            raise ValueError(f'Unknown documentation audience: {owner.id}')
+    return [owner for owner in owners if owner.config.get('audience') != 'internal']
+
+
+def is_internal(owner, member):
+    return member.path.name in owner.config.get('internal_members', [])
+
+
 def generate_reference(root: Path, site: Path, require_help: bool) -> list[str]:
-    owners = inventory(root)
+    owners = application_owners(inventory(root))
     by_id = {o.id: o for o in owners}
     authored = load_help(root, site, {
         f'reference/{o.config.get("reference_prefix", o.id)}/{slug(m.path.stem)}': m.path.relative_to(root).as_posix()
-        for o in owners for m in o.members})
+        for o in owners for m in o.members if not is_internal(o, m)})
     links, routes, breadcrumbs = [], ['/reference'], {}
     index = ['# VI and data type reference', '',
              '[API overview](/api.md) · [Choose an example](/examples.md)', '',
              'Names, ownership, scope and saved descriptions are generated from the versioned sources. '
-             'This index includes application methods, extension points and low-level helpers. '
+             'This index follows the documentation boundary configured for this version. '
              'Technical Public scope does not establish a release support guarantee.', '',
              'Start with the [owner pages](/api.md) to choose the appropriate layer. '
              'Entries marked **Detailed help** add a native help image, terminals and usage scenario. '
@@ -63,10 +74,12 @@ def generate_reference(root: Path, site: Path, require_help: bool) -> list[str]:
         index += [f'## {owner.label}', '', f'[Role, dependencies and members](/api/{owner.id}.md)', '']
         rows, reference_rows = [], []
         for member in owner.members:
+            internal = is_internal(owner, member)
+            if internal and member.path.suffix != '.vi':
+                continue
             name = member.path.stem
             prefix = owner.config.get('reference_prefix', owner.id)
             route = f'reference/{prefix}/{slug(name)}'
-            routes.append('/' + route)
             source = member.path.relative_to(root).as_posix()
             body = description(member.path)
             needs_help = owner.kind == 'Class' and member.path.suffix == '.vi'
@@ -82,6 +95,16 @@ def generate_reference(root: Path, site: Path, require_help: bool) -> list[str]:
                 # Preserve the existing 23-entry maintenance contract. New helper
                 # reference pages do not require saving their VIs to add URLs.
                 links.append(dict(source=source, route='#/' + route))
+            if internal:
+                # Retain old saved VI Help URLs without promoting raw accessors
+                # in navigation, search or application member tables.
+                destination = site / (route + '.md')
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                destination.write_text(f'# {owner.label}: implementation detail\n\n'
+                    f'This accessor is internal to the toolkit. Use the '
+                    f'[{owner.label} application methods](/api/{owner.id}.md).\n', encoding='utf-8')
+                continue
+            routes.append('/' + route)
             title = name + (' (data type)' if member.path.suffix == '.ctl' else '')
             note = ''
             if member.role == 'Native reference access':
@@ -109,10 +132,11 @@ def generate_reference(root: Path, site: Path, require_help: bool) -> list[str]:
             index.append(f'- [{title}](/{route}.md) — {member.role}{help_label}')
 
         generated = f'**Kind:** {owner.kind} · **Layer:** {owner.category}\n\n'
-        if owner.children:
+        children = [child for child in owner.children if child in by_id]
+        if children:
             generated += '## Contained libraries and classes\n\n'
-            generated += '\n'.join(f'- [{by_id[c].label}](/api/{c}.md) — {by_id[c].category}' for c in owner.children) + '\n\n'
-        generated += '## Public members\n\nThe list follows the saved owner XML and effective item scope.\n\n'
+            generated += '\n'.join(f'- [{by_id[c].label}](/api/{c}.md) — {by_id[c].category}' for c in children) + '\n\n'
+        generated += '## Public members\n\nPublic members selected for this documentation version from the saved owner XML and effective item scope.\n\n'
         generated += '| Member | Role | Scope |\n|---|---|---|\n' + '\n'.join(rows) + '\n\n'
         if reference_rows:
             generated += '## Native reference accessors\n\nThese entries remain technically public; listing them does not recommend native-handle manipulation in application code.\n\n'
@@ -148,6 +172,6 @@ def generate_reference(root: Path, site: Path, require_help: bool) -> list[str]:
     (site / 'navigation.js').write_text('window.toastApiBreadcrumbs = ' + json.dumps(breadcrumbs) + ';\n', encoding='utf-8')
     (site / 'api-inventory.json').write_text(json.dumps([
         dict(source=o.path.relative_to(root).as_posix(), id=o.id, kind=o.kind, category=o.category,
-             members=[dict(source=m.path.relative_to(root).as_posix(), scope=m.scope, role=m.role) for m in o.members])
+             members=[dict(source=m.path.relative_to(root).as_posix(), scope=m.scope, role=m.role) for m in o.members if not is_internal(o, m)])
         for o in owners], indent=2), encoding='utf-8')
     return routes

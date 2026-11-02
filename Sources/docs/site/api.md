@@ -10,7 +10,7 @@ compatibility. The supported API and versioning policy remain tracked in
 ## ToastBuilder
 
 [ToastBuilder: role, dependencies and members](/api/toastbuilder.md) — construct
-content through LabVIEW methods. Native reference accessors are identified separately.
+content through LabVIEW methods.
 
 ## ToastService
 
@@ -29,14 +29,11 @@ The root [ToastNotification library](/api/toastnotification.md) owns Activation
 and Argument. The [User Event plugin](/api/usereventactivationhandler.md) owns the
 delivery wrapper that adds the conversion error beside Activation.
 
-## Low-level libraries
+## Implementation boundary
 
-- [Toast Native](/api/toast-native.md): direct native composition calls.
-- [Reflection DotNet](/api/reflection-dotnet.md): metadata, invocation and cleanup helpers.
-
-These libraries are documented for maintenance and advanced integration. Prefer
-class methods and handler hooks for ordinary application workflows. Technical
-Public scope alone does not identify the recommended application surface.
+Native .NET calls and reflection helpers are internal implementation details.
+The application API is carried by the classes above and their activation data.
+This documentation boundary does not itself change the saved LabVIEW scopes.
 
 ## XML support
 

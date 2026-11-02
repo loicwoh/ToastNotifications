@@ -10,8 +10,6 @@
   - [ToastService](api/toastservice.md)
   - [ActivationHandler](api/activationhandler.md)
   - [User Event plugin](api/usereventactivationhandler.md)
-  - [Toast Native](api/toast-native.md)
-  - [Reflection DotNet](api/reflection-dotnet.md)
   - [VI and data type index](reference.md)
   - [Callbacks & ownership](callbacks.md)
 - **Examples**

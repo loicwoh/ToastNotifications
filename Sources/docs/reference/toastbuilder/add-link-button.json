@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "source": "Sources/ToastBuilder/Add Link Button.vi",
+  "reviewed_on": "2026-11-02",
+  "method": "Read-only review of saved develop c856044 sources in LabVIEW 2026 Q3 (64-bit). Native gRPC AIXML: terminal names/types/defaults, Error/No Error wiring and called helper behavior. Native Print.VI To HTML over ActiveX (pylabview backend): connector icon and named terminals copied byte-for-byte from the same worktree. No product execution or save.",
+  "error_behavior": "skip",
+  "reviewed_files": {
+    "Sources/ToastBuilder/Add Link Button.vi": "af1aa4bf2cdd8474fd7b423eddf98f0cdcb2eb9aa648c68d4cd75ae853470c15",
+    "Sources/ToastBuilder/Read Builder Reference.vi": "2deab20e92ad56b47528b89fcded70d01e5653758bcd8812a66bb4e61379da41",
+    "Sources/Toast Native/Add Link Button.vi": "ecfd3f461280c7445ed4493b4a6c9c57d78e41568b329b2efad258d231ce1bb7",
+    "Sources/ToastBuilder/Write Builder Reference.vi": "4a1ae78b5abdcf729b91da0b08fec1e312fbd953eb7d8078bdfebf434b91d82f"
+  },
+  "visual": "toastbuilder/add-link-button.png",
+  "visual_sha256": "ff54133fc8c816bc4727b4884f758a96c7598d5dde9a4eb9b2cc45a78a531361"
+}

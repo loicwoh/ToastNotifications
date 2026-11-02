@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "source": "Sources/ToastBuilder/Set Activation Arguments.vi",
+  "reviewed_on": "2026-11-02",
+  "method": "Read-only review of saved develop c856044 sources in LabVIEW 2026 Q3 (64-bit). Native gRPC AIXML: terminal names/types/defaults, Error/No Error wiring and called helper behavior. Native Print.VI To HTML over ActiveX (pylabview backend): connector icon and named terminals copied byte-for-byte from the same worktree. No product execution or save.",
+  "error_behavior": "skip",
+  "reviewed_files": {
+    "Sources/ToastBuilder/Set Activation Arguments.vi": "ab818a93cdf640c4f6ebfde469def125b2588e59eeec4a54efb02843edd72ecb",
+    "Sources/ToastBuilder/Read Builder Reference.vi": "2deab20e92ad56b47528b89fcded70d01e5653758bcd8812a66bb4e61379da41",
+    "Sources/Toast Native/Add ToastActivation Info.vi": "0cd66e2092f686fdbc1d965c6fe4816d7504f6369d03967cfdb7eb2dc0c60e6b",
+    "Sources/ToastBuilder/Write Builder Reference.vi": "4a1ae78b5abdcf729b91da0b08fec1e312fbd953eb7d8078bdfebf434b91d82f"
+  },
+  "visual": "toastbuilder/set-activation-arguments.png",
+  "visual_sha256": "e800de1fb6dd746656642bd5f570eb2c73ee453a2816ad8335079007cd353e05"
+}
