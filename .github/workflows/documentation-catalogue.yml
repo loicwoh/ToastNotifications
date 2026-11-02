@@ -1,0 +1,55 @@
+name: Refresh documentation catalogue
+
+# This small orchestration workflow must also exist on the default branch main.
+# It always runs the trusted integration scripts from develop, never PR code.
+on:
+  pull_request_target:
+    types: [opened, reopened, closed]
+  release:
+    types: [published, unpublished, deleted, edited]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: documentation-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.event_name != 'pull_request_target' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: develop
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Fetch available documentation sources
+        run: git fetch --prune origin '+refs/heads/*:refs/remotes/origin/*' --tags
+      - name: Build the current active catalogue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python Sources/docs/tools/build_versions.py --output _review/pages
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _review/pages
+
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish refreshed catalogue
+        id: deployment
+        uses: actions/deploy-pages@v4
