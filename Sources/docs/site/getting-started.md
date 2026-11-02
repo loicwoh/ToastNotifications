@@ -29,12 +29,12 @@ results and a distinction between callback errors and the final example error.
 
 ## Build your own application flow
 
-1. Create a builder and add texts, inputs and application buttons as required.
-2. Initialize `ToastService` with a handler instance.
-3. If using `UserEventActivationHandler`, retrieve the initialized handler and read
+1. [Create a builder](/reference/toastbuilder/create.md) and add texts, inputs and application buttons as required.
+2. [Initialize ToastService](/reference/toastservice/initialize.md) with a handler instance.
+3. If using [UserEventActivationHandler](/api/usereventactivationhandler.md), retrieve the initialized handler and read
    its `Event Ref`. Register that event with your application's Event Structure.
-4. Register the native callback with `ToastService.Register For Events`.
-5. Show the toast and process delivered values in your receiving loop.
+4. Register the native callback with [ToastService.Register For Events](/reference/toastservice/register-for-events.md).
+5. [Show the toast](/reference/toastservice/show.md) and process delivered values in your receiving loop.
 6. Stop the receiving flow and release resources according to the
    [ownership contracts](callbacks.md).
 

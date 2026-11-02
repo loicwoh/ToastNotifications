@@ -1,5 +1,7 @@
 # Choose an example
 
+[Concept map](/concepts.md) · [API by owner](/api.md)
+
 Each focused example shows a complete application path: configure, display,
 receive when applicable, and close.
 
@@ -31,6 +33,10 @@ There are no input controls, so an empty User Inputs array is expected.
 
 Open `Sources/Examples/Toast With Link Button.vi`. The button opens the configured
 URL through Windows. Its Protocol action is distinct from an application callback.
+
+The examples compose through [ToastBuilder](/api/toastbuilder.md) and
+[ToastService](/api/toastservice.md). The first two receive data through the
+[User Event plugin](/api/usereventactivationhandler.md).
 
 ## Coming next
 

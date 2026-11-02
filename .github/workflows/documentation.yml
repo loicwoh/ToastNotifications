@@ -24,6 +24,8 @@ jobs:
           python-version: '3.12'
       - name: Generate VI reference and check local documentation links
         run: python Sources/docs/tools/docs_preview.py build --require-help-links
+      - name: Check owner inventory URL, scope and route regressions
+        run: python Sources/docs/tools/test_api_inventory.py
 
   build:
     if: github.event_name != 'pull_request'

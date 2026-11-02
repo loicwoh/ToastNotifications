@@ -1,4 +1,9 @@
-# Architecture et contrats
+# Architecture — notes de maintenance
+
+> Point d’entrée utilisateur : [API par propriétaire](docs/site/api.md) et
+> [contrat courant de callback/ownership](docs/site/callbacks.md). Ce document
+> conserve des notes d’implémentation pour les mainteneurs ; les guides publics
+> et leurs sources canoniques sont décrits dans [CONTENT-MAP](docs/CONTENT-MAP.md).
 
 ## Construction directe
 
@@ -12,7 +17,7 @@ Les nœuds de propriétés de classe donnent accès aux références stockées. 
 |---|---|
 | ToastBuilder | Create, Add Text, Add Text Input, Add Bouton, Add Link Button, Set Activation Arguments, Get XML, Show, Close |
 | ToastService | Initialize avec handler injecté, Register For Events, Show sur un builder emprunté, Close |
-| ActivationHandler.Handle Activation | Extension à dispatch dynamique ; le gestionnaire de base ne fait aucune action et propage l'erreur |
+| ActivationHandler.Handle Activation | Extension à dispatch dynamique ; le gestionnaire de base ne fait aucune action applicative |
 | ActivationHandler.Initialize / Close | Hooks de cycle de vie pilotés par ToastService |
 | UserEventActivationHandler | Crée un User Event, relaie Activation et l'erreur de conversion, puis détruit l'événement à sa fermeture |
 | Toast Native.lvlib | Appels directs du toolkit, construction et manipulation des objets natifs |
@@ -42,7 +47,7 @@ Les arguments restent une chaîne brute : aucun format de parsing n'est imposé 
 Une copie de classe ne rend pas les handles indépendants. Fermer un alias invalide les autres. `reference out` et `object out` désignent des alias empruntés ; ils ne doivent pas être fermés comme des acquisitions supplémentaires.
 Fermer un handle LabVIEW, appeler `Dispose`, désabonner un événement et déclencher le GC sont des opérations distinctes.
 
-Les opérations ignorées sur erreur entrante utilisent des cases Error/No Error. Les helpers de nettoyage travaillent aussi avec une erreur entrante et placent l'erreur principale en premier lors de la fusion. Le callback transmet l'erreur de conversion à `Handle Activation` ; `Last Callback Error` expose son erreur de sortie. Le payload ne contient plus de champ Error.
+Les opérations ignorées sur erreur entrante utilisent des cases Error/No Error. Les helpers de nettoyage travaillent aussi avec une erreur entrante et placent l'erreur principale en premier lors de la fusion. Le callback transmet l'erreur de conversion séparément à `Handle Activation`. Le handler User Event la transporte à côté d'Activation dans son payload de livraison ; Activation.ctl ne contient pas ce champ. Aucun accesseur `Last Callback Error` n'est présent dans la classe actuelle ; consulter le contrat courant pour les diagnostics disponibles et les limites de #22.
 
 ## Fermeture et limites
 

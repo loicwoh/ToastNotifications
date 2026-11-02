@@ -5,18 +5,26 @@ No global npm installation or LabVIEW licence is needed to build the website.
 
 ## Sources of truth
 
+See [CONTENT-MAP.md](CONTENT-MAP.md) for the canonical source of each topic,
+owner inventory, route compatibility and generated/manual boundaries.
+
+- `api-map.json`: owner IDs, documented layers and related workflows. Membership
+  and public scope are discovered from the root library and actual owner XML.
+- `site/api/*.md`: authored role/dependency pages. The API-MEMBERS marker receives
+  the generated member list in staging only.
 - `site/`: authored English guides, navigation, API overview and Microsoft directory.
 - `Sources/Examples/*.md`: canonical scenario guides, copied into the generated site.
-- Saved public VI descriptions in ToastBuilder, ToastService, ActivationHandler and
-  UserEventActivationHandler: generated detailed reference. Class membership and
-  public scope are read from `.lvclass` XML on each build.
+- Saved public VI/data-type descriptions in all discovered owners: generated reference.
+  Class methods keep their existing help routes; libraries and types gain reference
+  entries without changing the saved VIs or adding help URLs to them.
 - `vendor/docsify-4.13.1/`: pinned runtime, search plugin, theme and MIT licence.
 
 Edit VI context help in LabVIEW and save before building. There is no manually
 maintained description snapshot. The reader handles the uncompressed ANSI STRG
 resource in the current VIs, is read-only, and refuses unsupported encodings or
-layouts. It does not inspect wiring or infer behavior. Missing descriptions produce
-explicit warnings and visible placeholders. Connector terminal descriptions and
+layouts. It does not inspect wiring or infer behavior. Missing non-class descriptions
+produce visible placeholders; strict CI rejects missing class-method descriptions.
+Connector terminal descriptions and
 diagrams are not extracted yet. Authored walkthroughs still require human review
 when behavior changes; a generated description cannot verify that it is correct.
 
@@ -34,6 +42,7 @@ Open `http://127.0.0.1:8766/ToastNotifications/`. Stop with Ctrl+C.
 ```powershell
 python Sources/docs/tools/docs_preview.py build
 python Sources/docs/tools/docs_preview.py check
+python Sources/docs/tools/test_api_inventory.py
 ```
 
 The ignored `_review/docsify-preview/ToastNotifications` directory holds generated
