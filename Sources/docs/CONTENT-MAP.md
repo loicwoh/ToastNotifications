@@ -17,7 +17,10 @@ information, rather than keeping another copy of each explanation.
 | Feature maturity and compatibility statements | site/coverage.md | #15 and #17 supply validation evidence and environment details |
 | Upstream Microsoft links and API families | site/microsoft.md | Shared destination for deeper reference |
 | Site build/publication procedure | README.md in this directory | Maintainer instructions |
-| Future detailed VI explanations | To be defined by #37 | #36 does not introduce a second hand-maintained VI-summary snapshot |
+| Detailed VI explanations, Mermaid call sequence, native help image and terminal tables | reference/<owner-id>/<member-slug>.md and .png | Appended to generated summary in staging; no redrawn connector |
+| Compact incoming-error behavior | Adjacent reference/*.json: error_behavior=skip/always | Bold cue in detailed help; use the same wording in authorized context-help edits |
+| Detailed-help review provenance and saved-file fingerprints | Adjacent reference/*.json | Build checks freshness; technical review evidence is not published in the help page |
+| Detailed-help authoring structure | templates/detailed-help.md | Maintainer scaffold; never published as an API entry |
 
 ## Existing repository documents
 
