@@ -2,12 +2,12 @@
   "schema_version": 1,
   "source": "Sources/ToastBuilder/Add Text.vi",
   "reviewed_on": "2026-11-02",
-  "method": "Read-only LabVIEW MCP review in LabVIEW 2026 Q3 (64-bit): native gRPC connector-pane query and AIXML export for terminal defaults and error-case wiring; native helper inspected through pylabview. Native help image exported with LabVIEW Print.VI To HTML over ActiveX (pylabview backend), AddTextc.png copied byte-for-byte, no redraw or retouch. No product execution or save.",
+  "method": "Read-only LabVIEW MCP review in LabVIEW 2026 Q3 (64-bit): native gRPC connector-pane query and AIXML export for terminal defaults and error-case wiring; native helper inspected through pylabview. Native help image exported with LabVIEW Print.VI To HTML over ActiveX (pylabview backend), AddTextc.png copied byte-for-byte, no redraw or retouch. No product execution or save. Maintenance refresh 2026-11-02: maintainer-applied LabVIEW theme and diagram cleanup. Native gRPC exports confirm unchanged public connector names, slots, types, defaults and connection requirements; saved summaries match the develop baseline. Native icon/terminal images re-exported by Print.VI To HTML over ActiveX and visually inspected. Changed VIs report eIdle with no execution errors. No product execution or save by the reviewer. Functional equivalence of every cleaned wire is not claimed; see reviews/labview-theme.md.",
   "error_behavior": "skip",
   "reviewed_files": {
-    "Sources/ToastBuilder/Add Text.vi": "bb3dc06dcd24920ff97f5c1929629eb2234e50c2a2f7a02e315989d0b3b25e6b",
-    "Sources/Toast Native/Add Text.vi": "ff577b86b741ed9fdc145863abcaa2a9bfe07a3b1ed735f2a85724bb5238c845"
+    "Sources/ToastBuilder/Add Text.vi": "edbb03434891563a97c214ff134b7a96da288f92590f4dbeb8f605c417763872",
+    "Sources/Toast Native/Add Text.vi": "56296f5f6c28d2edef9166ce85350be28f8e4e5533c562c7b99dfddd82a4ddc2"
   },
   "visual": "toastbuilder/add-text.png",
-  "visual_sha256": "68d0197dc5dc31083c29e02a9dc336156426e8021c640377a5b41b2ef79e5512"
+  "visual_sha256": "cecc4088da7250977c78f2c43329aad49453cc339d266a7e44e527fae10ec779"
 }

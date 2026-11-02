@@ -2,14 +2,14 @@
   "schema_version": 1,
   "source": "Sources/ToastBuilder/Set Activation Arguments.vi",
   "reviewed_on": "2026-11-02",
-  "method": "Read-only review of saved develop c856044 sources in LabVIEW 2026 Q3 (64-bit). Native gRPC AIXML: terminal names/types/defaults, Error/No Error wiring and called helper behavior. Native Print.VI To HTML over ActiveX (pylabview backend): connector icon and named terminals copied byte-for-byte from the same worktree. No product execution or save.",
+  "method": "Read-only review of saved develop c856044 sources in LabVIEW 2026 Q3 (64-bit). Native gRPC AIXML: terminal names/types/defaults, Error/No Error wiring and called helper behavior. Native Print.VI To HTML over ActiveX (pylabview backend): connector icon and named terminals copied byte-for-byte from the same worktree. No product execution or save. Maintenance refresh 2026-11-02: maintainer-applied LabVIEW theme and diagram cleanup. Native gRPC exports confirm unchanged public connector names, slots, types, defaults and connection requirements; saved summaries match the develop baseline. Native icon/terminal images re-exported by Print.VI To HTML over ActiveX and visually inspected. Changed VIs report eIdle with no execution errors. No product execution or save by the reviewer. Functional equivalence of every cleaned wire is not claimed; see reviews/labview-theme.md.",
   "error_behavior": "skip",
   "reviewed_files": {
-    "Sources/ToastBuilder/Set Activation Arguments.vi": "ab818a93cdf640c4f6ebfde469def125b2588e59eeec4a54efb02843edd72ecb",
-    "Sources/ToastBuilder/Read Builder Reference.vi": "2deab20e92ad56b47528b89fcded70d01e5653758bcd8812a66bb4e61379da41",
+    "Sources/ToastBuilder/Set Activation Arguments.vi": "b4b7728dd139af85d0e02e492661a016f0830c3ea82bbcb33fcfd2cf48e092d8",
+    "Sources/ToastBuilder/Read Builder Reference.vi": "5c699ee7b5eb7833b385768404ed74af2e59119fe184e204bca5cf54ac0cbbed",
     "Sources/Toast Native/Add ToastActivation Info.vi": "0cd66e2092f686fdbc1d965c6fe4816d7504f6369d03967cfdb7eb2dc0c60e6b",
-    "Sources/ToastBuilder/Write Builder Reference.vi": "4a1ae78b5abdcf729b91da0b08fec1e312fbd953eb7d8078bdfebf434b91d82f"
+    "Sources/ToastBuilder/Write Builder Reference.vi": "0b3619d69d17d72b02658872528578d4b7d1e8f3fbf067dc4d8652e6a1cc8f08"
   },
   "visual": "toastbuilder/set-activation-arguments.png",
-  "visual_sha256": "e800de1fb6dd746656642bd5f570eb2c73ee453a2816ad8335079007cd353e05"
+  "visual_sha256": "770c9415a485e10cf7c2ab0f7b3f53cf989e57a82f35b003f68edf3a283375f9"
 }

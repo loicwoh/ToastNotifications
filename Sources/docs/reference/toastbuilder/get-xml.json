@@ -2,15 +2,15 @@
   "schema_version": 1,
   "source": "Sources/ToastBuilder/Get XML.vi",
   "reviewed_on": "2026-11-02",
-  "method": "Read-only review of saved develop c856044 sources in LabVIEW 2026 Q3 (64-bit). Native gRPC AIXML: terminal names/types/defaults, Error/No Error wiring and called helper behavior. Native Print.VI To HTML over ActiveX (pylabview backend): connector icon and named terminals copied byte-for-byte from the same worktree. No product execution or save.",
+  "method": "Read-only review of saved develop c856044 sources in LabVIEW 2026 Q3 (64-bit). Native gRPC AIXML: terminal names/types/defaults, Error/No Error wiring and called helper behavior. Native Print.VI To HTML over ActiveX (pylabview backend): connector icon and named terminals copied byte-for-byte from the same worktree. No product execution or save. Maintenance refresh 2026-11-02: maintainer-applied LabVIEW theme and diagram cleanup. Native gRPC exports confirm unchanged public connector names, slots, types, defaults and connection requirements; saved summaries match the develop baseline. Native icon/terminal images re-exported by Print.VI To HTML over ActiveX and visually inspected. Changed VIs report eIdle with no execution errors. No product execution or save by the reviewer. Functional equivalence of every cleaned wire is not claimed; see reviews/labview-theme.md.",
   "error_behavior": "skip",
   "reviewed_files": {
-    "Sources/ToastBuilder/Get XML.vi": "4addf0e834abdae589f7ab9b083f86b7070a39ffbc372fa2c21f84178f7c216b",
-    "Sources/ToastBuilder/Read Builder Reference.vi": "2deab20e92ad56b47528b89fcded70d01e5653758bcd8812a66bb4e61379da41",
+    "Sources/ToastBuilder/Get XML.vi": "e45dec0c049d2d3ea03f1aae5f15b0343dba367fe4cbd759e037733928d15de8",
+    "Sources/ToastBuilder/Read Builder Reference.vi": "5c699ee7b5eb7833b385768404ed74af2e59119fe184e204bca5cf54ac0cbbed",
     "Sources/Toast Native/Get Content.vi": "53cfa3022057bf49179acdafd9392c1c30d628d75ff16d926ed530a4a1857888",
     "Sources/Toast Native/Get XML.vi": "916d41cab231be72411e2e55efd7847a61415c4ff8c9da210b1e843123cf1cf9",
-    "Sources/ToastBuilder/Write Builder Reference.vi": "4a1ae78b5abdcf729b91da0b08fec1e312fbd953eb7d8078bdfebf434b91d82f"
+    "Sources/ToastBuilder/Write Builder Reference.vi": "0b3619d69d17d72b02658872528578d4b7d1e8f3fbf067dc4d8652e6a1cc8f08"
   },
   "visual": "toastbuilder/get-xml.png",
-  "visual_sha256": "e5061c849b0cb598502eeff7c529f7b4f49cfbde8c36474b197b32a49d5ed869"
+  "visual_sha256": "f1127fe068b67799ee1c11379962fcf8de4f8fe56e07a31934670d5c8a5ce77d"
 }
