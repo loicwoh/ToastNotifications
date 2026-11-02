@@ -33,9 +33,10 @@ when behavior changes; a generated description cannot verify that it is correct.
 
 `reference/toastbuilder/add-text.md` is the authored enrichment for the existing
 `/reference/toastbuilder/add-text` route. The generator keeps the title, owner,
-scope, source path and **Saved summary** from the versioned files, then appends
+scope, source path and **Short description** from the versioned files, then appends
 this Markdown. It never writes back to the authored directory or saved VIs.
-Other entries explicitly say **Saved summary only**. Review the pilot before
+The short description reproduces the saved LabVIEW Context Help text exactly;
+it is read again on each build. Other entries explicitly say **Short description only**. Review the pilot before
 expanding coverage in #42; automated terminal/diagram export is tracked in #46.
 
 To author a page after the pilot is approved:

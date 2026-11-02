@@ -60,7 +60,7 @@ class DetailedHelpChecks(unittest.TestCase):
             reference_docs.description = lambda path: summary
             generate_reference(self.root, self.site, False)
             page = (self.site / (self.route + '.md')).read_text(encoding='utf-8')
-            self.assertIn('## Saved summary\n\n' + summary, page)
+            self.assertIn('## Short description\n\n*From LabVIEW Context Help.*\n\n' + summary, page)
             self.assertEqual(page.count('Authored explanation.'), 1)
             self.assertNotIn('## Review provenance', page)
             self.assertNotIn('Fixture review', page)
@@ -125,7 +125,7 @@ class DetailedHelpChecks(unittest.TestCase):
         routes = generate_reference(self.root, self.site, False)
         self.assertIn('/' + self.route, routes)
         page = (self.site / (self.route + '.md')).read_text(encoding='utf-8')
-        self.assertIn('Saved summary only', page)
+        self.assertIn('Short description only', page)
         self.assertNotIn('Detailed help pilot', page)
         self.assertIn('Historical saved summary', page)
 

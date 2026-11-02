@@ -25,7 +25,7 @@ def generate_reference(root: Path, site: Path, require_help: bool) -> list[str]:
              'Technical Public scope does not establish a release support guarantee.', '',
              'Start with the [owner pages](/api.md) to choose the appropriate layer. '
              'Entries marked **Detailed help** add a native help image, terminals and usage scenario. '
-             'Other entries contain the saved summary only; consult LabVIEW Context Help for their connectors.', '']
+             'Other entries contain the short description only; consult LabVIEW Context Help for their connectors.', '']
 
     def breadcrumb(owner, member=None):
         crumbs = [('API', '/api')]
@@ -79,8 +79,8 @@ def generate_reference(root: Path, site: Path, require_help: bool) -> list[str]:
             page = f'# {owner.label}: {title}\n\n'
             page += f'Layer: {owner.category} · Kind: {member.role} · Saved scope: {member.scope}\n\n'
             page += ('' if route in authored
-                     else '**Saved summary only** — a full usage walkthrough is not yet authored.\n\n')
-            page += '## Saved summary\n\n' + note + body + '\n\n'
+                     else '**Short description only** — a full usage walkthrough is not yet authored.\n\n')
+            page += '## Short description\n\n*From LabVIEW Context Help.*\n\n' + note + body + '\n\n'
             if route in authored:
                 page += authored[route] + '\n'
             page += f'[Back to {owner.label}](/api/{owner.id}.md) · [Reference index](/reference.md)\n\n'
