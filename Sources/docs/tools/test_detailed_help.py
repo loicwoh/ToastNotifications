@@ -33,6 +33,7 @@ class DetailedHelpChecks(unittest.TestCase):
         self.record_path = self.root / ('Sources/docs/' + self.route + '.json')
         self.record = dict(schema_version=1, source=self.source, reviewed_on='2026-11-02',
                            method='Fixture review, no runtime validation.',
+                           error_behavior='skip',
                            reviewed_files={self.source: hashlib.sha256((self.root / self.source).read_bytes()).hexdigest()},
                            visual='toastbuilder/add-text.svg')
         self.save_record()
@@ -61,8 +62,10 @@ class DetailedHelpChecks(unittest.TestCase):
             page = (self.site / (self.route + '.md')).read_text(encoding='utf-8')
             self.assertIn('## Saved summary\n\n' + summary, page)
             self.assertEqual(page.count('Authored explanation.'), 1)
-            self.assertEqual(page.count('## Review provenance'), 1)
-            self.assertIn('Detailed help pilot', page)
+            self.assertNotIn('## Review provenance', page)
+            self.assertNotIn('Fixture review', page)
+            self.assertIn('Error behavior: Skipped on incoming error.', page)
+            self.assertNotIn('Detailed help pilot', page)
             self.assertEqual((self.site / (self.route + '.svg')).read_bytes(), self.visual.read_bytes())
             for path, original in authored.items():
                 self.assertEqual(path.read_bytes(), original)
@@ -94,6 +97,26 @@ class DetailedHelpChecks(unittest.TestCase):
     def test_visual_must_be_used_by_the_page(self):
         self.markdown.write_text('## No visual\n', encoding='utf-8')
         with self.assertRaisesRegex(ValueError, 'link its reviewed visual'):
+            self.load()
+
+    def test_cleanup_error_behavior_is_prominent_and_explicit(self):
+        self.record['error_behavior'] = 'always'
+        self.save_record()
+        page = self.load()[self.route]
+        self.assertTrue(page.startswith('**Error behavior: Executes even on incoming error.**'))
+        self.assertNotIn('Fixture review', page)
+
+    def test_unknown_error_behavior_is_rejected(self):
+        self.record['error_behavior'] = 'guessed'
+        self.save_record()
+        with self.assertRaisesRegex(ValueError, 'Choose skip or always'):
+            self.load()
+
+    def test_changed_captured_visual_is_rejected(self):
+        self.record['visual_sha256'] = hashlib.sha256(self.visual.read_bytes()).hexdigest()
+        self.save_record()
+        self.visual.write_text('<svg>changed capture</svg>', encoding='utf-8')
+        with self.assertRaisesRegex(ValueError, 'Changed detailed help visual'):
             self.load()
 
     def test_historical_ref_without_authored_directory_still_generates_summaries(self):

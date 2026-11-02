@@ -18,6 +18,7 @@ owner inventory, route compatibility and generated/manual boundaries.
   Class methods keep their existing help routes; libraries and types gain reference
   entries without changing the saved VIs or adding help URLs to them.
 - `vendor/docsify-4.13.1/`: pinned runtime, search plugin, theme and MIT licence.
+- `vendor/mermaid-tiny-12.2.0/`: pinned local renderer for authored Mermaid flowcharts.
 
 Edit VI context help in LabVIEW and save before building. There is no manually
 maintained description snapshot. The reader handles the uncompressed ANSI STRG
@@ -44,17 +45,35 @@ To author a page after the pilot is approved:
 2. Inspect the saved VI and actual connector in LabVIEW, including slot positions,
    types, defaults and connection settings. Inspect its error branches and called
    helpers. Do not infer behavior from a majority-orientation offline estimate.
-3. Add a controlled `.svg` schematic in the reference directory with an accessible
-   title/description; label it as a schematic. Keep it next to the Markdown and
-   link it by filename, e.g. `add-text.svg`, so Docsify resolves the version subpath.
+3. Export LabVIEW's native help illustration: the actual VI icon with its named
+   terminals. The pilot uses `Print.VI To HTML` over ActiveX through
+   `lvai_render_diagrams` with backend `pylabview`, taking the generated `*c.png`
+   unchanged. This does not run or save the product VI. Keep the PNG next to the
+   Markdown and link it by filename (`add-text.png`) with meaningful alt text.
+   Do not redraw connector grids. If native capture is unavailable, report it
+   rather than replacing it with an imitation.
 4. Add an adjacent `.json` using the pilot record's schema: `schema_version: 1`,
    `source` (repository-relative saved VI), `reviewed_on` (ISO date), `method`
    (tools, LabVIEW version, evidence and visual revision), `reviewed_files`
-   (repository-relative source paths to lowercase SHA-256) and `visual` (relative
-   to `Sources/docs/reference`). Include helper files whose behavior the page
+   (repository-relative source paths to lowercase SHA-256), `visual` (relative
+   to `Sources/docs/reference`), `visual_sha256` and `error_behavior` (`skip` or
+   `always`). Include helper files whose behavior the page
    relies on. `Get-FileHash -Algorithm SHA256` or Python hashlib can calculate hashes.
 5. Build twice, check routes, compare the terminals with Context Help and inspect
    the rendered page, search and links. Record separately any actual runtime test.
+
+The published page uses a compact, bold error cue: **Skipped on incoming error.**
+or **Executes even on incoming error.** Use the same wording in context-help
+summaries when editing them in LabVIEW is authorized. Always-executing cleanup
+must be visible; do not bury it in an internal error-case walkthrough. The Add Text
+saved summary already states that it skips on incoming error; no VI is changed here.
+
+Use a Mermaid flowchart for call sequences, with an accessible `accTitle` and
+`accDescr`. Keep prose for wiring constraints or caveats that the diagram does
+not explain. The pinned Tiny renderer works offline with strict security mode.
+Review provenance, LabVIEW inspection versions and fingerprints stay in the JSON
+and PR, not in the reader-facing page. User-facing compatibility information
+belongs in the canonical coverage page.
 
 Any byte change in a reviewed file makes the detailed-help build fail, including
 a summary-only edit or a LabVIEW resave. Review the impact, update the Markdown/

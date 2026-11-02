@@ -24,7 +24,7 @@ def generate_reference(root: Path, site: Path, require_help: bool) -> list[str]:
              'This index includes application methods, extension points and low-level helpers. '
              'Technical Public scope does not establish a release support guarantee.', '',
              'Start with the [owner pages](/api.md) to choose the appropriate layer. '
-             'Entries marked **Detailed help pilot** add a reviewed connector, terminals and usage scenario. '
+             'Entries marked **Detailed help** add a native help image, terminals and usage scenario. '
              'Other entries contain the saved summary only; consult LabVIEW Context Help for their connectors.', '']
 
     def breadcrumb(owner, member=None):
@@ -78,7 +78,7 @@ def generate_reference(root: Path, site: Path, require_help: bool) -> list[str]:
             breadcrumbs['/' + route] = breadcrumb(owner, member)
             page = f'# {owner.label}: {title}\n\n'
             page += f'Layer: {owner.category} · Kind: {member.role} · Saved scope: {member.scope}\n\n'
-            page += ('**Detailed help pilot** — reviewed explanation and connector below.\n\n' if route in authored
+            page += ('' if route in authored
                      else '**Saved summary only** — a full usage walkthrough is not yet authored.\n\n')
             page += '## Saved summary\n\n' + note + body + '\n\n'
             if route in authored:
@@ -93,7 +93,7 @@ def generate_reference(root: Path, site: Path, require_help: bool) -> list[str]:
             destination.write_text(page, encoding='utf-8')
             row = f'| [{title}](/{route}.md) | {member.role} | {member.scope} |'
             (reference_rows if member.role == 'Native reference access' else rows).append(row)
-            help_label = ' · **Detailed help pilot**' if route in authored else ''
+            help_label = ' · **Detailed help**' if route in authored else ''
             index.append(f'- [{title}](/{route}.md) — {member.role}{help_label}')
 
         generated = f'**Kind:** {owner.kind} · **Layer:** {owner.category}\n\n'

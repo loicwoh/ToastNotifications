@@ -2,10 +2,12 @@
   "schema_version": 1,
   "source": "Sources/ToastBuilder/Add Text.vi",
   "reviewed_on": "2026-11-02",
-  "method": "Read-only LabVIEW MCP review in LabVIEW 2026 Q3 (64-bit): native gRPC connector-pane query (pattern 4815, slots 11/10/8 in and 3/0 out) and native AIXML export for terminal defaults and error-case wiring; native helper call inspected through a read-only pylabview export. No execution or save. Manual SVG revision 1.",
+  "method": "Read-only LabVIEW MCP review in LabVIEW 2026 Q3 (64-bit): native gRPC connector-pane query and AIXML export for terminal defaults and error-case wiring; native helper inspected through pylabview. Native help image exported with LabVIEW Print.VI To HTML over ActiveX (pylabview backend), AddTextc.png copied byte-for-byte, no redraw or retouch. No product execution or save.",
+  "error_behavior": "skip",
   "reviewed_files": {
     "Sources/ToastBuilder/Add Text.vi": "bb3dc06dcd24920ff97f5c1929629eb2234e50c2a2f7a02e315989d0b3b25e6b",
     "Sources/Toast Native/Add Text.vi": "ff577b86b741ed9fdc145863abcaa2a9bfe07a3b1ed735f2a85724bb5238c845"
   },
-  "visual": "toastbuilder/add-text.svg"
+  "visual": "toastbuilder/add-text.png",
+  "visual_sha256": "68d0197dc5dc31083c29e02a9dc336156426e8021c640377a5b41b2ef79e5512"
 }

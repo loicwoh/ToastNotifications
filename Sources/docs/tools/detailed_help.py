@@ -5,6 +5,11 @@ import json
 import re
 import shutil
 
+ERROR_BEHAVIORS = {
+    'skip': 'Skipped on incoming error.',
+    'always': 'Executes even on incoming error.',
+}
+
 
 def load_help(root: Path, site: Path, members: dict[str, str]) -> dict[str, str]:
     """Validate all authored records; return route -> publishable enrichment."""
@@ -33,8 +38,13 @@ def load_help(root: Path, site: Path, members: dict[str, str]) -> dict[str, str]
             if hashlib.sha256(path.read_bytes()).hexdigest() != expected:
                 raise ValueError(f'Stale detailed help: {route}; review {name} before updating its fingerprint')
         visual = (directory / record['visual']).resolve()
-        if visual.parent != stem.parent.resolve() or visual.suffix != '.svg' or not visual.is_file():
+        if visual.parent != stem.parent.resolve() or visual.suffix not in {'.png', '.svg'} or not visual.is_file():
             raise ValueError(f'Missing or invalid detailed help visual: {route}')
+        if record.get('visual_sha256') and hashlib.sha256(visual.read_bytes()).hexdigest() != record['visual_sha256']:
+            raise ValueError(f'Changed detailed help visual: {route}; review capture provenance')
+        behavior = record.get('error_behavior')
+        if behavior not in ERROR_BEHAVIORS:
+            raise ValueError(f'Choose skip or always error_behavior: {route}')
         content = stem.with_suffix('.md').read_text(encoding='utf-8')
         if re.search(r'^# ', content, re.MULTILINE):
             raise ValueError(f'Detailed help enrichment must start at H2: {route}')
@@ -45,12 +55,6 @@ def load_help(root: Path, site: Path, members: dict[str, str]) -> dict[str, str]
         destination = site / visual_route
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(visual, destination)
-        evidence = '\n\n## Review provenance\n\n'
-        evidence += f'Manual review: {record["reviewed_on"]}. {record["method"]}\n\n'
-        evidence += 'The connector illustration is a schematic, not a LabVIEW screenshot. '
-        evidence += 'Fingerprints identify the saved files reviewed; they are not a runtime test. '
-        evidence += 'The build rejects changed files until this page has been reviewed again.\n\n'
-        evidence += '| Reviewed source | SHA-256 |\n|---|---|\n'
-        evidence += '\n'.join(f'| `{name}` | `{digest}` |' for name, digest in reviewed.items())
-        result[route] = content.rstrip() + evidence + '\n'
+        # Technical review evidence remains in the versioned JSON, out of reader-facing help.
+        result[route] = f'**Error behavior: {ERROR_BEHAVIORS[behavior]}**\n\n' + content.rstrip() + '\n'
     return result

@@ -17,8 +17,9 @@ information, rather than keeping another copy of each explanation.
 | Feature maturity and compatibility statements | site/coverage.md | #15 and #17 supply validation evidence and environment details |
 | Upstream Microsoft links and API families | site/microsoft.md | Shared destination for deeper reference |
 | Site build/publication procedure | README.md in this directory | Maintainer instructions |
-| Detailed VI explanations, connector schematic and terminal tables | reference/<owner-id>/<member-slug>.md and .svg | Appended to generated summary in staging; Add Text is the reviewed pilot |
-| Detailed-help review provenance and saved-file fingerprints | Adjacent reference/*.json | Build rejects orphaned pages, missing visuals and changed reviewed files |
+| Detailed VI explanations, Mermaid call sequence, native help image and terminal tables | reference/<owner-id>/<member-slug>.md and .png | Appended to generated summary in staging; no redrawn connector |
+| Compact incoming-error behavior | Adjacent reference/*.json: error_behavior=skip/always | Bold cue in detailed help; use the same wording in authorized context-help edits |
+| Detailed-help review provenance and saved-file fingerprints | Adjacent reference/*.json | Build checks freshness; technical review evidence is not published in the help page |
 | Detailed-help authoring structure | templates/detailed-help.md | Maintainer scaffold; never published as an API entry |
 
 ## Existing repository documents
