@@ -2,14 +2,14 @@
   "schema_version": 1,
   "source": "Sources/ToastBuilder/Add Text Input.vi",
   "reviewed_on": "2026-11-02",
-  "method": "Read-only review of saved develop c856044 sources in LabVIEW 2026 Q3 (64-bit). Native gRPC AIXML: terminal names/types/defaults, Error/No Error wiring and called helper behavior. Native Print.VI To HTML over ActiveX (pylabview backend): connector icon and named terminals copied byte-for-byte from the same worktree. No product execution or save.",
+  "method": "Read-only review of saved develop c856044 sources in LabVIEW 2026 Q3 (64-bit). Native gRPC AIXML: terminal names/types/defaults, Error/No Error wiring and called helper behavior. Native Print.VI To HTML over ActiveX (pylabview backend): connector icon and named terminals copied byte-for-byte from the same worktree. No product execution or save. Maintenance refresh 2026-11-02: maintainer-applied LabVIEW theme and diagram cleanup. Native gRPC exports confirm unchanged public connector names, slots, types, defaults and connection requirements; saved summaries match the develop baseline. Native icon/terminal images re-exported by Print.VI To HTML over ActiveX and visually inspected. Changed VIs report eIdle with no execution errors. No product execution or save by the reviewer. Functional equivalence of every cleaned wire is not claimed; see reviews/labview-theme.md.",
   "error_behavior": "skip",
   "reviewed_files": {
-    "Sources/ToastBuilder/Add Text Input.vi": "e596502891bff0da79eed83b7d537f4fdf24043a3bd244e6002b9f0024f71760",
-    "Sources/ToastBuilder/Read Builder Reference.vi": "2deab20e92ad56b47528b89fcded70d01e5653758bcd8812a66bb4e61379da41",
-    "Sources/Toast Native/Add Text Input.vi": "1d623895b464ac5ba30df8a1a8bbc62e6a1c0dc240616cb4bb2936ab018e9ff0",
-    "Sources/ToastBuilder/Write Builder Reference.vi": "4a1ae78b5abdcf729b91da0b08fec1e312fbd953eb7d8078bdfebf434b91d82f"
+    "Sources/ToastBuilder/Add Text Input.vi": "20dcc8a57d536d0a51db3fa180cb8a4cfec31a2deb7d89abcedf8dee5cd9cb75",
+    "Sources/ToastBuilder/Read Builder Reference.vi": "5c699ee7b5eb7833b385768404ed74af2e59119fe184e204bca5cf54ac0cbbed",
+    "Sources/Toast Native/Add Text Input.vi": "c5df4f9b16f7841f2da6abf8f02fd629eda07011776b979e3a8ce3f87dbf8b5a",
+    "Sources/ToastBuilder/Write Builder Reference.vi": "0b3619d69d17d72b02658872528578d4b7d1e8f3fbf067dc4d8652e6a1cc8f08"
   },
   "visual": "toastbuilder/add-text-input.png",
-  "visual_sha256": "90b1324f354534e45a7dd080dc1588e8f828d75e94d4bf040d8fa4d940b25843"
+  "visual_sha256": "4f0025ee8870c891a147afd50af92568531636054ea48bbffba3a358f1905716"
 }

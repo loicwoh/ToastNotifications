@@ -2,15 +2,15 @@
   "schema_version": 1,
   "source": "Sources/PlugIns/UserEventActivationHandler/Close.vi",
   "reviewed_on": "2026-11-02",
-  "method": "Read-only review of committed develop dd2e5ec sources in LabVIEW 2026 Q3 64-bit. Native gRPC AIXML: terminals, defaults, dynamic dispatch, error wiring and called helpers. Native Print.VI To HTML over ActiveX (pylabview): icon/terminal PNG copied unchanged. No product execution, save or scope edit. Base hooks are no-ops; Handle Activation has no outputs despite inherited summary wording. Plugin delivery attempts even on conversion error; its summary is inherited base text. Shutdown diagrams retain the maintainer-approved target sequence; see reviews/42-toastservice.md and reviews/42-handlers.md for pending code sequencing.",
+  "method": "Read-only review of committed develop dd2e5ec sources in LabVIEW 2026 Q3 64-bit. Native gRPC AIXML: terminals, defaults, dynamic dispatch, error wiring and called helpers. Native Print.VI To HTML over ActiveX (pylabview): icon/terminal PNG copied unchanged. No product execution, save or scope edit. Base hooks are no-ops; Handle Activation has no outputs despite inherited summary wording. Plugin delivery attempts even on conversion error; its summary is inherited base text. Shutdown diagrams retain the maintainer-approved target sequence; see reviews/42-toastservice.md and reviews/42-handlers.md for pending code sequencing. Maintenance refresh 2026-11-02: maintainer-applied LabVIEW theme and diagram cleanup. Native gRPC exports confirm unchanged public connector names, slots, types, defaults and connection requirements; saved summaries match the develop baseline. Native icon/terminal images re-exported by Print.VI To HTML over ActiveX and visually inspected. Changed VIs report eIdle with no execution errors. No product execution or save by the reviewer. Functional equivalence of every cleaned wire is not claimed; see reviews/labview-theme.md.",
   "error_behavior": "always",
   "reviewed_files": {
-    "Sources/PlugIns/UserEventActivationHandler/Close.vi": "b53fa003e4615b89f9eed0aec4b8bb100182b33c20d6afc96b07aaa52cfc8b0a",
-    "Sources/PlugIns/UserEventActivationHandler/Read Event Ref.vi": "334ca422c7656721cf88cfd8455184b8c546e5add1293add6fa111293d5ea4ae",
-    "Sources/ToastService/Close.vi": "f4c6ca8e3d5b79277c1e1dbeb1cf63343da331d6bf649599d11bd18246d5ae41",
-    "Sources/PlugIns/UserEventActivationHandler/UserEventActivationHandler.lvclass": "2d6b03cde15c250a125625ccc3df82e4e400d5b4fed8c02f1edbc28da4509507"
+    "Sources/PlugIns/UserEventActivationHandler/Close.vi": "4021504801f0acefe0b69c99f438a6c47fe91ddf64c1109bb3892b8195787c43",
+    "Sources/PlugIns/UserEventActivationHandler/Read Event Ref.vi": "24efcc91e09b4c5182c6b3b7ab58dc9b5928d9a3ea062390eaf9cd3ef5d25b37",
+    "Sources/ToastService/Close.vi": "6382085df079569bf6ec62a6eb86133e2cf5a8fc9d63fadc3195ad7c47d860af",
+    "Sources/PlugIns/UserEventActivationHandler/UserEventActivationHandler.lvclass": "b704bfe277a440ee4ee588c42744a9754b997419e875a3c811eb54944b8ef512"
   },
   "visual": "usereventactivationhandler/close.png",
-  "visual_sha256": "3e8370ea4b978a30cf7870929358dbd0e0839b528dc6ab13b53143b7664c9888",
+  "visual_sha256": "45bf7203602fb80c8d0d34bf0c454242ed7a85706a63d16083e86535dd030a38",
   "fingerprint_format": "sha256-lf-xml"
 }
