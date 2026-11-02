@@ -1,0 +1,39 @@
+/* ToastAPI identity proposal: common framework, three named class families. */
+:root {
+  --ink: #183247;
+  --theme-color: #183247;
+  --brand-amber: #f4c95d;
+  --module-color: #183247;
+  --module-tint: #f0f4f7;
+}
+.family-toolkit { --module-color: #183247; --module-tint: #f0f4f7; }
+.family-builder { --module-color: #2455a4; --module-tint: #edf3fc; }
+.family-service { --module-color: #176b62; --module-tint: #edf7f4; }
+.family-handler { --module-color: #704397; --module-tint: #f5effa; }
+.sidebar > h1 { border-top: 4px solid var(--brand-amber); padding-top: 18px; }
+.sidebar > h1 a { color: var(--ink); }
+.hero { background: var(--ink); border-top: 4px solid var(--brand-amber); }
+.hero a { background: var(--brand-amber); color: var(--ink); }
+.markdown-section h1 { letter-spacing: -1px; }
+.markdown-section code { color: var(--ink); background: #f0f4f7; }
+:focus-visible { outline-color: var(--ink); }
+.module-banner { display: flex; gap: 14px; align-items: center; padding: 15px 18px; margin: 22px 0 26px; border: 1px solid var(--line); border-left: 5px solid var(--module-color); border-radius: 5px; background: var(--module-tint); color: var(--module-color); }
+.module-banner strong { display: block; font-size: 17px; line-height: 1.3; overflow-wrap: anywhere; }
+.module-banner small { display: block; font-size: 13px; color: var(--muted); margin-top: 4px; }
+.module-symbol { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 36px; width: 36px; height: 36px; border-radius: 5px; background: var(--module-color); color: #fff; font-size: 18px; font-weight: 750; }
+.module-kind { margin-left: auto; color: var(--muted); font-size: 12px; white-space: nowrap; }
+.module-content { --theme-color: var(--module-color); }
+.module-content h1 { padding-bottom: 18px; border-bottom: 3px solid var(--module-color); }
+.module-content code { color: var(--module-color); background: var(--module-tint); }
+.module-content blockquote { background: var(--module-tint); border-left-color: var(--module-color); }
+.module-card { border-top: 4px solid var(--module-color); background: #fff; }
+.module-card:hover { border-color: var(--module-color); background: var(--module-tint); }
+.module-card .module-symbol { display: inline-flex; color: #fff; font-size: 18px; font-weight: 750; margin-bottom: 8px; }
+.module-card .card-number { color: var(--module-color); }
+.palette-swatch { display: inline-block; width: 1.2em; height: 1.2em; border-radius: 3px; vertical-align: middle; margin-right: 8px; background: var(--module-color); }
+.markdown-section table { display: table; }
+@media (max-width: 768px) {
+  .module-banner { padding: 12px; gap: 10px; }
+  .module-kind { display: none; }
+  .markdown-section table { display: block; }
+}
