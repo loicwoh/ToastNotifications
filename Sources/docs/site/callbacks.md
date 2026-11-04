@@ -21,7 +21,8 @@ class value does not acquire references that were subsequently created on anothe
 
 | Resource | Owner | Application rule |
 |---|---|---|
-| Builder native handle | Builder's owner | Close after its last use; class copies share the handle |
+| Concrete ToastSource resources | Source's caller | Service.Show borrows the source; call its Close after its last use |
+| Builder native handle | Builder's owner | ToastBuilder implements ToastSource; class copies share the handle |
 | Service callback registration and native reference | ToastService | Use the service Close path |
 | User Event | UserEventActivationHandler | Borrow it for registration; do not destroy it independently |
 | Event Registration Ref for the receiving loop | Application | Unregister when reception is finished |

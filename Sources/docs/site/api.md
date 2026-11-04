@@ -7,15 +7,27 @@ examples use the toolkit; they do not change LabVIEW scopes or promise release
 compatibility. The supported API and versioning policy remain tracked in
 [#18](https://github.com/loicwoh/ToastNotifications/issues/18).
 
+## ToastSource
+
+[ToastSource: contract and ownership](/api/toastsource.md) is the base class for
+display, XML export and cleanup. ToastBuilder and ToastFromXML are its concrete implementations.
+[Create ToastSource (Poly)](/reference/toastnotification/create-toastsource-poly.md)
+groups the concrete creation VIs; it provides Create ToastBuilder and Create ToastFromXML.
+
 ## ToastBuilder
 
 [ToastBuilder: role, dependencies and members](/api/toastbuilder.md) — construct
 content through LabVIEW methods.
 
+## ToastFromXML
+
+[ToastFromXML](/api/toastfromxml.md) — parse an XML string, display it through the
+same service and export the retained document as text.
+
 ## ToastService
 
 [ToastService: role, dependencies and members](/api/toastservice.md) — initialize,
-register, display with a borrowed builder and close.
+register, display with a borrowed ToastSource and close.
 
 ## ActivationHandler
 
@@ -37,8 +49,9 @@ This documentation boundary does not itself change the saved LabVIEW scopes.
 
 ## XML support
 
-[Get XML](/reference/toastbuilder/get-xml.md) is available. Loading saved XML through
-ToastSource/XmlToast remains planned in #27–#29; those classes are not implemented.
+[Get XML](/reference/toastbuilder/get-xml.md) exports builder content.
+Pass XML text to [Create ToastFromXML](/reference/toastfromxml/create-toastfromxml.md).
+Disk persistence and template substitution remain planned in #29.
 
 ## Continue with an example
 

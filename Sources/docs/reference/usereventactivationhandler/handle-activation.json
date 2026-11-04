@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "source": "Sources/PlugIns/UserEventActivationHandler/Handle Activation.vi",
-  "reviewed_on": "2026-11-02",
-  "method": "Read-only review of committed develop dd2e5ec sources in LabVIEW 2026 Q3 64-bit. Native gRPC AIXML: terminals, defaults, dynamic dispatch, error wiring and called helpers. Native Print.VI To HTML over ActiveX (pylabview): icon/terminal PNG copied unchanged. No product execution, save or scope edit. Base hooks are no-ops; Handle Activation has no outputs despite inherited summary wording. Plugin delivery attempts even on conversion error; its summary is inherited base text. Shutdown diagrams retain the maintainer-approved target sequence; see reviews/42-toastservice.md and reviews/42-handlers.md for pending code sequencing. Maintenance refresh 2026-11-02: maintainer-applied LabVIEW theme and diagram cleanup. Native gRPC exports confirm unchanged public connector names, slots, types, defaults and connection requirements; saved summaries match the develop baseline. Native icon/terminal images re-exported by Print.VI To HTML over ActiveX and visually inspected. Changed VIs report eIdle with no execution errors. No product execution or save by the reviewer. Functional equivalence of every cleaned wire is not claimed; see reviews/labview-theme.md.",
+  "reviewed_on": "2026-11-04",
+  "method": "LabVIEW 2026 Q3 64-bit delivery review, 2026-11-04. Native gRPC AIXML exports inspected for public terminals, error cases and call chains; 38 existing class VI connector contracts and summaries match the earlier review exports. Native Print.VI To HTML over ActiveX supplies the icon/terminal image, inspected in the 28-image contact sheet. Existing manual cleanup and reflection helper renames are maintainer changes. New XML source documentation reflects the constructor partial-failure cleanup limitation. Description-only VI Server updates preserve icons. No product runtime execution or diagram edit by the reviewer. See reviews/28-xml-source.md.",
   "error_behavior": "always",
   "reviewed_files": {
-    "Sources/PlugIns/UserEventActivationHandler/Handle Activation.vi": "61f32a223a0de0e7a6d5b656844f182d39ca89fa6bb655b282777830544a8d7b",
-    "Sources/PlugIns/UserEventActivationHandler/Read Event Ref.vi": "24efcc91e09b4c5182c6b3b7ab58dc9b5928d9a3ea062390eaf9cd3ef5d25b37",
+    "Sources/PlugIns/UserEventActivationHandler/Handle Activation.vi": "420381174ae8b1519454212e78ad61c6445f1b51e9336fcfdaf344658474ca7e",
+    "Sources/PlugIns/UserEventActivationHandler/Read Event Ref.vi": "8f2f02aa9a897578b29925e26ddac8aa5ae5120349d65589bf99c8f02a8c79fb",
     "Sources/PlugIns/UserEventActivationHandler/Activation Event Data.ctl": "d6d6e517c1463f884d475937cb18129dc41512526bd578cbe0526e8b6e11544f",
-    "Sources/ToastService/CallBack VI - OnActivated.vi": "dddb788159d4d54d8d712f4a8b4fe789a4a65b6ef9c16b97ae5d23b34259e0f3",
-    "Sources/ActivationHandler/Handle Activation.vi": "5d03cab78d05be6224b5248255bff297091a831afc8a150d97cfc702c27ca556",
+    "Sources/ToastService/CallBack VI - OnActivated.vi": "630e9897eba08dca4e25e55be672378b587d305c7753c6d07849083428660a84",
+    "Sources/ActivationHandler/Handle Activation.vi": "4d3ea55380589a5f5fb5c1a4b510e944ac20ff24912d1932cd80c2e8becfd1e5",
     "Sources/PlugIns/UserEventActivationHandler/UserEventActivationHandler.lvclass": "b704bfe277a440ee4ee588c42744a9754b997419e875a3c811eb54944b8ef512"
   },
   "visual": "usereventactivationhandler/handle-activation.png",
-  "visual_sha256": "605e120552390d03b93abe13792991a6cf8c30a1f89ff0055a3a1232c65ede53",
+  "visual_sha256": "1d0594e68da3faa3dd0b33c284b6b7c8a6286a4e2024f3f6bef61807262deed9",
   "fingerprint_format": "sha256-lf-xml"
 }

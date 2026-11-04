@@ -1,16 +1,17 @@
 {
   "schema_version": 1,
   "source": "Sources/ToastBuilder/Get XML.vi",
-  "reviewed_on": "2026-11-02",
-  "method": "Read-only review of saved develop c856044 sources in LabVIEW 2026 Q3 (64-bit). Native gRPC AIXML: terminal names/types/defaults, Error/No Error wiring and called helper behavior. Native Print.VI To HTML over ActiveX (pylabview backend): connector icon and named terminals copied byte-for-byte from the same worktree. No product execution or save. Maintenance refresh 2026-11-02: maintainer-applied LabVIEW theme and diagram cleanup. Native gRPC exports confirm unchanged public connector names, slots, types, defaults and connection requirements; saved summaries match the develop baseline. Native icon/terminal images re-exported by Print.VI To HTML over ActiveX and visually inspected. Changed VIs report eIdle with no execution errors. No product execution or save by the reviewer. Functional equivalence of every cleaned wire is not claimed; see reviews/labview-theme.md.",
+  "reviewed_on": "2026-11-04",
+  "method": "LabVIEW 2026 Q3 64-bit delivery review, 2026-11-04. Native gRPC AIXML exports inspected for public terminals, error cases and call chains; 38 existing class VI connector contracts and summaries match the earlier review exports. Native Print.VI To HTML over ActiveX supplies the icon/terminal image, inspected in the 28-image contact sheet. Existing manual cleanup and reflection helper renames are maintainer changes. New XML source documentation reflects the constructor partial-failure cleanup limitation. Description-only VI Server updates preserve icons. No product runtime execution or diagram edit by the reviewer. See reviews/28-xml-source.md.",
   "error_behavior": "skip",
   "reviewed_files": {
-    "Sources/ToastBuilder/Get XML.vi": "e45dec0c049d2d3ea03f1aae5f15b0343dba367fe4cbd759e037733928d15de8",
-    "Sources/ToastBuilder/Read Builder Reference.vi": "5c699ee7b5eb7833b385768404ed74af2e59119fe184e204bca5cf54ac0cbbed",
-    "Sources/Toast Native/Get Content.vi": "53cfa3022057bf49179acdafd9392c1c30d628d75ff16d926ed530a4a1857888",
-    "Sources/Toast Native/Get XML.vi": "916d41cab231be72411e2e55efd7847a61415c4ff8c9da210b1e843123cf1cf9",
-    "Sources/ToastBuilder/Write Builder Reference.vi": "0b3619d69d17d72b02658872528578d4b7d1e8f3fbf067dc4d8652e6a1cc8f08"
+    "Sources/ToastBuilder/Get XML.vi": "1567b986587f1c892fdb6bf6b05db81c58da9b633890de9858cdb264f425c8e2",
+    "Sources/ToastBuilder/Read Builder Reference.vi": "a2cc2a35e502c091b56adf4be25ea58562a82fa9b19e3a8d710beec2fa4dab7a",
+    "Sources/Toast Native/Get Content.vi": "34e232e2634d4c838e00734a436416b0b643010cc94e588f1d5b7e7e72f66acf",
+    "Sources/Toast Native/Get XML.vi": "4b3768f954f8087ce3e4f578802a1e3f664ffc4cb0e0c8fb337fabb4a4c1ca4f",
+    "Sources/ToastBuilder/Write Builder Reference.vi": "130884c68288f9a8a7587cd13d483180e9ae3edbc834ea0012e8b33785827da5"
   },
   "visual": "toastbuilder/get-xml.png",
-  "visual_sha256": "f1127fe068b67799ee1c11379962fcf8de4f8fe56e07a31934670d5c8a5ce77d"
+  "visual_sha256": "3688885cf2858a39363e14f0a932fcb006769107ebf555d244a8fc6da42ad102",
+  "fingerprint_format": "sha256-lf-xml"
 }

@@ -32,6 +32,10 @@ shows that complete workflow.
 
 ## Usage notes
 
+- This is the ToastBuilder override of the display operation on
+  [ToastSource](/api/toastsource.md). Calls through the base type select this
+  implementation for a ToastBuilder instance.
+
 - Calling this method can display a real Windows notification. It does not
   initialize a service, register the callback or create an activation handler.
 - If activations must reach LabVIEW, set up the service and registration before

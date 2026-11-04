@@ -1,5 +1,7 @@
 # ToastAPI for LabVIEW
 
+[![Open documentation](https://img.shields.io/badge/Documentation-Open%20site-336699?style=for-the-badge)](https://loicwoh.github.io/ToastNotifications/)
+
 Build interactive Windows notifications from LabVIEW, and receive activation
 arguments and submitted text through a customizable handler.
 

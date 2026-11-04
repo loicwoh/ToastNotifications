@@ -11,16 +11,20 @@
 </Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Item Name="Callback Object Reference.ctl" Type="VI" URL="../Callback Object Reference.ctl"/>
+	<Item Name="Create Instance.vi" Type="VI" URL="../Create Instance.vi"/>
 	<Item Name="Dispose Enumerator.vi" Type="VI" URL="../Dispose Enumerator.vi"/>
+	<Item Name="Find Interface.vi" Type="VI" URL="../Find Interface.vi"/>
+	<Item Name="Find Method By Signature.vi" Type="VI" URL="../Find Method By Signature.vi"/>
+	<Item Name="Find Method.vi" Type="VI" URL="../Find Method.vi"/>
+	<Item Name="Find Property.vi" Type="VI" URL="../Find Property.vi"/>
+	<Item Name="Get Object Type.vi" Type="VI" URL="../Get Object Type.vi"/>
 	<Item Name="Invoke Interface Method.vi" Type="VI" URL="../Invoke Interface Method.vi"/>
+	<Item Name="Invoke Method.vi" Type="VI" URL="../Invoke Method.vi"/>
+	<Item Name="Invoke Object Method.vi" Type="VI" URL="../Invoke Object Method.vi"/>
+	<Item Name="Object To String.vi" Type="VI" URL="../Object To String.vi"/>
 	<Item Name="Read Object Property.vi" Type="VI" URL="../Read Object Property.vi"/>
 	<Item Name="Read Object String Property.vi" Type="VI" URL="../Read Object String Property.vi"/>
-	<Item Name="Reflection Native Find Interface.vi" Type="VI" URL="../Reflection Native Find Interface.vi"/>
-	<Item Name="Reflection Native Find Method.vi" Type="VI" URL="../Reflection Native Find Method.vi"/>
-	<Item Name="Reflection Native Find Property.vi" Type="VI" URL="../Reflection Native Find Property.vi"/>
-	<Item Name="Reflection Native Get Object Type.vi" Type="VI" URL="../Reflection Native Get Object Type.vi"/>
-	<Item Name="Reflection Native Invoke Method.vi" Type="VI" URL="../Reflection Native Invoke Method.vi"/>
-	<Item Name="Reflection Native Object To String.vi" Type="VI" URL="../Reflection Native Object To String.vi"/>
-	<Item Name="Reflection Native Read Property Value.vi" Type="VI" URL="../Reflection Native Read Property Value.vi"/>
+	<Item Name="Read Property Value.vi" Type="VI" URL="../Read Property Value.vi"/>
 	<Item Name="Release Object Reference.vi" Type="VI" URL="../Release Object Reference.vi"/>
+	<Item Name="Resolve Type.vi" Type="VI" URL="../Resolve Type.vi"/>
 </Library>

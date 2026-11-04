@@ -5,6 +5,12 @@ The example and User Event handler have been implemented manually. This guide de
 the current code, tracked in [#6](https://github.com/loicwoh/ToastNotifications/issues/6)
 and [#22](https://github.com/loicwoh/ToastNotifications/issues/22).
 
+The example creates its concrete ToastBuilder through `Create ToastSource (Poly)`
+(Create ToastBuilder instance). Composition and XML export use the builder;
+`ToastService.Show` accepts it as a ToastSource and dynamically calls the
+builder Show override. The example retains ownership and closes the builder
+after the service. This does not load an external XML file.
+
 ## Trying the example
 
 1. Run the VI. The toast displays **Request #42**, **Do you accept this request?**,

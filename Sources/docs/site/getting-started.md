@@ -29,7 +29,7 @@ results and a distinction between callback errors and the final example error.
 
 ## Build your own application flow
 
-1. [Create a builder](/reference/toastbuilder/create.md) and add texts, inputs and application buttons as required.
+1. [Create a builder](/reference/toastbuilder/create-toastbuilder.md) directly or through Create ToastSource (Poly), then add texts, inputs and application buttons as required.
 2. [Initialize ToastService](/reference/toastservice/initialize.md) with a handler instance.
 3. If using [UserEventActivationHandler](/api/usereventactivationhandler.md), retrieve the initialized handler and read
    its `Event Ref`. Register that event with your application's Event Structure.
