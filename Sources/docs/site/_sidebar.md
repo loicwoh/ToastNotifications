@@ -21,6 +21,7 @@
   - [Handle multiple actions](guides/multiple-actions.md)
   - [Open a link](guides/protocol.md)
 - **Project**
+  - [Changelog](changelog.md)
   - [Microsoft documentation](microsoft.md)
   - [Coverage & known limits](coverage.md)
   - [Licenses & third-party notices](licenses.md)
