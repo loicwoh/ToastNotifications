@@ -7,7 +7,7 @@
   "reviewed_files": {
     "Sources/PlugIns/UserEventActivationHandler/Close.vi": "fa93ced49f5c74ed9d87ebf07da2109a8334b033e97b55e9402f79859cb8a857",
     "Sources/PlugIns/UserEventActivationHandler/Read Event Ref.vi": "8f2f02aa9a897578b29925e26ddac8aa5ae5120349d65589bf99c8f02a8c79fb",
-    "Sources/ToastService/Close.vi": "585e4f8036e0ae00b8bf59c4261d0d21b4eb952ff91e6ac30bfe7247f6df297d",
+    "Sources/ToastService/Close.vi": "8f35a4724830c651645e395b2f1afc6beef9124d8d5643bf5e6140442ad9b5d7",
     "Sources/PlugIns/UserEventActivationHandler/UserEventActivationHandler.lvclass": "b704bfe277a440ee4ee588c42744a9754b997419e875a3c811eb54944b8ef512"
   },
   "visual": "usereventactivationhandler/close.png",

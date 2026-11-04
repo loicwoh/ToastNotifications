@@ -5,6 +5,10 @@ Unreleased:
   - Open a web link from a notification button through Windows protocol activation.
   - Forward activations to a LabVIEW Event Structure with the included User Event handler, or implement your own activation handler.
   - Export a composed toast as XML and display a toast from an XML string through the same notification service.
+- Fixes:
+  - Reject duplicate activation callback registrations while preserving the original subscription for cleanup.
+  - Release the temporary native reference after adding an application button.
+  - Unregister the native callback before closing the activation handler.
 - Documentation:
   - Try four focused examples for text replies, multiple actions, link buttons and XML content.
   - Browse the public API reference, with detailed help for the public class methods, LabVIEW connector illustrations and resource ownership notes.

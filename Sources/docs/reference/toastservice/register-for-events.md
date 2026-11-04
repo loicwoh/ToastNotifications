@@ -11,8 +11,8 @@
 
 | Output | Type | Use |
 |---|---|---|
-| `ToastService out` | ToastService | Service carrying the native callback registration on success; unchanged on incoming error. |
-| `error out` | Error cluster | Reference access, registration or storage error; incoming error otherwise. |
+| `ToastService out` | ToastService | Carries the new registration on success. Preserves the existing registration on a duplicate call and passes the service through on incoming error. |
+| `error out` | Error cluster | Reports error 550016 if a callback is already registered. Otherwise reports setup errors or passes through the incoming error. |
 
 ## Typical call sequence
 
@@ -35,18 +35,17 @@ flowchart LR
 - This registration connects the .NET `OnActivated` event to the toolkit
   callback. It does **not** register a LabVIEW Event Structure for the plugin's
   User Event. Prepare that separate application-owned receiver before Show.
-- Call once per service lifecycle. There is no duplicate-registration guard or
-  release of a previous registration before its handle is overwritten. Use a
-  completed Close and a fresh Initialize for a new lifecycle; this public API
-  has no separate native-unregister method.
+- Call once per service lifecycle. A second call returns error 550016 and
+  preserves the first registration so Close can unregister it. Close the
+  service and call Initialize again to start a new lifecycle.
 - Continue with `ToastService out`, which carries the registration. A class
   copy taken before registration does not acquire its newly stored handle.
   Existing copies of a handle still share its lifetime.
 - Errors from this VI concern setup, not future callback delivery. The example's
   activation error is delivered separately; see [error observations](/callbacks.md?id=errors-are-two-separate-observations).
 - Close owns unregistration. Keep callback work short and do not close the
-  service from inside its callback. Registration replacement, storage failure
-  and shutdown races remain [lifetime limits](/callbacks.md?id=shutdown-is-still-being-hardened).
+  service from inside its callback. Partial initialization and shutdown races
+  remain [lifetime limits](/callbacks.md?id=shutdown-is-still-being-hardened).
 
 ## Related reading
 

@@ -6,7 +6,7 @@
   "error_behavior": "noop",
   "reviewed_files": {
     "Sources/ActivationHandler/Close.vi": "4d4d172cd4f4db8b7ca0b7c2b610f2e923cde517e7a40b5d7a9462e482ece9bd",
-    "Sources/ToastService/Close.vi": "585e4f8036e0ae00b8bf59c4261d0d21b4eb952ff91e6ac30bfe7247f6df297d",
+    "Sources/ToastService/Close.vi": "8f35a4724830c651645e395b2f1afc6beef9124d8d5643bf5e6140442ad9b5d7",
     "Sources/ActivationHandler/ActivationHandler.lvclass": "7edf6348b4145a869e6d8faf03163e645b5d628398697205d294f709f4dec086"
   },
   "visual": "activationhandler/close.png",
