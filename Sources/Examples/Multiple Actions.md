@@ -6,8 +6,8 @@ Let an operator accept or reject a request without switching back to LabVIEW. Ap
 
 Open `ToastAPI.lvproj` and run `Examples/Toast With Multiple Actions.vi`. Click **Accept**, **Reject**, or the toast body and inspect `Activation.Arguments`. Run again to try another choice. Press **stop** after each run.
 
-## What to look for
+## Using this in your application
 
-The buttons return `action=accept` and `action=reject`. Clicking the body returns `action=open`. All three carry `requestId=42`. Use the action to decide what to do and the request ID to find the affected item.
+Give each action a stable ID so you can change or translate the button labels independently. Use `action` to choose what happens next and `requestId` to find the affected item, even if the operator has since selected another request in LabVIEW.
 
 [Set Activation Arguments](/reference/toastbuilder/set-activation-arguments.md)

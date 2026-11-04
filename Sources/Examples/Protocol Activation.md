@@ -6,8 +6,8 @@ Give someone a shortcut to the information behind a notification, such as a repo
 
 Open `ToastAPI.lvproj` and run `Examples/Toast With Link Button.vi`. Click **Open project on GitHub** and watch the repository open in your browser. Press **stop** after each run.
 
-## What to look for
+## Using this in your application
 
-Opening the link is the result of the button action. To trigger work in your LabVIEW event loop, try the application actions in [Offer a choice](/guides/multiple-actions.md).
+Use a protocol button when Windows can handle the action directly, such as opening a report in the browser. Use an application-action button when LabVIEW needs to make a decision after the click. [Offer a choice](/guides/multiple-actions.md)
 
 [Add Link Button](/reference/toastbuilder/add-link-button.md)
