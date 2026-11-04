@@ -1,5 +1,18 @@
 # Documentation as code
 
+## Changelog
+
+`site/CHANGELOG.txt` is the shared source for the site, GitHub release notes and
+VIPM packaging. Each documentation version displays the file from its own Git
+revision. The `Unreleased:` section lists user-visible changes already present in
+that revision.
+
+Add a short entry under Features, Fixes, Changes or Documentation in the same
+PR as a user-visible change. The branch preview then shows that entry, and
+merging the PR carries it into the `develop` history. Keep published sections
+intact. At release preparation, rename the reviewed Unreleased section to the
+chosen semantic version. Packaging automation is tracked in #64.
+
 Documentation lives under `Sources/docs` and is reviewed with the implementation.
 No global npm installation or LabVIEW licence is needed to build the website.
 

@@ -1,0 +1,11 @@
+Unreleased:
+- Features:
+  - Compose Windows toast notifications in LabVIEW with text, application buttons and text input.
+  - Receive button and toast body activations with application-supplied arguments, and retrieve submitted text by field ID.
+  - Open a web link from a notification button through Windows protocol activation.
+  - Forward activations to a LabVIEW Event Structure with the included User Event handler, or implement your own activation handler.
+  - Export a composed toast as XML and display a toast from an XML string through the same notification service.
+- Documentation:
+  - Try four focused examples for text replies, multiple actions, link buttons and XML content.
+  - Browse the public API reference, with detailed help for the public class methods, LabVIEW connector illustrations and resource ownership notes.
+  - Access the documentation on desktop and mobile, with a version selector for available documentation versions.
