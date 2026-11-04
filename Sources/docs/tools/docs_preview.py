@@ -19,6 +19,7 @@ STAGE = ROOT / '_review' / 'docsify-preview'
 SITE = STAGE / 'ToastNotifications'
 REQUIRE_HELP_LINKS = False
 GUIDES = {
+    'xml': ROOT / 'Sources/Examples/Toast From XML.md',
     'reply': ROOT / 'Sources/Examples/Reply Input.md',
     'multiple-actions': ROOT / 'Sources/Examples/Multiple Actions.md',
     'protocol': ROOT / 'Sources/Examples/Protocol Activation.md',
@@ -58,6 +59,10 @@ def build() -> None:
     stage_legal(ROOT, SITE)
     (SITE / 'guides').mkdir(exist_ok=True)
     for name, source in GUIDES.items():
+        # Older published refs predate the XML example. Their navigation must
+        # remain buildable by the current catalogue builder.
+        if name == 'xml' and not source.is_file():
+            continue
         (SITE / 'guides' / f'{name}.md').write_text(source.read_text(encoding='utf-8-sig'), encoding='utf-8')
     routes = reference()
     (SITE / 'reference-routes.js').write_text('window.toastApiReferenceRoutes = ' + json.dumps(routes) + ';\n', encoding='utf-8')

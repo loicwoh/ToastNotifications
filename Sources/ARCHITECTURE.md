@@ -16,7 +16,8 @@ Les nœuds de propriétés de classe donnent accès aux références stockées. 
 | Composant | Rôle |
 |---|---|
 | ToastSource | Classe mère : Show, Get XML et Close à dispatch dynamique ; les méthodes de base ne font pas de travail natif |
-| Create ToastSource (Poly) | Sélection du constructeur concret ; seule instance actuelle : Create ToastBuilder |
+| Create ToastSource (Poly) | Sélection du constructeur concret : Create ToastBuilder ou Create ToastFromXML |
+| ToastFromXML | Source XML : constructeur depuis une chaîne, document WinRT privé, Get XML, Show et Close ; le constructeur doit encore durcir le nettoyage sur échec de chargement |
 | ToastBuilder | Implémentation de ToastSource : Create ToastBuilder, Add Text, Add Text Input, Add Bouton, Add Link Button, Set Activation Arguments, Get XML, Show, Close |
 | ToastService | Initialize avec handler injecté, Register For Events, Show sur une ToastSource empruntée, sans cast vers ToastBuilder, Close |
 | ActivationHandler.Handle Activation | Extension à dispatch dynamique ; le gestionnaire de base ne fait aucune action applicative |

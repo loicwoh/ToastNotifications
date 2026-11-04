@@ -39,7 +39,8 @@ information, rather than keeping another copy of each explanation.
 - Sources/HANDOFF.md is a handover log. It is not published as an API contract.
 - Sources/Examples/README.md remains the local example-file index; site/examples.md
   is the website scenario selector. Scenario configuration and results belong in
-  the three guides, not in either index.
+  the scenario guides, not in either index. Toast From XML.md is the canonical
+  XML-string guide, published at guides/xml.md.
 - Sources/Archive preserves the original prototype and is not part of the
   generated API or package documentation.
 

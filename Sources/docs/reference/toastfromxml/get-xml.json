@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "source": "Sources/ToastFromXML/Get XML.vi",
+  "error_behavior": "skip",
+  "reviewed_files": {
+    "Sources/ToastFromXML/Get XML.vi": "c9d92df60ead95b68936b5ca8dd22ed18e1fd74787baf3dfb4a030c63ea60fb7",
+    "Sources/ToastFromXML/ToastFromXML.lvclass": "3720b734140d952600687e1763bf1684088fae70afe06b6efd73b9a12938eb7a",
+    "Sources/ToastFromXML/Read XML Document.vi": "6bbc7579e51b124eb024a66ecef82b9e0ec45c4a510e46a3eef41ae1d97fbd1c",
+    "Sources/ToastFromXML/Write XML Document.vi": "f3e287b45cf453e55d00844992accd72c94f9feeb1ff6ebc72653b0a3f679671",
+    "Sources/Reflection DotNet/Release Object Reference.vi": "2512dc7ed9fb069333891ef871cf841b699a96713b5acffd1709425473399cd0",
+    "Sources/Reflection DotNet/Resolve Type.vi": "56fb64f06612fda157bf502d2d32ce6e44f3788a755cc8205a3bb99986721189",
+    "Sources/Reflection DotNet/Create Instance.vi": "7d865d2ad664b6c3880225f1582ebf7cc11b25bd90ead74113cf6152c508d6e9",
+    "Sources/Reflection DotNet/Invoke Object Method.vi": "980f4d2c6d6e81bd3493ff872489d278f790b2b20cc6557d829e5c108b2c8c8e",
+    "Sources/Reflection DotNet/Get Object Type.vi": "23d019c68fb192770ad057f7f0ab0bb295b5b21f8087a35e5ccf6574528fe0cf",
+    "Sources/Reflection DotNet/Find Method.vi": "e1763b5c5a440c2fd299f69212144f8149b16918414a3550967f33ffac347cbb",
+    "Sources/Reflection DotNet/Find Method By Signature.vi": "85c6b610c2d3c0585e1ef2ae4148fa0dce564893220a05a12182d477f7fbbc0b",
+    "Sources/Reflection DotNet/Invoke Method.vi": "ade175b3cad6360cbf885aa47ed232f3a4a456f8815eb11e46ab7c810abccaa4",
+    "Sources/Reflection DotNet/Object To String.vi": "501148024779023fdd7314527923ca939b24c98842a37cf88d53a67861591c85"
+  },
+  "visual": "toastfromxml/get-xml.png",
+  "fingerprint_format": "sha256-lf-xml",
+  "visual_sha256": "800123569618f0c3c34a97ac3e0ace82ef16436a1f2e50500e364d9a2220b7c7",
+  "reviewed_on": "2026-11-04",
+  "method": "LabVIEW 2026 Q3 64-bit delivery review, 2026-11-04. Native gRPC AIXML exports inspected for public terminals, error cases and call chains; 38 existing class VI connector contracts and summaries match the earlier review exports. Native Print.VI To HTML over ActiveX supplies the icon/terminal image, inspected in the 28-image contact sheet. Existing manual cleanup and reflection helper renames are maintainer changes. New XML source documentation reflects the constructor partial-failure cleanup limitation. Description-only VI Server updates preserve icons. No product runtime execution or diagram edit by the reviewer. See reviews/28-xml-source.md."
+}

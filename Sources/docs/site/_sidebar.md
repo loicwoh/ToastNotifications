@@ -8,6 +8,7 @@
   - [ToastNotification](api/toastnotification.md)
   - [ToastSource](api/toastsource.md)
   - [ToastBuilder](api/toastbuilder.md)
+  - [ToastFromXML](api/toastfromxml.md)
   - [ToastService](api/toastservice.md)
   - [ActivationHandler](api/activationhandler.md)
   - [User Event plugin](api/usereventactivationhandler.md)
@@ -16,6 +17,7 @@
 - **Examples**
   - [Choose an example](examples.md)
   - [Receive a text reply](guides/reply.md)
+  - [Display toast XML](guides/xml.md)
   - [Handle multiple actions](guides/multiple-actions.md)
   - [Open a link](guides/protocol.md)
 - **Project**

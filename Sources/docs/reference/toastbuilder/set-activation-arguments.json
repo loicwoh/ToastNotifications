@@ -1,15 +1,16 @@
 {
   "schema_version": 1,
   "source": "Sources/ToastBuilder/Set Activation Arguments.vi",
-  "reviewed_on": "2026-11-02",
-  "method": "Read-only review of saved develop c856044 sources in LabVIEW 2026 Q3 (64-bit). Native gRPC AIXML: terminal names/types/defaults, Error/No Error wiring and called helper behavior. Native Print.VI To HTML over ActiveX (pylabview backend): connector icon and named terminals copied byte-for-byte from the same worktree. No product execution or save. Maintenance refresh 2026-11-02: maintainer-applied LabVIEW theme and diagram cleanup. Native gRPC exports confirm unchanged public connector names, slots, types, defaults and connection requirements; saved summaries match the develop baseline. Native icon/terminal images re-exported by Print.VI To HTML over ActiveX and visually inspected. Changed VIs report eIdle with no execution errors. No product execution or save by the reviewer. Functional equivalence of every cleaned wire is not claimed; see reviews/labview-theme.md.",
+  "reviewed_on": "2026-11-04",
+  "method": "LabVIEW 2026 Q3 64-bit delivery review, 2026-11-04. Native gRPC AIXML exports inspected for public terminals, error cases and call chains; 38 existing class VI connector contracts and summaries match the earlier review exports. Native Print.VI To HTML over ActiveX supplies the icon/terminal image, inspected in the 28-image contact sheet. Existing manual cleanup and reflection helper renames are maintainer changes. New XML source documentation reflects the constructor partial-failure cleanup limitation. Description-only VI Server updates preserve icons. No product runtime execution or diagram edit by the reviewer. See reviews/28-xml-source.md.",
   "error_behavior": "skip",
   "reviewed_files": {
-    "Sources/ToastBuilder/Set Activation Arguments.vi": "b4b7728dd139af85d0e02e492661a016f0830c3ea82bbcb33fcfd2cf48e092d8",
-    "Sources/ToastBuilder/Read Builder Reference.vi": "5c699ee7b5eb7833b385768404ed74af2e59119fe184e204bca5cf54ac0cbbed",
-    "Sources/Toast Native/Add ToastActivation Info.vi": "0cd66e2092f686fdbc1d965c6fe4816d7504f6369d03967cfdb7eb2dc0c60e6b",
-    "Sources/ToastBuilder/Write Builder Reference.vi": "0b3619d69d17d72b02658872528578d4b7d1e8f3fbf067dc4d8652e6a1cc8f08"
+    "Sources/ToastBuilder/Set Activation Arguments.vi": "cc84e87b9a36c914d207a286a3586ac7833d5e5dfa5bdb9034bff6877b9792c4",
+    "Sources/ToastBuilder/Read Builder Reference.vi": "a2cc2a35e502c091b56adf4be25ea58562a82fa9b19e3a8d710beec2fa4dab7a",
+    "Sources/Toast Native/Add ToastActivation Info.vi": "ea334adc9c203a47eba925d32752947a72060320617766a4e804ba79918b9082",
+    "Sources/ToastBuilder/Write Builder Reference.vi": "130884c68288f9a8a7587cd13d483180e9ae3edbc834ea0012e8b33785827da5"
   },
   "visual": "toastbuilder/set-activation-arguments.png",
-  "visual_sha256": "770c9415a485e10cf7c2ab0f7b3f53cf989e57a82f35b003f68edf3a283375f9"
+  "visual_sha256": "da1efc888d96db776e841e5b66e23aedf13f879d0b5e9476882624e00c293f0b",
+  "fingerprint_format": "sha256-lf-xml"
 }

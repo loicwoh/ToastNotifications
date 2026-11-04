@@ -1,13 +1,14 @@
 {
   "schema_version": 1,
   "source": "Sources/ToastBuilder/Add Text.vi",
-  "reviewed_on": "2026-11-02",
-  "method": "Read-only LabVIEW MCP review in LabVIEW 2026 Q3 (64-bit): native gRPC connector-pane query and AIXML export for terminal defaults and error-case wiring; native helper inspected through pylabview. Native help image exported with LabVIEW Print.VI To HTML over ActiveX (pylabview backend), AddTextc.png copied byte-for-byte, no redraw or retouch. No product execution or save. Maintenance refresh 2026-11-02: maintainer-applied LabVIEW theme and diagram cleanup. Native gRPC exports confirm unchanged public connector names, slots, types, defaults and connection requirements; saved summaries match the develop baseline. Native icon/terminal images re-exported by Print.VI To HTML over ActiveX and visually inspected. Changed VIs report eIdle with no execution errors. No product execution or save by the reviewer. Functional equivalence of every cleaned wire is not claimed; see reviews/labview-theme.md.",
+  "reviewed_on": "2026-11-04",
+  "method": "LabVIEW 2026 Q3 64-bit delivery review, 2026-11-04. Native gRPC AIXML exports inspected for public terminals, error cases and call chains; 38 existing class VI connector contracts and summaries match the earlier review exports. Native Print.VI To HTML over ActiveX supplies the icon/terminal image, inspected in the 28-image contact sheet. Existing manual cleanup and reflection helper renames are maintainer changes. New XML source documentation reflects the constructor partial-failure cleanup limitation. Description-only VI Server updates preserve icons. No product runtime execution or diagram edit by the reviewer. See reviews/28-xml-source.md.",
   "error_behavior": "skip",
   "reviewed_files": {
-    "Sources/ToastBuilder/Add Text.vi": "edbb03434891563a97c214ff134b7a96da288f92590f4dbeb8f605c417763872",
-    "Sources/Toast Native/Add Text.vi": "56296f5f6c28d2edef9166ce85350be28f8e4e5533c562c7b99dfddd82a4ddc2"
+    "Sources/ToastBuilder/Add Text.vi": "9cc5b1b12fa773c8e111f74143f64c9d9c6ecb41cb6cc4bc575f533899a1bb69",
+    "Sources/Toast Native/Add Text.vi": "70f7c2ba9e6417c77888c383f69a1a7aef26b5004fad4ce3ccc5cc58f55aa4bc"
   },
   "visual": "toastbuilder/add-text.png",
-  "visual_sha256": "cecc4088da7250977c78f2c43329aad49453cc339d266a7e44e527fae10ec779"
+  "visual_sha256": "360010b542b9d5eaef6aeceb0934523e2b70a12729a2bc7f4a08cd64b88785b1",
+  "fingerprint_format": "sha256-lf-xml"
 }

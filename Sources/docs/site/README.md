@@ -18,12 +18,13 @@ reflection proof of concept and the experience of working with AI assistance.
 <a href="#/guides/reply">Try the reply example →</a>
 </div>
 
-## Three paths to explore
+## Examples to explore
 
 <div class="cards">
 <a class="card" href="#/guides/reply"><span class="card-number">01 / USER INPUT</span><strong>Receive a text reply</strong><span>Keep application arguments and submitted text separate. Deliver both to your event loop.</span></a>
 <a class="card" href="#/guides/multiple-actions"><span class="card-number">02 / ACTIVATION</span><strong>Handle multiple actions</strong><span>Distinguish Accept, Reject, and a click on the notification body.</span></a>
 <a class="card" href="#/guides/protocol"><span class="card-number">03 / PROTOCOL</span><strong>Open a link</strong><span>Let Windows open a URI from a notification button.</span></a>
+<a class="card" href="#/guides/xml"><span class="card-number">04 / XML SOURCE</span><strong>Display XML content</strong><span>Reuse XML text with the same service and activation handler.</span></a>
 </div>
 
 ## A small public surface
@@ -35,6 +36,7 @@ reflection proof of concept and the experience of working with AI assistance.
 </div>
 
 Use [ToastBuilder](api/toastbuilder.md) to construct content,
+or [ToastFromXML](api/toastfromxml.md) to start from XML text,
 [ToastService](api/toastservice.md) to manage notification registration, and an
 [ActivationHandler](api/activationhandler.md) to decide what happens after a click.
 The application sees LabVIEW values and classes; the .NET references stay inside the wrapper.

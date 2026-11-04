@@ -13,8 +13,9 @@ on the development workstation is not a claim of full compatibility or leak-free
 | Protocol button | Add Link Button | Link button | Manually validated |
 | Text input | Add Text Input | Reply | Manually validated, including empty text and special characters |
 | User Event delivery | UserEventActivationHandler | Reply / Multiple actions; #22 | Nominal path works; errors still need hardening |
-| Common source contract | ToastSource base class; ToastBuilder implementation | #27 | Implemented; second concrete source planned in #28 |
-| Saved XML display | Planned ToastFromXML | #28–#29 | Not implemented |
+| Common source contract | ToastSource base class; ToastBuilder implementation | #27 | Implemented by ToastBuilder and ToastFromXML |
+| XML string display | ToastFromXML | [XML example](guides/xml.md); #28 | Nominal display manually validated |
+| XML files and templates | Methods to define | #29 | Planned |
 | Images | Methods to define | #5 | Planned |
 | Selection input | Methods to define | #8 | Planned |
 | Progress and updates | Methods to define | #9 | Planned |
@@ -23,7 +24,9 @@ on the development workstation is not a claim of full compatibility or leak-free
 | Button icons, styles, tooltips, context menus | Methods / XML path to define | #31–#34 | Planned |
 
 Numbers refer to [GitHub issues](https://github.com/loicwoh/ToastNotifications/issues).
-The XML abstraction has been discussed and tracked; there is no Load XML method today.
+ToastFromXML parses XML text into a retained document. File I/O and parameterized
+templates remain application work. Constructor failure cleanup is not yet guaranteed
+when parsing fails after document creation; resource hardening remains in #16.
 
 ## Compatibility
 

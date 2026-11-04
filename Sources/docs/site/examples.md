@@ -9,6 +9,7 @@ receive when applicable, and close.
 |---|---|---|
 | [Text reply](guides/reply.md) | Separate application arguments from user-entered text | Manual input capture, empty value, special characters and notification-history interaction |
 | [Multiple actions](guides/multiple-actions.md) | Distinguish two buttons and body activation | Accept, Reject, body arguments and nominal Stop/restart |
+| [Toast from XML](guides/xml.md) | Display XML text using the same service and User Event receiver | Nominal display confirmed manually; reply edge cases remain to check |
 | [Link button](guides/protocol.md) | Open a URI through Windows protocol activation | Manual opening of the configured link |
 
 ## Text reply
@@ -37,6 +38,12 @@ URL through Windows. Its Protocol action is distinct from an application callbac
 The examples compose through [ToastBuilder](/api/toastbuilder.md) and
 [ToastService](/api/toastservice.md). The first two receive data through the
 [User Event plugin](/api/usereventactivationhandler.md).
+
+## Toast from XML
+
+Open `Sources/Examples/Toast From XML.vi`. Create a ToastFromXML from the XML
+constant, inspect Get XML and display it through ToastService. The
+[guide](guides/xml.md) explains the expected arguments, input key and cleanup.
 
 ## Coming next
 

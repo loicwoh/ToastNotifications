@@ -12,7 +12,8 @@ The application creates a concrete source and retains responsibility for its
 cleanup. ToastService borrows it and invokes its Show override.
 
 The creation polymorph groups concrete constructors; it currently offers
-ToastBuilder. Composition remains specific to that class. ToastFromXML is planned.
+ToastBuilder and ToastFromXML. Compose with the builder or provide XML text to
+ToastFromXML; both use the same ToastService and activation handlers.
 
 ## Builder
 

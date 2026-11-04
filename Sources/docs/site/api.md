@@ -10,14 +10,19 @@ compatibility. The supported API and versioning policy remain tracked in
 ## ToastSource
 
 [ToastSource: contract and ownership](/api/toastsource.md) is the base class for
-display, XML export and cleanup. ToastBuilder is its current concrete implementation.
+display, XML export and cleanup. ToastBuilder and ToastFromXML are its concrete implementations.
 [Create ToastSource (Poly)](/reference/toastnotification/create-toastsource-poly.md)
-groups the concrete creation VIs; it currently provides Create ToastBuilder.
+groups the concrete creation VIs; it provides Create ToastBuilder and Create ToastFromXML.
 
 ## ToastBuilder
 
 [ToastBuilder: role, dependencies and members](/api/toastbuilder.md) — construct
 content through LabVIEW methods.
+
+## ToastFromXML
+
+[ToastFromXML](/api/toastfromxml.md) — parse an XML string, display it through the
+same service and export the retained document as text.
 
 ## ToastService
 
@@ -45,8 +50,8 @@ This documentation boundary does not itself change the saved LabVIEW scopes.
 ## XML support
 
 [Get XML](/reference/toastbuilder/get-xml.md) exports builder content.
-ToastSource is now present. Loading saved XML through ToastFromXML remains planned
-in #28, with disk persistence and templates in #29.
+Pass XML text to [Create ToastFromXML](/reference/toastfromxml/create-toastfromxml.md).
+Disk persistence and template substitution remain planned in #29.
 
 ## Continue with an example
 

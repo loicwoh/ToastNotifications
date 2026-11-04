@@ -58,8 +58,8 @@ this Markdown. It never writes back to the authored directory or saved VIs.
 The short description reproduces the saved LabVIEW Context Help text exactly;
 it is read again on each build. The nine ToastBuilder and five ToastService
 application methods, the three ActivationHandler hooks and four User Event
-plugin methods and three ToastSource methods use this model: 24 application VIs
-across five classes. The root-library creation polymorph has its saved short
+plugin methods and three ToastSource methods use this model. ToastFromXML adds four documented methods, bringing the total to
+28 application VIs across six classes. The root-library creation polymorph has its saved short
 description and is explained on the ToastSource and ToastNotification owner pages.
 Payload types retain their generated summaries and are explained at method
 terminals. Other entries explicitly say **Short description only**. Automated

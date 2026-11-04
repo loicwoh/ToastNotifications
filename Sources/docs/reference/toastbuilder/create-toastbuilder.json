@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
   "source": "Sources/ToastBuilder/Create ToastBuilder.vi",
-  "reviewed_on": "2026-11-02",
-  "method": "ToastSource migration review, 2026-11-02, LabVIEW 2026 Q3 64-bit. Native gRPC exports reviewed for dispatch terminals, connectors, error cases and called subVIs. ToastSource is a base class chosen by the maintainer, not a LabVIEW interface. Get XML names aligned by the maintainer. Native Print.VI To HTML over ActiveX supplied the unchanged connector images; all eight captures visually inspected. VI descriptions updated through VI Server only, with offline STRG and icon checks; saved detailed-help URLs synchronized through the repository script. No product VI was executed and no diagram was edited by the reviewer. See reviews/27-toastsource.md for validation and remaining work.",
+  "reviewed_on": "2026-11-04",
+  "method": "LabVIEW 2026 Q3 64-bit delivery review, 2026-11-04. Native gRPC AIXML exports inspected for public terminals, error cases and call chains; 38 existing class VI connector contracts and summaries match the earlier review exports. Native Print.VI To HTML over ActiveX supplies the icon/terminal image, inspected in the 28-image contact sheet. Existing manual cleanup and reflection helper renames are maintainer changes. New XML source documentation reflects the constructor partial-failure cleanup limitation. Description-only VI Server updates preserve icons. No product runtime execution or diagram edit by the reviewer. See reviews/28-xml-source.md.",
   "error_behavior": "skip",
   "reviewed_files": {
-    "Sources/ToastBuilder/Read Builder Reference.vi": "5c699ee7b5eb7833b385768404ed74af2e59119fe184e204bca5cf54ac0cbbed",
-    "Sources/ToastBuilder/Release Valid Builder Reference.vi": "548ab806da523642e0541ddca907279fc7c10dd3bc8a7fac26071b0ebc99ad9d",
-    "Sources/Toast Native/New Builder.vi": "1172bc6e53c86abfee215bd568cf09bc6e7ff6a1f3ee73f6594054a8a7c07d41",
-    "Sources/ToastBuilder/Write Builder Reference.vi": "0b3619d69d17d72b02658872528578d4b7d1e8f3fbf067dc4d8652e6a1cc8f08",
-    "Sources/ToastBuilder/Create ToastBuilder.vi": "9ed8620e2ea34cb262ccc5b9769ac51a12ac28dee747b53853327534b6988880"
+    "Sources/ToastBuilder/Read Builder Reference.vi": "a2cc2a35e502c091b56adf4be25ea58562a82fa9b19e3a8d710beec2fa4dab7a",
+    "Sources/ToastBuilder/Release Valid Builder Reference.vi": "bc52d840374d215aa773cffa2bdf1c4a6d154ed9589648899173b311c3525ce3",
+    "Sources/Toast Native/New Builder.vi": "58865cedfc785bea7e0fc2d97ef6630ab1b49fd0ffac659556b44188a1b38afc",
+    "Sources/ToastBuilder/Write Builder Reference.vi": "130884c68288f9a8a7587cd13d483180e9ae3edbc834ea0012e8b33785827da5",
+    "Sources/ToastBuilder/Create ToastBuilder.vi": "b561b115294258a56147672679d4d23bfe159700bffe39d6a27b5ec18cb1e13f"
   },
   "visual": "toastbuilder/create-toastbuilder.png",
-  "visual_sha256": "8822a9cd6a8fd2d8aa1c8d552bdf2adb4c7a42ca0dd3803c795653bcad038830",
+  "visual_sha256": "33b5edcbcbeb23d854233f8ccec7ef38f612c568e0b57e79d756b9476aa83b16",
   "fingerprint_format": "sha256-lf-xml"
 }

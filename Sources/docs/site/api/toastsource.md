@@ -1,15 +1,16 @@
 # ToastSource
 
 The base class defines the common display, XML export and cleanup contract.
-[ToastBuilder](/api/toastbuilder.md) derives from it and owns the native builder.
+[ToastBuilder](/api/toastbuilder.md) owns a native builder;
+[ToastFromXML](/api/toastfromxml.md) owns a parsed XML Document. Both derive from it.
 The base class does not own a native notification resource or compose content.
 
 ## Create a concrete source
 
 Use [Create ToastSource (Poly)](/reference/toastnotification/create-toastsource-poly.md)
-and select its concrete creation instance. The current instance is
-[Create ToastBuilder](/reference/toastbuilder/create-toastbuilder.md).
-Its output keeps the ToastBuilder type so composition methods remain available.
+and select [Create ToastBuilder](/reference/toastbuilder/create-toastbuilder.md)
+or [Create ToastFromXML](/reference/toastfromxml/create-toastfromxml.md).
+The output keeps the selected concrete class type.
 The polymorphic VI selects a creation VI; it is not a runtime source factory.
 
 ## Common operations and ownership
@@ -47,9 +48,8 @@ an empty string, and Close propagates the error without releasing anything.
 Use a created concrete source, rather than a bare ToastSource, in application code.
 Do not rely on the base methods to report an uninitialized-source error.
 
-ToastBuilder currently supplies all three overrides. XML loading through
-the future `ToastFromXML` class remains separate work in
-[issue #28](https://github.com/loicwoh/ToastNotifications/issues/28); disk templates
-remain in [#29](https://github.com/loicwoh/ToastNotifications/issues/29).
+ToastBuilder and ToastFromXML supply all three overrides. The
+[XML example](/guides/xml.md) demonstrates the second source with the same service.
+Disk templates remain in [#29](https://github.com/loicwoh/ToastNotifications/issues/29).
 
 <!-- API-MEMBERS -->

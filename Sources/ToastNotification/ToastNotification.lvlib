@@ -10,20 +10,22 @@
 
 </Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
+	<Property Name="NI.SortType" Type="Int">3</Property>
+	<Item Name="Bins" Type="Folder">
+		<Item Name="Microsoft.Toolkit.Uwp.Notifications.dll" Type="Document" URL="../../bins/Microsoft.Toolkit.Uwp.Notifications.dll"/>
+	</Item>
+	<Item Name="Support" Type="Folder">
+		<Item Name="Reflection DotNet.lvlib" Type="Library" URL="../../Reflection DotNet/Reflection DotNet.lvlib"/>
+		<Item Name="Toast Native.lvlib" Type="Library" URL="../../Toast Native/Toast Native.lvlib"/>
+	</Item>
 	<Item Name="ActivationHandler" Type="Folder">
 		<Item Name="ActivationHandler.lvclass" Type="LVClass" URL="../../ActivationHandler/ActivationHandler.lvclass"/>
 		<Item Name="UserEventActivationHandler.lvclass" Type="LVClass" URL="../../PlugIns/UserEventActivationHandler/UserEventActivationHandler.lvclass"/>
 	</Item>
-	<Item Name="Bins" Type="Folder">
-		<Item Name="Microsoft.Toolkit.Uwp.Notifications.dll" Type="Document" URL="../../bins/Microsoft.Toolkit.Uwp.Notifications.dll"/>
-	</Item>
-	<Item Name="Native VIs" Type="Folder">
-		<Item Name="Reflection DotNet.lvlib" Type="Library" URL="../../Reflection DotNet/Reflection DotNet.lvlib"/>
-		<Item Name="Toast Native.lvlib" Type="Library" URL="../../Toast Native/Toast Native.lvlib"/>
-	</Item>
 	<Item Name="ToastSource" Type="Folder">
 		<Item Name="Create ToastSource (Poly).vi" Type="VI" URL="../Create ToastSource (Poly).vi"/>
 		<Item Name="ToastBuilder.lvclass" Type="LVClass" URL="../../ToastBuilder/ToastBuilder.lvclass"/>
+		<Item Name="ToastFromXML.lvclass" Type="LVClass" URL="../../ToastFromXML/ToastFromXML.lvclass"/>
 		<Item Name="ToastSource.lvclass" Type="LVClass" URL="../../ToastSource/ToastSource.lvclass"/>
 	</Item>
 	<Item Name="Typedefs" Type="Folder">

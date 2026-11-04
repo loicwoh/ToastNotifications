@@ -12,7 +12,7 @@ Windows requirements before adapting an example.
 | [ToastButton](https://learn.microsoft.com/en-us/dotnet/api/microsoft.toolkit.uwp.notifications.toastbutton?view=win-comm-toolkit-dotnet-7.1) | Application buttons, protocol activation and button properties |
 | [ToastNotificationManagerCompat](https://learn.microsoft.com/en-us/dotnet/api/microsoft.toolkit.uwp.notifications.toastnotificationmanagercompat?view=win-comm-toolkit-dotnet-7.1) | Desktop notification registration, activation and notifier |
 | [ToastNotification](https://learn.microsoft.com/en-us/uwp/api/windows.ui.notifications.toastnotification) | Native Windows notification object |
-| [XmlDocument.LoadXml](https://learn.microsoft.com/en-us/uwp/api/windows.data.xml.dom.xmldocument.loadxml) | Native XML loading; planned ToastFromXML implementation |
+| [XmlDocument.LoadXml](https://learn.microsoft.com/en-us/uwp/api/windows.data.xml.dom.xmldocument.loadxml) | Native XML parsing used by ToastFromXML |
 
 ## Content and XML schema
 

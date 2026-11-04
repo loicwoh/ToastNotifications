@@ -1,15 +1,16 @@
 {
   "schema_version": 1,
   "source": "Sources/ToastBuilder/Add Link Button.vi",
-  "reviewed_on": "2026-11-02",
-  "method": "Read-only review of saved develop c856044 sources in LabVIEW 2026 Q3 (64-bit). Native gRPC AIXML: terminal names/types/defaults, Error/No Error wiring and called helper behavior. Native Print.VI To HTML over ActiveX (pylabview backend): connector icon and named terminals copied byte-for-byte from the same worktree. No product execution or save. Maintenance refresh 2026-11-02: maintainer-applied LabVIEW theme and diagram cleanup. Native gRPC exports confirm unchanged public connector names, slots, types, defaults and connection requirements; saved summaries match the develop baseline. Native icon/terminal images re-exported by Print.VI To HTML over ActiveX and visually inspected. Changed VIs report eIdle with no execution errors. No product execution or save by the reviewer. Functional equivalence of every cleaned wire is not claimed; see reviews/labview-theme.md.",
+  "reviewed_on": "2026-11-04",
+  "method": "LabVIEW 2026 Q3 64-bit delivery review, 2026-11-04. Native gRPC AIXML exports inspected for public terminals, error cases and call chains; 38 existing class VI connector contracts and summaries match the earlier review exports. Native Print.VI To HTML over ActiveX supplies the icon/terminal image, inspected in the 28-image contact sheet. Existing manual cleanup and reflection helper renames are maintainer changes. New XML source documentation reflects the constructor partial-failure cleanup limitation. Description-only VI Server updates preserve icons. No product runtime execution or diagram edit by the reviewer. See reviews/28-xml-source.md.",
   "error_behavior": "skip",
   "reviewed_files": {
-    "Sources/ToastBuilder/Add Link Button.vi": "04a970617ed544062807365d3a7ddb822bdca29c98bc72f4f9f3f0c572f76ecf",
-    "Sources/ToastBuilder/Read Builder Reference.vi": "5c699ee7b5eb7833b385768404ed74af2e59119fe184e204bca5cf54ac0cbbed",
-    "Sources/Toast Native/Add Link Button.vi": "e18b6bfa5daa8b6ec64e30a1512219c416307dd01d1cf54b00fd279bf1bba139",
-    "Sources/ToastBuilder/Write Builder Reference.vi": "0b3619d69d17d72b02658872528578d4b7d1e8f3fbf067dc4d8652e6a1cc8f08"
+    "Sources/ToastBuilder/Add Link Button.vi": "7feb8009cf0824bd64abfa838fa29d26729ab59a1ac6cd043fb067f115eb7855",
+    "Sources/ToastBuilder/Read Builder Reference.vi": "a2cc2a35e502c091b56adf4be25ea58562a82fa9b19e3a8d710beec2fa4dab7a",
+    "Sources/Toast Native/Add Link Button.vi": "f30223273f3d34296b909688ff52202b56e7429ce589d90e5632892259a810eb",
+    "Sources/ToastBuilder/Write Builder Reference.vi": "130884c68288f9a8a7587cd13d483180e9ae3edbc834ea0012e8b33785827da5"
   },
   "visual": "toastbuilder/add-link-button.png",
-  "visual_sha256": "f7a94da5dc11d9f8f352dea46b4da9ca090335427f911c037f498cc6aea662b2"
+  "visual_sha256": "0a09b1767e6705700898b982182d978292fbeb074c8664ee66094d3c79263811",
+  "fingerprint_format": "sha256-lf-xml"
 }

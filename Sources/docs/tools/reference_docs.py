@@ -7,7 +7,7 @@ from api_inventory import inventory, slug
 from vi_descriptions import description, resource
 from detailed_help import load_help
 
-GUIDE_LABELS = {'reply': 'Receive a text reply', 'multiple-actions': 'Handle multiple actions',
+GUIDE_LABELS = {'xml': 'Display toast XML', 'reply': 'Receive a text reply', 'multiple-actions': 'Handle multiple actions',
                 'protocol': 'Open a link'}
 FAMILIES = {'toolkit': ('T', 'Windows notifications for LabVIEW'),
             'builder': ('B', 'Compose content'), 'service': ('S', 'Display and lifecycle'),

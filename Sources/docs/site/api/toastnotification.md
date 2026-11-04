@@ -19,9 +19,9 @@ The root library includes `Activation.ctl` (raw Arguments and User Inputs) and
 `Argument.ctl` (a Key/Value pair). The User Event delivery wrapper belongs to the
 plugin, rather than adding an error field to Activation itself.
 
-`Create ToastSource (Poly).vi` groups concrete source creation VIs. Its only
-current instance is Create ToastBuilder, returning a concrete ToastBuilder for
-composition. The caller closes the created source; this selector neither
+`Create ToastSource (Poly).vi` groups Create ToastBuilder for composition and
+Create ToastFromXML for XML text. Each returns its concrete class type.
+The caller closes the created source; this selector neither
 initializes ToastService nor registers a callback.
 
 <!-- API-MEMBERS -->

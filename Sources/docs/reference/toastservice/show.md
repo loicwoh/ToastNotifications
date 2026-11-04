@@ -24,14 +24,14 @@ flowchart LR
     I[Initialize / register service] --> S[ToastService.Show]
     B[Create / configure concrete source] --> S
     S --> W[Application receives activations]
-    W --> C[Stop / close service and builder]
+    W --> C[Stop / close service and source]
 ```
 
 ## Usage notes
 
 - This method dynamically invokes [ToastSource.Show](/reference/toastsource/show.md).
-  ToastBuilder supplies the native builder display override; the service has no
-  concrete-type switch or cast to ToastBuilder.
+  ToastBuilder supplies builder display and ToastFromXML supplies XML display;
+  the service has no concrete-type switch or cast to ToastBuilder.
   It does not inspect or validate service state, initialize the service or
   register a callback. Successful display alone does not prove reply delivery
   is configured.

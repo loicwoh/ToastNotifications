@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
   "source": "Sources/ToastService/Show.vi",
-  "reviewed_on": "2026-11-02",
-  "method": "ToastSource migration review, 2026-11-02, LabVIEW 2026 Q3 64-bit. Native gRPC exports reviewed for dispatch terminals, connectors, error cases and called subVIs. ToastSource is a base class chosen by the maintainer, not a LabVIEW interface. Get XML names aligned by the maintainer. Native Print.VI To HTML over ActiveX supplied the unchanged connector images; all eight captures visually inspected. VI descriptions updated through VI Server only, with offline STRG and icon checks; saved detailed-help URLs synchronized through the repository script. No product VI was executed and no diagram was edited by the reviewer. See reviews/27-toastsource.md for validation and remaining work.",
+  "reviewed_on": "2026-11-04",
+  "method": "LabVIEW 2026 Q3 64-bit delivery review, 2026-11-04. Native gRPC AIXML exports inspected for public terminals, error cases and call chains; 38 existing class VI connector contracts and summaries match the earlier review exports. Native Print.VI To HTML over ActiveX supplies the icon/terminal image, inspected in the 28-image contact sheet. Existing manual cleanup and reflection helper renames are maintainer changes. New XML source documentation reflects the constructor partial-failure cleanup limitation. Description-only VI Server updates preserve icons. No product runtime execution or diagram edit by the reviewer. See reviews/28-xml-source.md.",
   "error_behavior": "skip",
   "reviewed_files": {
-    "Sources/ToastService/Show.vi": "d90b03ea1a8bb42d4965c1ae9ef523ee0e74b652debcc0b49d2ecc27256ea09e",
+    "Sources/ToastService/Show.vi": "91b20b953d0cd6cdefa1ad76776dcb4fce67eaefa034d3c87a617e5225c823b4",
     "Sources/ToastService/ToastService.lvclass": "5b02c342e50316167f8fd162fc76107427afa3121fec7839665ab1168e85847c",
-    "Sources/ToastBuilder/Show.vi": "295a9c0817d78c4e54f95f8b9d2397f6c526ba6d9e1626b3a5de52968184de4d",
-    "Sources/ToastSource/Show.vi": "01a39bcd55fae8a6261a034df1b07cc6290486f7a1d78b4a42f34e6b18de3637",
+    "Sources/ToastBuilder/Show.vi": "df7885734f16df2f1682d16094f4e4c6cbcbb360eea1fb5305740a3f6bb9692c",
+    "Sources/ToastSource/Show.vi": "96865f9b9725d2ab0e1ec2e5fd9abae57adc8c212473284cb17c3b685ca53b79",
     "Sources/ToastBuilder/ToastBuilder.lvclass": "224290a9b83fcbf55ef2b43f626c050ef80673289200bd73ec52ad3fe1e86609"
   },
   "visual": "toastservice/show.png",
-  "visual_sha256": "5491c34ec28ff9ec97aa35210accb39dfd81d7d2ed03991773d1c59b9d407efa",
+  "visual_sha256": "0a80175b359ca2a94836da1553e605c2b0b99f0ff147efc35a4db9076b8616c5",
   "fingerprint_format": "sha256-lf-xml"
 }

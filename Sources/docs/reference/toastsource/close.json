@@ -3,12 +3,12 @@
   "source": "Sources/ToastSource/Close.vi",
   "error_behavior": "noop",
   "reviewed_files": {
-    "Sources/ToastSource/Close.vi": "7de6763402d64c4f787fa5500c750f1773604e07cf504d974e0df260a21c9f02",
-    "Sources/ToastSource/ToastSource.lvclass": "489b0fc2456da94232931dee86bd4ae454bb18ef7efe8f87785433b97d86a544"
+    "Sources/ToastSource/Close.vi": "425ef76c833b1ad680abc71cd01c457199cf06970a18c26f9ff0a407f57afd8c",
+    "Sources/ToastSource/ToastSource.lvclass": "371632089f17e66bb9c7300643301e02d89508497624ea8b4b742785ac14cf56"
   },
   "visual": "toastsource/close.png",
-  "method": "ToastSource migration review, 2026-11-02, LabVIEW 2026 Q3 64-bit. Native gRPC exports reviewed for dispatch terminals, connectors, error cases and called subVIs. ToastSource is a base class chosen by the maintainer, not a LabVIEW interface. Get XML names aligned by the maintainer. Native Print.VI To HTML over ActiveX supplied the unchanged connector images; all eight captures visually inspected. VI descriptions updated through VI Server only, with offline STRG and icon checks; saved detailed-help URLs synchronized through the repository script. No product VI was executed and no diagram was edited by the reviewer. See reviews/27-toastsource.md for validation and remaining work.",
-  "reviewed_on": "2026-11-02",
+  "method": "LabVIEW 2026 Q3 64-bit delivery review, 2026-11-04. Native gRPC AIXML exports inspected for public terminals, error cases and call chains; 38 existing class VI connector contracts and summaries match the earlier review exports. Native Print.VI To HTML over ActiveX supplies the icon/terminal image, inspected in the 28-image contact sheet. Existing manual cleanup and reflection helper renames are maintainer changes. New XML source documentation reflects the constructor partial-failure cleanup limitation. Description-only VI Server updates preserve icons. No product runtime execution or diagram edit by the reviewer. See reviews/28-xml-source.md.",
+  "reviewed_on": "2026-11-04",
   "fingerprint_format": "sha256-lf-xml",
-  "visual_sha256": "0d2f87be0f0565032addad2cf4ad05bb40faaa285ce8671cbb9f464c007d5739"
+  "visual_sha256": "c58be0fceb48b633501fb94b19b9e50e7d8d7878697ec7c81b94f0ee4067dccb"
 }
