@@ -10,18 +10,12 @@ button choices and submitted text into your application.
 
 ## Try it
 
-Check out `develop`, open `Sources/ToastAPI.lvproj` in LabVIEW, and run an example.
-Current development uses LabVIEW 2026 on Windows.
-
-- [Getting started](https://loicwoh.github.io/ToastNotifications/#/getting-started) explains the setup.
-- [Examples](https://loicwoh.github.io/ToastNotifications/#/examples) help you pick a scenario to try.
-- [API reference](https://loicwoh.github.io/ToastNotifications/#/api) and [known limits](https://loicwoh.github.io/ToastNotifications/#/coverage) help you decide what to use in your own application.
+- Follow [Getting started](https://loicwoh.github.io/ToastNotifications/#/getting-started) to open the toolkit in LabVIEW.
+- Pick an [example](https://loicwoh.github.io/ToastNotifications/#/examples) to try a reply, a choice, a link, or a toast from XML.
+- Browse the [API](https://loicwoh.github.io/ToastNotifications/#/api) and [known limits](https://loicwoh.github.io/ToastNotifications/#/coverage) to see what you can use in your application.
 
 ## Contribute
 
-Try an example, improve a guide, or pick an open issue. If you report a bug,
-include your LabVIEW and Windows versions, the VI you used, and what you observed.
-For code and documentation changes, branch from `develop` and open a pull
-request against it. Releases land on `main`.
+You can report a problem, improve a guide, or help with an open issue.
 
-[Open issues](https://github.com/loicwoh/ToastNotifications/issues?q=is%3Aissue+is%3Aopen) · [Source on develop](https://github.com/loicwoh/ToastNotifications/tree/develop/Sources) · [Documentation preview instructions](https://github.com/loicwoh/ToastNotifications/blob/develop/Sources/docs/README.md)
+[Contribution guide](CONTRIBUTING.md) · [Open issues](https://github.com/loicwoh/ToastNotifications/issues?q=is%3Aissue+is%3Aopen) · [Source on develop](https://github.com/loicwoh/ToastNotifications/tree/develop/Sources)
