@@ -40,9 +40,8 @@ Send button accompanying a text field, see [the reply example](/guides/reply.md)
   [Set Activation Arguments](/reference/toastbuilder/set-activation-arguments.md).
 - The wrapper performs no local parsing or encoding of the argument string.
   Inspect [Get XML](/reference/toastbuilder/get-xml.md) and check errors before Show.
-- Repeated button creation remains subject to the native-resource lifetime work
-  tracked in [#16](https://github.com/loicwoh/ToastNotifications/issues/16).
-  Close the builder after its last use; class copies are aliases, not new owners.
+- The method releases its temporary native button reference after attempting to
+  add the button. Close the builder after its last use.
 
 ## Related reading
 
