@@ -27,8 +27,9 @@ flowchart LR
 
 ## Usage notes
 
-- Wire Close on a path reached after success **and** failure. Its cleanup branches
-  start without the incoming error; that error is merged back at the end.
+- Wire the service and error from Initialize through to Close even when
+  initialization fails. Close attempts cleanup and preserves the incoming
+  error as the primary error.
   It has **no service output** and does not clear references in existing class
   aliases. Finish using the service and its borrowed handler resources first.
 - The shutdown order is to unsubscribe the native callback before destroying
@@ -44,8 +45,9 @@ flowchart LR
 - Close does not close a borrowed builder. Close it separately after service
   shutdown. A custom handler is responsible for resources acquired by its hooks;
   unrelated caller-owned events or queues are outside the service's cleanup.
-- Call once, outside the callback. There is no repeated-close or empty-service
-  guard here. Partial setup and concurrent shutdown are
+- Call once, outside the callback. Cleanup still runs if initialization failed
+  before Register For Events. Custom handler Close hooks must accept partially
+  initialized state. Repeated closure and concurrent shutdown are
   [known limits](/callbacks.md?id=shutdown-is-still-being-hardened), tracked in
   [issue #16](https://github.com/loicwoh/ToastNotifications/issues/16).
 - Close does not call the .NET garbage collector. The examples retain a final

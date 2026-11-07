@@ -53,9 +53,11 @@ times; Close releases its owned resources. The User Event property read and the
 application's receiving registration are setup operations, not additional hook
 calls. Read from the initialized handler returned by the service.
 
-The shutdown order is the [service lifecycle contract](/reference/toastservice/close.md);
-callback completion and repeated/partial cleanup remain
-[known limits](/callbacks.md?id=shutdown-is-still-being-hardened).
+A custom Initialize hook must return its acquired resources in the handler
+output even if a later step fails. Its Close hook must release the resources
+present in that value and accept partially initialized state. The application
+passes the service returned by Initialize to
+[ToastService.Close](/reference/toastservice/close.md) even on error.
 
 ## Boundary and dependencies
 

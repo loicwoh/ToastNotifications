@@ -11,7 +11,7 @@
 
 | Output | Type | Use |
 |---|---|---|
-| `ToastService out` | ToastService | New service storing the native reference and initialized handler on success. |
+| `ToastService out` | ToastService | Service carrying the resources acquired so far. Wire this output to Close even when initialization fails. |
 | `ActivationHandler out` | ActivationHandler | Value returned by the handler Initialize hook; retains its runtime child type. |
 | `error out` | Error cluster | Native initialization, handler initialization or storage error; incoming error otherwise. |
 
@@ -49,10 +49,14 @@ and register the application's Event Structure before showing the toast.
 - Use the initialized output, or [Read ActivationHandler](/reference/toastservice/read-activationhandler.md),
   to obtain references created by the hook. The original class value does not
   gain fields written into a later value.
-- A failure after resource acquisition has no rollback path here. The native
-  handle or initialized handler may not be stored in the returned service if
-  a later step fails. Partial-initialization cleanup remains covered by
-  [issue #16](https://github.com/loicwoh/ToastNotifications/issues/16).
+- If initialization fails after it starts, the VI attempts to store the native
+  reference and the handler returned by the hook. Initialization errors take
+  precedence over storage errors. Pass the returned service and error to
+  [Close](/reference/toastservice/close.md). Keep the returned service wire
+  through the error path and use the same cleanup path for success and failure,
+  as shown in [Toast With Reply.vi](/guides/reply.md).
+- A custom Initialize hook must return any resources it acquired before
+  reporting an error so its Close hook can release them.
 
 ## Related reading
 
