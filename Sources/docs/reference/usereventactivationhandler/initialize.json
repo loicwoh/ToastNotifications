@@ -8,7 +8,7 @@
     "Sources/PlugIns/UserEventActivationHandler/Initialize.vi": "59dcbe52b901b979f88542841ea241f5a0075e5764107dbce9c5003ae2945d4d",
     "Sources/PlugIns/UserEventActivationHandler/Write Event Ref.vi": "5667389a113df7e1c3977c86962d344e96b761142308aeb862e1eac748c69711",
     "Sources/PlugIns/UserEventActivationHandler/Activation Event Data.ctl": "d6d6e517c1463f884d475937cb18129dc41512526bd578cbe0526e8b6e11544f",
-    "Sources/ToastService/Initialize.vi": "5c782e6d43d14ba70f7c7f9dc6ca985d2db7af1ae62f17a651d097a612c5b6dd",
+    "Sources/ToastService/Initialize.vi": "6304fb6f259fdd92ff65e85a966a16e1d4dad61b529d40482c04f41c76516f69",
     "Sources/PlugIns/UserEventActivationHandler/UserEventActivationHandler.lvclass": "b704bfe277a440ee4ee588c42744a9754b997419e875a3c811eb54944b8ef512"
   },
   "visual": "usereventactivationhandler/initialize.png",

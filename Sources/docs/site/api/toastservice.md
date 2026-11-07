@@ -22,8 +22,9 @@ through dynamic dispatch; the concrete source remains owned by the caller.
 The service does not give it an independent lifetime or close it.
 
 The service owns its native reference and callback registration. Its Close path
-also calls the handler Close hook. Concurrent callbacks, repeated registration
-and partial failure remain [known limits](/callbacks.md?id=shutdown-is-still-being-hardened).
+also calls the handler Close hook. Pass the returned service to Close even if
+Initialize fails. Concurrent callbacks and repeated closure remain
+[known limits](/callbacks.md?id=shutdown-is-still-being-hardened).
 
 Native reference access is an implementation detail, outside the application API.
 

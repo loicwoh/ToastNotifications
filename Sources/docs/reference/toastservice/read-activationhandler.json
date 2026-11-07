@@ -7,7 +7,7 @@
   "reviewed_files": {
     "Sources/ToastService/Read ActivationHandler.vi": "202f8ef04057d27d3e83efc66acf3a6bf7e96c1cee9970b3653d89c5e1a83847",
     "Sources/ToastService/ToastService.lvclass": "5b02c342e50316167f8fd162fc76107427afa3121fec7839665ab1168e85847c",
-    "Sources/ToastService/Initialize.vi": "5c782e6d43d14ba70f7c7f9dc6ca985d2db7af1ae62f17a651d097a612c5b6dd",
+    "Sources/ToastService/Initialize.vi": "6304fb6f259fdd92ff65e85a966a16e1d4dad61b529d40482c04f41c76516f69",
     "Sources/PlugIns/UserEventActivationHandler/Initialize.vi": "59dcbe52b901b979f88542841ea241f5a0075e5764107dbce9c5003ae2945d4d",
     "Sources/PlugIns/UserEventActivationHandler/Close.vi": "fa93ced49f5c74ed9d87ebf07da2109a8334b033e97b55e9402f79859cb8a857"
   },

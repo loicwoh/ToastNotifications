@@ -6,6 +6,7 @@ Unreleased:
   - Forward activations to a LabVIEW Event Structure with the included User Event handler, or implement your own activation handler.
   - Export a composed toast as XML and display a toast from an XML string through the same notification service.
 - Fixes:
+  - Preserve resources acquired during partial service initialization so Close can release them while retaining the original error.
   - Reject duplicate activation callback registrations while preserving the original subscription for cleanup.
   - Release the temporary native reference after adding an application button.
   - Unregister the native callback before closing the activation handler.
