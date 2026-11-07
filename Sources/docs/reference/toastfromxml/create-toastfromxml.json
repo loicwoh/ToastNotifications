@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "source": "Sources/ToastFromXML/Create ToastFromXML.vi",
+  "error_behavior": "skip",
+  "reviewed_files": {
+    "Sources/ToastFromXML/Create ToastFromXML.vi": "5bde0f1800445b5a36eccea8b69bcd8f5b7138ba56997913e4b0ca58eeeee2b2",
+    "Sources/ToastFromXML/ToastFromXML.lvclass": "3720b734140d952600687e1763bf1684088fae70afe06b6efd73b9a12938eb7a",
+    "Sources/ToastFromXML/Read XML Document.vi": "6bbc7579e51b124eb024a66ecef82b9e0ec45c4a510e46a3eef41ae1d97fbd1c",
+    "Sources/ToastFromXML/Write XML Document.vi": "f3e287b45cf453e55d00844992accd72c94f9feeb1ff6ebc72653b0a3f679671",
+    "Sources/Reflection DotNet/Release Object Reference.vi": "5bd7f4407cbf76d07815c8018f6a3cddf0c1ba95f5238e09b0b9cf4c1f10fa09",
+    "Sources/Toast Native/New XML Document.vi": "613159a41aa1419d63e2105bab1c37c1746bbaec29bf98bd40fb5152e25a4235",
+    "Sources/Toast Native/Load XML.vi": "14c07f1cecb487d65bb86d3a4ad531d37508ac844b0eaad8ac0ca60818497911",
+    "Sources/Reflection DotNet/Resolve Type.vi": "01f08feffb33b31cb2d2464aa32d87ad4959d8f1aca1baf10258629c51918720",
+    "Sources/Reflection DotNet/Create Instance.vi": "f3a62ab6c51713c90565528f4466fa01b4caa69bbb9d5cb07768974d971b3847",
+    "Sources/Reflection DotNet/Invoke Object Method.vi": "906485d43f93eac11e795a6b36daf10cb0bfc69abaea3d3c08c5193b6ee169eb",
+    "Sources/Reflection DotNet/Get Object Type.vi": "0a102fefe16af8cd2f047dd5a9fe843c29de76c57738574cc26ba5147ab42060",
+    "Sources/Reflection DotNet/Find Method.vi": "4607659b040010c3b42d155221c78371b95c977fdf2dc1b4617b2707a08768d0",
+    "Sources/Reflection DotNet/Find Method By Signature.vi": "cac40c210ace0932ea441b968753bda565e59098b53bd0d7002a08d1c0342720",
+    "Sources/Reflection DotNet/Invoke Method.vi": "97dc0725eab1dd722efef92ec83f2ca22512ffaa70981e483c007efb8dbf857a",
+    "Sources/Reflection DotNet/Object To String.vi": "2535a49a06bd0a8593834b58bab86c610ccb377823af576b53d958e4d0470310"
+  },
+  "visual": "toastfromxml/create-toastfromxml.png",
+  "fingerprint_format": "sha256-lf-xml",
+  "visual_sha256": "67cb1081b036d91ce4bac98c55e5cd00b91591fc6fabb361c35f40b9ac5396b9",
+  "reviewed_on": "2026-11-04",
+  "method": "LabVIEW 2026 Q3 64-bit delivery review, 2026-11-04. Native gRPC AIXML exports inspected for public terminals, error cases and call chains; 38 existing class VI connector contracts and summaries match the earlier review exports. Native Print.VI To HTML over ActiveX supplies the icon/terminal image, inspected in the 28-image contact sheet. Existing manual cleanup and reflection helper renames are maintainer changes. New XML source documentation reflects the constructor partial-failure cleanup limitation. Description-only VI Server updates preserve icons. No product runtime execution or diagram edit by the reviewer. See reviews/28-xml-source.md."
+}

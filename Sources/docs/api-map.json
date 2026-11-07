@@ -1,0 +1,113 @@
+{
+  "root": "Sources/ToastNotification/ToastNotification.lvlib",
+  "owners": {
+    "Sources/ToastNotification/ToastNotification.lvlib": {
+      "id": "toastnotification",
+      "category": "Toolkit",
+      "concept": "concepts.md",
+      "examples": [
+        "reply",
+        "multiple-actions",
+        "protocol",
+        "xml"
+      ]
+    },
+    "Sources/ToastSource/ToastSource.lvclass": {
+      "id": "toastsource",
+      "category": "Application",
+      "concept": "concepts.md?id=toast-source",
+      "examples": [
+        "reply",
+        "multiple-actions",
+        "protocol",
+        "xml"
+      ]
+    },
+    "Sources/ToastBuilder/ToastBuilder.lvclass": {
+      "id": "toastbuilder",
+      "category": "Application",
+      "visual_family": "builder",
+      "concept": "concepts.md?id=builder",
+      "examples": [
+        "reply",
+        "multiple-actions",
+        "protocol"
+      ],
+      "native_accessors": [
+        "Read Builder Reference.vi"
+      ],
+      "internal_members": [
+        "Read Builder Reference.vi",
+        "Builder Reference.ctl"
+      ]
+    },
+    "Sources/ToastService/ToastService.lvclass": {
+      "id": "toastservice",
+      "category": "Application",
+      "visual_family": "service",
+      "concept": "callbacks.md",
+      "examples": [
+        "reply",
+        "multiple-actions",
+        "protocol",
+        "xml"
+      ],
+      "native_accessors": [
+        "Read reference.vi"
+      ],
+      "internal_members": [
+        "Read reference.vi"
+      ]
+    },
+    "Sources/ActivationHandler/ActivationHandler.lvclass": {
+      "id": "activationhandler",
+      "category": "Extension",
+      "visual_family": "handler",
+      "concept": "concepts.md?id=activation",
+      "examples": [
+        "reply",
+        "multiple-actions"
+      ]
+    },
+    "Sources/PlugIns/UserEventActivationHandler/UserEventActivationHandler.lvclass": {
+      "id": "usereventactivationhandler",
+      "category": "Extension",
+      "visual_family": "handler",
+      "concept": "callbacks.md",
+      "examples": [
+        "reply",
+        "multiple-actions",
+        "xml"
+      ]
+    },
+    "Sources/Toast Native/Toast Native.lvlib": {
+      "id": "toast-native",
+      "category": "Low-level",
+      "audience": "internal",
+      "concept": "concepts.md?id=builder",
+      "examples": [
+        "protocol",
+        "multiple-actions"
+      ]
+    },
+    "Sources/Reflection DotNet/Reflection DotNet.lvlib": {
+      "id": "reflection-dotnet",
+      "category": "Low-level",
+      "audience": "internal",
+      "concept": "concepts.md?id=reflection",
+      "examples": [
+        "reply",
+        "multiple-actions"
+      ]
+    },
+    "Sources/ToastFromXML/ToastFromXML.lvclass": {
+      "id": "toastfromxml",
+      "category": "Application",
+      "visual_family": "builder",
+      "concept": "concepts.md?id=toast-source",
+      "examples": [
+        "xml"
+      ]
+    }
+  }
+}

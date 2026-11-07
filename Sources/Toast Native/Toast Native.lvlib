@@ -13,12 +13,19 @@
 	<Item Name="Add Argument Integer.vi" Type="VI" URL="../Add Argument Integer.vi"/>
 	<Item Name="Add Argument String.vi" Type="VI" URL="../Add Argument String.vi"/>
 	<Item Name="Add Button.vi" Type="VI" URL="../Add Button.vi"/>
+	<Item Name="Add Link Button.vi" Type="VI" URL="../Add Link Button.vi"/>
 	<Item Name="Add Text Input.vi" Type="VI" URL="../Add Text Input.vi"/>
 	<Item Name="Add Text.vi" Type="VI" URL="../Add Text.vi"/>
+	<Item Name="Add ToastActivation Info.vi" Type="VI" URL="../Add ToastActivation Info.vi"/>
 	<Item Name="Button Add Argument.vi" Type="VI" URL="../Button Add Argument.vi"/>
+	<Item Name="Create Toast Notifier.vi" Type="VI" URL="../Create Toast Notifier.vi"/>
 	<Item Name="Get Content.vi" Type="VI" URL="../Get Content.vi"/>
 	<Item Name="Get XML.vi" Type="VI" URL="../Get XML.vi"/>
+	<Item Name="Load XML.vi" Type="VI" URL="../Load XML.vi"/>
 	<Item Name="New Builder.vi" Type="VI" URL="../New Builder.vi"/>
 	<Item Name="New Button.vi" Type="VI" URL="../New Button.vi"/>
+	<Item Name="New Toast Notification.vi" Type="VI" URL="../New Toast Notification.vi"/>
+	<Item Name="New XML Document.vi" Type="VI" URL="../New XML Document.vi"/>
+	<Item Name="Show Toast Notification.vi" Type="VI" URL="../Show Toast Notification.vi"/>
 	<Item Name="Show.vi" Type="VI" URL="../Show.vi"/>
 </Library>

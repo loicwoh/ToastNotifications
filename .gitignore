@@ -1,12 +1,14 @@
 # Generated application builds
 /Build/
 /Builds/
+/.Sources/
 
 # Unused third-party packages and binaries
 /Ressources/
 
 # Generated inspection exports and screenshots
 /_review/
+__pycache__/
 
 # LabVIEW local workspace state
 *.aliases
@@ -19,3 +21,4 @@
 **/obj/
 *.user
 *.suo
+Debug

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "source": "Sources/ActivationHandler/Initialize.vi",
+  "reviewed_on": "2026-11-04",
+  "method": "LabVIEW 2026 Q3 64-bit delivery review, 2026-11-04. Native gRPC AIXML exports inspected for public terminals, error cases and call chains; 38 existing class VI connector contracts and summaries match the earlier review exports. Native Print.VI To HTML over ActiveX supplies the icon/terminal image, inspected in the 28-image contact sheet. Existing manual cleanup and reflection helper renames are maintainer changes. New XML source documentation reflects the constructor partial-failure cleanup limitation. Description-only VI Server updates preserve icons. No product runtime execution or diagram edit by the reviewer. See reviews/28-xml-source.md.",
+  "error_behavior": "noop",
+  "reviewed_files": {
+    "Sources/ActivationHandler/Initialize.vi": "213f103f3d8d2720e711e9559cfbb72af808bbb53478186ed479e2e2d3b2a0c7",
+    "Sources/ToastService/Initialize.vi": "6304fb6f259fdd92ff65e85a966a16e1d4dad61b529d40482c04f41c76516f69",
+    "Sources/ActivationHandler/ActivationHandler.lvclass": "7edf6348b4145a869e6d8faf03163e645b5d628398697205d294f709f4dec086"
+  },
+  "visual": "activationhandler/initialize.png",
+  "visual_sha256": "70dd5c941024711e8d36f17a584396ceb4fabf62284a46c3c4c6ce52479d0f44",
+  "fingerprint_format": "sha256-lf-xml"
+}

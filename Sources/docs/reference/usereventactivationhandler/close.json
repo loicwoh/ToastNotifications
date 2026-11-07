@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "source": "Sources/PlugIns/UserEventActivationHandler/Close.vi",
+  "reviewed_on": "2026-11-04",
+  "method": "LabVIEW 2026 Q3 64-bit delivery review, 2026-11-04. Native gRPC AIXML exports inspected for public terminals, error cases and call chains; 38 existing class VI connector contracts and summaries match the earlier review exports. Native Print.VI To HTML over ActiveX supplies the icon/terminal image, inspected in the 28-image contact sheet. Existing manual cleanup and reflection helper renames are maintainer changes. New XML source documentation reflects the constructor partial-failure cleanup limitation. Description-only VI Server updates preserve icons. No product runtime execution or diagram edit by the reviewer. See reviews/28-xml-source.md.",
+  "error_behavior": "always",
+  "reviewed_files": {
+    "Sources/PlugIns/UserEventActivationHandler/Close.vi": "fa93ced49f5c74ed9d87ebf07da2109a8334b033e97b55e9402f79859cb8a857",
+    "Sources/PlugIns/UserEventActivationHandler/Read Event Ref.vi": "8f2f02aa9a897578b29925e26ddac8aa5ae5120349d65589bf99c8f02a8c79fb",
+    "Sources/ToastService/Close.vi": "8f35a4724830c651645e395b2f1afc6beef9124d8d5643bf5e6140442ad9b5d7",
+    "Sources/PlugIns/UserEventActivationHandler/UserEventActivationHandler.lvclass": "b704bfe277a440ee4ee588c42744a9754b997419e875a3c811eb54944b8ef512"
+  },
+  "visual": "usereventactivationhandler/close.png",
+  "visual_sha256": "d4eb708cb464247c86ef8d3d28c32f3d7c9a3d25712fcb6615473a6fdced06cf",
+  "fingerprint_format": "sha256-lf-xml"
+}

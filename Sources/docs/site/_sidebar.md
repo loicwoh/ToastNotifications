@@ -1,0 +1,28 @@
+- **Start here**
+  - [Overview](/)
+  - [Why this project](background.md)
+  - [Getting started](getting-started.md)
+  - [Concepts](concepts.md)
+- **API by owner**
+  - [Choose a layer](api.md)
+  - [ToastNotification](api/toastnotification.md)
+  - [ToastSource](api/toastsource.md)
+  - [ToastBuilder](api/toastbuilder.md)
+  - [ToastFromXML](api/toastfromxml.md)
+  - [ToastService](api/toastservice.md)
+  - [ActivationHandler](api/activationhandler.md)
+  - [User Event plugin](api/usereventactivationhandler.md)
+  - [VI and data type index](reference.md)
+  - [Callbacks & ownership](callbacks.md)
+- **Examples**
+  - [Choose an example](examples.md)
+  - [Receive a text reply](guides/reply.md)
+  - [Display toast XML](guides/xml.md)
+  - [Handle multiple actions](guides/multiple-actions.md)
+  - [Open a link](guides/protocol.md)
+- **Project**
+  - [Changelog](changelog.md)
+  - [Microsoft documentation](microsoft.md)
+  - [Coverage & known limits](coverage.md)
+  - [Licenses & third-party notices](licenses.md)
+  - [Repository](https://github.com/loicwoh/ToastNotifications)
