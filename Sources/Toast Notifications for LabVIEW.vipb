@@ -34,19 +34,27 @@
 
 Compose a toast with ToastBuilder or display one from an XML string. The included activation handler delivers button arguments and submitted text as LabVIEW User Events. You can also implement your own handler to route activations into your application.
 
-The package includes a LabVIEW project with four examples covering text replies, multiple actions, link buttons, and XML notifications.</Description>
+Find the toolkit in Functions &gt; Addons &gt; Toast Notifications. Open Toast Notification Examples.lvproj in the LabVIEW examples folder under Toast Notifications for LabVIEW to try text replies, multiple actions, link buttons, and XML notifications.</Description>
       <Copyright/>
       <Packager>Loic Wohleber</Packager>
       <URL>https://github.com/loicwoh/ToastNotifications</URL>
       <Release_Notes>1.0.0:
 - Features:
-  - Compose Windows toast notifications with text, buttons, and text input.
-  - Receive activation arguments and submitted text in LabVIEW.
-  - Open a web link from a notification button.
-  - Export a composed toast as XML and display a toast from an XML string.
-  - Receive activations through the included User Event handler or implement a custom handler.
-- Examples:
-  - Run four examples from the dedicated LabVIEW examples project.</Release_Notes>
+  - Compose Windows toast notifications in LabVIEW with text, application buttons and text input.
+  - Receive button and toast body activations with application-supplied arguments, and retrieve submitted text by field ID.
+  - Open a web link from a notification button through Windows protocol activation.
+  - Forward activations to a LabVIEW Event Structure with the included User Event handler, or implement your own activation handler.
+  - Export a composed toast as XML and display a toast from an XML string through the same notification service.
+- Fixes:
+  - Load the notification assembly from the toolkit installation so XML toasts work from the installed examples project.
+  - Preserve resources acquired during partial service initialization so Close can release them while retaining the original error.
+  - Reject duplicate activation callback registrations while preserving the original subscription for cleanup.
+  - Release the temporary native reference after adding an application button.
+  - Unregister the native callback before closing the activation handler.
+- Documentation:
+  - Try four focused examples for text replies, multiple actions, link buttons and XML content.
+  - Browse the public API reference, with detailed help for the public class methods, LabVIEW connector illustrations and resource ownership notes.
+  - Access the documentation on desktop and mobile, with a version selector for available documentation versions.</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>

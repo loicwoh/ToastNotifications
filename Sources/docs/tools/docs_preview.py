@@ -124,7 +124,7 @@ def main() -> None:
     REQUIRE_HELP_LINKS = args.require_help_links
     SITE = args.output.resolve()
     STAGE = SITE.parent
-    GUIDES = {name: ROOT / 'Sources/Examples' / path.name for name, path in GUIDES.items()}
+    GUIDES = {name: ROOT / 'Sources/docs/example-guides' / path.name for name, path in GUIDES.items()}
     if args.command in ('build', 'serve'):
         build()
     check()

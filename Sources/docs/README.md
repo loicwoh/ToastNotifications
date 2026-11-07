@@ -46,7 +46,7 @@ owner inventory, route compatibility and generated/manual boundaries.
   `api-map.json` assigns each owner a
   `visual_family`; the User Event plugin uses the handler family.
 - `site/`: authored English guides, navigation, API overview and Microsoft directory.
-- `Sources/Examples/*.md`: canonical scenario guides, copied into the generated site.
+- `Sources/docs/example-guides/*.md`: canonical scenario guides, copied into the generated site.
 - Saved application VI/payload descriptions: generated reference. Class methods
   keep existing help routes without changing VIs. Raw-handle accessor Help URLs
   retain a short class-directed compatibility page, outside indexes and search.

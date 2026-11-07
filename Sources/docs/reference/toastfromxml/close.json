@@ -7,7 +7,7 @@
     "Sources/ToastFromXML/ToastFromXML.lvclass": "3720b734140d952600687e1763bf1684088fae70afe06b6efd73b9a12938eb7a",
     "Sources/ToastFromXML/Read XML Document.vi": "6bbc7579e51b124eb024a66ecef82b9e0ec45c4a510e46a3eef41ae1d97fbd1c",
     "Sources/ToastFromXML/Write XML Document.vi": "f3e287b45cf453e55d00844992accd72c94f9feeb1ff6ebc72653b0a3f679671",
-    "Sources/Reflection DotNet/Release Object Reference.vi": "2512dc7ed9fb069333891ef871cf841b699a96713b5acffd1709425473399cd0"
+    "Sources/Reflection DotNet/Release Object Reference.vi": "5bd7f4407cbf76d07815c8018f6a3cddf0c1ba95f5238e09b0b9cf4c1f10fa09"
   },
   "visual": "toastfromxml/close.png",
   "fingerprint_format": "sha256-lf-xml",

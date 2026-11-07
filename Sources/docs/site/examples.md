@@ -1,6 +1,13 @@
 # Choose an example
 
-Open `Sources/Toast Notification Examples.lvproj` in LabVIEW and pick an example.
+Open **Toast Notification Examples.lvproj** in LabVIEW and pick an example.
+
+| Where you are working | Project location |
+|---|---|
+| Source checkout | `Sources/Toast Notification Examples.lvproj` |
+| VIPM installation | `<LabVIEW>/examples/Toast Notifications for LabVIEW/Toast Notification Examples.lvproj` |
+
+After installation, find the toolkit VIs in **Functions → Addons → Toast Notifications**.
 
 | If you want to… | Try |
 |---|---|

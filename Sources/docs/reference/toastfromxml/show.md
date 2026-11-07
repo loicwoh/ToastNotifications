@@ -36,7 +36,9 @@ flowchart LR
   a display error.
 - Callback registration and the receiving event loop are separate. Showing a
   notification does not guarantee it is visible under the current Windows settings.
-- No XML loading or content composition occurs here.
+- The notifier searches the toolkit folder for the Microsoft notification
+  assembly. If the search finds no DLL, error 550017 identifies the file and
+  the folder searched. The DLL is included in the VIPM package.
 
 ## Related reading
 
