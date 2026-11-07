@@ -14,6 +14,10 @@ See the [compatibility status](coverage.md) for the tested VIPM configuration.
 
 ## Open the examples project
 
+For a VIPM installation, download the `.vip` from the
+[GitHub release](https://github.com/loicwoh/ToastNotifications/releases) and install
+it with VIPM for LabVIEW 2026 64-bit on Windows.
+
 1. Open [the examples project](examples.md) from a source checkout or a VIPM installation.
 2. Select `Toast With Reply.vi` in the project.
 3. Run it, enter a reason in the Windows notification, and click **Send**.
