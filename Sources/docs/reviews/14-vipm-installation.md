@@ -15,4 +15,8 @@ updated VI finds the DLL under the toolkit root and resolves the type from the
 assembly file. Inspection of the package confirmed that it contains the new
 reflection helper, the four example VIs and the Microsoft MIT notice.
 
-This was a manual installation and example check on one LabVIEW version.
+The maintainer also checked the detailed-help links and confirmed that the
+installed examples work through NI Example Finder. Inspection of package
+1.0.0.2 confirmed that all four example VIs contain their guide URLs.
+
+These were manual checks on one LabVIEW version.
