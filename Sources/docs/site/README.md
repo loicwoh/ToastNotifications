@@ -1,4 +1,4 @@
-<div class="eyebrow">ToastAPI / Developer guide</div>
+<div class="eyebrow">Toast Notifications / Developer guide</div>
 
 # Windows notifications, built in LabVIEW.
 
@@ -7,7 +7,7 @@
 <span class="pill">LabVIEW 2026</span><span class="pill">Windows desktop</span><span class="pill pending">In development</span>
 
 During long-running tests, users may need to work elsewhere. Notifications help
-them stay informed. ToastAPI grew out of a broader ambition to give LabVIEW applications
+them stay informed. Toast Notifications grew out of a broader ambition to give LabVIEW applications
 a deliberate, professional user experience.
 [Read why this project exists](background.md), from battery testing to the
 reflection proof of concept and the experience of working with AI assistance.

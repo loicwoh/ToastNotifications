@@ -4,7 +4,7 @@ Once you have a notification design you like, you can reuse its XML in another a
 
 ## Try it
 
-Open `ToastAPI.lvproj` and run `Examples/Toast From XML.vi`. Enter a reason and click **Send**. Look for `action=reject&requestId=42` in `Activation.Arguments` and your text under `Reason` in `Activation.User Inputs`. Press **stop** after each run.
+Open `Toast Notification Examples.lvproj` and run `Toast From XML.vi`. Enter a reason and click **Send**. Look for `action=reject&requestId=42` in `Activation.Arguments` and your text under `Reason` in `Activation.User Inputs`. Press **stop** after each run.
 
 ## Using this in your application
 

@@ -1,4 +1,4 @@
-<div class="eyebrow">ToastAPI / Project background</div>
+<div class="eyebrow">Toast Notifications / Project background</div>
 
 # Why this project
 
@@ -83,7 +83,7 @@ Around the same time, I started experimenting with AI assistance and the
 LabVIEW MCP server. With help understanding .NET reflection and exploring ways
 around the WinRT obstacle, I eventually completed the proof of concept:
 generate a notification, recover the submitted input and process it in LabVIEW.
-ToastAPI grew from that experiment into an effort to make the integration reusable.
+Toast Notifications grew from that experiment into an effort to make the integration reusable.
 
 The [API overview](/api.md) describes the current classes. The
 [coverage page](/coverage.md) records what works today and what still needs work.

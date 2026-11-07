@@ -10,12 +10,12 @@ The wrapper currently uses the Windows Community Toolkit notification APIs;
 examples written for `Microsoft.Windows.AppNotifications` are a different API.
 
 LabVIEW 2020 distribution is planned for evaluation, not currently verified.
-There is no released VIPM package yet. See the [compatibility status](coverage.md).
+See the [compatibility status](coverage.md) for the tested VIPM configuration.
 
-## Open the project
+## Open the examples project
 
-1. Open `Sources/ToastAPI.lvproj` in LabVIEW.
-2. Open `Sources/Examples/Toast With Reply.vi`.
+1. Open [the examples project](examples.md) from a source checkout or a VIPM installation.
+2. Select `Toast With Reply.vi` in the project.
 3. Run it, enter a reason in the Windows notification, and click **Send**.
 4. Look at the example's `Activation` indicator. `User Inputs` should contain the
    key `Reason` and the submitted value.
@@ -48,7 +48,7 @@ class value, when retrieving references created by its Initialize hook.
 | Receive entered text | `Toast With Reply.vi` |
 | Distinguish several actions | `Toast With Multiple Actions.vi` |
 | Open a URL | `Toast With Link Button.vi` |
+| Display a toast from XML | `Toast From XML.vi` |
 
-These files are in `Sources/Examples`. The older `Build Toast With Classes.vi`
-and `Native Toast Example.vi` remain in the project; use the focused examples above
-for the current documented application workflow.
+These four VIs are in `Sources/Examples`. The two development VIs are available
+in the **Development Examples** folder of `Toast Notifications.lvproj`.

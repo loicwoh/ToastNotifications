@@ -4,7 +4,7 @@ Give someone a shortcut to the information behind a notification, such as a repo
 
 ## Try it
 
-Open `ToastAPI.lvproj` and run `Examples/Toast With Link Button.vi`. Click **Open project on GitHub** and watch the repository open in your browser. Press **stop** after each run.
+Open `Toast Notification Examples.lvproj` and run `Toast With Link Button.vi`. Click **Open project on GitHub** and watch the repository open in your browser. Press **stop** after each run.
 
 ## Using this in your application
 

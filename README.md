@@ -1,4 +1,4 @@
-# ToastAPI for LabVIEW
+# Toast Notifications for LabVIEW
 
 [![Open documentation](https://img.shields.io/badge/Documentation-Open%20site-336699?style=for-the-badge)](https://loicwoh.github.io/ToastNotifications/)
 
@@ -7,7 +7,7 @@ arguments and submitted text through a customizable handler.
 
 - [Documentation and examples](https://loicwoh.github.io/ToastNotifications/)
 - [Why this project](https://loicwoh.github.io/ToastNotifications/#/background)
-- [Source project](Sources/ToastAPI.lvproj)
+- [Source project](Sources/Toast%20Notifications.lvproj)
 - [Documentation maintenance](Sources/docs/README.md)
 - [Current coverage and limitations](Sources/docs/site/coverage.md)
 
@@ -18,7 +18,7 @@ in the version selector. Compatibility with LabVIEW 2020 remains planned.
 
 ## License
 
-Original ToastAPI code and authored documentation are available under the
+Original Toast Notifications code and authored documentation are available under the
 [MIT License](LICENSE), copyright (c) 2026 loicwoh, without warranty or an
 obligation to provide support. Third-party components retain their own terms;
 see [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md), including the legacy DLL

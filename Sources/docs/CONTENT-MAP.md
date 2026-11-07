@@ -14,7 +14,7 @@ information, rather than keeping another copy of each explanation.
 | Saved VI/data-type summary | STRG in the saved .vi/.ctl | Read-only vi_descriptions.py; no graph/terminal extraction |
 | Current public callback and ownership contract | site/callbacks.md | Links from owner pages, concept map and guides |
 | Concept entry points | site/concepts.md | Existing terms and destinations; expanded tutorials in #40 |
-| Example parameters, instructions and observations | Sources/Examples/Reply Input.md, Multiple Actions.md, Protocol Activation.md | Copied once; build adds navigation to the staged guides |
+| Example parameters, instructions and observations | Sources/docs/example-guides/Reply Input.md, Multiple Actions.md, Protocol Activation.md | Copied once; build adds navigation to the staged guides |
 | Feature maturity and compatibility statements | site/coverage.md | #15 and #17 supply validation evidence and environment details |
 | Upstream Microsoft links and API families | site/microsoft.md | Shared destination for deeper reference |
 | Site build/publication procedure | README.md in this directory | Maintainer instructions |
@@ -37,7 +37,7 @@ information, rather than keeping another copy of each explanation.
   historical validation observations. The current user contract is callbacks.md.
   Historical counts or probes do not describe a fresh regression run.
 - Sources/HANDOFF.md is a handover log. It is not published as an API contract.
-- Sources/Examples/README.md remains the local example-file index; site/examples.md
+- Sources/docs/example-guides/README.md remains the local example-file index; site/examples.md
   is the website scenario selector. Scenario configuration and results belong in
   the scenario guides, not in either index. Toast From XML.md is the canonical
   XML-string guide, published at guides/xml.md.

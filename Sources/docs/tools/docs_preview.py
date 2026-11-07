@@ -19,10 +19,10 @@ STAGE = ROOT / '_review' / 'docsify-preview'
 SITE = STAGE / 'ToastNotifications'
 REQUIRE_HELP_LINKS = False
 GUIDES = {
-    'xml': ROOT / 'Sources/Examples/Toast From XML.md',
-    'reply': ROOT / 'Sources/Examples/Reply Input.md',
-    'multiple-actions': ROOT / 'Sources/Examples/Multiple Actions.md',
-    'protocol': ROOT / 'Sources/Examples/Protocol Activation.md',
+    'xml': ROOT / 'Sources/docs/example-guides/Toast From XML.md',
+    'reply': ROOT / 'Sources/docs/example-guides/Reply Input.md',
+    'multiple-actions': ROOT / 'Sources/docs/example-guides/Multiple Actions.md',
+    'protocol': ROOT / 'Sources/docs/example-guides/Protocol Activation.md',
 }
 
 
@@ -124,7 +124,10 @@ def main() -> None:
     REQUIRE_HELP_LINKS = args.require_help_links
     SITE = args.output.resolve()
     STAGE = SITE.parent
-    GUIDES = {name: ROOT / 'Sources/Examples' / path.name for name, path in GUIDES.items()}
+    guides_directory = ROOT / 'Sources/docs/example-guides'
+    if not guides_directory.is_dir():
+        guides_directory = ROOT / 'Sources/Examples'
+    GUIDES = {name: guides_directory / path.name for name, path in GUIDES.items()}
     if args.command in ('build', 'serve'):
         build()
     check()

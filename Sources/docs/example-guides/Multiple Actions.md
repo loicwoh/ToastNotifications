@@ -4,7 +4,7 @@ Let an operator accept or reject a request without switching back to LabVIEW. Ap
 
 ## Try it
 
-Open `ToastAPI.lvproj` and run `Examples/Toast With Multiple Actions.vi`. Click **Accept**, **Reject**, or the toast body and inspect `Activation.Arguments`. Run again to try another choice. Press **stop** after each run.
+Open `Toast Notification Examples.lvproj` and run `Toast With Multiple Actions.vi`. Click **Accept**, **Reject**, or the toast body and inspect `Activation.Arguments`. Run again to try another choice. Press **stop** after each run.
 
 ## Using this in your application
 

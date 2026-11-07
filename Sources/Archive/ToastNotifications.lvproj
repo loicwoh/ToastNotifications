@@ -3,7 +3,7 @@
 	<Property Name="CCSymbols" Type="Str" />
 	<Property Name="NI.LV.All.SaveVersion" Type="Str">26.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
-	<Property Name="NI.Project.Description" Type="Str">Archived historical toast-notification prototype and sandbox. Kept for comparison and reference. The maintained class-based project is ../ToastAPI.lvproj.</Property>
+	<Property Name="NI.Project.Description" Type="Str">Archived historical toast-notification prototype and sandbox. Kept for comparison and reference. The maintained class-based project is ../Toast Notifications.lvproj.</Property>
 	<Property Name="utf.calculate.project.code.coverage" Type="Bool">true</Property>
 	<Property Name="utf.create.arraybrackets" Type="Str">[]</Property>
 	<Property Name="utf.create.arraythreshold" Type="UInt">100</Property>
