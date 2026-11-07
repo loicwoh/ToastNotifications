@@ -1,11 +1,11 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2026-11-07 12:36:07" Modified_Date="2026-11-07 13:21:57" Creator="loicw" Comments="" ID="dfd1e08ce5681d1abbf32fec4e5da1eb">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2026-11-07 12:36:07" Modified_Date="2026-11-07 14:03:33" Creator="loicw" Comments="" ID="e27797e8610932225c0e9712e90f14c3">
   <Library_General_Settings>
     <Package_File_Name/>
     <Library_Version>1.0.0.1</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>..\Builds\VIPM</Library_Output_Folder>
-    <Company_Name>Loïc Wohleber</Company_Name>
+    <Company_Name>Loic Wohleber</Company_Name>
     <Library_Summary/>
     <Library_License>MIT</Library_License>
     <Package_LabVIEW_Version>26.3 (64-bit)</Package_LabVIEW_Version>
@@ -36,7 +36,7 @@ Compose a toast with ToastBuilder or display one from an XML string. The include
 
 The package includes a LabVIEW project with four examples covering text replies, multiple actions, link buttons, and XML notifications.</Description>
       <Copyright/>
-      <Packager>Loïc Wohleber</Packager>
+      <Packager>Loic Wohleber</Packager>
       <URL>https://github.com/loicwoh/ToastNotifications</URL>
       <Release_Notes>1.0.0:
 - Features:
@@ -167,9 +167,6 @@ The package includes a LabVIEW project with four examples covering text replies,
       <Exclusions>
         <Path>README.md</Path>
       </Exclusions>
-      <Compile_Exclusions>
-        <Path/>
-      </Compile_Exclusions>
       <Place_Folder_Contents>
         <Path/>
       </Place_Folder_Contents>
@@ -413,7 +410,7 @@ The package includes a LabVIEW project with four examples covering text replies,
         <Path>Utilities</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>EEDDAD059E75FAB3FB7C81446F33F85A</GUID>
+      <GUID>9158D2691D1D30703F646F48FE7354FF</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -504,7 +501,7 @@ The package includes a LabVIEW project with four examples covering text replies,
         <Path>ToastBuilder\Set Activation Arguments.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>712B9553811F3F7227BF1016B5A2C54B</GUID>
+      <GUID>F868F514B68B09A0782D7204FD61EBDB</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -539,7 +536,7 @@ The package includes a LabVIEW project with four examples covering text replies,
         <Path>ToastNotification\GC Collect.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>4610A732ED86BF01C1F95F3F167A8539</GUID>
+      <GUID>8B888624B61DC9B397E0409C51755965</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>

@@ -13,6 +13,7 @@
 		</Item>
 		<Item Name="ToastNotification.lvlib" Type="Library" URL="../ToastNotification/ToastNotification.lvlib"/>
 		<Item Name="Toast Notifications for LabVIEW.vipb" Type="Document" URL="../Toast Notifications for LabVIEW.vipb"/>
+		<Item Name="Microsoft.Toolkit.Uwp.Notifications.dll" Type="Document" URL="../bins/Microsoft.Toolkit.Uwp.Notifications.dll"/>
 		<Item Name="Dependencies" Type="Dependencies"/>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
