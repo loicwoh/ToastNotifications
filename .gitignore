@@ -1,6 +1,7 @@
 # Generated application builds
 /Build/
 /Builds/
+/.Sources/
 
 # Unused third-party packages and binaries
 /Ressources/

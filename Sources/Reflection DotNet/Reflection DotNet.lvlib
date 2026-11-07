@@ -26,5 +26,6 @@
 	<Item Name="Read Object String Property.vi" Type="VI" URL="../Read Object String Property.vi"/>
 	<Item Name="Read Property Value.vi" Type="VI" URL="../Read Property Value.vi"/>
 	<Item Name="Release Object Reference.vi" Type="VI" URL="../Release Object Reference.vi"/>
+	<Item Name="Resolve Type From Assembly File.vi" Type="VI" URL="../Resolve Type From Assembly File.vi"/>
 	<Item Name="Resolve Type.vi" Type="VI" URL="../Resolve Type.vi"/>
 </Library>
