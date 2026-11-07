@@ -1,4 +1,4 @@
-Unreleased:
+1.0.0:
 - Features:
   - Compose Windows toast notifications in LabVIEW with text, application buttons and text input.
   - Receive button and toast body activations with application-supplied arguments, and retrieve submitted text by field ID.
