@@ -18,7 +18,7 @@ No global npm installation or LabVIEW licence is needed to build the website.
 
 ## Project and third-party licences
 
-The root `LICENSE` covers original ToastAPI code and authored documentation.
+The root `LICENSE` covers original Toast Notifications code and authored documentation.
 `THIRD-PARTY-NOTICES.md` distinguishes redistributed components, development
 tools and proprietary prerequisites. `Sources/third-party-licenses` preserves
 the upstream texts; existing vendor licences and bundle notices remain intact.

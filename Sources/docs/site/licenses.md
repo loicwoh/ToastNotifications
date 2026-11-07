@@ -1,8 +1,8 @@
 # Licenses & third-party notices
 
-## ToastAPI: MIT
+## Toast Notifications: MIT
 
-Copyright © 2026 loicwoh. ToastAPI's original source code and authored
+Copyright © 2026 loicwoh. Toast Notifications's original source code and authored
 documentation are available under the **MIT License**. Commercial use,
 modification and redistribution, including in proprietary applications, are
 permitted provided the copyright and licence notice are retained.
@@ -17,7 +17,7 @@ subject to applicable law.
 
 ## Components distributed with the project
 
-Third-party software retains its own terms; ToastAPI's MIT licence does not
+Third-party software retains its own terms; Toast Notifications's MIT licence does not
 replace them. Keep these notices when redistributing the relevant components.
 
 | Component | Used for | Licence |
@@ -36,17 +36,17 @@ An unrelated `ToastNotifications.dll` 2.5.1 used during earlier exploration has
 been removed from the current tree. Historical copies retain their LGPL v3
 terms and corresponding-source obligations; see the full third-party notices
 before redistributing older commits. It is not a dependency to include in a
-new ToastAPI application or package.
+new Toast Notifications application or package.
 
 ## Tools and prerequisites
 
 Python builds the documentation; LabVIEW MCP and Codex assist development.
 They are not shipped runtime dependencies and are not required by applications
-using ToastAPI. Their licences/service terms remain separate. The Python
+using Toast Notifications. Their licences/service terms remain separate. The Python
 description reader also credits the MIT-licensed pylabview format reference.
 
 LabVIEW is proprietary NI software and requires an appropriate NI licence.
-Windows, .NET and WinRT are separate platform prerequisites. ToastAPI's MIT
+Windows, .NET and WinRT are separate platform prerequisites. Toast Notifications's MIT
 licence grants no rights to their IDEs, runtimes or installers. Runtime/driver
 redistribution must follow the relevant vendor agreement.
 

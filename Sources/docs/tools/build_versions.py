@@ -51,7 +51,7 @@ def github_state(repository):
     token = os.environ.get('GH_TOKEN') or os.environ.get('GITHUB_TOKEN')
 
     def fetch_page(path):
-        headers = {'Accept': 'application/vnd.github+json', 'User-Agent': 'ToastAPI-docs'}
+        headers = {'Accept': 'application/vnd.github+json', 'User-Agent': 'ToastNotifications-docs'}
         if token:
             headers['Authorization'] = 'Bearer ' + token
         with urlopen(Request('https://api.github.com' + path, headers=headers), timeout=30) as response:
@@ -139,10 +139,10 @@ def main() -> None:
         stable = next((v for v in versions if v['label'] == 'develop'), versions[0])
     if stable:
         target = 'versions/' + stable['id'] + '/?build=' + stable['commit'][:12]
-        page = '<!doctype html><title>ToastAPI documentation</title><script>location.replace(' + json.dumps(target) + '+location.hash)</script>'
+        page = '<!doctype html><title>Toast Notifications documentation</title><script>location.replace(' + json.dumps(target) + '+location.hash)</script>'
     else:
         links = ''.join('<li><a href="versions/' + v['id'] + '/">' + html.escape(v['label']) + '</a></li>' for v in versions)
-        page = '<!doctype html><html lang="en"><meta charset="utf-8"><title>ToastAPI documentation versions</title><h1>ToastAPI documentation</h1><p>Stable documentation has not been released on main yet. Choose a development version:</p><ul>' + links + '</ul></html>'
+        page = '<!doctype html><html lang="en"><meta charset="utf-8"><title>Toast Notifications documentation versions</title><h1>Toast Notifications documentation</h1><p>Stable documentation has not been released on main yet. Choose a development version:</p><ul>' + links + '</ul></html>'
     (output / 'index.html').write_text(page, encoding='utf-8')
     (output / '.nojekyll').touch()
     print(f'Built {len(versions)} documentation versions.')

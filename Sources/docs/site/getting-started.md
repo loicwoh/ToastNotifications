@@ -51,4 +51,4 @@ class value, when retrieving references created by its Initialize hook.
 | Display a toast from XML | `Toast From XML.vi` |
 
 These four VIs are in `Sources/Examples`. The two development VIs are available
-in the **Development Examples** folder of `ToastAPI.lvproj`.
+in the **Development Examples** folder of `Toast Notifications.lvproj`.

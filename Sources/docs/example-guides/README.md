@@ -16,4 +16,4 @@ existing final .NET collection workaround. A protocol button opens its URI throu
 Windows; it does not send that button action to the application's activation handler.
 
 The two development VIs are available in the **Development Examples** folder of
-`ToastAPI.lvproj`. The historical prototype is in `Sources/Archive/SandBox`.
+`Toast Notifications.lvproj`. The historical prototype is in `Sources/Archive/SandBox`.

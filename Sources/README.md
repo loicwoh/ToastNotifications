@@ -1,6 +1,6 @@
-# ToastAPI source project
+# Toast Notifications source project
 
-Open `ToastAPI.lvproj` to work on the toolkit. Open `Toast Notification Examples.lvproj`
+Open `Toast Notifications.lvproj` to work on the toolkit. Open `Toast Notification Examples.lvproj`
 to run the examples listed in the [example guides](docs/example-guides/README.md).
 
 ## Documentation entry points

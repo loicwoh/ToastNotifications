@@ -4,7 +4,7 @@ Validation de l'exemple Reply (#7) : l'utilisateur confirme le comportement atte
 
 Exemple de saisie #7 : `Examples/Toast With Reply.vi` ajoute un champ `Reason` et un bouton **Send** avec `action=reject&requestId=42`. Il réutilise UserEventActivationHandler et la boucle de réception. Les captures utilisateur montrent la paire `Reason` / `too bussy` reçue. Le guide `docs/example-guides/Reply Input.md` et l'aide du VI reflètent le code et les validations rapportées. L'ancien `Build Toast With Classes.vi` est conservé. Les garanties de fermeture concurrente et de diagnostic d'envoi restent suivies dans #16/#22.
 
-Ouvrir `ToastAPI.lvproj`, puis `Development Examples/Build Toast With Classes.vi`.
+Ouvrir `Toast Notifications.lvproj`, puis `Development Examples/Build Toast With Classes.vi`.
 La première phase fournit le wrapper direct, un champ Reply, un bouton Répondre, l'enregistrement OnActivated, la conversion des données et le handler à dispatch dynamique injecté.
 
 Saisir un texte et cliquer sur Répondre ; le handler de base est désormais sans action. Utiliser un handler dérivé pour consommer les données. Appuyer sur Stop. Le service est désenregistré et fermé, puis le builder fermé. Une collecte .NET termine l'exemple pour libérer la réservation du callback constatée sur ce poste.
