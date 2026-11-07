@@ -14,7 +14,7 @@ There is no released VIPM package yet. See the [compatibility status](coverage.m
 
 ## Open the project
 
-1. Open `Sources/ToastAPI.lvproj` in LabVIEW.
+1. Open `Sources/Toast Notification Examples.lvproj` in LabVIEW.
 2. Open `Sources/Examples/Toast With Reply.vi`.
 3. Run it, enter a reason in the Windows notification, and click **Send**.
 4. Look at the example's `Activation` indicator. `User Inputs` should contain the
@@ -48,7 +48,7 @@ class value, when retrieving references created by its Initialize hook.
 | Receive entered text | `Toast With Reply.vi` |
 | Distinguish several actions | `Toast With Multiple Actions.vi` |
 | Open a URL | `Toast With Link Button.vi` |
+| Display a toast from XML | `Toast From XML.vi` |
 
-These files are in `Sources/Examples`. The older `Build Toast With Classes.vi`
-and `Native Toast Example.vi` remain in the project; use the focused examples above
-for the current documented application workflow.
+These four VIs are in `Sources/Examples`. The two development VIs are available
+in the **Development Examples** folder of `ToastAPI.lvproj`.

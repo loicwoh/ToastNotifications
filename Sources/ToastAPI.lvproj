@@ -6,13 +6,9 @@
 	<Item Name="My Computer" Type="My Computer">
 		<Property Name="server.tcp.enabled" Type="Bool">false</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
-		<Item Name="Examples" Type="Folder">
-			<Item Name="Build Toast With Classes.vi" Type="VI" URL="../Examples/Build Toast With Classes.vi"/>
-			<Item Name="Native Toast Example.vi" Type="VI" URL="../Examples/Native Toast Example.vi"/>
-			<Item Name="Toast From XML.vi" Type="VI" URL="../Examples/Toast From XML.vi"/>
-			<Item Name="Toast With Link Button.vi" Type="VI" URL="../Examples/Toast With Link Button.vi"/>
-			<Item Name="Toast With Multiple Actions.vi" Type="VI" URL="../Examples/Toast With Multiple Actions.vi"/>
-			<Item Name="Toast With Reply.vi" Type="VI" URL="../Examples/Toast With Reply.vi"/>
+		<Item Name="Development Examples" Type="Folder">
+			<Item Name="Build Toast With Classes.vi" Type="VI" URL="../Development Examples/Build Toast With Classes.vi"/>
+			<Item Name="Native Toast Example.vi" Type="VI" URL="../Development Examples/Native Toast Example.vi"/>
 		</Item>
 		<Item Name="ToastNotification.lvlib" Type="Library" URL="../ToastNotification/ToastNotification.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies"/>

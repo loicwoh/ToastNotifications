@@ -1,7 +1,7 @@
 # ToastAPI source project
 
-Open `ToastAPI.lvproj` in LabVIEW. Start with the focused examples listed in
-[Examples/README.md](Examples/README.md).
+Open `ToastAPI.lvproj` to work on the toolkit. Open `Toast Notification Examples.lvproj`
+to run the examples listed in the [example guides](docs/example-guides/README.md).
 
 ## Documentation entry points
 

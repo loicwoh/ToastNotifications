@@ -4,7 +4,7 @@ Ask someone why they rejected a request while they work outside your application
 
 ## Try it
 
-Open `ToastAPI.lvproj` and run `Examples/Toast With Reply.vi`. Type a reason, click **Send**, and look for `Reason` in `Activation.User Inputs`. Press **stop** after each run.
+Open `Toast Notification Examples.lvproj` and run `Toast With Reply.vi`. Type a reason, click **Send**, and look for `Reason` in `Activation.User Inputs`. Press **stop** after each run.
 
 ## Using this in your application
 

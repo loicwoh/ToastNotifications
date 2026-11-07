@@ -1,6 +1,6 @@
 # Choose an example
 
-Open `Sources/ToastAPI.lvproj` in LabVIEW, then pick an example in **Examples**.
+Open `Sources/Toast Notification Examples.lvproj` in LabVIEW and pick an example.
 
 | If you want to… | Try |
 |---|---|

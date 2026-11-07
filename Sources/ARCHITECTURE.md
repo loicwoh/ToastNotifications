@@ -54,7 +54,7 @@ Les opérations ignorées sur erreur entrante utilisent des cases Error/No Error
 
 ## Fermeture et limites
 
-Le wrapper de livraison `Activation Event Data.ctl` du handler User Event ajoute le champ `error` à côté d'`Activation` pour transporter l'erreur de conversion. Le typedef `Activation.ctl` reste inchangé. L'erreur de génération de l'événement n'est pas encore exposée par ce handler ; cette limite reste suivie dans #22. Voir `Examples/Multiple Actions.md`.
+Le wrapper de livraison `Activation Event Data.ctl` du handler User Event ajoute le champ `error` à côté d'`Activation` pour transporter l'erreur de conversion. Le typedef `Activation.ctl` reste inchangé. L'erreur de génération de l'événement n'est pas encore exposée par ce handler ; cette limite reste suivie dans #22. Voir `docs/example-guides/Multiple Actions.md`.
 
 L'exemple attend Stop avant de fermer le service, puis le builder, et de déclencher une collecte .NET ponctuelle pour libérer le callback réservé observé sur le poste.
 Le handler doit retourner rapidement, déléguer le travail long et ne jamais attendre le thread qui ferme le service ni appeler lui-même cette fermeture. Les modifications d'une copie du handler ne constituent pas un état partagé : utiliser des références explicites de communication si nécessaire.

@@ -19,10 +19,10 @@ STAGE = ROOT / '_review' / 'docsify-preview'
 SITE = STAGE / 'ToastNotifications'
 REQUIRE_HELP_LINKS = False
 GUIDES = {
-    'xml': ROOT / 'Sources/Examples/Toast From XML.md',
-    'reply': ROOT / 'Sources/Examples/Reply Input.md',
-    'multiple-actions': ROOT / 'Sources/Examples/Multiple Actions.md',
-    'protocol': ROOT / 'Sources/Examples/Protocol Activation.md',
+    'xml': ROOT / 'Sources/docs/example-guides/Toast From XML.md',
+    'reply': ROOT / 'Sources/docs/example-guides/Reply Input.md',
+    'multiple-actions': ROOT / 'Sources/docs/example-guides/Multiple Actions.md',
+    'protocol': ROOT / 'Sources/docs/example-guides/Protocol Activation.md',
 }
 
 
