@@ -8,6 +8,7 @@ arguments and submitted text through a customizable handler.
 - [Documentation and examples](https://loicwoh.github.io/ToastNotifications/)
 - [Why this project](https://loicwoh.github.io/ToastNotifications/#/background)
 - [Source project](Sources/Toast%20Notifications.lvproj)
+- [Developer guide and package build](Sources/README.md)
 - [Documentation maintenance](Sources/docs/README.md)
 - [Current coverage and limitations](Sources/docs/site/coverage.md)
 

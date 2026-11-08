@@ -166,15 +166,6 @@ Find the toolkit in Functions &gt; Addons &gt; Toast Notifications. Open Toast N
         <Path>Development Examples</Path>
       </Exclusions>
       <Exclusions>
-        <Path>ARCHITECTURE.md</Path>
-      </Exclusions>
-      <Exclusions>
-        <Path>CALLBACK-LIFETIME.md</Path>
-      </Exclusions>
-      <Exclusions>
-        <Path>HANDOFF.md</Path>
-      </Exclusions>
-      <Exclusions>
         <Path>README.md</Path>
       </Exclusions>
       <Place_Folder_Contents>

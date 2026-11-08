@@ -2,7 +2,7 @@
 <Project Type="Project" LVVersion="20008000">
 	<Property Name="NI.LV.All.SaveVersion" Type="Str">20.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
-	<Property Name="NI.Project.Description" Type="Str">LabVIEW 2020 Windows toast wrapper: direct composition and display through ToastBuilder, activation registration through ToastService, and an injected ActivationHandler for copied arguments and user-input values. Includes an interactive text-reply example. See README.md and CALLBACK-LIFETIME.md for ownership, shutdown and current limits.</Property>
+	<Property Name="NI.Project.Description" Type="Str">LabVIEW 2020 Windows toast wrapper: direct composition and display through ToastBuilder, activation registration through ToastService, and an injected ActivationHandler for copied arguments and user-input values. Includes an interactive text-reply example. See Sources/README.md and Sources/docs/site/callbacks.md for ownership, shutdown and current limits.</Property>
 	<Item Name="My Computer" Type="My Computer">
 		<Property Name="NI.SortType" Type="Int">3</Property>
 		<Property Name="server.tcp.enabled" Type="Bool">false</Property>
