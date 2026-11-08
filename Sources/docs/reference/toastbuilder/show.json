@@ -5,10 +5,10 @@
   "method": "LabVIEW 2026 Q3 64-bit delivery review, 2026-11-04. Native gRPC AIXML exports inspected for public terminals, error cases and call chains; 38 existing class VI connector contracts and summaries match the earlier review exports. Native Print.VI To HTML over ActiveX supplies the icon/terminal image, inspected in the 28-image contact sheet. Existing manual cleanup and reflection helper renames are maintainer changes. New XML source documentation reflects the constructor partial-failure cleanup limitation. Description-only VI Server updates preserve icons. No product runtime execution or diagram edit by the reviewer. See reviews/28-xml-source.md.",
   "error_behavior": "skip",
   "reviewed_files": {
-    "Sources/ToastBuilder/Show.vi": "df7885734f16df2f1682d16094f4e4c6cbcbb360eea1fb5305740a3f6bb9692c",
-    "Sources/ToastBuilder/Read Builder Reference.vi": "a2cc2a35e502c091b56adf4be25ea58562a82fa9b19e3a8d710beec2fa4dab7a",
-    "Sources/Toast Native/Show.vi": "bb4c7f0c5d5a5a4be807d2c192b34139ab8c6bd0e5b7349b14c96e8554e2cd46",
-    "Sources/ToastBuilder/Write Builder Reference.vi": "130884c68288f9a8a7587cd13d483180e9ae3edbc834ea0012e8b33785827da5"
+    "Sources/ToastBuilder/Show.vi": "de6414d1815149445889270f42f37b91c7c0e8fcc85856291a40704868eb8432",
+    "Sources/ToastBuilder/Read Builder Reference.vi": "ea1a4169c039e954c2ccce67e978bb74c8ad0ad262cb42cf9cf1178c67eac0f9",
+    "Sources/Toast Native/Show.vi": "483ccf4047175bf49ce7b2d7495b4980fcebbffb0f5ca0b3bb857fbee80c1b80",
+    "Sources/ToastBuilder/Write Builder Reference.vi": "19c4a217e4827537f1a0739f4d9734c5423aa29ac4b09503f8a83495ef965928"
   },
   "visual": "toastbuilder/show.png",
   "visual_sha256": "9469a743c85fda49a26b480347fc30bfcf9a24581d8c90b69367e3c0ccb54f6b",

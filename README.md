@@ -11,10 +11,13 @@ arguments and submitted text through a customizable handler.
 - [Documentation maintenance](Sources/docs/README.md)
 - [Current coverage and limitations](Sources/docs/site/coverage.md)
 
-Development currently uses LabVIEW 2026 on Windows and
-Microsoft.Toolkit.Uwp.Notifications. `develop` is the integration branch; `main`
-is reserved for releases. Documentation previews identify their branch and commit
-in the version selector. Compatibility with LabVIEW 2020 remains planned.
+The development sources and examples are saved in **LabVIEW 2020** format.
+Development continues in **LabVIEW 2026** on Windows with
+Microsoft.Toolkit.Uwp.Notifications. The published `v1.0.0` VIPM package targets
+LabVIEW 2026 64-bit.
+
+`develop` is the integration branch and `main` is reserved for releases.
+Documentation previews identify their branch and commit in the version selector.
 
 ## License
 

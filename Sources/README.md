@@ -3,6 +3,9 @@
 Open `Toast Notifications.lvproj` to work on the toolkit. Open `Toast Notification Examples.lvproj`
 to run the examples listed in the [example guides](docs/example-guides/README.md).
 
+Use LabVIEW 2026 as the development IDE. Both projects use **Save Version 2020**
+so the same source tree can be opened in LabVIEW 2020.
+
 ## Build the VIPM package
 
 From the repository root, build from the commit selected for release. The first

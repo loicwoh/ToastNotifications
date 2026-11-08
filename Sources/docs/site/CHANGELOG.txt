@@ -1,3 +1,7 @@
+Unreleased:
+- Features:
+  - Open the toolkit and its examples from source in LabVIEW 2020 while maintaining the same projects in LabVIEW 2026.
+
 1.0.0:
 - Features:
   - Compose Windows toast notifications in LabVIEW with text, application buttons and text input.

@@ -5,11 +5,11 @@
   "method": "LabVIEW 2026 Q3 64-bit delivery review, 2026-11-04. Native gRPC AIXML exports inspected for public terminals, error cases and call chains; 38 existing class VI connector contracts and summaries match the earlier review exports. Native Print.VI To HTML over ActiveX supplies the icon/terminal image, inspected in the 28-image contact sheet. Existing manual cleanup and reflection helper renames are maintainer changes. New XML source documentation reflects the constructor partial-failure cleanup limitation. Description-only VI Server updates preserve icons. No product runtime execution or diagram edit by the reviewer. See reviews/28-xml-source.md.",
   "error_behavior": "skip",
   "reviewed_files": {
-    "Sources/ToastService/Read ActivationHandler.vi": "202f8ef04057d27d3e83efc66acf3a6bf7e96c1cee9970b3653d89c5e1a83847",
-    "Sources/ToastService/ToastService.lvclass": "5b02c342e50316167f8fd162fc76107427afa3121fec7839665ab1168e85847c",
-    "Sources/ToastService/Initialize.vi": "6304fb6f259fdd92ff65e85a966a16e1d4dad61b529d40482c04f41c76516f69",
-    "Sources/PlugIns/UserEventActivationHandler/Initialize.vi": "59dcbe52b901b979f88542841ea241f5a0075e5764107dbce9c5003ae2945d4d",
-    "Sources/PlugIns/UserEventActivationHandler/Close.vi": "fa93ced49f5c74ed9d87ebf07da2109a8334b033e97b55e9402f79859cb8a857"
+    "Sources/ToastService/Read ActivationHandler.vi": "6781d30aa034311b2492690da48b16135f1e55a93627abfcf8f819a3733ce7fd",
+    "Sources/ToastService/ToastService.lvclass": "aec8ca964f957070af75aece97f02a9d5ce94959a3d0316c8b9bdf822742991e",
+    "Sources/ToastService/Initialize.vi": "8fae476910aafdc3d2d09a2ce8475d6bebd93ffa1ebfc373116aa56367de507c",
+    "Sources/PlugIns/UserEventActivationHandler/Initialize.vi": "1cad265497417cc55de952bf1073a762337c3d30cbe96dce27390adc03980ad9",
+    "Sources/PlugIns/UserEventActivationHandler/Close.vi": "ce57e85f7de26fea5992d2ba714d2b5c552d7e2bfebe736c104041cb7bafcf9b"
   },
   "visual": "toastservice/read-activationhandler.png",
   "visual_sha256": "21a5406700b307e5ec94e9c910f1cd04132b8c01c34eb82a5a29c3d2a53a45f5",

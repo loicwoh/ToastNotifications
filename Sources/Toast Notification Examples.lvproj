@@ -1,6 +1,6 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
-<Project Type="Project" LVVersion="26008000">
-	<Property Name="NI.LV.All.SaveVersion" Type="Str">26.0</Property>
+<Project Type="Project" LVVersion="20008000">
+	<Property Name="NI.LV.All.SaveVersion" Type="Str">20.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.Project.Description" Type="Str">Runnable LabVIEW examples for Windows toast notifications. Display a toast from XML, open a link from a button, distinguish activation actions, and receive text replies through a LabVIEW User Event.</Property>
 	<Item Name="My Computer" Type="My Computer">

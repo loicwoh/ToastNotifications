@@ -5,11 +5,11 @@
   "method": "LabVIEW 2026 Q3 64-bit delivery review, 2026-11-04. Native gRPC AIXML exports inspected for public terminals, error cases and call chains; 38 existing class VI connector contracts and summaries match the earlier review exports. Native Print.VI To HTML over ActiveX supplies the icon/terminal image, inspected in the 28-image contact sheet. Existing manual cleanup and reflection helper renames are maintainer changes. New XML source documentation reflects the constructor partial-failure cleanup limitation. Description-only VI Server updates preserve icons. No product runtime execution or diagram edit by the reviewer. See reviews/28-xml-source.md.",
   "error_behavior": "skip",
   "reviewed_files": {
-    "Sources/ToastBuilder/Add Bouton.vi": "7fcec997b2d0be6ea3cf8399e685f4bef3ed09c23e3f28bfb7cecbc098656086",
-    "Sources/ToastBuilder/Read Builder Reference.vi": "a2cc2a35e502c091b56adf4be25ea58562a82fa9b19e3a8d710beec2fa4dab7a",
-    "Sources/Toast Native/New Button.vi": "2dbe92a41754922eaed306eb828ce10ae0483cb86e740e5c5cbd8923adb71f87",
-    "Sources/Toast Native/Add Button.vi": "aa989a56487891bc64591569651aab4ff29b2e6a3664afc2cf68701706d61876",
-    "Sources/ToastBuilder/Write Builder Reference.vi": "130884c68288f9a8a7587cd13d483180e9ae3edbc834ea0012e8b33785827da5"
+    "Sources/ToastBuilder/Add Bouton.vi": "a0508bb99476b4b787ebf0207886d81df522185bceecf5b654fcbba07c30dd73",
+    "Sources/ToastBuilder/Read Builder Reference.vi": "ea1a4169c039e954c2ccce67e978bb74c8ad0ad262cb42cf9cf1178c67eac0f9",
+    "Sources/Toast Native/New Button.vi": "971932d6907a192b120b19f57ffd887953bb3f507affd37439544e790ac9925c",
+    "Sources/Toast Native/Add Button.vi": "26cc77d571b53a353d2a56a50b878e5e484c35f1ec624824ea56cf549ebfd2a2",
+    "Sources/ToastBuilder/Write Builder Reference.vi": "19c4a217e4827537f1a0739f4d9734c5423aa29ac4b09503f8a83495ef965928"
   },
   "visual": "toastbuilder/add-bouton.png",
   "visual_sha256": "53d5575040331edcbe6cbc8690ff7049e5d14a12749eddef184bb5cee61d4981",

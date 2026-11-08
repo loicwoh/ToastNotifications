@@ -5,12 +5,12 @@
   "method": "LabVIEW 2026 Q3 64-bit delivery review, 2026-11-04. Native gRPC AIXML exports inspected for public terminals, error cases and call chains; 38 existing class VI connector contracts and summaries match the earlier review exports. Native Print.VI To HTML over ActiveX supplies the icon/terminal image, inspected in the 28-image contact sheet. Existing manual cleanup and reflection helper renames are maintainer changes. New XML source documentation reflects the constructor partial-failure cleanup limitation. Description-only VI Server updates preserve icons. No product runtime execution or diagram edit by the reviewer. See reviews/28-xml-source.md.",
   "error_behavior": "skip",
   "reviewed_files": {
-    "Sources/ToastService/Initialize.vi": "6304fb6f259fdd92ff65e85a966a16e1d4dad61b529d40482c04f41c76516f69",
-    "Sources/ToastService/ToastService.lvclass": "5b02c342e50316167f8fd162fc76107427afa3121fec7839665ab1168e85847c",
-    "Sources/ToastService/Write reference.vi": "493733f31b2ed6c647555cec7783cc507879c6f6389c0c134280154a488f8994",
-    "Sources/ToastService/Write ActivationHandler.vi": "37171366533c42c02343a2c07c7b6e63cb0c99ecb0d615dd155b2ec7b46f6bde",
-    "Sources/ActivationHandler/Initialize.vi": "213f103f3d8d2720e711e9559cfbb72af808bbb53478186ed479e2e2d3b2a0c7",
-    "Sources/PlugIns/UserEventActivationHandler/Initialize.vi": "59dcbe52b901b979f88542841ea241f5a0075e5764107dbce9c5003ae2945d4d"
+    "Sources/ToastService/Initialize.vi": "8fae476910aafdc3d2d09a2ce8475d6bebd93ffa1ebfc373116aa56367de507c",
+    "Sources/ToastService/ToastService.lvclass": "aec8ca964f957070af75aece97f02a9d5ce94959a3d0316c8b9bdf822742991e",
+    "Sources/ToastService/Write reference.vi": "b8f0eae68a7d9fdd0d7a924c46881e9694ca0593b82103c5da9440886e6a87de",
+    "Sources/ToastService/Write ActivationHandler.vi": "0b69984d4143ae052c98550136d2a6f4212d7d9b8f998b4859f15001fd15c336",
+    "Sources/ActivationHandler/Initialize.vi": "53814ef91e4e85ac599dc41090c2e44e158aa556a6416d77539a0a1d53da7d9f",
+    "Sources/PlugIns/UserEventActivationHandler/Initialize.vi": "1cad265497417cc55de952bf1073a762337c3d30cbe96dce27390adc03980ad9"
   },
   "visual": "toastservice/initialize.png",
   "visual_sha256": "dfc9b4434119ce1c219768f02b77b8cabf0f9603c9c9dcfbec648650cebad4b2",

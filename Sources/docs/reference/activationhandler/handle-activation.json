@@ -5,11 +5,11 @@
   "method": "LabVIEW 2026 Q3 64-bit delivery review, 2026-11-04. Native gRPC AIXML exports inspected for public terminals, error cases and call chains; 38 existing class VI connector contracts and summaries match the earlier review exports. Native Print.VI To HTML over ActiveX supplies the icon/terminal image, inspected in the 28-image contact sheet. Existing manual cleanup and reflection helper renames are maintainer changes. New XML source documentation reflects the constructor partial-failure cleanup limitation. Description-only VI Server updates preserve icons. No product runtime execution or diagram edit by the reviewer. See reviews/28-xml-source.md.",
   "error_behavior": "noop",
   "reviewed_files": {
-    "Sources/ActivationHandler/Handle Activation.vi": "4d3ea55380589a5f5fb5c1a4b510e944ac20ff24912d1932cd80c2e8becfd1e5",
-    "Sources/ToastService/CallBack VI - OnActivated.vi": "630e9897eba08dca4e25e55be672378b587d305c7753c6d07849083428660a84",
-    "Sources/ActivationHandler/ActivationHandler.lvclass": "7edf6348b4145a869e6d8faf03163e645b5d628398697205d294f709f4dec086",
-    "Sources/ToastNotification/Activation.ctl": "c17cc333ed84899a68fb7335b558fa1847e5a5ee12ea46ae215524559b640ec8",
-    "Sources/ToastNotification/Argument.ctl": "9bbd2f057253730c5e10efbd3b0448997b0e536af81488920787b246144b5d91"
+    "Sources/ActivationHandler/Handle Activation.vi": "601b3577f5f9861af1862ce5d20a90e3b3e5c476ae9261a99618bd7fc47eec08",
+    "Sources/ToastService/CallBack VI - OnActivated.vi": "6e3005edb8ef351873c76a7bce7875ac87ab8217b71878c76639195d997b4782",
+    "Sources/ActivationHandler/ActivationHandler.lvclass": "48290af50e50d90655752a36426209a59d8495491794797a20d4393bf2a33f56",
+    "Sources/ToastNotification/Activation.ctl": "11e2f9b8030e2ce098d0dbdef7b224e418d9d6678551033981c6301ec275893d",
+    "Sources/ToastNotification/Argument.ctl": "8f1e6a8a4998617f20ba9451c77db02d9e8d653fd31e206d030de3f42e6b14f3"
   },
   "visual": "activationhandler/handle-activation.png",
   "visual_sha256": "29ee285efb6416bb3bc40ea0f32ed4d4851d0674fb5c49738a90eb3da2c1d799",
