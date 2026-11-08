@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "source": "Sources/ToastBuilder/Add Hero Image.vi",
+  "reviewed_on": "2026-11-08",
+  "method": "LabVIEW gRPC AIXML and native Print.VI To HTML connector capture. Local PNG display manually confirmed by the maintainer.",
+  "error_behavior": "skip",
+  "reviewed_files": {
+    "Sources/ToastBuilder/Add Hero Image.vi": "817ed8d31074c385bc588187168d0770f94a45d6f5a3db52fe4794cffae6bfd0",
+    "Sources/Toast Native/Add Hero Image.vi": "4858b31abbdf04690ae78a04374f4c1473162e24ce875f1cb44b55c7c9f52b1f"
+  },
+  "visual": "toastbuilder/add-hero-image.png",
+  "visual_sha256": "7cf050b3da3392471f9032f9e1fb63a4f32b26b6bbb0092e64ef618f8ff9d4a9"
+}

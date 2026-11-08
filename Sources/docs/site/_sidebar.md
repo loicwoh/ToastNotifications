@@ -20,6 +20,7 @@
   - [Display toast XML](guides/xml.md)
   - [Handle multiple actions](guides/multiple-actions.md)
   - [Open a link](guides/protocol.md)
+  - [Show a result preview](guides/images.md)
 - **Project**
   - [Changelog](changelog.md)
   - [Microsoft documentation](microsoft.md)

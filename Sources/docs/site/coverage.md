@@ -16,7 +16,7 @@ on the development workstation is not a claim of full compatibility or leak-free
 | Common source contract | ToastSource base class; ToastBuilder implementation | #27 | Implemented by ToastBuilder and ToastFromXML |
 | XML string display | ToastFromXML | [XML example](guides/xml.md); #28 | Nominal display manually validated |
 | XML files and templates | Methods to define | #29 | Planned |
-| Images | Methods to define | #5 | Planned |
+| Hero image | [Add Hero Image](/reference/toastbuilder/add-hero-image.md) | [Result preview](guides/images.md) | Local PNG manually validated |
 | Selection input | Methods to define | #8 | Planned |
 | Progress and updates | Methods to define | #9 | Planned |
 | Reminder and audio | Methods to define | #10 | Planned |

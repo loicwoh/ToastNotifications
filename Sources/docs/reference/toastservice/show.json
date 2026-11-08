@@ -9,7 +9,7 @@
     "Sources/ToastService/ToastService.lvclass": "aec8ca964f957070af75aece97f02a9d5ce94959a3d0316c8b9bdf822742991e",
     "Sources/ToastBuilder/Show.vi": "de6414d1815149445889270f42f37b91c7c0e8fcc85856291a40704868eb8432",
     "Sources/ToastSource/Show.vi": "44828652f3b941713ff61ab299001682d543a3b0742cbfec4f6a078ff4bde0b7",
-    "Sources/ToastBuilder/ToastBuilder.lvclass": "27cfafb38eb62cdd795ceed98bad58c1c0d5861aede0c8226efe6cbdc4e12cd7"
+    "Sources/ToastBuilder/ToastBuilder.lvclass": "0d0c8bb61b3fe2055b7b86dd238189d93e780a7862193913fb03cc7aee327168"
   },
   "visual": "toastservice/show.png",
   "visual_sha256": "0a80175b359ca2a94836da1553e605c2b0b99f0ff147efc35a4db9076b8616c5",
