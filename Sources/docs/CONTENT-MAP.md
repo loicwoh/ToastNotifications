@@ -30,13 +30,6 @@ information, rather than keeping another copy of each explanation.
 ## Existing repository documents
 
 - The repository README and Sources/README.md are entry points, not parallel tutorials.
-- Sources/ARCHITECTURE.md is a maintainer architecture note and link to the current
-  owner/contract pages. Its implementation details are not independently copied
-  into user documentation.
-- Sources/CALLBACK-LIFETIME.md preserves helper-level implementation notes and
-  historical validation observations. The current user contract is callbacks.md.
-  Historical counts or probes do not describe a fresh regression run.
-- Sources/HANDOFF.md is a handover log. It is not published as an API contract.
 - Sources/docs/example-guides/README.md remains the local example-file index; site/examples.md
   is the website scenario selector. Scenario configuration and results belong in
   the scenario guides, not in either index. Toast From XML.md is the canonical
