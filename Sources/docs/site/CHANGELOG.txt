@@ -1,6 +1,7 @@
 Unreleased:
 - Features:
   - Open the toolkit and its examples from source in LabVIEW 2020 while maintaining the same projects in LabVIEW 2026.
+  - Build the VIPM package with LabVIEW 2020 and use it on Windows with LabVIEW 2020 32-bit or LabVIEW 2026 64-bit.
 
 1.0.0:
 - Features:
