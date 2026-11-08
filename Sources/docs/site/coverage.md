@@ -33,9 +33,9 @@ when parsing fails after document creation; resource hardening remains in #16.
 | Environment | Current statement |
 |---|---|
 | LabVIEW 2026 on the development Windows workstation | Working examples and execution-state checks |
-| LabVIEW 2020 | Development sources saved in 2020 format and checked by the maintainer on Windows. VIPM installation on 2020 is pending. |
+| LabVIEW 2020 | Sources and installed examples tested on Windows with LabVIEW 2020 32-bit. |
 | Other Windows versions, architectures and built-application deployments | Compatibility matrix still to establish in #17 |
-| VIPM installation | Package 1.0.0.1 built and installed on Windows with LabVIEW 2026 64-bit. All four installed examples were tested. |
+| VIPM installation | The 1.1.0.1 candidate was built with LabVIEW 2020 and tested after installation in LabVIEW 2020 32-bit and LabVIEW 2026 64-bit on Windows. |
 
 The implementation currently relies on `Microsoft.Toolkit.Uwp.Notifications`.
 The Windows App SDK notification API is a separate integration route. Do not copy

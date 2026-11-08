@@ -20,3 +20,9 @@ installed examples work through NI Example Finder. Inspection of package
 1.0.0.2 confirmed that all four example VIs contain their guide URLs.
 
 These were manual checks on one LabVIEW version.
+
+## LabVIEW 2020 compatibility
+
+The maintainer built candidate 1.1.0.1 with LabVIEW 2020 and confirmed that the
+installed toolkit works in LabVIEW 2020 32-bit and LabVIEW 2026 64-bit on
+Windows. The same package was used for both installations.
