@@ -14,6 +14,7 @@
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="Toast From XML.vi" Type="VI" URL="../Examples/Toast From XML.vi"/>
+		<Item Name="Toast With Images.vi" Type="VI" URL="../Examples/Toast With Images.vi"/>
 		<Item Name="Toast With Link Button.vi" Type="VI" URL="../Examples/Toast With Link Button.vi"/>
 		<Item Name="Toast With Multiple Actions.vi" Type="VI" URL="../Examples/Toast With Multiple Actions.vi"/>
 		<Item Name="Toast With Reply.vi" Type="VI" URL="../Examples/Toast With Reply.vi"/>

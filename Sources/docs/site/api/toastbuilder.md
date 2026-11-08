@@ -10,7 +10,7 @@ This class derives from [ToastSource](/api/toastsource.md) and delegates composi
 to the native toolkit. Its methods change the native
 builder directly; there is no separate LabVIEW content engine. The class exposes
 composition methods for displayed text, text input, application buttons, protocol
-buttons and body arguments. Show, Get XML and Close override the source operations.
+buttons, hero images and body arguments. Show, Get XML and Close override the source operations.
 To reuse exported XML text, create a [ToastFromXML](/api/toastfromxml.md) source.
 
 One caller owns Close. Copies of the class share a handle, so closing an alias
@@ -24,6 +24,7 @@ Native reference accessors and storage types are implementation details.
 - [Create](/reference/toastbuilder/create-toastbuilder.md), then compose [text](/reference/toastbuilder/add-text.md),
   [text input](/reference/toastbuilder/add-text-input.md), [application actions](/reference/toastbuilder/add-bouton.md)
   or [a link button](/reference/toastbuilder/add-link-button.md).
+- Add a [hero image](/reference/toastbuilder/add-hero-image.md) to preview a result.
 - Set [body activation arguments](/reference/toastbuilder/set-activation-arguments.md)
   separately from button arguments and submitted values.
 - [Inspect XML](/reference/toastbuilder/get-xml.md), then display through

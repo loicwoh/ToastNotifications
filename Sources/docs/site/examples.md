@@ -15,3 +15,4 @@ After installation, find the toolkit VIs in **Functions → Addons → Toast Not
 | Let someone accept or reject a request | [Offer a choice in a toast](guides/multiple-actions.md) |
 | Take someone directly to a page or report | [Open a link from a toast](guides/protocol.md) |
 | Reuse a notification design you already have as XML | [Reuse a toast definition from XML](guides/xml.md) |
+| Show a result preview inside a toast | [Show a result preview](guides/images.md) |
