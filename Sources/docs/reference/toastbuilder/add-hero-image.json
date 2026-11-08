@@ -5,7 +5,7 @@
   "method": "LabVIEW gRPC AIXML and native Print.VI To HTML connector capture. Local PNG display manually confirmed by the maintainer.",
   "error_behavior": "skip",
   "reviewed_files": {
-    "Sources/ToastBuilder/Add Hero Image.vi": "7e40a4c29d4e4fea3debecff5ef6551d181274f5849874c9651b5333d0337312",
+    "Sources/ToastBuilder/Add Hero Image.vi": "817ed8d31074c385bc588187168d0770f94a45d6f5a3db52fe4794cffae6bfd0",
     "Sources/Toast Native/Add Hero Image.vi": "4858b31abbdf04690ae78a04374f4c1473162e24ce875f1cb44b55c7c9f52b1f"
   },
   "visual": "toastbuilder/add-hero-image.png",

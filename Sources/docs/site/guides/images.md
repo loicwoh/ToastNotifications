@@ -6,7 +6,7 @@ Give an operator a quick look at a finished test while they are working in anoth
 
 Open `Toast Notification Examples.lvproj` and run `Toast With Images.vi`. Look for the chart above the notification text. Press **stop** to finish.
 
-The original chart, `battery-test-preview.png`, is supplied under the project's license. The example resolves it from the VI's folder, so keep the PNG alongside the VI if you move the example. In **Toast XML**, the hero image should point to a `file:///` URI. If the text appears alone, check that the URI points to an existing, readable image.
+The original chart, `battery-test-preview.png`, is supplied under the project's license. The example resolves it from the VI's folder, so keep the PNG alongside the VI if you move the example. If the file is missing, the error reports the resolved path. On success, **Toast XML** shows the hero image's `file:///` URI.
 
 ## Using this in your application
 

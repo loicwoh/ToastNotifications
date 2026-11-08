@@ -28,6 +28,7 @@ flowchart LR
 ## Usage notes
 
 - The wrapper converts the local path to a file URI. Windows reads the file when rendering the notification, so keep it available while the toast can be displayed.
+- If the path does not exist, the VI returns an error with the supplied path and leaves the builder unchanged.
 - Check the path and file if the toast displays without its image. A successful `Show` does not confirm that Windows rendered the image.
 
 [Result preview example](/guides/images.md)
