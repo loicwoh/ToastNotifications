@@ -33,7 +33,7 @@ when parsing fails after document creation; resource hardening remains in #16.
 | Environment | Current statement |
 |---|---|
 | LabVIEW 2026 on the development Windows workstation | Working examples and execution-state checks |
-| LabVIEW 2020 | Target under evaluation in #25; not verified |
+| LabVIEW 2020 | Development sources saved in 2020 format and checked by the maintainer on Windows. VIPM installation on 2020 is pending. |
 | Other Windows versions, architectures and built-application deployments | Compatibility matrix still to establish in #17 |
 | VIPM installation | Package 1.0.0.1 built and installed on Windows with LabVIEW 2026 64-bit. All four installed examples were tested. |
 

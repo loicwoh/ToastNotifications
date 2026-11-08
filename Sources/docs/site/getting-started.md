@@ -9,8 +9,9 @@ The project is developed in **LabVIEW 2026 on Windows**, with
 The wrapper currently uses the Windows Community Toolkit notification APIs;
 examples written for `Microsoft.Windows.AppNotifications` are a different API.
 
-LabVIEW 2020 distribution is planned for evaluation, not currently verified.
-See the [compatibility status](coverage.md) for the tested VIPM configuration.
+The development sources and examples are saved in LabVIEW 2020 format. The
+published v1.0.0 VIPM package targets LabVIEW 2026 64-bit. See the
+[compatibility status](coverage.md) for the tested configurations.
 
 ## Open the examples project
 

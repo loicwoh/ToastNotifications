@@ -3,8 +3,8 @@
   "source": "Sources/ToastSource/Close.vi",
   "error_behavior": "noop",
   "reviewed_files": {
-    "Sources/ToastSource/Close.vi": "425ef76c833b1ad680abc71cd01c457199cf06970a18c26f9ff0a407f57afd8c",
-    "Sources/ToastSource/ToastSource.lvclass": "371632089f17e66bb9c7300643301e02d89508497624ea8b4b742785ac14cf56"
+    "Sources/ToastSource/Close.vi": "24a5038adcf10af00348cbd20e6106ed5b13553859813ffa0e20b81fedc9bda6",
+    "Sources/ToastSource/ToastSource.lvclass": "a89f5383178a63b7cdecde142c39d823e864e048440e4400c5455d62d6b06f65"
   },
   "visual": "toastsource/close.png",
   "method": "LabVIEW 2026 Q3 64-bit delivery review, 2026-11-04. Native gRPC AIXML exports inspected for public terminals, error cases and call chains; 38 existing class VI connector contracts and summaries match the earlier review exports. Native Print.VI To HTML over ActiveX supplies the icon/terminal image, inspected in the 28-image contact sheet. Existing manual cleanup and reflection helper renames are maintainer changes. New XML source documentation reflects the constructor partial-failure cleanup limitation. Description-only VI Server updates preserve icons. No product runtime execution or diagram edit by the reviewer. See reviews/28-xml-source.md.",

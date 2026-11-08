@@ -5,13 +5,13 @@
   "method": "LabVIEW 2026 Q3 64-bit delivery review, 2026-11-04. Native gRPC AIXML exports inspected for public terminals, error cases and call chains; 38 existing class VI connector contracts and summaries match the earlier review exports. Native Print.VI To HTML over ActiveX supplies the icon/terminal image, inspected in the 28-image contact sheet. Existing manual cleanup and reflection helper renames are maintainer changes. New XML source documentation reflects the constructor partial-failure cleanup limitation. Description-only VI Server updates preserve icons. No product runtime execution or diagram edit by the reviewer. See reviews/28-xml-source.md.",
   "error_behavior": "skip",
   "reviewed_files": {
-    "Sources/ToastService/Register For Events.vi": "68ca2e717e32749cf90485a5577b47c42a88542ec4d992affed54bbbb9a148f5",
-    "Sources/ToastService/ToastService.lvclass": "5b02c342e50316167f8fd162fc76107427afa3121fec7839665ab1168e85847c",
-    "Sources/ToastService/Read reference.vi": "ad92847f6e120203da7135f1f0dd306a9a9309f4ad013bea878c0b6f0b5c9dae",
-    "Sources/ToastService/Read ActivationHandler.vi": "202f8ef04057d27d3e83efc66acf3a6bf7e96c1cee9970b3653d89c5e1a83847",
-    "Sources/ToastService/Write reference.vi": "493733f31b2ed6c647555cec7783cc507879c6f6389c0c134280154a488f8994",
-    "Sources/ToastService/Write event callback refnum.vi": "ea5c3b8e5f21699850665a5dcd036c9ca40b7d0012f73510195ba88164c26775",
-    "Sources/ToastService/CallBack VI - OnActivated.vi": "630e9897eba08dca4e25e55be672378b587d305c7753c6d07849083428660a84"
+    "Sources/ToastService/Register For Events.vi": "a27f2b17560f23d7d629b09c72dbda33f425782f8103b507e38994cbbf1c45f2",
+    "Sources/ToastService/ToastService.lvclass": "aec8ca964f957070af75aece97f02a9d5ce94959a3d0316c8b9bdf822742991e",
+    "Sources/ToastService/Read reference.vi": "5a800c9c12aac96f6a9ba49cf5d0ac64ff8e2ffb2a765a1cbcb499ba11386b6b",
+    "Sources/ToastService/Read ActivationHandler.vi": "6781d30aa034311b2492690da48b16135f1e55a93627abfcf8f819a3733ce7fd",
+    "Sources/ToastService/Write reference.vi": "b8f0eae68a7d9fdd0d7a924c46881e9694ca0593b82103c5da9440886e6a87de",
+    "Sources/ToastService/Write event callback refnum.vi": "0e438b41b9712e63d6fbdd642dd056afcd36a463a15428a945ffff48df628fee",
+    "Sources/ToastService/CallBack VI - OnActivated.vi": "6e3005edb8ef351873c76a7bce7875ac87ab8217b71878c76639195d997b4782"
   },
   "visual": "toastservice/register-for-events.png",
   "visual_sha256": "903a20c39b566cc04350c156b0ec1c376aac0a037b203d6c5e22ad77519aaf48",
