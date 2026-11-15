@@ -11,6 +11,7 @@
 			<Item Name="Build Toast With Classes.vi" Type="VI" URL="../Development Examples/Build Toast With Classes.vi"/>
 			<Item Name="Native Toast Example.vi" Type="VI" URL="../Development Examples/Native Toast Example.vi"/>
 		</Item>
+		<Item Name="Reflection DotNet.lvlib" Type="Library" URL="../Reflection DotNet/Reflection DotNet.lvlib"/>
 		<Item Name="ToastNotification.lvlib" Type="Library" URL="../ToastNotification/ToastNotification.lvlib"/>
 		<Item Name="Toast Notifications for LabVIEW.vipb" Type="Document" URL="../Toast Notifications for LabVIEW.vipb"/>
 		<Item Name="Microsoft.Toolkit.Uwp.Notifications.dll" Type="Document" URL="../bins/Microsoft.Toolkit.Uwp.Notifications.dll"/>

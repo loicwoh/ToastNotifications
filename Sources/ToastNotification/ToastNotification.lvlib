@@ -11,7 +11,6 @@
 
 </Property>
 	<Item Name="Support" Type="Folder">
-		<Item Name="Reflection DotNet.lvlib" Type="Library" URL="../../Reflection DotNet/Reflection DotNet.lvlib"/>
 		<Item Name="Toast Native.lvlib" Type="Library" URL="../../Toast Native/Toast Native.lvlib"/>
 	</Item>
 	<Item Name="ActivationHandler" Type="Folder">
